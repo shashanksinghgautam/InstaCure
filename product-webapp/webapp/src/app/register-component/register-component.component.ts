@@ -1,15 +1,34 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register-component',
+  selector: 'app-register',
   templateUrl: './register-component.component.html',
   styleUrls: ['./register-component.component.css']
 })
 export class RegisterComponentComponent implements OnInit {
 
-  constructor() { }
+  myregform!: FormGroup;
+  @ViewChild("myregform") public regformref!: NgForm;
+  constructor(private router:Router) {
+
+    this.myregform=new FormGroup(
+      {
+        uname:new FormControl("",[Validators.required,Validators.minLength(2)]),
+        mail:new FormControl("",[Validators.required,Validators.email]),
+        mobile:new FormControl("",[Validators.required,Validators.minLength(10)]),
+        address:new FormControl("",[Validators.required,Validators.minLength(15)]),
+        dob:new FormControl("",[Validators.required]),
+        gender:new FormControl("",[Validators.required])
+      }
+     );
+
+   }
 
   ngOnInit(): void {
   }
-
+    myreg(){
+      this.router.navigateByUrl('login')
+    }
 }
