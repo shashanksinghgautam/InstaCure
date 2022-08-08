@@ -11,8 +11,12 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
+
 import { MedicineComponent } from './medicine/medicine.component';
 
+
+
+import { PatientComponentComponent } from './patient-component/patient-component.component';
 
 
 
@@ -21,11 +25,17 @@ import { MedicineComponent } from './medicine/medicine.component';
 @NgModule({
   declarations: [
     AppComponent,
+
     LoginComponentComponent,
     RegisterComponentComponent,
-    MedicineComponent
+    MedicineComponent,
  
     
+
+   LoginComponentComponent,
+    RegisterComponentComponent,
+    PatientComponentComponent
+
 
   ],
   imports: [
