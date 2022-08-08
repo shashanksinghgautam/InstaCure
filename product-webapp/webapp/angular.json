@@ -26,17 +26,18 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets","src/assets/images"],
+            "assets": ["src/favicon.ico", "src/assets", "src/assets/images"],
             "styles": [
               "src/styles.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css"
-              
             ],
             "scripts": [
-              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-             
-            
-            ]
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js",
+
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.css"
+            ],
+            "scripts": ["./node_modules/bootstrap/dist/js/bootstrap.min.js"]
           },
           "configurations": {
             "production": {
@@ -96,7 +97,7 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "assets": ["src/favicon.ico", "src/assets","src/assets/images"],
+            "assets": ["src/favicon.ico", "src/assets", "src/assets/images"],
             "styles": ["src/styles.css"],
             "scripts": []
           }

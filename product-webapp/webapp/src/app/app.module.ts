@@ -26,6 +26,7 @@ import { PatientComponentComponent } from './patient-component/patient-component
   declarations: [
     AppComponent,
 
+
     LoginComponentComponent,
     RegisterComponentComponent,
     MedicineComponent,
@@ -33,6 +34,9 @@ import { PatientComponentComponent } from './patient-component/patient-component
     
 
    LoginComponentComponent,
+
+    LoginComponentComponent,
+
     RegisterComponentComponent,
     PatientComponentComponent
 
