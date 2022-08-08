@@ -21,6 +21,7 @@ import { PatientComponentComponent } from './patient-component/patient-component
     LoginComponentComponent,
     RegisterComponentComponent,
     PatientComponentComponent,
+    VolunteerProfileComponent
   ],
   imports: [
     BrowserModule,
