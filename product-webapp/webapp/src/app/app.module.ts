@@ -13,15 +13,34 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 
+import { MedicineComponent } from './medicine/medicine.component';
+
+
+
+import { PatientComponentComponent } from './patient-component/patient-component.component';
+
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   LoginComponentComponent,
+
+
+    LoginComponentComponent,
     RegisterComponentComponent,
-    VolunteerProfileComponent
+    MedicineComponent,
+ 
+    
+
+   LoginComponentComponent,
+
+    LoginComponentComponent,
+
+    RegisterComponentComponent,
+    PatientComponentComponent
+
 
   ],
   imports: [

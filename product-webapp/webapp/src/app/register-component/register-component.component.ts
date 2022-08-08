@@ -15,11 +15,10 @@ export class RegisterComponentComponent implements OnInit {
 
     this.myregform=new FormGroup(
       {
-        uname:new FormControl("",[Validators.required,Validators.minLength(2)]),
+        uname:new FormControl("",[Validators.required,Validators.minLength(5)]),
         mail:new FormControl("",[Validators.required,Validators.email]),
         mobile:new FormControl("",[Validators.required,Validators.minLength(10)]),
-        address:new FormControl("",[Validators.required,Validators.minLength(15)]),
-        dob:new FormControl("",[Validators.required]),
+        password:new FormControl("",[Validators.required,Validators.minLength(6)]),
         gender:new FormControl("",[Validators.required])
       }
      );
