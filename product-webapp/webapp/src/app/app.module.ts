@@ -11,6 +11,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
+import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 
 
 
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
    LoginComponentComponent,
-    RegisterComponentComponent
+    RegisterComponentComponent,
+    VolunteerProfileComponent
 
   ],
   imports: [
