@@ -8,7 +8,7 @@ import { Medicine } from './medicine';
 })
 export class MedicineComponent implements OnInit {
 
-  medicine: Medicine[];
+  medicine: Medicine[] | undefined;
   constructor(private MedicineService: MedicineService) { }
 
   ngOnInit(): void {
