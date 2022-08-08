@@ -8,13 +8,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("medicine")
 public class Medicine{ 
-	public Medicine(int mid, String medicinename, int qnt, int price, Image mimage, String category) {
+	public Medicine(int mid, String medicinename, int qnt, int price,  String category) {
 		super();
 		this.mid = mid;
 		this.medicinename = medicinename;
 		this.qnt = qnt;
 		this.price = price;
-		this.mimage = mimage;
+//		this.mimage = mimage;
 		this.category = category;
 	}
 	public Medicine() {
@@ -26,7 +26,7 @@ private int mid;
 private String medicinename;
 private int qnt;
 private int price;
-private Image mimage;
+//private Image mimage;
 private String category;
 public String getMedicinename() {
 	return medicinename;
@@ -46,12 +46,12 @@ public int getPrice() {
 public void setPrice(int price) {
 	this.price = price;
 }
-public Image getMimage() {
-	return mimage;
-}
-public void setMimage(Image mimage) {
-	this.mimage = mimage;
-}
+//public Image getMimage() {
+//	return mimage;
+//}
+//public void setMimage(Image mimage) {
+//	this.mimage = mimage;
+//}
 public int getMid() {
 	return mid;
 }
