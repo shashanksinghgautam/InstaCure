@@ -19,9 +19,10 @@ import { PatientComponentComponent } from './patient-component/patient-component
 @NgModule({
   declarations: [
     AppComponent,
-   LoginComponentComponent,
+    LoginComponentComponent,
     RegisterComponentComponent,
     PatientComponentComponent
+
 
   ],
   imports: [
