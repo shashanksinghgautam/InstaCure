@@ -12,35 +12,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
 
-import { MedicineComponent } from './medicine/medicine.component';
-
-
-
 import { PatientComponentComponent } from './patient-component/patient-component.component';
-
-
-
-
 
 @NgModule({
   declarations: [
     AppComponent,
-
-
     LoginComponentComponent,
     RegisterComponentComponent,
-    MedicineComponent,
- 
-    
-
-   LoginComponentComponent,
-
-    LoginComponentComponent,
-
-    RegisterComponentComponent,
-    PatientComponentComponent
-
-
+    PatientComponentComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,9 +27,9 @@ import { PatientComponentComponent } from './patient-component/patient-component
     RouterModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
