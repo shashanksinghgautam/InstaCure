@@ -11,27 +11,26 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
+<<<<<<< HEAD
 
 
 
 
+=======
+import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
+>>>>>>> ff04d2a2f8bed85e7e1153a4052ba95527a9119f
 
 import { PatientComponentComponent } from './patient-component/patient-component.component';
 import { MedicineComponent } from './medicine/medicine.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
-
-
     LoginComponentComponent,
     RegisterComponentComponent,
+<<<<<<< HEAD
     
     
  
@@ -46,6 +45,10 @@ import { HttpClientModule } from '@angular/common/http';
     MedicineComponent
 
 
+=======
+    PatientComponentComponent,
+    VolunteerProfileComponent
+>>>>>>> ff04d2a2f8bed85e7e1153a4052ba95527a9119f
   ],
   imports: [
     BrowserModule,
@@ -53,10 +56,14 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     BrowserAnimationsModule,
     FormsModule,
+<<<<<<< HEAD
     ReactiveFormsModule,  
     HttpClientModule
+=======
+    ReactiveFormsModule,
+>>>>>>> ff04d2a2f8bed85e7e1153a4052ba95527a9119f
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
