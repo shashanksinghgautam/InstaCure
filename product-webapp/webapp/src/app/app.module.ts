@@ -8,10 +8,8 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MedicineComponent } from './medicine/medicine.component';
 
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
-
 
 import { PatientComponentComponent } from './patient-component/patient-component.component';
 
@@ -24,15 +22,9 @@ import { medicineComponent } from './medicine/medicine.component';
     AppComponent,
     LoginComponentComponent,
     RegisterComponentComponent,
-     MedicineComponent,
-   LoginComponentComponent,
-    LoginComponentComponent,
-    RegisterComponentComponent,
-    PatientComponentComponent,
     VolunteerProfileComponent,
     medicineComponent,
     PatientComponentComponent,
-
   ],
   imports: [
     BrowserModule,
