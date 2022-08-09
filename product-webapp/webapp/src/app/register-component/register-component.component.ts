@@ -28,6 +28,6 @@ export class RegisterComponentComponent implements OnInit {
   ngOnInit(): void {
   }
     myreg(){
-      this.router.navigateByUrl('login')
+      this.router.navigateByUrl('login-component')
     }
 }
