@@ -1,21 +1,23 @@
 package com.stackroute.Model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table (name = "student")
+@Table (name = "userDetails")
 public class RegisterEntity {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String uname;
     private String password;
     private String email;
-    private int mobile;
+    private long mobile;
     private String role;
 
-    public RegisterEntity(String uname, String password, String email, int mobile, String role) {
-        @Id
+    public RegisterEntity(int id, String uname, String password, String email, long mobile, String role) {
+
+        this.id = id;
         this.uname = uname;
         this.password = password;
         this.email = email;
@@ -24,5 +26,52 @@ public class RegisterEntity {
     }
 
     public RegisterEntity() {
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUname() {
+        return uname;
+    }
+
+    public void setUname(String uname) {
+        this.uname = uname;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(int mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
