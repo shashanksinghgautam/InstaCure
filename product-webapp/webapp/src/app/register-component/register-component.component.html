@@ -8,7 +8,7 @@
 
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 w-48">
 
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
 
                   <form class=" mx-1 mx-md-4" [formGroup]="myregform" >
 
@@ -47,18 +47,18 @@
 
                       </div>
                     </div>
-                    <!-- <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" name="dob" for="form3Example4ce">Your Date-of-Birth</label>
-                        <input type="text" id="form3Example4ce" formControlName="dob" class="form-control" />
-
-                      </div>
-                    </div> -->
 
                     <div class="d-flex flex-row align-items-center mb-4">
                       <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <label class="form-check-label" name="gender" for="form2Example3">Select Gender : &nbsp; </label>
+                      <label class="form-check-label" name="role" for="form2Example3ad">Select Role : &nbsp; &nbsp;</label>
+                      <span>Patient &nbsp;</span> <input class="form-check-input me-2"  formControlName="role"  type="checkbox" value="" id="form2Example3ad" /><span>&nbsp;&nbsp;</span>
+                      <span>Doctor &nbsp;</span> <input class="form-check-input me-2" formControlName="role" type="checkbox" value="" id="form2Example3ad" /><span>&nbsp;&nbsp;</span>
+                      <span>Volunteer &nbsp;</span> <input class="form-check-input me-2" formControlName="role"  type="checkbox" value="" id="form2Example3ad" /><span>&nbsp;&nbsp;</span>
+                    </div>
+
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <label class="form-check-label" name="gender" for="form2Example3c">Select Gender : &nbsp; </label>
                       <span>Male &nbsp;</span> <input class="form-check-input me-2"  formControlName="gender"  type="checkbox" value="" id="form2Example3c" /><span>&nbsp;&nbsp;</span>
                       <span>Female &nbsp;</span> <input class="form-check-input me-2" formControlName="gender" type="checkbox" value="" id="form2Example3c" /><span>&nbsp;&nbsp;</span>
                       <span>Other &nbsp;</span> <input class="form-check-input me-2" formControlName="gender"  type="checkbox" value="" id="form2Example3c" /><span>&nbsp;&nbsp;</span>
@@ -74,9 +74,10 @@
                 <div class="col-md-10 col-lg-6 col-xl-7 d-flex ml-auto p-lg-5 align-items-center order-1 order-lg-2">
 
                   <img src="../../assets/regis5.png"
-                    class="img-fluid p-5" alt="Sample image" >
+                    class="img-fluid mx-1 mx-md-4 " alt="Sample image" >
 
                 </div>
+
               </div>
             </div>
           </div>

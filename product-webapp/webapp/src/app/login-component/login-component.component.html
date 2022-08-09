@@ -45,6 +45,19 @@
                       *Password must have atleast 8 characters</div>
 
                   </div>
+                  <div class="form-outline mb-4">
+                    <label class="form-label" for="form2Example22">Password <span style="color: red;">*</span></label>
+
+                    <input type="password" ngModel #pwd="ngModel" name="pass" id="form2Example22" class="form-control"
+                      placeholder="Enter password" required="required" minlength="8" />
+
+                    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['required']" class="alert alert-danger">
+                      *Password is mandatory</div>
+
+                    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="alert alert-danger">
+                      *Password must have atleast 8 characters</div>
+
+                  </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
                     <button class="btn btn-primary btn-block fa-lg  mb-3" (click)="validate(myform)" type="button"

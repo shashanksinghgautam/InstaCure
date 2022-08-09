@@ -1,21 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Medicine } from './medicine';
+import {MedicineService} from '../medicine.service'
+import { Medicine } from '../medicine';
 
 @Component({
   selector: 'app-medicine',
   templateUrl: './medicine.component.html',
-  styleUrls: ['./medicine.component.css','./css/bootstrap.css','./css/responsive.css','./css/style.css','./css/style.scss']
+  styleUrls: ['./medicine.component.css']
 })
-export class MedicineComponent implements OnInit {
+export class medicineComponent implements OnInit {
 
-  medicine: Medicine[];
+  Medicines: Medicine[] = [];
   constructor(private MedicineService: MedicineService) { }
 
   ngOnInit(): void {
-    this.MedicineService.getmedicine().subscribe((data: Medicine[]) => {
+    this.MedicineService.getMedicines().subscribe((data: Medicine[]) => {
       console.log(data);
-      this.medicine = data;
+      this.Medicines = data;
     });
   }
-
 }
