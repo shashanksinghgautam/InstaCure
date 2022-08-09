@@ -11,18 +11,20 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { FormsModule } from '@angular/forms';
-<<<<<<< HEAD
 
 
 
 
-=======
-import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
->>>>>>> ff04d2a2f8bed85e7e1153a4052ba95527a9119f
+
+
+
+
 
 import { PatientComponentComponent } from './patient-component/patient-component.component';
-import { MedicineComponent } from './medicine/medicine.component';
+
 import { HttpClientModule } from '@angular/common/http';
+import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
+import { medicineComponent } from './medicine/medicine.component';
 
 
 @NgModule({
@@ -30,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     LoginComponentComponent,
     RegisterComponentComponent,
-<<<<<<< HEAD
+
     
     
  
@@ -42,13 +44,14 @@ import { HttpClientModule } from '@angular/common/http';
 
    
     PatientComponentComponent,
-    MedicineComponent
+  
 
 
-=======
+
     PatientComponentComponent,
-    VolunteerProfileComponent
->>>>>>> ff04d2a2f8bed85e7e1153a4052ba95527a9119f
+    VolunteerProfileComponent,
+    medicineComponent
+
   ],
   imports: [
     BrowserModule,
@@ -56,12 +59,12 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule,
     BrowserAnimationsModule,
     FormsModule,
-<<<<<<< HEAD
+
     ReactiveFormsModule,  
-    HttpClientModule
-=======
+    HttpClientModule,
+
     ReactiveFormsModule,
->>>>>>> ff04d2a2f8bed85e7e1153a4052ba95527a9119f
+
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -12,6 +12,8 @@ import org.springframework.stereotype.Repository;
 import com.stackroute.medicine.model.Medicine;
 @Repository 
 public interface MedicineRepository extends  MongoRepository<Medicine, Integer> {
+
+	
 //	 	@Query("{name:'?0'}")
 //	    Medicine findItemByName(String name);
 //	    

@@ -44,10 +44,11 @@ public class MedicineServiceImpl implements MedicineService {
 	 * MedicineNotFoundException, if the Medicine with the given id is not found
 	 */
 	@Override
-	public Medicine getByName(String name)  {
+	public Medicine getById(int id)  {
 //		System.out.println(repo.findAll());
 //		System.out.println(repo.findById(id));
-		Optional<Medicine> Medicine = Optional.of(repo.findItemByName(name));
+		
+		Optional<Medicine> Medicine = repo.findById(id);
 		if (Medicine.isPresent()) {
 			return Medicine.get();
 		} else {

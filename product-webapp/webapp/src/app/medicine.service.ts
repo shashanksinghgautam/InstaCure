@@ -9,7 +9,7 @@ import { Medicine } from './medicine';
 })
 export class MedicineService {
 
-  private baseUrl = "http://localhost:8080/api/medicines";
+  private baseUrl = "http://localhost:8080/api/medicine";
 
   constructor(private http: HttpClient) { }
 

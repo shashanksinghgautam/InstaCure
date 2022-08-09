@@ -24,7 +24,7 @@ public class MedicineServiceApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		this.medrep.save(new Medicine(1, "dolo", 10, 10, "tablet"));
+		this.medrep.save(new Medicine(2, "paracetomol", 10, 10, "tablet"));
 		
 	}
 
