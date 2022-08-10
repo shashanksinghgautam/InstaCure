@@ -19,7 +19,6 @@ export class RegisterComponentComponent implements OnInit {
         mail:new FormControl("",[Validators.required,Validators.email]),
         mobile:new FormControl("",[Validators.required,Validators.minLength(10)]),
         password:new FormControl("",[Validators.required,Validators.minLength(6)]),
-        gender:new FormControl("",[Validators.required])
       }
      );
 

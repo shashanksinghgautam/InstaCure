@@ -1,10 +1,10 @@
-package com.stackroute.Model;
+package com.stackroute.model;
 
 import javax.persistence.*;
 
 @Entity
 @Table (name = "userDetails")
-public class RegisterEntity {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,7 +15,7 @@ public class RegisterEntity {
     private long mobile;
     private String role;
 
-    public RegisterEntity(int id, String uname, String password, String email, long mobile, String role) {
+    public UserEntity(int id, String uname, String password, String email, long mobile, String role) {
 
         this.id = id;
         this.uname = uname;
@@ -25,7 +25,7 @@ public class RegisterEntity {
         this.role = role;
     }
 
-    public RegisterEntity() {
+    public UserEntity() {
     }
     public int getId() {
         return id;

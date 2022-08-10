@@ -8,14 +8,11 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
-
 import { PatientComponentComponent } from './patient-component/patient-component.component';
-
-import { HttpClientModule } from '@angular/common/http';
-
+import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { medicineComponent } from './medicine/medicine.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +22,8 @@ import { medicineComponent } from './medicine/medicine.component';
     VolunteerProfileComponent,
     medicineComponent,
     PatientComponentComponent,
+    HomeComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -33,10 +32,9 @@ import { medicineComponent } from './medicine/medicine.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    HttpClientModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [HttpClientModule,HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
