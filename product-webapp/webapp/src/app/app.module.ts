@@ -14,6 +14,8 @@ import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { medicineComponent } from './medicine/medicine.component';
 import { HomeComponent } from './home/home.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
