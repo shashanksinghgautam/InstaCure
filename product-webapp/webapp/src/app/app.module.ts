@@ -13,6 +13,7 @@ import { PatientComponentComponent } from './patient-component/patient-component
 import { HttpClientModule,HttpClient } from '@angular/common/http';
 import { medicineComponent } from './medicine/medicine.component';
 import { HomeComponent } from './home/home.component';
+import { PatientComponent } from './consultation/patient/patient.component';
 
 
 
@@ -25,6 +26,7 @@ import { HomeComponent } from './home/home.component';
     medicineComponent,
     PatientComponentComponent,
     HomeComponent,
+    PatientComponent,
 
   ],
   imports: [
