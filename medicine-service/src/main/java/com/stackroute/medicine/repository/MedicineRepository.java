@@ -13,6 +13,10 @@ import com.stackroute.medicine.model.Medicine;
 @Repository 
 public interface MedicineRepository extends  MongoRepository<Medicine, Integer> {
 
+//	public Medicine update(Medicine medicine);
+
+	
+
 	
 //	 	@Query("{name:'?0'}")
 //	    Medicine findItemByName(String name);

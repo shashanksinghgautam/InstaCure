@@ -3,6 +3,6 @@ export class Medicine {
     medicinename!: string;
     qnt!: number;
     price!: number;
-
+    category! : string;
    
 }

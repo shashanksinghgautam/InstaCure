@@ -13,5 +13,6 @@ public interface MedicineService {
     public List<Medicine> getAll();
 //    public Medicine getByName(String name) ;
     public Medicine addNew(Medicine emp) ;
-	Medicine getById(int id);
+    public Medicine getById(int id);
+//	public Medicine updateMedicine(Medicine medicine);
 }
