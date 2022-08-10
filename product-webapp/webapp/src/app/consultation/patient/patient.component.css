@@ -1,0 +1,44 @@
+.container {
+    display: block;
+    width: 65%;
+    background-color: white;
+    padding: 30px;
+    margin-left: auto;
+    margin-right: auto;
+
+  }
+  
+  .headerAndButton {
+    padding-bottom: 1rem;
+  }
+  
+  .cross_btn {
+    text-align: end;
+  }
+  
+  .consult_images {
+    border-left: 1px solid black;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-top: 50px;
+  }
+  
+  .consult_images .carousel .carousel-inner {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .carousel-item img {
+    height: 250px;
+    width: 200px;
+  }
+  
+  .form-control.ng-touched.ng-invalid {
+    border: 1px solid red;
+  }
+  
+  .form-control.ng-touched.ng-valid {
+    border: 1px solid green;
+  }
+  

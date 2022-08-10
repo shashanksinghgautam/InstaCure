@@ -1,5 +1,4 @@
-<section class="h-100 gradient-form"
-  style="background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)">
+<section class="gradient-form">
   <div class="container py-5 h-100">
     <div id="box" class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-xl-10">
@@ -9,11 +8,11 @@
               <div class="card-body p-md-5 mx-md-4">
 
                 <div class="text-center">
-                  <img src="../../assets/instaCure.png"     style="width: 185px;" alt="logo">
+                  <img src="../../assets/instaCure.png" style="width: 195px;" alt="logo">
                   <h4 class="mt-1 mb-5 pb-1"></h4>
                 </div>
 
-                <form #myform="ngForm">
+                <form #myform="ngForm" (ngSubmit)="loginUser()">
                   <!-- <p>Please login to your account</p> -->
 
                   <div class="form-outline mb-4">
@@ -22,13 +21,13 @@
                     <input type="email" ngModel #fname="ngModel" name="user" id="form2Example11" class="form-control"
                       placeholder="Enter username" required="required" minlength="6" />
 
-                    <div *ngIf="fname.touched && fname.invalid && fname.errors?.['required']"
+                    <!-- <div *ngIf="fname.touched && fname.invalid && fname.errors?.['required']"
                       class="alert alert-danger">
                       *Username is mandatory</div>
 
                     <div *ngIf="fname.touched && fname.invalid && fname.errors?.['minlength']"
                       class="alert alert-danger">
-                      *Username must have atleast 6 characters</div>
+                      *Username must have atleast 6 characters</div> -->
 
                   </div>
 
@@ -37,31 +36,26 @@
 
                     <input type="password" ngModel #pwd="ngModel" name="pass" id="form2Example22" class="form-control"
                       placeholder="Enter password" required="required" minlength="8" />
-
+                    <!--
                     <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['required']" class="alert alert-danger">
                       *Password is mandatory</div>
 
                     <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="alert alert-danger">
-                      *Password must have atleast 8 characters</div>
+                      *Password must have atleast 8 characters</div> -->
 
                   </div>
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example22">Password <span style="color: red;">*</span></label>
-
-                    <input type="password" ngModel #pwd="ngModel" name="pass" id="form2Example22" class="form-control"
-                      placeholder="Enter password" required="required" minlength="8" />
-
-                    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['required']" class="alert alert-danger">
-                      *Password is mandatory</div>
-
-                    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="alert alert-danger">
-                      *Password must have atleast 8 characters</div>
+                    <label class="form-label" for="form2Example22">I'm a <span style="color: red;"> *</span></label>
+                    &nbsp;
+                    <input ngModel #pat="ngModel" required="required" type="radio" name="role" value="Patient"/> Patient&nbsp;
+                    <input ngModel #doc="ngModel" required="required" type="radio" name="role" value="Doctor"/> Doctor&nbsp;
+                    <input ngModel #vol="ngModel" required="required" type="radio" name="role" value="Volunteer"/> Volunteer
 
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
                     <button class="btn btn-primary btn-block fa-lg  mb-3" (click)="validate(myform)" type="button"
-                      id="login">Log in
+                      id="login" [disabled]="!myform.valid">Log in
                     </button>
                     <a class="text-muted" href="#!">Forgot password?</a>
                   </div>
@@ -76,10 +70,11 @@
               </div>
             </div>
             <div class="col-lg-6 d-flex align-items-center" id="data">
-              <div class="text-white px-3 py-4 p-md-5 mx-md-4">
+              <div class="text-black px-3 py-4 p-md-5 mx-md-4">
                 <h4 class="mb-4">We are more than just a webApp</h4>
-                <p class="small mb-0">Access video consultation with India’s top doctors on the InstaCure app. Connect with
-                  doctors online, available 24/7, from the comfort of your home..</p>
+                <p class="small mb-0">Access video consultation with India’s top doctors on the InstaCure app. Connect
+                  with
+                  doctors online, available 24/7, from the comfort of your home.</p>
               </div>
             </div>
           </div>

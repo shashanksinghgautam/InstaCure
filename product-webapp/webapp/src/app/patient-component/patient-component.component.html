@@ -7,12 +7,16 @@
     
     
     <div class="content1">
-        <form>
+        <form [formGroup]="patForm" #pat="ngForm">
             <div class="form-row">
                 <div class="form-group col-md-12">
               <label for="email">Email address</label>
-              <input type="email" class="form-control" id="email" required placeholder="name@example.com"></div>
-            </div><br>
+              <input type="email" id="email" class="form-control" formControlName="email" required placeholder="name@example.com">
+              
+              
+            </div>
+            </div>
+            <br>
 
             <div class="input-group">
                 <div class="col-md-6 mb-3">
