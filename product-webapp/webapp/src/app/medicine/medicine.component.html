@@ -1,31 +1,5 @@
 <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h2>Medicine List</h2>
-    </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Medicine Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>category</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let Medicine of Medicines | async">
-            <td>{{Medicine.medicinename}}</td>
-            <td>{{Medicine.qnt}}</td>
-            <td>{{Medicine.price}}</td>
-            <td>{{Medicine.category}}</td>
-            <td><button (click)="deleteMedicine(Medicine.mid)" class="btn btn-danger">Delete</button>
-                <button (click)="updateMedicine(Medicine.mid)" class="btn btn-info" style="margin-left: 10px">Update</button>
-                
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <a class="nav-link"  routerLink="/medicine-volunteer">Medicine-volunteer</a>
   </div>
   
   
