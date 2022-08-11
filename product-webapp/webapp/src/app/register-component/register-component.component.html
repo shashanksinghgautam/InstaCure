@@ -1,89 +1,105 @@
-<section class="vh-100" style="background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)" >
-    <div class="container h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-lg-12 col-xl-11">
-          <div class="card text-black" style="border-radius: 25px; background-color: #f7f7f7;">
-            <div class="card-body p-md-3" >
-              <div class="row justify-content-center">
+<section
+  style="background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)">
+  <div class="container ">
+    <div class="row d-flex justify-content-center align-items-center" id="formbox">
+      <div class="col-lg-12 col-xl-11">
+        <div class="card text-black" style="border-radius: 25px; background-color: #f7f7f7;">
+          <div class="card-body p-md-3" >
+            <div class="row justify-content-center">
 
-                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 w-48">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 w-48">
 
-                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
 
-                  <form class=" mx-1 mx-md-4" [formGroup]="myregform" >
+                <form class=" mx-1 mx-md-4" [formGroup]="myregform" #myform="ngForm" (ngSubmit)="registerUser()">
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" name="uname" for="form3Example1c">Full Name <span style="color: red;">*</span></label>
-                        <input type="text" id="form3Example1c" formControlName="uname" class="form-control" placeholder="Full Name" />
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" name="uname" for="form3Example1c">Full Name <span
+                          style="color: red;">*</span></label>
+                      <input type="text" id="form3Example1c" formControlName="uname" class="form-control"
+                        placeholder="Full Name" name="uname" [(ngModel)]="user.uname" />
 
-                      </div>
                     </div>
+                  </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" name="mail" for="form3Example3c">Email <span style="color: red;">*</span></label>
-                        <input type="email" id="form3Example3c" formControlName="mail" class="form-control" placeholder="Enter email" />
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" name="email" for="form3Example3c">Email <span
+                          style="color: red;">*</span></label>
+                      <input type="email" id="form3Example3c" formControlName="email" class="form-control"
+                        placeholder="Enter email" name="email" [(ngModel)]="user.email" />
 
-                      </div>
                     </div>
+                  </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" name="mobile" for="form3Example4c">Mobile Number <span style="color: red;">*</span></label>
-                        <input type="number" id="form3Example4c" formControlName="mobile" class="form-control" placeholder="Mobile Number"/>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" name="mobile" for="form3Example4c">Mobile Number <span
+                          style="color: red;">*</span></label>
+                      <input type="number" id="form3Example4c" formControlName="mobile" class="form-control"
+                        placeholder="Mobile Number" name="mobile" [(ngModel)]="user.mobile" />
 
-                      </div>
                     </div>
+                  </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <div class="form-outline flex-fill mb-0">
-                        <label class="form-label" name="password" for="form3Example4cd">Create Password <span style="color: red;">*</span></label>
-                        <input type="password" id="form3Example4cd" formControlName="password" class="form-control" placeholder="Password"/>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" name="password" for="form3Example4cd">Create Password <span
+                          style="color: red;">*</span></label>
+                      <input type="password" id="form3Example4cd" formControlName="password" class="form-control"
+                        placeholder="Password" name="password" [(ngModel)]="user.password" />
 
-                      </div>
                     </div>
+                  </div>
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <label class="form-check-label" name="role" for="form2Example3ad">Select Role : &nbsp; &nbsp;</label>
-                      <span>Patient &nbsp;</span> <input class="form-check-input me-2"  formControlName="role"  type="checkbox" value="" id="form2Example3ad" /><span>&nbsp;&nbsp;</span>
-                      <span>Doctor &nbsp;</span> <input class="form-check-input me-2" formControlName="role" type="checkbox" value="" id="form2Example3ad" /><span>&nbsp;&nbsp;</span>
-                      <span>Volunteer &nbsp;</span> <input class="form-check-input me-2" formControlName="role"  type="checkbox" value="" id="form2Example3ad" /><span>&nbsp;&nbsp;</span>
-                    </div>
+                  <!-- <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <label class="form-check-label" name="gender" for="form2Example3c"> Gender<span
+                        style="color: red;"> *</span> &nbsp; </label>
+                    <span>Male &nbsp;</span> <input required class="form-check-input me-2" formControlName="gender" name="gender" type="radio"
+                      value="Male" id="form2Example3c" name="email" [(ngModel)]="user.email" /><span>&nbsp;&nbsp;</span>
+                    <span>Female &nbsp;</span> <input required class="form-check-input me-2" formControlName="gender" name="gender" type="radio"
+                      value="Female" id="form2Example3c" name="email" [(ngModel)]="user.email" /><span>&nbsp;&nbsp;</span>
+                    <span>Other &nbsp;</span> <input required class="form-check-input me-2" formControlName="gender" name="gender" type="radio"
+                      value="Other" id="form2Example3c" name="email" [(ngModel)]="user.email" /><span>&nbsp;&nbsp;</span>
+                  </div> -->
 
-                    <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
-                      <label class="form-check-label" name="gender" for="form2Example3c">Select Gender : &nbsp; </label>
-                      <span>Male &nbsp;</span> <input class="form-check-input me-2"  formControlName="gender"  type="checkbox" value="" id="form2Example3c" /><span>&nbsp;&nbsp;</span>
-                      <span>Female &nbsp;</span> <input class="form-check-input me-2" formControlName="gender" type="checkbox" value="" id="form2Example3c" /><span>&nbsp;&nbsp;</span>
-                      <span>Other &nbsp;</span> <input class="form-check-input me-2" formControlName="gender"  type="checkbox" value="" id="form2Example3c" /><span>&nbsp;&nbsp;</span>
-                    </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                    <label class="form-check-label" name="role" for="form2Example3ad"> Role<span
+                        style="color: red;"> *</span> &nbsp; &nbsp;</label>
+                    <span>Patient &nbsp;</span> <input required class="form-check-input me-2" formControlName="role" name="role" type="radio"
+                      value="Patient" id="form2Example3ad" name="role" [(ngModel)]="user.role" /><span>&nbsp;&nbsp;</span>
+                    <span>Doctor &nbsp;</span> <input required class="form-check-input me-2" formControlName="role" name="role" type="radio"
+                      value="Doctor" id="form2Example3ad" name="role" [(ngModel)]="user.role"/><span>&nbsp;&nbsp;</span>
+                    <span>Volunteer &nbsp;</span> <input required class="form-check-input me-2" formControlName="role" name="role" type="radio"
+                      value="Volunteer" id="form2Example3ad" name="role" [(ngModel)]="user.role"/><span>&nbsp;&nbsp;</span>
+                  </div>
 
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" [disabled]="!myregform.valid" class="btn btn-primary btn-lg" (click)="myreg()">Register</button>
-                    </div>
 
-                  </form>
 
-                </div>
-                <div class="col-md-10 col-lg-6 col-xl-7 d-flex ml-auto p-lg-5 align-items-center order-1 order-lg-2">
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button type="submit" [disabled]="!myregform.valid" class="btn btn-primary btn-lg">Register</button>
+                  </div>
 
-                  <img src="../../assets/regis5.png"
-                    class="img-fluid mx-1 mx-md-4 " alt="Sample image" >
-
-                </div>
+                </form>
 
               </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex ml-auto p-lg-5 align-items-center order-1 order-lg-2">
+
+                <img src="../../assets/regis5.png" class="img-fluid mx-1 mx-md-4 " alt="Sample image">
+
+              </div>
+
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <app-login></app-login>
+  </div>
+</section>

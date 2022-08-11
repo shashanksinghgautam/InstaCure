@@ -77,4 +77,9 @@ public class MedicineServiceImpl implements MedicineService {
 		}
 
 	}
+	
+//	@Override
+//    public Medicine updateMedicine(Medicine Medicine) {
+//        return repo.update(Medicine);
+//    }
 }

@@ -1,7 +1,9 @@
+
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -16,13 +18,16 @@ export class PatientComponentComponent implements OnInit{
   @ViewChild("patform") public formref!: NgForm;
   constructor(private router:Router) { }
 
+
   ngOnInit(): void {
   }
 
+
   validate(ref: any):void{
-    console.log("success" + ref.mob.value);//ref.email.value +"  "+ ref.mob.value);
+    console.log("success");//ref.email.value +"  "+ ref.mob.value);
     //this.router.navigateByUrl('dashboard')
    }
   
+
 
 }
