@@ -7,13 +7,15 @@
     
     
     <div class="content1">
-        <form [formGroup]="patForm" #pat="ngForm">
+      <form #patform="ngForm">
             <div class="form-row">
                 <div class="form-group col-md-12">
-              <label for="email">Email address</label>
-              <input type="email" id="email" class="form-control" formControlName="email" required placeholder="name@example.com">
-              
-              
+                  <label for="email">Email address</label>
+                  <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control" required="required"  placeholder="name@example.com"/>
+                  
+                    <div *ngIf="email.touched && email.invalid && email.errors?.['required']"
+                    class="alert alert-danger">
+                    *Please enter a valid email</div>            
             </div>
             </div>
             <br>
@@ -21,49 +23,91 @@
             <div class="input-group">
                 <div class="col-md-6 mb-3">
                 <label for="mob">Mobile No.</label>
-                <input type="text" class="form-control" id="mob" required minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890">                
+                <input type="text" ngModel #mob="ngModel" name="mob" class="form-control" id="mob" required="required" minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890"/>                
+                  
+                <div *ngIf="mob.touched && mob.invalid && mob.errors?.['required']"
+                    class="alert alert-danger">
+                    *Please enter a valid Mobile number         
+                </div>
+                <div *ngIf="mob.touched && mob.invalid && mob.errors?.['minlength']"
+                    class="alert alert-danger">
+                    *Please enter a valid Mobile number       
+                </div>
+                <div *ngIf="mob.touched && mob.invalid && mob.errors?.['maxlength']"
+                    class="alert alert-danger">
+                    *Please enter a valid Mobile number        
+                </div>
               </div> 
 
               <div class="col-md-6 mb-3">
                 <label for="dob">Date of Birth</label>
-                <input type="date" class="form-control" id="dob" required>
+                <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required/>
+                <div *ngIf="dob.touched && dob.invalid && dob.errors?.['required']"
+                    class="alert alert-danger">
+                    *Date of Birth is required         
+                </div>
               </div>
             </div><br>
 
             <div class="form-row">
                 <div class="form-group col-md-12">
                 <label for="address">Address</label>
-                <textarea class="form-control" id="address" required rows="3"></textarea></div>
+                <textarea class="form-control" ngModel #address="ngModel" name="address" id="address" required rows="3"></textarea>
+              
+                <div *ngIf="address.touched && address.invalid && address.errors?.['required']"
+                    class="alert alert-danger">
+                    *Address is required         
+                </div>
+              </div>
+
               </div><br>
             
               <div class="input-group">
                 <div class="form-group col-md-4">
                 <label for="city">City</label>
-                <select class="form-control" id="city" required>
+                <select class="form-control" ngModel #city="ngModel" name="city" id="city" required>
                   <option>Bengaluru</option>
                   <option>Chennai</option>
                   <option>Mumbai</option>
                   <option>Kolkata</option>
                   <option>Delhi</option>
                 </select>
+
+                <div *ngIf="city.touched && city.invalid && city.errors?.['required']"
+                    class="alert alert-danger">
+                    *City is required         
+                </div>
               </div><br>
 
               
                 <div class="form-group col-md-4">
                 <label for="country">Country</label>
-                <input class="form-control" type="text" placeholder="India" readonly>
+                <input class="form-control" type="text" placeholder="India" readonly/>
               </div><br>
 
               
                 <div class="form-group col-md-4">
                 <label for="postal">Postal Code</label>
-                <input type="text" class="form-control" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456">
+                <input type="text" class="form-control"  ngModel #postal="ngModel" name="postal" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456"/>
+              
+                <div *ngIf="postal.touched && postal.invalid && postal.errors?.['required']"
+                    class="alert alert-danger">
+                    *Please enter a valid Postal code         
+                </div>
+                <div *ngIf="postal.touched && postal.invalid && postal.errors?.['minlength']"
+                    class="alert alert-danger">
+                    *Please enter a valid Postal code       
+                </div>
+                <div *ngIf="postal.touched && postal.invalid && postal.errors?.['maxlength']"
+                    class="alert alert-danger">
+                    *Please enter a valid Postal code        
+                </div>
               </div> <br>
               </div>  <br>        
 
               <div class="form-group row">
                 <div class="col-sm-10">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-primary" (click)="validate(patform)" id="submit">Submit</button>
                 </div></div>
             
           </form>
