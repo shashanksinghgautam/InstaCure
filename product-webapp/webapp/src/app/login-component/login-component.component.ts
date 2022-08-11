@@ -12,18 +12,26 @@ import { User } from '../user';
 export class LoginComponentComponent implements OnInit {
 
    user=new User();
+   flag: any
 
   @ViewChild("myform") public formref!: NgForm;
-  constructor(private router:Router,private service:RegistrationService) { }
+  constructor(private router:Router , private service:RegistrationService) {
+
+   }
 
   ngOnInit(): void {
   }
-   validate(ref: any):void{
-    console.log(ref.user.value +"  "+ ref.pass.value);
-    this.router.navigateByUrl('dashboard')
-   }
 
    loginUser(){
+        this.service.loginUserFromRemote(this.user).subscribe(
+          data=>{console.log("Login Success");
+          this.router.navigate(['/home'])
+        },
+          error=>{console.log("FAILED");
+          this.flag=true
+        }
 
+
+        );
    }
 }

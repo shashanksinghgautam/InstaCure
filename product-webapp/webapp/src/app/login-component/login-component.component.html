@@ -12,14 +12,15 @@
                   <h4 class="mt-1 mb-5 pb-1"></h4>
                 </div>
 
+                <!-- <p *ngIf="flag" class=" alert alert-danger">
+                  Invalid Email or Password</p> -->
                 <form #myform="ngForm" (ngSubmit)="loginUser()">
-                  <!-- <p>Please login to your account</p> -->
 
                   <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example11">Username <span style="color: red;">*</span></label>
+                    <label class="form-label" for="form2Example11">Email <span style="color: red;">*</span></label>
 
-                    <input type="email" ngModel #fname="ngModel" name="user" id="form2Example11" class="form-control"
-                      placeholder="Enter username" required="required" minlength="6" />
+                    <input type="email" ngModel #fname="ngModel" name="email" id="form2Example11" class="form-control"
+                      placeholder="Enter Email" required="required" minlength="6" [(ngModel)]="user.email" />
 
                     <!-- <div *ngIf="fname.touched && fname.invalid && fname.errors?.['required']"
                       class="alert alert-danger">
@@ -34,27 +35,28 @@
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example22">Password <span style="color: red;">*</span></label>
 
-                    <input type="password" ngModel #pwd="ngModel" name="pass" id="form2Example22" class="form-control"
-                      placeholder="Enter password" required="required" minlength="8" />
+                    <input type="password" ngModel #pwd="ngModel" name="password" id="form2Example22" class="form-control"
+                      placeholder="Enter password" required="required" minlength="2" [(ngModel)]="user.password" />
                     <!--
                     <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['required']" class="alert alert-danger">
-                      *Password is mandatory</div>
+                      *Password is mandatory</div>-->
 
-                    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="alert alert-danger">
+                    <!-- <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="alert alert-danger">
                       *Password must have atleast 8 characters</div> -->
+
 
                   </div>
                   <div class="form-outline mb-4">
                     <label class="form-label" for="form2Example22">I'm a <span style="color: red;"> *</span></label>
                     &nbsp;
-                    <input ngModel #pat="ngModel" required="required" type="radio" name="role" value="Patient"/> Patient&nbsp;
-                    <input ngModel #doc="ngModel" required="required" type="radio" name="role" value="Doctor"/> Doctor&nbsp;
-                    <input ngModel #vol="ngModel" required="required" type="radio" name="role" value="Volunteer"/> Volunteer
+                    <input ngModel #pat="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Patient"/> Patient&nbsp;
+                    <input ngModel #doc="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Doctor"/> Doctor&nbsp;
+                    <input ngModel #vol="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Volunteer"/> Volunteer
 
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg  mb-3" (click)="validate(myform)" type="button"
+                    <button class="btn btn-primary btn-block fa-lg  mb-3"  type="submit"
                       id="login" [disabled]="!myform.valid">Log in
                     </button>
                     <a class="text-muted" href="#!">Forgot password?</a>

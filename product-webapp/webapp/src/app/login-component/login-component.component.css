@@ -19,6 +19,8 @@
 }
 
 section{
+  padding-top: 13px;
+  height: fit-content;
   background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
 }
 
@@ -30,7 +32,7 @@ img {
 
 @media (min-width: 768px) {
   .gradient-form {
-    height: 100vh !important;
+    height: fit-content !important;
   }
 }
 
