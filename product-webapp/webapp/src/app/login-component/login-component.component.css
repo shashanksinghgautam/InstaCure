@@ -30,13 +30,13 @@ img {
   border-radius: 4px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1080px) {
   .gradient-form {
     height: fit-content !important;
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1080px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;

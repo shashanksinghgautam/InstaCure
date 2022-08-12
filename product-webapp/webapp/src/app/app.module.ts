@@ -8,7 +8,7 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
+import * as $ from 'jquery'
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 
 import { PatientComponentComponent } from './patient-component/patient-component.component';
