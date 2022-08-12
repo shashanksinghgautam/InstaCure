@@ -24,7 +24,7 @@
             </div>
           </div>
         </div>
-        <div class="col-5">
+        <div class="col-5 header">
           <h2>Consult with a Doctor</h2>
         </div>
       </div>
@@ -42,7 +42,8 @@
               <div id="sym" class="form-text">
                 Minimum 4 characters
               </div>
-              <small *ngIf="myGroup.controls['symptoms'].touched && myGroup.controls['symptoms'].invalid" class="text-danger">
+              <small *ngIf="myGroup.controls['symptoms'].touched && myGroup.controls['symptoms'].invalid"
+                class="text-danger">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
                   class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
                   <path
@@ -50,32 +51,29 @@
                 </svg>
                 Atleast 1 symptom has to be entered</small>
 
-              <div>
-                <br>
-                <div class="dropdown">
-                  <button class="btn dropdown-toggle" [disabled]="!myGroup.controls['symptoms'].valid" type="button"
-                    id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    Choose a relevant speciality
-                  </button>
-                  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#">Ayurveda</a></li>
-                    <li><a class="dropdown-item" href="#">Homeopathy</a></li>
-                    <li><a class="dropdown-item" href="#">Dental</a></li>
-                    <li><a class="dropdown-item" href="#">Ear, Nose, Throat</a></li>
-                    <li><a class="dropdown-item" href="#">General physician</a></li>
-                    <li><a class="dropdown-item" href="#">I have some other problem</a></li>
-                  </ul>
+              <div class="dropdown">
+                <div *ngIf="myGroup.controls['symptoms'].valid" class="dropdown w-75 mt-3">
+                  <select class="form-select" [disabled]="!myGroup.controls['symptoms'].valid"
+                    aria-label="Default select example">
+                    <option selected>Choose a relevant speciality</option>
+                    <option value="1">Dental</option>
+                    <option value="2">Ayurveda</option>
+                    <option value="3">Homeopathy</option>
+                    <option value="4">Ear, Nose, Throat</option>
+                    <option value="5">General physician</option>
+                    <option value="6">I have some other problem</option>
+                  </select>
                 </div>
               </div>
             </div>
-
 
             <div class="consult_num mb-3">
               <label for="num1" class="form-label">Mobile number</label>
               <input type="tel" class="form-control" formControlName="mnumber" id="num1" aria-describedby="num1"
                 placeholder="Enter mobile number here">
               <div id="num1" class="form-text">A verification code will be sent to this mobile number.</div>
-              <small *ngIf="myGroup.controls['mnumber'].touched && myGroup.controls['mnumber'].invalid" class="text-danger">
+              <small *ngIf="myGroup.controls['mnumber'].touched && myGroup.controls['mnumber'].invalid"
+                class="text-danger">
                 <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor"
                   class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
                   <path
@@ -105,4 +103,3 @@
     </div>
   </div>
 </section>
-
