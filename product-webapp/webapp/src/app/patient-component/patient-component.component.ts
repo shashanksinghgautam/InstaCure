@@ -1,26 +1,33 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { FormsModule } from '@angular/forms';
+
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-patient-component',
   templateUrl: './patient-component.component.html',
   styleUrls: ['./patient-component.component.css']
 })
-export class PatientComponentComponent implements OnInit {
+export class PatientComponentComponent implements OnInit{
 
-  constructor() { }
-  patForm!: FormGroup;
+  email:string = "qwe@gmail.com";
 
-  pat = {email: ""};
+  @ViewChild("patform") public formref!: NgForm;
+  constructor(private router:Router) { }
+
+
   ngOnInit(): void {
-    this.patForm = new FormGroup({
-      email: new FormControl(this.pat.email, [
-        Validators.required,
-      ])
-    });
   }
 
+
+  validate(ref: any):void{
+    console.log("success");//ref.email.value +"  "+ ref.mob.value);
+    //this.router.navigateByUrl('dashboard')
+   }
+  
 
 
 }
