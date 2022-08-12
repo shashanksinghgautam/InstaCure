@@ -1,32 +1,40 @@
-<h3>ADD Medicine</h3>
-<div [hidden]="submitted" style="width: 400px;">
+<h3 class="card-header text-center bg-danger text-light" width="100%">ADD Medicine</h3>
+<div [hidden]="submitted" style="width: 400px;" class="xyz">
+ 
   <form (ngSubmit)="onSubmit()">
+   
+<table class="table table-hover table-striped">
+ 
 
-    <div class="form-group">
-      <label for="name">Medicine Id</label>
-      <input type="text" class="form-control" id="mid" required [(ngModel)]="Medicine.mid" name="mid">
-    </div>
-    <div class="form-group">
-      <label for="name">Medicine Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="Medicine.medicinename" name="firstName">
-    </div>
+    <tr id="x">
+     <td> <label for="name">Medicine Id <span style="color: red;">*</span></label></td>
+     <td> <input type="text" id="mid"  class="form-control" required [(ngModel)]="Medicine.mid" name="mid"></td></tr>
+  
+    <tr >
+     <td> <label for="name">Medicine Name <span style="color: red;">*</span></label></td>
+     <td> <input type="text" class="form-control" id="firstName" required [(ngModel)]="Medicine.medicinename" name="firstName"></td></tr>
+  
 
-    <div class="form-group">
-      <label for="name">qnt</label>
-      <input type="text" class="form-control" id="qnt" required [(ngModel)]="Medicine.qnt" name="qnt">
-    </div>
+   <tr id="x">
+     <td> <label for="name">Quantity <span style="color: red;">*</span></label></td>
+     <td>  <input type="text" class="form-control" id="qnt" required [(ngModel)]="Medicine.qnt" name="qnt"></td></tr>
+    
+<tr >
+   <td>
+      <label for="name">Price <span style="color: red;">*</span></label></td>
+    <td><input type="text" class="form-control" id="price" required [(ngModel)]="Medicine.price" name="price"></td>  </tr>
+   
 
-    <div class="form-group">
-      <label for="name">price</label>
-      <input type="text" class="form-control" id="price" required [(ngModel)]="Medicine.price" name="price">
-    </div>
-
-    <div class="form-group">
-      <label for="name">category</label>
-      <input type="text" class="form-control" id="category" required [(ngModel)]="Medicine.category" name="category">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
+   <tr id="x">
+     <td> <label for="name">Category <span style="color: red;">*</span></label></td>
+     <td> <input type="text" class="form-control" id="category" required [(ngModel)]="Medicine.category" name="category"></td></tr>
+  
+<tr ><td> <button type="submit" value="submit" class="btn " >Submit</button> </td>
+  <td><button (click)="gotoList()" type="button" value="submit" class="btn " >cancel</button></td>
+</tr>
+  
+  </table>
+ 
   </form>
 </div>
 
