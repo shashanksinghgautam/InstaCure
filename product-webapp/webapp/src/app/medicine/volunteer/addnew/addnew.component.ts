@@ -41,5 +41,8 @@ export class AddnewComponent implements OnInit {
     this.save();    
     this.router.navigate(['medicine']);
   }
+  gotoList() {
+    this.router.navigate(['medicine']);
+  }
 
 }
