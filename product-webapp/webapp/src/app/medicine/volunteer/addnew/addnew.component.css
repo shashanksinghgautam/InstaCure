@@ -1,11 +1,11 @@
-
+/*
 .table {
   
 	height: 350px;
 	width: 600px;
 	margin: auto;
 	margin-top: 0px;
-    margin-left: 292px;
+    margin-left: 350px;
     border: 1px solid;
     background-color: rgb(193, 186, 186);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
@@ -13,7 +13,7 @@
 }
 h3{
     margin-top: 110px;
-    margin-bottom: 0%;
+   /* margin-bottom: 0%;
     width:600px;
     margin-right: auto;
     margin-left: auto;
@@ -21,8 +21,8 @@ h3{
 }
 .btn{
     width: 200px;
-    background-color: blue;
-    color:white;
+    /*background-color: blue;
+    
     opacity: 0.8;
     margin-left: 66%;
 }
@@ -32,4 +32,12 @@ h3{
 tr:hover{
     transition: scale(1.1);
     box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}*/
+.xyz{
+    width: 100%;
+    
+}
+.container{
+    background-color: rgba(174, 242, 225, 0.147);
+    width: 100%;
 }

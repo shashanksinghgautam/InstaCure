@@ -33,7 +33,7 @@
     <div class="consultation">
       <div class="row">
         <div class="consult_data col-6">
-          <form [formGroup]="myGroup">
+          <form [formGroup]!="myGroup">
             <div class="consult_symtoms mb-3">
               <label for="symptom" class="form-label">Tell us your symptom or health problem</label>
               <textarea class="form-control" formControlName="symptoms"

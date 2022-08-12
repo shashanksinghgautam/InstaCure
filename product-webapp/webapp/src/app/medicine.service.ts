@@ -10,9 +10,10 @@ import { Medicine } from './medicine';
 export class MedicineService {
   //  input = document.getElementById('Quantity') as HTMLInputElement | null;
 
-  //  qnt = this.input?.value;
-
+ 
+  private buyUrl =  "http://localhost:8080/api/medicine/buy";
   private baseUrl = "http://localhost:8080/api/medicine";
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -32,7 +33,10 @@ export class MedicineService {
   buyMedicine(id: number, qnt:any): Observable<Object> {
     
     console.log(qnt);
-    return this.http.put(`${this.baseUrl}/buy/${id}/${qnt}`,{});
+    console.log()
+    return this.http.put(`${this.buyUrl}/${id}/${qnt}`,{});
+    
+
   }
 
   deleteMedicine(id: number): Observable<any> {
