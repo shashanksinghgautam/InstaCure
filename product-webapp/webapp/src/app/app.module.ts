@@ -26,14 +26,14 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     AppComponent,
     LoginComponentComponent,
     RegisterComponentComponent,
-    PatientComponentComponent,
+    PatientComponent,
     medicineComponent,
     VolunteerComponent,
     UpdateComponent,
     VolunteerProfileComponent,
-    medicineComponent,
-    PatientComponentComponent,
     HomeComponent,
+
+    PatientComponentComponent,
     AddnewComponent,
   ],
   imports: [
