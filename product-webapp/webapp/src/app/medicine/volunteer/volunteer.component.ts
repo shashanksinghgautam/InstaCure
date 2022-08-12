@@ -4,6 +4,7 @@ import { Medicine } from 'src/app/medicine';
 import { ApiService } from './api.service';
 import { MedicineService } from 'src/app/medicine.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-volunteer',
@@ -11,36 +12,41 @@ import { Router } from '@angular/router';
   styleUrls: ['./volunteer.component.css']
 })
 export class VolunteerComponent implements OnInit {
+  Medicines!: Observable<Medicine[]>; 
+  constructor(private MedicineService: MedicineService,private router: Router) { }
 
-  Medicine: Medicine = new Medicine();
-  submitted = false;
+  ngOnInit(): void {
+    // this.MedicineService.getMedicines().subscribe((data: Medicine[]) => {
+    //   console.log(data);
+    //   this.Medicines = data;
+    // });
+    this.reloadData();
+  }
+  
 
-  constructor(private MedicineService: MedicineService,
-    private router: Router) { }
+  
 
-  ngOnInit() {
+  
+
+  reloadData() {
+    this.Medicines = this.MedicineService.getMedicinesList();
   }
 
-  newMedicine(): void {
-    this.submitted = false;
-    this.Medicine = new Medicine();
+  deleteMedicine(id: number) {
+    this.MedicineService.deleteMedicine(id)
+      .subscribe(
+        (        data: any) => {
+          console.log(data);
+          this.reloadData();
+        },
+        (        error: any) => console.log(error));
   }
 
-  save() {
-    this.MedicineService
-    .createMedicine(this.Medicine).subscribe((data: any) => {
-      console.log(data)
-      this.Medicine = new Medicine();
-      
-    }, 
-      (    error: any) => console.log(error));
-  }
+  
 
-  onSubmit() {
-    this.submitted = true;
-    this.save();    
+  updateMedicine(id: number){
+    this.router.navigate(['update', id]);
   }
-
  
 
 }

@@ -1,10 +1,15 @@
 <h3>Update Medicine</h3>
 <div style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
+    <!-- <div class="form-group">
+      <label for="name"> Medicine ID</label>
+      <input  type="text" class="form-control" id="Medicineid" required [(ngModel)]="Medicine.mid" name="id">
+    </div>
+
     <div class="form-group">
       <label for="name"> Medicine Name</label>
       <input type="text" class="form-control" id="MedicineName" required [(ngModel)]="Medicine.medicinename" name="firstName">
-    </div>
+    </div> -->
 
     <div class="form-group">
       <label for="name"> Quantity</label>
@@ -22,5 +27,6 @@
       </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
+    <button (click)="gotoList()" type="button" class="btn btn-danger" style="position: right;">Cancel</button>
   </form>
 </div>

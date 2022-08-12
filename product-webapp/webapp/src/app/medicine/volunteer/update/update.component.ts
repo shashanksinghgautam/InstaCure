@@ -39,11 +39,12 @@ export class UpdateComponent implements OnInit {
   }
 
   onSubmit() {
-    this.updateMedicine();    
+    this.updateMedicine(); 
+    this.router.navigate(['medicine']);   
   }
-
+  
   gotoList() {
-    this.router.navigate(['/Medicines']);
+    this.router.navigate(['medicine']);
   }
 
 }

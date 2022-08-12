@@ -1,15 +1,22 @@
-<div class="panel panel-primary">
+<div class="xyz">
+  <a class="nav-link"  routerLink="/medicine-volunteer" >Medical-volunteer</a>
+  </div>
+  
+
+  <div class="panel panel-primary">
     <div class="panel-heading">
-      <h2>Medicine List</h2>
+      <h2>Medicines</h2>
+      
     </div>
     <div class="panel-body">
       <table class="table table-striped">
         <thead>
           <tr>
             <th>Medicine Name</th>
-            <th>Quantity</th>
+            <th>Quantity Available</th>
             <th>Price</th>
             <th>category</th>
+            <th>Quantity</th>
           </tr>
         </thead>
         <tbody>
@@ -18,11 +25,13 @@
             <td>{{Medicine.qnt}}</td>
             <td>{{Medicine.price}}</td>
             <td>{{Medicine.category}}</td>
-            <td><button (click)="deleteMedicine(Medicine.mid)" class="btn btn-danger">Delete</button>
-                <button (click)="updateMedicine(Medicine.mid)" class="btn btn-info" style="margin-left: 10px">Update</button>
+            <td><input type="number" class="form-control" id="Quantity"  name="Quantity">
+                <button (click)="buyMedicine(Medicine.mid)"  class="btn btn-info">Buy Now</button>
+                
                 
             </td>
           </tr>
+          
         </tbody>
       </table>
     </div>

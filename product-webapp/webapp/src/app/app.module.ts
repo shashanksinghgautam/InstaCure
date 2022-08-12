@@ -11,33 +11,28 @@ import { FormsModule } from '@angular/forms';
 
 
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
-
 import { PatientComponentComponent } from './patient-component/patient-component.component';
-import { HttpClientModule,HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { medicineComponent } from './medicine/medicine.component';
-
 import { VolunteerComponent } from './medicine/volunteer/volunteer.component';
 import { UpdateComponent } from './medicine/volunteer/update/update.component';
 
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './consultation/patient/patient.component';
-
-
-
-
+import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponentComponent,
     RegisterComponentComponent,
-    PatientComponentComponent,
+    PatientComponent,
     medicineComponent,
     VolunteerComponent,
     UpdateComponent,
     VolunteerProfileComponent,
     HomeComponent,
-    PatientComponent,
-
+    PatientComponentComponent,
+    AddnewComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,11 +41,14 @@ import { PatientComponent } from './consultation/patient/patient.component';
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule,      
+    FormsModule,
+  
+    
+  
     HttpClientModule,
-
+  
   ],
-  providers: [HttpClientModule,HttpClient],
+  providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

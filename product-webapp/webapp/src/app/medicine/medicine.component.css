@@ -1,0 +1,18 @@
+.panel{
+    background-color: rgb(151, 220, 40);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    
+
+}
+.xyz{
+    margin-top:0%;
+    text-align: right;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.panel.panel-body{
+background-color: aquamarine;
+}

@@ -19,6 +19,8 @@
 }
 
 section{
+  padding-top: 13px;
+  height: fit-content;
   background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
 }
 
@@ -28,13 +30,13 @@ img {
   border-radius: 4px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1080px) {
   .gradient-form {
-    height: 100vh !important;
+    height: fit-content !important;
   }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1080px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;

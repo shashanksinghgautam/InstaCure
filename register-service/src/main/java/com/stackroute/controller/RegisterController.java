@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 
     @RestController
     @RequestMapping("/")
+    @CrossOrigin(origins = "http://localhost:4200")
     public class RegisterController {
 
         @Autowired

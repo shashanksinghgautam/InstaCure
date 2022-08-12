@@ -1,6 +1,6 @@
 export class User {
   id!: number;
-  name!:string;
+  uname!:string;
   password!: string;
   email!: string;
   mobile!: number;
@@ -15,6 +15,6 @@ export class User {
   //      this.role=role;
   // }
   constructor(){
-    
+
   }
 }

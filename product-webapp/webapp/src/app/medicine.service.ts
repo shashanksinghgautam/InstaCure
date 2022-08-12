@@ -8,7 +8,9 @@ import { Medicine } from './medicine';
   providedIn: 'root'
 })
 export class MedicineService {
-  
+  //  input = document.getElementById('Quantity') as HTMLInputElement | null;
+
+  //  qnt = this.input?.value;
 
   private baseUrl = "http://localhost:8080/api/medicine";
 
@@ -26,6 +28,11 @@ export class MedicineService {
   }
   updateMedicine(id: number, value: any): Observable<Object> {
     return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+  buyMedicine(id: number, qnt:any): Observable<Object> {
+    
+    console.log(qnt);
+    return this.http.put(`${this.baseUrl}/buy/${id}/${qnt}`,{});
   }
 
   deleteMedicine(id: number): Observable<any> {

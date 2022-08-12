@@ -11,15 +11,12 @@ import { Router } from '@angular/router';
 })
 export class medicineComponent implements OnInit {
 
-  // Medicines: Medicine[] = [];
+  
   Medicines!: Observable<Medicine[]>; 
   constructor(private MedicineService: MedicineService,private router: Router) { }
 
   ngOnInit(): void {
-    // this.MedicineService.getMedicines().subscribe((data: Medicine[]) => {
-    //   console.log(data);
-    //   this.Medicines = data;
-    // });
+   
     this.reloadData();
   }
   
@@ -32,19 +29,17 @@ export class medicineComponent implements OnInit {
     this.Medicines = this.MedicineService.getMedicinesList();
   }
 
-  deleteMedicine(id: number) {
-    this.MedicineService.deleteMedicine(id)
-      .subscribe(
-        (        data: any) => {
-          console.log(data);
-          this.reloadData();
-        },
-        (        error: any) => console.log(error));
+  buyMedicine(id: number) {
+    let qnt = document.querySelector('input')?.value;
+    console.log(qnt)
+    this.MedicineService.buyMedicine(id,qnt)
+   
+  }
   }
 
   
 
-  updateMedicine(id: number){
-    this.router.navigate(['update', id]);
-  }
-}
+  
+
+
+
