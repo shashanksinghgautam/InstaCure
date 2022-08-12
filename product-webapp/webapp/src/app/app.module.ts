@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 
-import * as $ from 'jquery'
+import * as $ from 'jquery';
 
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { PatientComponentComponent } from './patient-component/patient-component.component';
@@ -34,7 +34,6 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     medicineComponent,
     PatientComponentComponent,
     HomeComponent,
-
     AddnewComponent,
   ],
   imports: [
@@ -45,11 +44,7 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-  
-    
-  
     HttpClientModule,
-  
   ],
   providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent],
