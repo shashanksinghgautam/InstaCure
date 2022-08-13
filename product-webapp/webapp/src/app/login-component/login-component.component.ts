@@ -12,7 +12,7 @@ import { User } from '../user';
 export class LoginComponentComponent implements OnInit {
 
    user=new User();
-   flag: any
+   errorMsg=''
 
   @ViewChild("myform") public formref!: NgForm;
   constructor(private router:Router , private service:RegistrationService) {
@@ -28,10 +28,11 @@ export class LoginComponentComponent implements OnInit {
           this.router.navigate(['/home'])
         },
           error=>{console.log("FAILED");
-          this.flag=true
+          this.errorMsg= "*Invalid Email or Password"
         }
-
-
         );
+   }
+   createNew(){
+    this.router.navigate(['./register-component'])
    }
 }

@@ -1,8 +1,14 @@
 section{
-  height:fit-content;
+  height:93.5vh;
+  overflow: hidden;
 }
 
 #formbox{
   padding-top: 90px;
   padding-bottom: 129px;
+}
+@media (max-width: 992px) {
+ section{
+  height: 100%;
+ }
 }

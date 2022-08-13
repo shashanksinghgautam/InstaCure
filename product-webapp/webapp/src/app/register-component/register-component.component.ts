@@ -11,9 +11,12 @@ import { User } from '../user';
 })
 export class RegisterComponentComponent implements OnInit {
   user = new User();
+  flag: any
+  errorMsg=''
 
   myregform!: FormGroup;
   @ViewChild('myregform') public regformref!: NgForm;
+  
   constructor(private router: Router, private service: RegistrationService) {
     this.myregform = new FormGroup({
       uname: new FormControl('', [
@@ -39,7 +42,10 @@ export class RegisterComponentComponent implements OnInit {
       data=>{console.log("Login Success");
           this.router.navigate(['/login-component'])
     },
-          error=>console.log("FAILED"));
+          error=>{console.log("FAILED");
+         this.errorMsg= "*Email or Mobile Already Exists! Try With Different Email or Mobile"
+
+        });
 
   }
 }

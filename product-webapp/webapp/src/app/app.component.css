@@ -1,45 +1,70 @@
-
-.footercss{
-  bottom: 0;
-  position: static;
-  width:100.6%;
-  height:70px;
-  background-color: rgb(44, 41, 41);
-  color:white;
-  text-align: center;
-  font-size: 20px;
+.checkbtn {
+  display: none;
 }
 
-footer{
-  margin-top:18px;
-}
-#navbarNav{
- padding-right: 20px;
- position: absolute;
- right: 0;
-}
-.navbar-toggler{
- padding-right: 12px;
- position: absolute;
- right: 0;
- margin-right: 10px;
+#check {
+  display: none;
 }
 
-.navbar-brand{
- position: absolute;
- color: aquamarine;
- height: 60px;
- width: 145px;
- padding-left: 15px;
- padding-top: 11px;
- font-size: 25px;
- border: solid silver;
- border-left: 0px;
- border-top: 0px;
- border-bottom: 0px;
- border-width: 0.1px;
+.navbar {
+  height: 60px;
+
 }
-.navbar{
- height: 60px;
- font-size: 18px;
+
+.navbar-brand {
+  position: absolute;
+  color: aquamarine;
+  height: 60px;
+  width: 150px;
+  padding-left: 20px;
+  padding-top: 10px;
+  font-size: 25px;
+  border: solid silver;
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+  border-width: 0.1px;
+}
+
+.navbar-brand:hover {
+  color: aquamarine;
+}
+
+.navLinks {
+  color: aquamarine;
+  font-size: 19px;
+}
+
+@media (max-width: 992px) {
+  .checkbtn {
+    display: block;
+  }
+
+  #check:checked~.myNavBar {
+
+    transition: ease-in-out 0.3s;
+    right: 0;
+  }
+
+  .myNavBar {
+    position: fixed;
+    top: 55px;
+    right: -100%;
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+    height: 20vh;
+    width: 100%;
+    z-index: 2;
+    text-align: center;
+  }
+
+  .smallNav {
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    margin-top: -23px;
+  }
+
+  .smallNav:hover {
+    cursor: pointer;
+  }
 }

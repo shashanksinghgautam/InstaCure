@@ -12,61 +12,66 @@
                   <h4 class="mt-1 mb-5 pb-1"></h4>
                 </div>
 
-                <!-- <p *ngIf="flag" class=" alert alert-danger">
-                  Invalid Email or Password</p> -->
                 <form #myform="ngForm" (ngSubmit)="loginUser()">
+                  <div class="d-flex flex-row align-items-center mb-4">
 
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example11">Email <span style="color: red;">*</span></label>
+                    <div class="form-outline flex-fill mb-0">
+                      <small class="text-danger"> {{errorMsg}}</small>
+                    </div>
+                  </div>
 
-                    <input type="email" ngModel #fname="ngModel" name="email" id="form2Example11" class="form-control"
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
+                    <div class="form-outline flex-fill mb-0">
+
+                      <input type="email" ngModel #fname="ngModel" name="email" id="form2Example11" class="form-control"
                       placeholder="Enter Email" required="required" minlength="6" [(ngModel)]="user.email" />
+                        <div *ngIf="fname.touched && fname.invalid && fname.errors?.['required']"
+                        class="text-danger">
+                        *Username is mandatory</div>
 
-                    <!-- <div *ngIf="fname.touched && fname.invalid && fname.errors?.['required']"
-                      class="alert alert-danger">
-                      *Username is mandatory</div>
+                      <div *ngIf="fname.touched && fname.invalid && fname.errors?.['minlength']"
+                        class="text-danger">
+                        *Username must have atleast 6 characters</div>
 
-                    <div *ngIf="fname.touched && fname.invalid && fname.errors?.['minlength']"
-                      class="alert alert-danger">
-                      *Username must have atleast 6 characters</div> -->
-
+                    </div>
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example22">Password <span style="color: red;">*</span></label>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fas fa-key fa-lg me-3 fa-fw" ></i>
+                    <div class="form-outline flex-fill mb-0">
 
-                    <input type="password" ngModel #pwd="ngModel" name="password" id="form2Example22" class="form-control"
-                      placeholder="Enter password" required="required" minlength="2" [(ngModel)]="user.password" />
-                    <!--
-                    <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['required']" class="alert alert-danger">
-                      *Password is mandatory</div>-->
+                      <input type="password" ngModel #pwd="ngModel" name="password" id="form2Example22" class="form-control"
+                      placeholder="Enter Password" required="required" minlength="2" [(ngModel)]="user.password" />
+                      <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['required']" class="text-danger">
+                        *Password is mandatory</div>
 
-                    <!-- <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="alert alert-danger">
-                      *Password must have atleast 8 characters</div> -->
-
-
+                       <div *ngIf="pwd.touched && pwd.invalid && pwd.errors?.['minlength']" class="text-danger">
+                        *Password must have atleast 8 characters</div>
+                    </div>
                   </div>
-                  <div class="form-outline mb-4">
-                    <label class="form-label" for="form2Example22">I'm a <span style="color: red;"> *</span></label>
-                    &nbsp;
-                    <input ngModel #pat="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Patient"/> Patient&nbsp;
-                    <input ngModel #doc="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Doctor"/> Doctor&nbsp;
-                    <input ngModel #vol="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Volunteer"/> Volunteer
+
+                   <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fa-users fa-lg me-3 fa-fw"></i>
+                    <input ngModel #pat="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Patient"/>&nbsp; Patient &nbsp;
+                    <input ngModel #doc="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Doctor"/>&nbsp; Doctor &nbsp;
+                    <input ngModel #vol="ngModel" required="required" type="radio" name="role" [(ngModel)]="user.role" value="Volunteer"/>&nbsp; Volunteer
 
                   </div>
 
                   <div class="text-center pt-1 mb-5 pb-1">
-                    <button class="btn btn-primary btn-block fa-lg  mb-3"  type="submit"
+                    <button class="btn btn-primary btn-block fa-lg mb-3"  type="submit"
                       id="login" [disabled]="!myform.valid">Log in
-                    </button>
+                    </button>&nbsp;
                     <a class="text-muted" href="#!">Forgot password?</a>
                   </div>
 
+                  <form  (ngSubmit)="createNew()">
                   <div class="d-flex align-items-center justify-content-center pb-4">
                     <p class="mb-0 me-2">Don't have an account?</p>
-                    <button type="button" class="btn btn-outline-danger">Create new</button>
+                    <button type="submit" class="btn btn-outline-danger">Create New</button>
                   </div>
-
+                </form>
                 </form>
 
               </div>
