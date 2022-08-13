@@ -10,7 +10,6 @@
   height: 60px;
 
 }
-
 .navbar-brand {
   position: absolute;
   color: aquamarine;
@@ -24,10 +23,6 @@
   border-top: 0px;
   border-bottom: 0px;
   border-width: 0.1px;
-}
-
-.navbar-brand:hover {
-  color: aquamarine;
 }
 
 .navLinks {
