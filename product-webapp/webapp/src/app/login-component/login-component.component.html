@@ -28,11 +28,11 @@
                       placeholder="Enter Email" required="required" minlength="6" [(ngModel)]="user.email" />
                         <div *ngIf="fname.touched && fname.invalid && fname.errors?.['required']"
                         class="text-danger">
-                        *Username is mandatory</div>
+                        *Email is mandatory</div>
 
                       <div *ngIf="fname.touched && fname.invalid && fname.errors?.['minlength']"
                         class="text-danger">
-                        *Username must have atleast 6 characters</div>
+                        *Enter a valid Email</div>
 
                     </div>
                   </div>
