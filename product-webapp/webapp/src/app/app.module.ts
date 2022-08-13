@@ -8,6 +8,9 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+
+// import * as $ from 'jquery';
+
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { PatientComponentComponent } from './patient-component/patient-component.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -23,15 +26,14 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     AppComponent,
     LoginComponentComponent,
     RegisterComponentComponent,
-    PatientComponentComponent,
+    PatientComponent,
     medicineComponent,
     VolunteerComponent,
     UpdateComponent,
     VolunteerProfileComponent,
-    medicineComponent,
-    PatientComponentComponent,
     HomeComponent,
-    PatientComponent,
+
+    PatientComponentComponent,
     AddnewComponent,
   ],
   imports: [
@@ -41,7 +43,11 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+
     ReactiveFormsModule,
+
+    HttpClientModule,
+
   ],
   providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent],

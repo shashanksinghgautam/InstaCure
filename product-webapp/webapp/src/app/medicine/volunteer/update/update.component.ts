@@ -42,7 +42,7 @@ export class UpdateComponent implements OnInit {
     this.updateMedicine(); 
     this.router.navigate(['medicine']);   
   }
-
+  
   gotoList() {
     this.router.navigate(['medicine']);
   }

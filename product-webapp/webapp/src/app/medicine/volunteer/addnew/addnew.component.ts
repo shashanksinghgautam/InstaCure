@@ -5,6 +5,7 @@ import { Medicine } from 'src/app/medicine';
 
 import { MedicineService } from 'src/app/medicine.service';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-addnew',
   templateUrl: './addnew.component.html',
@@ -12,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class AddnewComponent implements OnInit {
 
+  Medicines!: Observable<Medicine[]>; 
   Medicine: Medicine = new Medicine();
   submitted = false;
 
@@ -19,6 +21,7 @@ export class AddnewComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.reloadData();
   }
 
   newMedicine(): void {
@@ -40,6 +43,24 @@ export class AddnewComponent implements OnInit {
     this.submitted = true;
     this.save();    
     this.router.navigate(['medicine']);
+  }
+  gotoList() {
+    this.router.navigate(['medicine']);
+  }
+  reloadData() {
+    this.Medicines = this.MedicineService.getMedicinesList();
+  }
+
+  buyMedicine(id: number) {
+    let qnt = document.querySelector('input')?.value;
+    console.log(qnt)
+    this.MedicineService.buyMedicine(id,qnt).subscribe((data: any) => {
+      console.log(data)
+      this.Medicine = new Medicine();
+      
+    }, 
+      (    error: any) => console.log(error));
+   
   }
 
 }

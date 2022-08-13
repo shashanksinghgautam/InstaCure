@@ -30,12 +30,13 @@ img {
   width: 150px;
   border-radius: 4px;
 }
+
 section{
   height:93.5vh;
 }
 
+@media (min-width: 1080px) {
 
-@media (min-width: 769px) {
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;

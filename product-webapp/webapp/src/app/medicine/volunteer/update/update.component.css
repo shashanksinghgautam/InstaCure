@@ -1,0 +1,35 @@
+
+.table {
+  
+	height: 350px;
+	width: 600px;
+	margin: auto;
+	margin-top: 0px;
+    margin-left: 292px;
+    border: 1px solid;
+    background-color: rgb(193, 186, 186);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+   
+}
+h3{
+    margin-top: 110px;
+    margin-bottom: 0%;
+    width:600px;
+    margin-right: auto;
+    margin-left: auto;
+    height: 50px;
+}
+.btn{
+    width: 200px;
+    background-color: blue;
+    color:white;
+    opacity: 0.8;
+    margin-left: 66%;
+}
+#x{
+    background-color: white;
+}
+tr:hover{
+    transition: scale(1.1);
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2), -1px -1px 8px rgba(0, 0, 0, 0.2);
+}

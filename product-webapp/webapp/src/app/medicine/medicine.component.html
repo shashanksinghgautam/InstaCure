@@ -1,5 +1,40 @@
-<div class="panel panel-primary">
-  <a class="nav-link"  routerLink="/medicine-volunteer">Medicine-volunteer</a>
+<div class="xyz">
+  <a class="nav-link"  routerLink="/medicine-volunteer" >Medical-volunteer</a>
+  </div>
+  
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Medicines</h2>
+      
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Medicine Name</th>
+            <th>Quantity Available</th>
+            <th>Price</th>
+            <th>category</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let Medicine of Medicines | async">
+            <td>{{Medicine.medicinename}}</td>
+            <td>{{Medicine.qnt}}</td>
+            <td>{{Medicine.price}}</td>
+            <td>{{Medicine.category}}</td>
+            <td><input type="number" class="form-control" id="Quantity"  name="Quantity">
+                <button (click)="buyMedicine(Medicine.mid)"  class="btn btn-info">Buy Now</button>
+                
+                
+            </td>
+          </tr>
+          
+        </tbody>
+      </table>
+    </div>
   </div>
   
   
