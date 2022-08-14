@@ -21,7 +21,7 @@ public class RegisterService {
         return repo.findByMobile(mobile);
     }
 
-    public UserEntity getByEmailAndPassword(String email, String password){
-        return repo.findByEmailAndPassword(email,password);
+    public UserEntity getByEmailAndPasswordAndRole(String email, String password, String role){
+        return repo.findByEmailAndPasswordAndRole(email,password,role);
     }
 }

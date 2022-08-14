@@ -14,26 +14,8 @@ export class RegisterComponentComponent implements OnInit {
   flag: any
   errorMsg=''
 
-  myregform!: FormGroup;
-  @ViewChild('myregform') public regformref!: NgForm;
-  
   constructor(private router: Router, private service: RegistrationService) {
-    this.myregform = new FormGroup({
-      uname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobile: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      role:new FormControl('',Validators.required)
-    });
+
   }
 
   ngOnInit(): void {}

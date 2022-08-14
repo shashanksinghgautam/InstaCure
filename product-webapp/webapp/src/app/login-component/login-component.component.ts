@@ -28,7 +28,7 @@ export class LoginComponentComponent implements OnInit {
           this.router.navigate(['/home'])
         },
           error=>{console.log("FAILED");
-          this.errorMsg= "*Invalid Email or Password"
+          this.errorMsg= "*Invalid Email or Password or Role"
         }
         );
    }

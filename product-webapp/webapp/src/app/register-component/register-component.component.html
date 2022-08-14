@@ -1,17 +1,16 @@
-<section
-  style="background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)">
+<section style="background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)">
   <div class="container h-100">
     <div class="row d-flex justify-content-center align-items-center" id="formbox">
       <div class="col-lg-12 col-xl-11">
         <div class="card text-black" style="border-radius: 25px; background-color: #f7f7f7;">
-          <div class="card-body p-5" >
+          <div class="card-body p-5">
             <div class="row justify-content-center">
 
               <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1 w-49 ml-5">
 
                 <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign Up</p>
 
-                <form class=" mx-2 mx-md-2" [formGroup]="myregform" #myform="ngForm" (ngSubmit)="registerUser()">
+                <form class=" mx-2 mx-md-2" #myform="ngForm" (ngSubmit)="registerUser()">
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <div class="form-outline flex-fill mb-0">
@@ -22,8 +21,8 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0 ">
-                      <input type="text" id="form3Example1c" formControlName="uname" class="form-control "
-                        placeholder="Enter Full Name" name="uname" [(ngModel)]="user.uname" />
+                      <input ngModel #fname="ngModel" type="text" id="form3Example1c" class="form-control "
+                        placeholder="Enter Full Name" name="uname" [(ngModel)]="user.uname" required="required" />
 
                     </div>
                   </div>
@@ -32,8 +31,8 @@
                     <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
 
-                      <input type="email" id="form3Example3c" formControlName="email" class="form-control"
-                        placeholder="Enter Email" name="email" [(ngModel)]="user.email" />
+                      <input type="email" id="form3Example3c" ngModel #fname="ngModel" class="form-control"
+                        placeholder="Enter Email" name="email" [(ngModel)]="user.email" required="required" />
 
                     </div>
                   </div>
@@ -42,37 +41,49 @@
                     <i class="fas fa-solid fa-mobile fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
 
-                      <input type="number" id="form3Example4c" formControlName="mobile" class="form-control"
-                        placeholder="Enter Mobile Number" name="mobile" [(ngModel)]="user.mobile" />
+                      <input type="number" id="form3Example4c" ngModel #fname="ngModel" class="form-control"
+                        placeholder="Enter Mobile Number" name="mobile" [(ngModel)]="user.mobile" required="required" />
 
                     </div>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                    <i class="fas fa-key fa-lg me-3 fa-fw" ></i>
+                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                     <div class="form-outline flex-fill mb-0">
 
-                      <input type="password" id="form3Example4cd" formControlName="password" class="form-control"
-                        placeholder="Enter Password" name="password" [(ngModel)]="user.password" />
+                      <input type="password" id="form3Example4cd" ngModel #fname="ngModel" class="form-control"
+                        placeholder="Enter Password" name="password" [(ngModel)]="user.password" required="required" />
 
                     </div>
                   </div>
 
 
                   <div class="d-flex flex-row align-items-center mb-4">
-                  <i class="fa-solid fa-users fa-lg me-3 fa-fw"></i>
-                    <input required class="form-check-input me-" formControlName="role" name="role" type="radio"
-                      value="Patient" id="form2Example3ad" name="role" [(ngModel)]="user.role" /><span>&nbsp;Patient &nbsp;</span><span>&nbsp;&nbsp;</span>
-                     <input required class="form-check-input me-2" formControlName="role" name="role" type="radio"
-                      value="Doctor" id="form2Example3ad" name="role" [(ngModel)]="user.role"/><span>Doctor &nbsp;</span><span>&nbsp;&nbsp;</span>
-                     <input required class="form-check-input me-2" formControlName="role" name="role" type="radio"
-                      value="Volunteer" id="form2Example3ad" name="role" [(ngModel)]="user.role"/><span>Volunteer &nbsp;</span><span>&nbsp;&nbsp;</span>
+                    <i class="fa-solid fa-users fa-lg me-3 fa-fw"></i>
+                    <input required="required" class="form-check-input me-" ngModel #fname="ngModel" name="role"
+                      type="radio" value="Patient" id="form2Example3ad" name="role"
+                      [(ngModel)]="user.role" /><span id="rolename">&nbsp; Patient</span><span>&nbsp;&nbsp;</span>
+                    <input required="required" class="form-check-input me-2" ngModel #fname="ngModel" name="role"
+                      type="radio" value="Doctor" id="form2Example3ad" name="role"
+                      [(ngModel)]="user.role" /><span id="rolename">Doctor</span><span>&nbsp;&nbsp;</span>
+                    <input required="required" class="form-check-input me-2" ngModel #fname="ngModel" name="role"
+                      type="radio" value="Volunteer" id="form2Example3ad" name="role"
+                      [(ngModel)]="user.role" /><span id="rolename">Volunteer &nbsp;</span><span>&nbsp;&nbsp;</span>
+                  </div>
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <i class="fa-solid fa-square-check fa-lg me-3 fa-fw"></i>
+                    <div class="form-group form-check checkbox">
+                       <input type="checkbox" id="form3Example4cd" ngModel #fname="ngModel" class="form-check-input me-1"
+                        placeholder="Enter Password" name="password" required="required" id="Check" /><label class="form-check-label" for="Check"> I agree to the terms and conditions!</label>
+
+                    </div>
                   </div>
 
 
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="submit" [disabled]="!myregform.valid" class="btn btn-primary btn-lg">Register</button>
+                    <button type="submit" [disabled]="!myform.valid" class="btn btn-primary btn-lg">Register</button>
 
                   </div>
 
