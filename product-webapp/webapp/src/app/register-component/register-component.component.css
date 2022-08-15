@@ -16,6 +16,9 @@ section{
 #rolename{
   padding-top: 3px;
 }
+#rolename,#patient,#doctor,#volunteer,#Check,#agree:hover{
+  cursor: pointer;
+}
 @media (max-width: 992px) {
  section{
   height: 100%;

@@ -13,6 +13,7 @@ export class RegisterComponentComponent implements OnInit {
   user = new User();
   flag: any
   errorMsg=''
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   constructor(private router: Router, private service: RegistrationService) {
 

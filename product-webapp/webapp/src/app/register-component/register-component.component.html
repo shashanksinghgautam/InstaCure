@@ -32,7 +32,7 @@
                     <div class="form-outline flex-fill mb-0">
 
                       <input type="email" id="form3Example3c" ngModel #fname="ngModel" class="form-control"
-                        placeholder="Enter Email" name="email" [(ngModel)]="user.email" required="required" />
+                        placeholder="Enter Email" name="email" [pattern]="emailPattern" [(ngModel)]="user.email" required="required" />
 
                     </div>
                   </div>
@@ -61,21 +61,21 @@
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fa-solid fa-users fa-lg me-3 fa-fw"></i>
                     <input required="required" class="form-check-input me-" ngModel #fname="ngModel" name="role"
-                      type="radio" value="Patient" id="form2Example3ad" name="role"
-                      [(ngModel)]="user.role" /><span id="rolename">&nbsp; Patient</span><span>&nbsp;&nbsp;</span>
+                      type="radio" value="Patient" id="patient" name="role"
+                      [(ngModel)]="user.role" /><label for="patient" id="rolename">&nbsp; Patient</label><span>&nbsp;&nbsp;</span>
                     <input required="required" class="form-check-input me-2" ngModel #fname="ngModel" name="role"
-                      type="radio" value="Doctor" id="form2Example3ad" name="role"
-                      [(ngModel)]="user.role" /><span id="rolename">Doctor</span><span>&nbsp;&nbsp;</span>
+                      type="radio" value="Doctor" id="doctor" name="role"
+                      [(ngModel)]="user.role" /><label for="doctor" id="rolename">Doctor</label><span>&nbsp;&nbsp;</span>
                     <input required="required" class="form-check-input me-2" ngModel #fname="ngModel" name="role"
-                      type="radio" value="Volunteer" id="form2Example3ad" name="role"
-                      [(ngModel)]="user.role" /><span id="rolename">Volunteer &nbsp;</span><span>&nbsp;&nbsp;</span>
+                      type="radio" value="Volunteer" id="volunteer" name="role"
+                      [(ngModel)]="user.role" /><label for="volunteer" id="rolename">Volunteer &nbsp;</label><span>&nbsp;&nbsp;</span>
                   </div>
 
                   <div class="d-flex flex-row align-items-center mb-4">
                     <i class="fa-solid fa-square-check fa-lg me-3 fa-fw"></i>
                     <div class="form-group form-check checkbox">
-                       <input type="checkbox" id="form3Example4cd" ngModel #fname="ngModel" class="form-check-input me-1"
-                        placeholder="Enter Password" name="password" required="required" id="Check" /><label class="form-check-label" for="Check"> I agree to the terms and conditions!</label>
+                       <input type="checkbox" ngModel #fname="ngModel" class="form-check-input me-1"
+                        placeholder="Enter Password" name="password" required="required" id="Check" /><label for="Check" id="agree" class="form-check-label" > I agree to the terms and conditions!</label>
 
                     </div>
                   </div>
