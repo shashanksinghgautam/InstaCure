@@ -5,11 +5,11 @@
     
     
     <div class="content1">
-      <form #patform="ngForm">
+      <form #patform="ngForm" (ngSubmit)="validate()">
             <div class="form-row">
                 <div class="form-group col-md-12">
                   <label for="email">Email address</label>
-                  <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control" required="required"  placeholder="name@example.com"/>
+                  <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control" required="required"  placeholder="name@example.com" [(ngModel)]="pat.email"/>
                   
                     <div *ngIf="email.touched && email.invalid && email.errors?.['required']"
                     class="alert alert-danger">
@@ -21,7 +21,7 @@
             <div class="input-group">
                 <div class="col-md-6 mb-3">
                 <label for="mob">Mobile No.</label>
-                <input type="text" ngModel #mob="ngModel" name="mob" class="form-control" id="mob" required="required" minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890"/>                
+                <input type="text" ngModel #mob="ngModel" name="mob" class="form-control" id="mob" required="required" minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890" [(ngModel)]="pat.mobile"/>                
                   
                 <div *ngIf="mob.touched && mob.invalid && mob.errors?.['required']"
                     class="alert alert-danger">
@@ -35,14 +35,22 @@
                     class="alert alert-danger">
                     *Please enter a valid Mobile number        
                 </div>
+                <div *ngIf="mob.touched && mob.invalid && mob.errors?.['pattern']"
+                    class="alert alert-danger">
+                    *Please enter a valid Mobile number        
+                </div>
               </div> 
 
               <div class="col-md-6 mb-3">
                 <label for="dob">Date of Birth</label>
-                <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required/>
+                <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required min="01-01-1920" [(ngModel)]="pat.dob"/>
                 <div *ngIf="dob.touched && dob.invalid && dob.errors?.['required']"
                     class="alert alert-danger">
                     *Date of Birth is required         
+                </div>
+                <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']"
+                    class="alert alert-danger">
+                    *Wrong DOB        
                 </div>
               </div>
             </div><br>
@@ -50,7 +58,7 @@
             <div class="form-row">
                 <div class="form-group col-md-12">
                 <label for="address">Address</label>
-                <textarea class="form-control" ngModel #address="ngModel" name="address" id="address" required rows="3"></textarea>
+                <textarea class="form-control" ngModel #address="ngModel" name="address" id="address" required rows="3" [(ngModel)]="pat.address"></textarea>
               
                 <div *ngIf="address.touched && address.invalid && address.errors?.['required']"
                     class="alert alert-danger">
@@ -63,7 +71,7 @@
               <div class="input-group">
                 <div class="form-group col-md-4">
                 <label for="city">City</label>
-                <select class="form-control" ngModel #city="ngModel" name="city" id="city" required>
+                <select class="form-control" ngModel #city="ngModel" name="city" id="city" required [(ngModel)]="pat.city">
                   <option>Bengaluru</option>
                   <option>Chennai</option>
                   <option>Mumbai</option>
@@ -80,13 +88,13 @@
               
                 <div class="form-group col-md-4">
                 <label for="country">Country</label>
-                <input class="form-control" type="text" placeholder="India" readonly/>
+                <input class="form-control" type="text" readonly placeholder="India"/>
               </div><br>
 
               
                 <div class="form-group col-md-4">
                 <label for="postal">Postal Code</label>
-                <input type="text" class="form-control"  ngModel #postal="ngModel" name="postal" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456"/>
+                <input type="text" class="form-control"  ngModel #postal="ngModel" name="postal" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456" [(ngModel)]="pat.postalCode"/>
               
                 <div *ngIf="postal.touched && postal.invalid && postal.errors?.['required']"
                     class="alert alert-danger">
@@ -100,12 +108,16 @@
                     class="alert alert-danger">
                     *Please enter a valid Postal code        
                 </div>
+                <div *ngIf="postal.touched && postal.invalid && postal.errors?.['pattern']"
+                    class="alert alert-danger">
+                    *Please enter a valid Postal code        
+                </div>
               </div> <br>
               </div>  <br>        
 
               <div class="form-group row">
                 <div class="col-sm-10">
-                  <button type="button" class="btn btn-primary" (click)="validate(patform)" id="submit">Submit</button>
+                  <button type="submit" [disabled]="!patform.valid" class="btn btn-primary">Submit</button>
                 </div></div>
             
           </form>
@@ -121,16 +133,20 @@
         <div class="med">
             
 
-                <form>
+                <form #patform="ngForm">
                     <div class="form-group">
                         <label for="med">Medical records </label> <br>
-                        <input type="file" class="form-control-file" id="med">
+                        <input type="file" ngModel #med="ngModel" name="med" required class="form-control-file" id="med"/>
+                        <div *ngIf="med.touched && med.invalid && med.errors?.['required']"
+                          class="alert alert-danger">
+                            *Please upload medical records         
+                        </div>
                         </div><br>
         
                       <div class="form-group">
                         <label for="cond">Pre-existing medical condition </label> <br>
                         <div class="form-check">                      
-                            <input class="form-check-input" type="checkbox" value="" id="m1">
+                            <input class="form-check-input" ngModel #m1="ngModel" name="m1" type="checkbox" [(ngModel)]="pat.med" value="" id="m1"/>
                             <label class="form-check-label" for="m1">Cholestrol</label> <br>
                             </div>
                         <div class="form-check">                      
@@ -156,14 +172,12 @@
                         
                       </div><br>
 
-                      <div class="form-group row">
-                        <div class="col-sm-10">
-                          <button type="submit" class="btn btn-primary">Update</button>
-                        </div></div>
+                      
                 </form>
             
 
         </div>
+        
 
 
         

@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 import { Router } from '@angular/router';
+import { Patient } from 'src/PatientProfile';
 
 
 
@@ -13,8 +14,8 @@ import { Router } from '@angular/router';
 })
 export class PatientComponentComponent implements OnInit{
 
-  email:string = "qwe@gmail.com";
-
+  pat= new Patient();
+  
   @ViewChild("patform") public formref!: NgForm;
   constructor(private router:Router) { }
 
@@ -23,8 +24,8 @@ export class PatientComponentComponent implements OnInit{
   }
 
 
-  validate(ref: any):void{
-    console.log("success");//ref.email.value +"  "+ ref.mob.value);
+  validate(){
+    console.log("success"+" "+ this.pat.email + " "+this.pat.mobile + " "+this.pat.dob + " "+this.pat.address + " "+this.pat.city + " "+this.pat.postalCode);//ref.email.value +"  "+ ref.mob.value);
     //this.router.navigateByUrl('dashboard')
    }
   
