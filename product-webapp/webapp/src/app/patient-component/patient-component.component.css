@@ -25,6 +25,16 @@
     padding-top: 80px;
 
 }
+.content3{
+    width:20%;
+    height: 100px;
+    background-color: white;
+    color:black;
+    position: absolute;
+    margin-left: 100px;
+    margin-top: 300px;
+
+}
 .photo{
     width:50%;
     height: 300px;
