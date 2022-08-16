@@ -21,6 +21,7 @@ import { UpdateComponent } from './medicine/volunteer/update/update.component';
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +36,7 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 
     PatientComponentComponent,
     AddnewComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
