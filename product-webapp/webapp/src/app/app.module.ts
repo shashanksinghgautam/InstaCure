@@ -20,6 +20,7 @@ import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 import { SearchPipe } from './search.pipe';
 import { PatientDisplayComponent } from './patient-display/patient-display.component';
+import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +35,8 @@ import { PatientDisplayComponent } from './patient-display/patient-display.compo
     PatientComponentComponent,
     AddnewComponent,
     SearchPipe,
-    PatientDisplayComponent
+    PatientDisplayComponent,
+    DoctorDisplayComponent
   ],
   imports: [
     BrowserModule,
