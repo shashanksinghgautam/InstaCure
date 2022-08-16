@@ -3,6 +3,7 @@ package com.stackroute.medicine.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -48,6 +49,7 @@ public class MedicineController {
 	    	System.out.println(this.medicineRepository.findAll());
 	        return this.medicineRepository.findAll();
 	    }
+	
 	    
 	    @GetMapping("medicine/{id}")
 		public ResponseEntity<Medicine> getEmployeeById(@PathVariable(value = "id") int id)
@@ -70,17 +72,33 @@ public class MedicineController {
 //	        return MedicineService.updateMedicine(Medicine);
 //}
 	    @PutMapping("medicine/{id}")
-		public ResponseEntity<Medicine> updateEmployee(@PathVariable(value = "id") int Id,
-				@Validated @RequestBody Medicine employeeDetails) throws ResourceNotFoundException {
+		public ResponseEntity<Medicine> updateMedicine(@PathVariable(value = "id") int Id,@Validated @RequestBody Medicine medicineDetails) throws ResourceNotFoundException {
 	    	Medicine medicine = medicineRepository.findById(Id)
 					.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
 
-	    	medicine.setQnt(employeeDetails.getQnt());
-	    	medicine.setPrice(employeeDetails.getPrice());
-	    	medicine.setMedicinename(employeeDetails.getMedicinename());
+	    	medicine.setQnt(medicineDetails.getQnt());
+	    	medicine.setPrice(medicineDetails.getPrice());
 			final Medicine updatedEmployee = medicineRepository.save(medicine);
 			return ResponseEntity.ok(updatedEmployee);
 		}
+
+	@PutMapping("medicine/buy/{id}/{qnt}")
+	public ResponseEntity<Medicine> buyMedicine(@PathVariable(value = "id") int Id,@PathVariable(value = "qnt") int qnt) throws ResourceNotFoundException {
+		Medicine medicine = medicineRepository.findById(Id)
+				.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
+		System.out.println("working");
+		medicine.setQnt(medicine.getQnt()-qnt);
+
+		final Medicine updatedEmployee = medicineRepository.save(medicine);
+		return ResponseEntity.ok(updatedEmployee);
+	}
+	@GetMapping("medicine/buy/{id}")
+	public HttpStatus buyMedicinetest(@PathVariable(value = "id") int Id) throws ResourceNotFoundException {
+		
+		System.out.println("working");
+		return HttpStatus.OK;
+	}
+	
 	    @DeleteMapping("medicine/{id}")
 		public Map<String, Boolean> deleteEmployee(@PathVariable(value = "id") int Id)
 				throws ResourceNotFoundException {

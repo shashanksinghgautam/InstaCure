@@ -37,6 +37,7 @@ export class AddnewComponent implements OnInit {
       
     }, 
       (    error: any) => console.log(error));
+      alert("successfully added")
   }
 
   onSubmit() {
@@ -45,6 +46,7 @@ export class AddnewComponent implements OnInit {
     this.router.navigate(['medicine']);
   }
   gotoList() {
+   
     this.router.navigate(['medicine']);
   }
   reloadData() {
