@@ -32,7 +32,6 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     UpdateComponent,
     VolunteerProfileComponent,
     HomeComponent,
-
     PatientComponentComponent,
     AddnewComponent,
   ],
@@ -43,10 +42,7 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-
     ReactiveFormsModule,
-
-    HttpClientModule,
 
   ],
   providers: [HttpClientModule, HttpClient],
