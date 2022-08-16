@@ -1,5 +1,5 @@
 .panel{
-    background-color: rgb(151, 220, 40);
+    background-color: rgb(223, 225, 220);
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -16,3 +16,64 @@
 .panel.panel-body{
 background-color: aquamarine;
 }
+.container{
+    background-color:rgb(74, 164, 203);
+}
+
+a{
+    margin-left: 70px;
+    
+}
+.form-control{
+   
+    width: 500px;
+}
+.container-fluid{
+    margin-left: 200px;
+  
+}
+
+#searchText-id {
+    margin:  auto;
+    display: block;
+    
+    top: 65px;
+    text-align: center;
+    height: 30px;
+     width: 500px;
+     
+}
+#Quantity{
+    height: 30px;
+     width: 50px;
+}
+
+
+
+  .card-body {
+    
+   
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    
+  }
+  
+  .card {
+    max-width: 350px;
+    max-height: 280nm;
+    margin: 0 0.5em;
+    box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
+    border: none;
+    border-radius: 0;
+    line-height: 100px;
+    background-color: white;
+    margin: 10px;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    vertical-align: middle;
+  }
+ 
+
+

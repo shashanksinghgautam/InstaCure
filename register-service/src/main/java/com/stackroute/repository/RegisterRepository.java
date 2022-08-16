@@ -10,5 +10,5 @@ public interface RegisterRepository extends JpaRepository<UserEntity,Integer> {
    public UserEntity findByEmail(String email);
    public UserEntity findByMobile(long mobile);
 
-   public UserEntity findByEmailAndPassword(String email, String password);
+   public UserEntity findByEmailAndPasswordAndRole(String email, String password,String role);
 }

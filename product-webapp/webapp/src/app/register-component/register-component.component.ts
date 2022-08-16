@@ -11,26 +11,12 @@ import { User } from '../user';
 })
 export class RegisterComponentComponent implements OnInit {
   user = new User();
+  flag: any
+  errorMsg=''
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
-  myregform!: FormGroup;
-  @ViewChild('myregform') public regformref!: NgForm;
   constructor(private router: Router, private service: RegistrationService) {
-    this.myregform = new FormGroup({
-      uname: new FormControl('', [
-        Validators.required,
-        Validators.minLength(5),
-      ]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobile: new FormControl('', [
-        Validators.required,
-        Validators.minLength(10),
-      ]),
-      password: new FormControl('', [
-        Validators.required,
-        Validators.minLength(6),
-      ]),
-      role:new FormControl('',Validators.required)
-    });
+
   }
 
   ngOnInit(): void {}
@@ -39,7 +25,10 @@ export class RegisterComponentComponent implements OnInit {
       data=>{console.log("Login Success");
           this.router.navigate(['/login-component'])
     },
-          error=>console.log("FAILED"));
+          error=>{console.log("FAILED");
+         this.errorMsg= "*Email or Mobile Already Exists! Try With Different Email or Mobile"
+
+        });
 
   }
 }

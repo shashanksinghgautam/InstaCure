@@ -11,16 +11,20 @@
 
 #login {
   color: cornsilk;
+  height: 40px;
+  padding-top:3px;
 
 }
+#rolename{
+  padding-top: 2px;
+}
 #data {
-  background-color:grey;
-  border-radius: 5px;
+  background: linear-gradient(to bottom, #ee7724, #d8363a, #dd3675,  #ee7724);
+  border-radius: 6px;
 }
 
 section{
-  padding-top: 13px;
-  height: fit-content;
+  height:93.5vh;
   background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
 }
 
@@ -30,15 +34,19 @@ img {
   border-radius: 4px;
 }
 
-@media (min-width: 1080px) {
-  .gradient-form {
-    height: fit-content !important;
-  }
+#patient,#doctor,#volunteer,label:hover{
+  cursor: pointer;
 }
 
 @media (min-width: 1080px) {
+
   .gradient-custom-2 {
     border-top-right-radius: .3rem;
     border-bottom-right-radius: .3rem;
   }
 }
+@media (max-width: 992px) {
+  section{
+   height: 100%;
+  }
+ }
