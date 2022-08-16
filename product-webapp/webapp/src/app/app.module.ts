@@ -19,6 +19,8 @@ import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 import { SearchPipe } from './search.pipe';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { PatientDisplayComponent } from './patient-display/patient-display.component';
+import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +35,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     PatientComponentComponent,
     AddnewComponent,
     SearchPipe,
-    DoctorProfileComponent
+    DoctorProfileComponent,
+    PatientDisplayComponent,
+    DoctorDisplayComponent
   ],
   imports: [
     BrowserModule,
