@@ -43,11 +43,11 @@ import org.springframework.http.HttpStatus;
         @PostMapping("login")
         public ResponseEntity<UserEntity> login(@RequestBody UserEntity user) throws Exception {
 
-            String tempEmail= user.getEmail(), tempPass= user.getPassword();
+            String tempEmail= user.getEmail(), tempPass= user.getPassword(), tempRole=user.getRole();
 
             UserEntity tempUser=null;
-            if(tempEmail!=null && tempPass!=null) {
-                tempUser=registerService.getByEmailAndPassword(tempEmail,tempPass);
+            if(tempEmail!=null && tempPass!=null && tempRole!=null) {
+                tempUser=registerService.getByEmailAndPasswordAndRole(tempEmail,tempPass,tempRole);
             }
             if(tempUser==null){
                 throw new Exception("User Doesn't Exist");
