@@ -13,6 +13,7 @@ export class UpdateComponent implements OnInit {
 
   id!: number;
   Medicine: Medicine = new Medicine;
+  submitted = false;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private MedicineService: MedicineService) { }
@@ -39,6 +40,7 @@ export class UpdateComponent implements OnInit {
   }
 
   onSubmit() {
+    this.submitted = true;
     this.updateMedicine(); 
     this.router.navigate(['medicine']);   
   }

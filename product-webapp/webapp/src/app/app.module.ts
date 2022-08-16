@@ -8,19 +8,17 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-
 // import * as $ from 'jquery';
-
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { PatientComponentComponent } from './patient-component/patient-component.component';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { medicineComponent } from './medicine/medicine.component';
 import { VolunteerComponent } from './medicine/volunteer/volunteer.component';
 import { UpdateComponent } from './medicine/volunteer/update/update.component';
-
 import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
+import { SearchPipe } from './search.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,9 +30,9 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     UpdateComponent,
     VolunteerProfileComponent,
     HomeComponent,
-
     PatientComponentComponent,
     AddnewComponent,
+    SearchPipe,
   ],
   imports: [
     BrowserModule,
@@ -43,11 +41,7 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-
     ReactiveFormsModule,
-
-    HttpClientModule,
-
   ],
   providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent],
