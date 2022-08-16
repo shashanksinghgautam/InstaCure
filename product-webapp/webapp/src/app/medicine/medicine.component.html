@@ -1,64 +1,41 @@
 <div class="xyz">
 
-  <a class="nav-link"  routerLink="/medicine-volunteer" >Medical-volunteer</a>
-  </div>
+  <a class="nav-link" routerLink="/medicine-volunteer">Medical-volunteer</a>
+</div>
 
 
-      <h2 class="text-uppercase">
-        Medicine & Health </h2>
 
-  <input  id="searchText-id" [(ngModel)]="searchText" placeholder="Search By Medicine Name " />
+<h2 class="text-uppercase">
+  Medicine & Health </h2>
 
-  <!-- <div class="panel panel-primary">
+<input id="searchText-id" [(ngModel)]="searchText" placeholder="Search By Medicine Name " />
 
-
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let Medicine of Medicines | async">
-          <tr *ngFor="let Medicine of Medicines | async |search:searchText">
-            <td>{{Medicine.medicinename}}</td>
-            <td>{{Medicine.qnt}}</td>
-            <td>{{Medicine.price}}</td>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-
-  </div> -->
-
-  <div class="card-body overflow-auto">
-    <div class="card" *ngFor="let Medicine of Medicines | async |search:searchText" let index=index class="p-1">
+<div class="card-body overflow-auto">
+  <div class="card" *ngFor="let Medicine of Medicines | async |search:searchText" let index=index class="p-1">
     <div class="card">
       <div class="card-body overflow-auto">
 
         <div class="card-body overflow-auto">
-            <div class="form-group row">
-                <div class="" style=" text-decoration: solid; text-align: center; font-weight: bold;">
-                    {{Medicine.medicinename}}
-                </div>
-                <div class="">
-                  <img src="../../assets/p1.jpg">
-              </div>
-              <div class="" style="font-weight: bold;">
-                ${{Medicine.price}}
+          <div class="form-group row">
+            <div class="" style=" text-decoration: solid; text-align: center; font-weight: bold;">
+              {{Medicine.medicinename}}
             </div>
             <div class="">
-              <input type="number" class="form-control" id="Quantity" required [(ngModel)]="Medicine.qnt"  name="Quantity" style="margin: auto; width: 100px;">
-              <button (click)="buyMedicine(Medicine.mid)"  class="btn btn-info">Buy Now</button>
+              <img src="../../assets/p1.jpg">
+            </div>
+            <div class="" style="font-weight: bold;">
+              ${{Medicine.price}}
+            </div>
+            <div class="">
+              <input type="number" class="form-control" id="Quantity" required [(ngModel)]="Medicine.qnt"
+                name="Quantity" style="margin: auto; width: 100px;">
+              <button (click)="buyMedicine(Medicine.mid)" class="btn btn-info">Buy Now</button>
 
 
             </div>
-            </div>
-
-
-
-
-
+          </div>
         </div>
+      </div>
     </div>
-    </div>
+  </div>
+</div>
