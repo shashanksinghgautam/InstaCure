@@ -1,0 +1,75 @@
+
+
+  <div class="container" *ngFor="let Volunteer of Volunteers |async" >
+
+    
+
+    <div class="content1" >
+        <table >
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <td width="50px" style="text-align: center"> : </td>
+                    <td>{{Volunteer.vname}}</td>
+                  </tr>
+                  <tr>
+                    <th>Mobile NO</th>
+                    <td width="50px" style="text-align: center"> : </td>
+                    <td>{{Volunteer.vmobile}}</td>
+                  </tr>
+                  <tr>
+                    <th>Gender</th>
+                    <td width="50px" style="text-align: center"> : </td>
+                    <td>Male</td>
+                  </tr>
+                  <tr>
+                    <th>Medical Lisence</th>
+                    <td width="50px" style="text-align: center">:</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+        </table>
+    </div>
+
+    <img class="photo" src="assets/profile.jpg" alt='Loading profile'>
+
+    <div class="content2">
+        <table>
+            <tbody>
+                <tr>
+                    <th>Address</th>
+                    <td width="50px" style="text-align: center">:</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>City</th>
+                    <td width="50px" style="text-align: center">:</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>State</th>
+                    <td width="50px" style="text-align: center">:</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>Country</th>
+                    <td width="50px" style="text-align: center">:</td>
+                    <td>-</td>
+                  </tr>
+                  <tr>
+                    <th>Postal Code</th>
+                    <td width="50px" style="text-align: center">:</td>
+                    <td>-</td>
+                  </tr><br>
+                  <tr>
+                    
+                    <td><button class="btn btn-primary" (click)="UpdateProfile(Volunteer.vid)">Update</button></td>
+                    
+                  </tr>
+                </tbody>
+        </table>
+
+    </div>
+
+    
+  </div>

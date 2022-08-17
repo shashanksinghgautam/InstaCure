@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Volunteer } from './volunteer';
+import { VolunteerService } from './volunteer.service';
 
 @Component({
   selector: 'app-volunteer-profile',
@@ -7,9 +11,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolunteerProfileComponent implements OnInit {
 
-  constructor() { }
+  id!: number;
+  Volunteer: Volunteer = new Volunteer;
+  submitted = false;
 
-  ngOnInit(): void {
+  constructor(private route: ActivatedRoute,private router: Router,
+    private VolunteerService: VolunteerService) { }
+
+  ngOnInit() {
+    this.Volunteer = new Volunteer();
+
+    this.id = this.route.snapshot.params['id'];
+    
+    this.VolunteerService.getVolunteer(this.id)
+      .subscribe((data: any) => {
+        console.log(data)
+        this.Volunteer = data;
+      }, (error: any) => console.log(error));
+  }
+
+  updateVolunteer() {
+    this.VolunteerService.updateVolunteer(this.id, this.Volunteer)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.Volunteer = new Volunteer();
+        // this.gotoList();
+      }, (error: any) => console.log(error));
+  }
+
+  onSubmit() {
+    this.submitted = true;
+    this.updateVolunteer(); 
+    alert("DONE")
+    this.router.navigate(['volunteer-display']);   
+  }
+  
+  gotoList() {
+    this.router.navigate(['volunteer-display']);
   }
 
 }
