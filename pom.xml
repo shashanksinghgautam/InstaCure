@@ -29,6 +29,7 @@
         <module>aggregator</module>
         <module>register-service</module>
         <module>medicine-service</module>
+        <module>patient-service</module>
     </modules>
 
     <dependencies>
