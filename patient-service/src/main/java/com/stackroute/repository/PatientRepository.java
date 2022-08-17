@@ -1,3 +1,4 @@
+/*
 package com.stackroute.repository;
 
 import com.stackroute.model.Patient;
@@ -7,3 +8,4 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface PatientRepository extends MongoRepository<Patient,Integer> {
 }
+*/
