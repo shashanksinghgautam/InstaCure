@@ -8,16 +8,20 @@ import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 import { UpdateComponent } from './medicine/volunteer/update/update.component';
 import { VolunteerComponent } from './medicine/volunteer/volunteer.component';
 import { RegisterComponentComponent } from './register-component/register-component.component';
+import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
+import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
   { path: 'home', component: HomeComponent },
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
+  {path:  'volunteer-display', component: VolunteerDisplayComponent},
   { path: 'medicine', component: medicineComponent },
   { path: 'medicine-volunteer', component: VolunteerComponent },
   { path: 'add', component: AddnewComponent },
   { path: 'update/:id', component: UpdateComponent },
+  {path:'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent }
 ];
 

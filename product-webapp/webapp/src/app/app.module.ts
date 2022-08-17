@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 import { SearchPipe } from './search.pipe';
+import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { SearchPipe } from './search.pipe';
     PatientComponentComponent,
     AddnewComponent,
     SearchPipe,
+    VolunteerDisplayComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,5 @@
 <div class="container" style="height: 100%;">
-<nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">InstaCURE</a>
-</nav>
+
 <div class="modal-body row">
   <div class="col-md-3">
     <!-- Your first column here -->
@@ -15,32 +13,32 @@
     <form>
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="Name">
+          <input type="text" class="form-control" placeholder="Name" id="vname" required [(ngModel)]="Volunteer.vname" name="vname">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="Mobile">
+          <input type="text" class="form-control" placeholder="Mobile" id="vmobile" required [(ngModel)]="Volunteer.vmobile" name="vmobile">
         </div>
         <div class="col">
-          <input type="email" class="form-control" placeholder="E-mail">
+          <input type="email" class="form-control" placeholder="E-mail" id="vemail" required [(ngModel)]="Volunteer.vemail" name="vemail">
         </div>
       </div>
       <br>
       <div class="row">
         <div class="col">
-          <textarea class="form-control" id="address" required rows="3" placeholder="Address"></textarea>
+          <textarea class="form-control" id="address" required rows="3" placeholder="Address" id="address" required [(ngModel)]="Volunteer.address" name="address"></textarea>
         </div>     
       </div>
       <br>
 
       <div class="row">
         <div class="col">
-          <input type="text" class="form-control" placeholder="City">
+          <input type="text" class="form-control" placeholder="City" id="city" required [(ngModel)]="Volunteer.city" name="city">
         </div>
         <div class="col">
-          <input type="text" class="form-control" placeholder="State">
+          <input type="text" class="form-control" placeholder="State" id="state" required [(ngModel)]="Volunteer.state" name="state">
         </div>
         <div class="col">
-          <input type="text" class="form-control" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="Postal Code">
+          <input type="text" class="form-control" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="Postal Code" id="zipcode" required [(ngModel)]="Volunteer.zipcode" name="zipcode">
         </div>
       </div>
       <div class="row">
@@ -52,7 +50,7 @@
       <br>
       <div class="row">
         <div class="col">
-          <button type="submit" class="btn btn-primary"> Submit</button>
+          <button (click)="onSubmit()" value="submit" class="btn btn-primary"> Submit</button>
         </div>
       </div>
     </form>
