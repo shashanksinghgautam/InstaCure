@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { RegisterComponentComponent } from './register-component/register-component.component';
 import { RouterModule } from '@angular/router';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 // import * as $ from 'jquery';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
@@ -19,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 import { SearchPipe } from './search.pipe';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { PatientDisplayComponent } from './patient-display/patient-display.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 @NgModule({
@@ -35,6 +35,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     PatientComponentComponent,
     AddnewComponent,
     SearchPipe,
+    DoctorProfileComponent,
     PatientDisplayComponent,
     DoctorDisplayComponent
   ],
@@ -42,10 +43,9 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     BrowserModule,
     AppRoutingModule,
     RouterModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClientModule, HttpClient],
   bootstrap: [AppComponent],

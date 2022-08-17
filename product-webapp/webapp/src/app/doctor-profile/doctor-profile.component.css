@@ -1,0 +1,56 @@
+/* .doctor-profile{ */
+    /* margin-left: 200px;
+    margin-top: 40px;
+    border: 5px solid black ;
+    border-radius: 4px;
+    text-align: left;
+    
+    padding-top: 5px;
+    padding-left: 15px; 
+} */
+/* .profile{
+    margin-top: 5rem;
+} */
+body {
+    background: #f7f7f7;
+}
+.image{
+margin-top: 3rem;
+}
+
+
+/* .form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+} */
+
+/* .profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+} */
+
+.labels {
+    font-size: 11px
+}
+
+
