@@ -46,6 +46,4 @@ export class medicineComponent implements OnInit {
   }
 }
 
-function qnt(id: number, qnt: any) {
-  throw new Error('Function not implemented.');
-}
+
