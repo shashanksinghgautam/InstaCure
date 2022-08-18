@@ -1,7 +1,38 @@
 package com.stackroute.controller;
 
-import org.springframework.web.bind.annotation.RestController;
+import com.stackroute.entity.PatientProfile;
+import com.stackroute.repository.PatientRepository;
+import com.stackroute.service.PatientService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
+@RequestMapping(value = "/patient")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PatientController {
+    @Autowired
+    private PatientService service;
+
+    @PostMapping("/add")
+    public ResponseEntity<PatientProfile> addDetails(@RequestBody PatientProfile patient) {
+        PatientProfile user = this.service.addNew(patient);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @GetMapping("/get")
+    public List<PatientProfile> getAllPatients() {
+        return this.service.getAll();
+    }
+
+    @GetMapping("/get/{id}")
+    public ResponseEntity<PatientProfile> get(@PathVariable(value = "id") int id) {
+        PatientProfile patient = this.service.getById(id);
+        return new ResponseEntity<>(patient, HttpStatus.OK);
+    }
+
+
 }
