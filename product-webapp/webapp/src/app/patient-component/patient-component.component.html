@@ -1,194 +1,196 @@
 <div class="container2">
   <div class="container">
-    
-    <div class="heading"><h1>Patient profile update</h1></div> 
+
+    <div class="heading">
+      <h1>Patient profile update</h1>
+    </div>
 
 
-  <div class="content1">
-    
-    <form #patform="ngForm" (ngSubmit)="validate()">
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="email">Email address</label>
-          <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control" required="required"
-            placeholder="name@example.com" [(ngModel)]="pat.email" />
-          
-      </div>
-      </div>
-      <br>
+    <div class="content1">
 
-      <div class="row">
-        <div class="col-md-6 mb-3">
-          <label for="mob">Mobile No.</label>
-          <input type="text" ngModel #mob="ngModel" name="mob" class="form-control" id="mob" required="required"
-            minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890" [(ngModel)]="pat.mobile" />
+      <form #patform="ngForm" (ngSubmit)="validate()">
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="email">Email address</label>
+            <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control"
+              required="required" placeholder="name@example.com" [(ngModel)]="pat.email" />
 
-          
-          <div *ngIf="mob.touched && mob.invalid && mob.errors?.['minlength']" class="alert">
-            *Please enter a valid Mobile number
-          </div>
-          <div *ngIf="mob.touched && mob.invalid && mob.errors?.['maxlength']" class="alert">
-            *Please enter a valid Mobile number
-          </div>
-          <div *ngIf="mob.touched && mob.invalid && mob.errors?.['pattern']" class="alert">
-            *Please enter a valid Mobile number
-          </div>
-        </div> 
-
-        <div class="col-md-6 mb-3">
-          <label for="dob">Date of Birth</label>
-          <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required min="01-01-1920"
-            [(ngModel)]="pat.dob" />
-          
-          <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']" class="alert">
-            *Wrong DOB
           </div>
         </div>
-      </div>
+        <br>
 
-      <div class="form-check">
         <div class="row">
-          <div class="col">
-            <p>Gender</p></div>
-          <div class="col">
-          
-          <input type="radio" ngModel #gen1="ngModel" name="gen1" class="form-check-input" id="gen1" 
-           value="Male"/>   
-           <label class="form-check-label" for="gen1">Male</label>     
-          </div> 
-          <div class="col">
-           
-            <input type="radio" ngModel #gen2="ngModel" name="gen1" class="form-check-input" id="gen1" 
-             value="Female" />   
-             <label class="form-check-label" for="gen1">Female</label>     
-            </div> 
+          <div class="col-md-6 mb-3">
+            <label for="mob">Mobile No.</label>
+            <input type="text" ngModel #mob="ngModel" name="mob" class="form-control" id="mob" required="required"
+              minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890" [(ngModel)]="pat.mobile" />
+
+
+            <div *ngIf="mob.touched && mob.invalid && mob.errors?.['minlength']" class="alert">
+              *Please enter a valid Mobile number
+            </div>
+            <div *ngIf="mob.touched && mob.invalid && mob.errors?.['maxlength']" class="alert">
+              *Please enter a valid Mobile number
+            </div>
+            <div *ngIf="mob.touched && mob.invalid && mob.errors?.['pattern']" class="alert">
+              *Please enter a valid Mobile number
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="dob">Date of Birth</label>
+            <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required min="01-01-1920"
+              [(ngModel)]="pat.dob" />
+
+            <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']" class="alert">
+              *Wrong DOB
+            </div>
+          </div>
+        </div>
+
+        <div class="form-check">
+          <div class="row">
             <div class="col">
-              
-              <input type="radio" ngModel #gen1="ngModel" name="gen1" class="form-check-input" id="gen1" 
-               value="Others" /> 
-               <label class="form-check-label" for="gen1">Others</label>       
-              </div> 
+              <p>Gender</p>
+            </div>
+            <div class="col">
+
+              <input type="radio" ngModel #gen1="ngModel" name="gen1" class="form-check-input" id="gen1" value="Male" />
+              <label class="form-check-label" for="gen1">Male</label>
+            </div>
+            <div class="col">
+
+              <input type="radio" ngModel #gen2="ngModel" name="gen1" class="form-check-input" id="gen1"
+                value="Female" />
+              <label class="form-check-label" for="gen1">Female</label>
+            </div>
+            <div class="col">
+
+              <input type="radio" ngModel #gen1="ngModel" name="gen1" class="form-check-input" id="gen1"
+                value="Others" />
+              <label class="form-check-label" for="gen1">Others</label>
+            </div>
+          </div>
         </div>
-      </div>
-      
-    
 
-      <div class="form-row">
-        <div class="form-group col-md-12">
-          <label for="address">Address</label>
-          <textarea class="form-control" ngModel #address="ngModel" name="address" id="address" required rows="3"
-            [(ngModel)]="pat.address"></textarea>
 
-          
-        </div>
 
-      </div><br>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="address">Address</label>
+            <textarea class="form-control" ngModel #address="ngModel" name="address" id="address" required rows="3"
+              [(ngModel)]="pat.address"></textarea>
 
-      <div class="row">
-        <div class="form-group col-md-4">
-          <label for="city">City</label>
-          <select class="form-control" ngModel #city="ngModel" name="city" id="city" required [(ngModel)]="pat.city">
-            <option>Bengaluru</option>
-            <option>Chennai</option>
-            <option>Mumbai</option>
-            <option>Kolkata</option>
-            <option>Delhi</option>
-          </select>
 
-          
+          </div>
+
         </div><br>
 
+        <div class="row">
+          <div class="form-group col-md-4">
+            <label for="city">City</label>
+            <select class="form-control" ngModel #city="ngModel" name="city" id="city" required [(ngModel)]="pat.city">
+              <option>Bengaluru</option>
+              <option>Chennai</option>
+              <option>Mumbai</option>
+              <option>Kolkata</option>
+              <option>Delhi</option>
+            </select>
 
-        <div class="form-group col-md-4">
-          <label for="country">Country</label>
-          <input class="form-control" type="text" readonly placeholder="India" />
+
+          </div><br>
+
+
+          <div class="form-group col-md-4">
+            <label for="country">Country</label>
+            <input class="form-control" type="text" readonly placeholder="India" />
+          </div>
+
+
+          <div class="form-group col-md-4">
+            <label for="postal">Postal Code</label>
+            <input type="text" class="form-control" ngModel #postal="ngModel" name="postal" id="postal" required
+              minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456" [(ngModel)]="pat.postalCode" />
+
+
+            <div *ngIf="postal.touched && postal.invalid && postal.errors?.['minlength']" class="alert">
+              *Please enter a valid Postal code
+            </div>
+            <div *ngIf="postal.touched && postal.invalid && postal.errors?.['maxlength']" class="alert">
+              *Please enter a valid Postal code
+            </div>
+            <div *ngIf="postal.touched && postal.invalid && postal.errors?.['pattern']" class="alert">
+              *Please enter a valid Postal code
+            </div>
+          </div>
+        </div> <br>
+
+        <div class="form-group row">
+          <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </div>
 
+      </form>
 
-        <div class="form-group col-md-4">
-          <label for="postal">Postal Code</label>
-          <input type="text" class="form-control" ngModel #postal="ngModel" name="postal" id="postal" required
-            minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456" [(ngModel)]="pat.postalCode" />
 
-          
-          <div *ngIf="postal.touched && postal.invalid && postal.errors?.['minlength']" class="alert">
-            *Please enter a valid Postal code
+    </div>
+
+
+
+    <img class="img1" src="assets/profile.jpg" alt='Loading profile'>
+
+
+    <div class="med">
+
+
+      <form #patform="ngForm">
+        <div class="form-group">
+          <label for="med">Medical records </label> <br>
+          <input type="file" ngModel #med="ngModel" name="med" required class="form-control-file" id="med" />
+          <div *ngIf="med.touched && med.invalid" class="alert">
+            *Please upload medical records
           </div>
-          <div *ngIf="postal.touched && postal.invalid && postal.errors?.['maxlength']" class="alert">
-            *Please enter a valid Postal code
+        </div><br>
+
+        <div class="form-group">
+          <label for="cond">Pre-existing medical condition </label> <br>
+          <div class="form-check">
+            <input class="form-check-input" ngModel #m1="ngModel" name="m1" type="checkbox" [(ngModel)]="pat.med"
+              value="" id="m1" />
+            <label class="form-check-label" for="m1">Cholestrol</label> <br>
           </div>
-          <div *ngIf="postal.touched && postal.invalid && postal.errors?.['pattern']" class="alert">
-            *Please enter a valid Postal code
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="m2">
+            <label class="form-check-label" for="m2">High Blood Pressure</label> <br>
           </div>
-        </div> 
-      </div> <br>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="m3">
+            <label class="form-check-label" for="m3">Diabetes</label> <br>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="m4">
+            <label class="form-check-label" for="m4">Asthma</label> <br>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="m5">
+            <label class="form-check-label" for="m5">Heart disease</label> <br>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="m6" (change)="takeOthers($event)">
+            <label class="form-check-label" for="m6">Others</label> <br>
+            <div *ngIf="Checked" class="">
+              <textarea class="form-control" ngModel #others="ngModel" name="others" id="others" required rows="2"
+                [(ngModel)]="otherSymp"></textarea>
+            </div>
+          </div>
 
-      <div class="form-group row">
-        <div class="col-sm-10">
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-      </div>
 
-    </form>
+        </div><br>
 
+      </form>
+
+    </div>
 
   </div>
-
-
-
-  <img class="img1" src="assets/profile.jpg" alt='Loading profile'>
-
-
-  <div class="med">
-
-
-    <form #patform="ngForm">
-      <div class="form-group">
-        <label for="med">Medical records </label> <br>
-        <input type="file" ngModel #med="ngModel" name="med" required class="form-control-file" id="med" />
-        <div *ngIf="med.touched && med.invalid" class="alert">
-          *Please upload medical records
-        </div>
-      </div><br>
-
-      <div class="form-group">
-        <label for="cond">Pre-existing medical condition </label> <br>
-        <div class="form-check">
-          <input class="form-check-input" ngModel #m1="ngModel" name="m1" type="checkbox" [(ngModel)]="pat.med" value=""
-            id="m1" />
-          <label class="form-check-label" for="m1">Cholestrol</label> <br>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="m2">
-          <label class="form-check-label" for="m2">High Blood Pressure</label> <br>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="m3">
-          <label class="form-check-label" for="m3">Diabetes</label> <br>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="m4">
-          <label class="form-check-label" for="m4">Asthma</label> <br>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="m5">
-          <label class="form-check-label" for="m5">Heart disease</label> <br>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="m6" (change)="takeOthers($event)" >
-          <label class="form-check-label" for="m6" >Others</label> <br>
-          <div *ngIf="Checked" class="">
-            <textarea class="form-control" ngModel #others="ngModel" name="others" id="others" required rows="2"
-            [(ngModel)]="otherSymp"></textarea>
-          </div>
-        </div>
-
-
-      </div><br>
-
-    </form>
-
-  </div>
-
-</div>
 </div>

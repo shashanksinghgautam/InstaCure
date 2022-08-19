@@ -42,4 +42,6 @@ public class UserConfiguration {
         rabbitTemplate.setMessageConverter(converter());
         return rabbitTemplate;
     }
+
 }
+
