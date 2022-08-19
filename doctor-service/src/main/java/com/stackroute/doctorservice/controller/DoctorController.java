@@ -31,9 +31,5 @@ public class DoctorController {
         DoctorProfile doctor = this.service.getById(id);
         return new ResponseEntity<>(doctor, HttpStatus.OK);
     }
-    @PutMapping("/update")
-     public ResponseEntity<DoctorProfile> updateDoctors(@PathVariable("DoctorId") int DoctorId, @RequestBody DoctorProfile doctors){
-        return DoctorService.updateDoctors(DoctorId,doctors);
 
-    }
 }

@@ -16,8 +16,7 @@ public class DoctorService {
     @Autowired
     private DoctorRepository repo;
 
-    public static ResponseEntity<DoctorProfile> updateDoctors(int doctorId, DoctorProfile doctors) {
-    }
+
 
     public List<DoctorProfile>  getAll() { return repo.findAll(); }
 
@@ -27,6 +26,6 @@ public class DoctorService {
         Optional<DoctorProfile> profile = repo.findById(id);
         return profile.get();
     }
-    public  DoctorProfile update
+
 
     }
