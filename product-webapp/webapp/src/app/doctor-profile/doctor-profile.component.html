@@ -1,29 +1,32 @@
 <body >
-    <span class="fullbody">
-  <div >
+    
+  <div  class="doctor style=background-color: hsla(0, 74%, 75%, 0.633);">
+    <div class="heading">
+      <h1>Doctor profile</h1>
+    </div>
 
-    <div class="row profile" style="margin-top: 2rem;">
+    <div class="row profile">
         
       <div class="col-lg-3 col-md-2 col-sm-2 col-2 image" >
         <img [src]="imglocation" alt="Still loading" width="200px" height="200px"><br>
-        <!-- <button mat-raised-button color="primary">IMAGE</button> -->
         <input type="file"  >
       </div>
-      <div class="col-lg-8 col-md-8 col-sm-8 col-8" style="background-color: #f7f7f7 ;  ">
+      <div class="col-lg-8 col-md-8 col-sm-8 col-8"  >
         <!-- Doctor Profile -->
         <!-- 1st row start -->
         <div class="row">
-          <div class="col-lg-6"> <label for="validationCustom01" class="labels">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-            <div class="valid-feedback">
-              Looks good!
+          <div class="col-lg-6">
+             <label for="fname" class="labels">First name</label>
+            <input type="text" ngModel #fname="ngModel" class="form-control" id="fname" name="fname"  required="required">
+            <div *ngIf="fname.touched && fname.invalid " class="alert">
+              *Please enter your first name.
             </div>
           </div>
           <div class="col-lg-6">
-            <label for="validationCustom01" class="labels">First name</label>
-            <input type="text" class="form-control" id="validationCustom01" value="Mark" required>
-            <div class="valid-feedback">
-              Looks good!
+            <label for="lname" class="labels">Last name</label>
+            <input type="text" ngModel #lname="ngModel" name="lname" class="form-control" id="lname"  required="required">
+            <div *ngIf="lname.touched && lname.invalid " class="alert">
+              *Please enter your last name.
             </div>
 
           </div>
@@ -32,38 +35,39 @@
         <!-- 2nd row start -->
         <div class="row">
           <div class="col-lg-5">
-            <label for="validationCustom04" class="labels">Gender</label>
-            <select class="form-select" id="validationCustom04" required>
+            <label for="gender" class="labels">Gender</label>
+            <select class="form-select" id="gender"  required>
               <option selected disabled value="">Choose...</option>
               <option> MALE </option>
               <option> FEMALE </option>
               <option> OTHER </option>
             </select>
-            <div class="invalid-feedback">
-              Please choose from given option.
-            </div>
           </div>
           <div class="col-lg-1">
           </div>
+          <!-- dob validation not working -->
           <div class="col-lg-6">
             <label for="dob">Date of Birth</label>
-          <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required min="01-01-1920"
-           />
-          <!-- <div *ngIf="dob.touched && dob.invalid && dob.errors?.['required']" class="alert alert-danger">
+          <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required="required" min="01-01-2020"/>
+           <div *ngIf="dob.touched && dob.invalid " class="alert">
             *Date of Birth is required
           </div>
-          <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']" class="alert alert-danger">
+          <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']" class="alert">
             *Wrong DOB
-          </div> -->
+          </div> 
           </div>
         </div>
         <!-- 2nd row end -->
         <!-- 3rd row start -->
         <div class="row">
           <div class="col-lg-6">
-            <label for="exampleInputEmail1" class="labels">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            <label for="email" class="labels">Email address</label>
+            <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control"
+            required="required" placeholder="name@example.com">
+            <div *ngIf="email.touched && email.invalid " class="alert">
+              *Please enter your email.
+            </div>
+
           </div>
         </div>
         <!-- 3rd row end -->
@@ -127,7 +131,7 @@
  <!-- 2nd table start -->
 <div class="row profile" style="margin-top: 1rem;">
     <div class="col-lg-3 col-md-2 col-sm-2 col-2"></div>
-    <div class="col-lg-8 col-md-8 col-sm-8 col-8" style="background-color:#f7f7f7 ; color: black; ">
+    <div class="col-lg-8 col-md-8 col-sm-8 col-8"  >
       <div class="row">
         <div class="col-lg-6"> <label for="Education" class="labels">Education Qualification </label>
           <input type="text" class="form-control" id="Education" required>
@@ -192,12 +196,12 @@
         <div class="row" style="margin-top: 1rem;" >
             <div class="col-lg-10 col-md-2 col-sm-2 col-2"></div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                <button mat-raised-button color="primary">SUBMIT</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div> 
     </div>
     <div class="col-lg-1 col-md-2 col-sm-2 col-2"></div>
 </div>
-</span>
+
 <!-- <button mat-raised-button color="primary">EDIT</button> -->
 </body>

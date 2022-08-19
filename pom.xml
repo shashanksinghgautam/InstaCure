@@ -30,7 +30,9 @@
         <module>register-service</module>
         <module>medicine-service</module>
         <module>patient-service</module>
+        <module>volunteer-service</module>
         <module>doctor-service</module>
+
     </modules>
 
     <dependencies>
