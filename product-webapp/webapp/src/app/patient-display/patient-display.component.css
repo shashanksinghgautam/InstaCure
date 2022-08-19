@@ -1,4 +1,9 @@
-.container1{
+section{
+  padding-top: 50px;
+  height: 93.5vh;
+  overflow: hidden;
+}
+/* .container1{
     width:80%;
     height: 700px;
     background: linear-gradient(to bottom, #ee7724, #d8363a, #dd3675,  #ee7724);
@@ -66,5 +71,5 @@
     width:250px;
     height: 250px;
     margin-left: 20px;
-    margin-top: 30px;    
-}
+    margin-top: 30px;
+} */

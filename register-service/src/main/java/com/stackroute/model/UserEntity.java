@@ -1,7 +1,9 @@
 package com.stackroute.model;
 
+import lombok.Data;
 import javax.persistence.*;
 
+@Data
 @Entity
 @Table (name = "userDetails")
 public class UserEntity {
