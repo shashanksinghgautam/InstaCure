@@ -1,15 +1,11 @@
-package com.stackroute.model;
+package com.stackroute.volunteer.template;
 
 import lombok.Data;
-import javax.persistence.*;
 
 @Data
-@Entity
-@Table (name = "userDetails")
+
 public class UserEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String uname;
     private String password;
