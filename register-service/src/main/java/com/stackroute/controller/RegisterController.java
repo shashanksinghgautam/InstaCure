@@ -1,10 +1,13 @@
 package com.stackroute.controller;
 
 
+import java.util.Optional;
+
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 
 import com.stackroute.model.UserEntity;
 import com.stackroute.rabbitMQconfig.UserConfiguration;
+import com.stackroute.repository.RegisterRepository;
 import com.stackroute.service.RegisterService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
@@ -13,11 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.model.UserEntity;
 import com.stackroute.rabbitMQconfig.UserConfiguration;
@@ -33,7 +31,9 @@ import com.stackroute.service.RegisterService;
 
         @Autowired
         private RegisterService registerService;
-
+        
+        @Autowired
+        private RegisterRepository repo;
       
 
         @PostMapping("register")
@@ -80,12 +80,50 @@ import com.stackroute.service.RegisterService;
             UserEntity tempUser=null;
             if(tempEmail!=null && tempPass!=null && tempRole!=null) {
                 tempUser=registerService.getByEmailAndPasswordAndRole(tempEmail,tempPass,tempRole);
+//                System.out.println(tempUser.getId());
             }
             if(tempUser==null){
                 throw new Exception("User Doesn't Exist");
             }
+            template.convertAndSend(UserConfiguration.EXCHANGE,UserConfiguration.ROUTING_KEY, tempUser);
             return new ResponseEntity<UserEntity>(tempUser, HttpStatus.OK);
         }
+        
+        @PostMapping("user")
+        public int getuserid(@RequestBody UserEntity user) throws Exception {
+
+            String tempEmail= user.getEmail(), tempPass= user.getPassword(), tempRole=user.getRole();
+
+            UserEntity tempUser=null;
+            if(tempEmail!=null && tempPass!=null && tempRole!=null) {
+                tempUser=registerService.getByEmailAndPasswordAndRole(tempEmail,tempPass,tempRole);
+//                System.out.println(tempUser.getId());
+            }
+            if(tempUser==null){
+                throw new Exception("User Doesn't Exist");
+            }
+            return tempUser.getId();
+        }
+
+      
+        
+        
+        @PostMapping("role")
+        public String getuserrole(@RequestBody UserEntity user) throws Exception {
+
+            String tempEmail= user.getEmail(), tempPass= user.getPassword(), tempRole=user.getRole();
+
+            UserEntity tempUser=null;
+            if(tempEmail!=null && tempPass!=null && tempRole!=null) {
+                tempUser=registerService.getByEmailAndPasswordAndRole(tempEmail,tempPass,tempRole);
+//                System.out.println(tempUser.getId());
+            }
+            if(tempUser==null){
+                throw new Exception("User Doesn't Exist");
+            }
+            return tempUser.getRole();
+        }
+
 
     }
 

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Volunteer } from '../volunteer';
 import { VolunteerService } from '../volunteer.service';
+import { User } from 'src/app/user';
 @Component({
   selector: 'app-volunteer-display',
   templateUrl: './volunteer-display.component.html',
@@ -11,7 +12,7 @@ import { VolunteerService } from '../volunteer.service';
 export class VolunteerDisplayComponent implements OnInit {
 
   searchText: string = '';
-  Volunteers!: Observable<Volunteer[]>;
+  Volunteers: any[]=[];
   volunteer: Volunteer = new Volunteer();
 
   constructor(
@@ -24,7 +25,12 @@ export class VolunteerDisplayComponent implements OnInit {
   }
 
   reloadData() {
-    this.Volunteers = this.VolunteerService.getVolunteers();
+     this.VolunteerService.getVolunteers().subscribe(
+      data=>{
+        this.Volunteers=data;
+        console.log(this.Volunteers[0].user)
+      }
+    );
   }
   UpdateProfile(id: number):void{
    

@@ -1,6 +1,6 @@
 
 
-  <div class="container" *ngFor="let Volunteer of Volunteers |async" >
+  <div class="container" *ngFor="let Volunteer of Volunteers " >
 
     
 
@@ -10,7 +10,7 @@
                 <tr>
                     <th>Name</th>
                     <td width="50px" style="text-align: center"> : </td>
-                    <td>{{Volunteer.vname}}</td>
+                    <td>{{Volunteer.user.uname}}</td>
                   </tr>
                   <tr>
                     <th>Mobile NO</th>
