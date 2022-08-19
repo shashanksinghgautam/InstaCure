@@ -10,6 +10,7 @@ import { VolunteerComponent } from './medicine/volunteer/volunteer.component';
 import { RegisterComponentComponent } from './register-component/register-component.component';
 import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'add', component: AddnewComponent },
   { path: 'update/:id', component: UpdateComponent },
   {path:'update-volunteer/:id',component:VolunteerProfileComponent},
-  { path: 'consultation/patient', component:PatientComponent }
+  { path: 'consultation/patient', component:PatientComponent },
+  { path: 'DoctorProfileComponent', component:DoctorProfileComponent}
 ];
 
 @NgModule({
