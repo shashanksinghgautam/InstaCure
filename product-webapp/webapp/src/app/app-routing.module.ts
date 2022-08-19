@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PatientComponent } from './consultation/patient/patient.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
-import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponentComponent } from './login-component/login-component.component';
 import { medicineComponent } from './medicine/medicine.component';
@@ -14,6 +13,8 @@ import { PatientDisplayComponent } from './patient-display/patient-display.compo
 import { RegisterComponentComponent } from './register-component/register-component.component';
 import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
@@ -27,10 +28,14 @@ const routes: Routes = [
   { path: 'update/:id', component: UpdateComponent },
   {path:'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
+
+  { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
+
   {path:'patient-component', component:PatientComponentComponent},
   {path:'patient-display', component:PatientDisplayComponent},
   {path:'doctor-display', component:DoctorDisplayComponent},
   {path:'doctor-profile', component:DoctorProfileComponent}
+
 ];
 
 @NgModule({
