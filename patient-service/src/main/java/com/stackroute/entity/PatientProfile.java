@@ -6,7 +6,7 @@ import javax.persistence.Column;
 
 import javax.persistence.Id;
 
-@Document("patientprofile")
+@Document("PatientProfile")
 public class PatientProfile {
     @Id
     @Column(name = "id", nullable = false)

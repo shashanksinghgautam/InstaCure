@@ -13,7 +13,7 @@ export class DoctorProfileComponent implements OnInit {
 
   // @ViewChild("patform") public formref!: NgForm;
  
-imglocation='./assets/PicDoctor.jpg'
+imglocation='assets/profile.jpg'
   constructor() { }
 
   ngOnInit(): void {
