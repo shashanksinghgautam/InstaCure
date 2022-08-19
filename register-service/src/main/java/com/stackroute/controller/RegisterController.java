@@ -1,7 +1,9 @@
 package com.stackroute.controller;
 
 import com.stackroute.model.UserEntity;
+import com.stackroute.rabbitMQconfig.UserConfiguration;
 import com.stackroute.service.RegisterService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +16,8 @@ import org.springframework.http.HttpStatus;
 
         @Autowired
         private RegisterService registerService;
-
+        @Autowired
+        private RabbitTemplate template;
         @PostMapping("register")
         public ResponseEntity<UserEntity> register(@RequestBody UserEntity newUser) throws Exception {
 
@@ -38,6 +41,7 @@ import org.springframework.http.HttpStatus;
 
             // If not present then storing it in Db.
             UserEntity user = this.registerService.saveUser(newUser);
+            template.convertAndSend(UserConfiguration.EXCHANGE,UserConfiguration.ROUTING_KEY, user);
             return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
         }
         @PostMapping("login")

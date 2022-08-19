@@ -39,9 +39,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     PatientComponentComponent,
     AddnewComponent,
     SearchPipe,
-
     VolunteerDisplayComponent,
-
     DoctorProfileComponent,
     PatientDisplayComponent,
     DoctorDisplayComponent

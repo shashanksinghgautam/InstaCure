@@ -14,8 +14,8 @@ export class PatientDisplayComponent implements OnInit {
   }
 
   UpdateProfile():void{
-    const navigationDetails: string[] = ['/patient-component'];
-    this.router.navigate(navigationDetails);
+
+    this.router.navigate(['./patient-component']);
   }
 
 }

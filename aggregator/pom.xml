@@ -52,6 +52,11 @@
 			<artifactId>patient-service</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		<dependency>
+			<groupId>com.stackroute</groupId>
+			<artifactId>volunteer-service</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 
 	<build>
