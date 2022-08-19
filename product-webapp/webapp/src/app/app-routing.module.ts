@@ -17,10 +17,10 @@ import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
-  { path: 'home', component: HomeComponent },
+  { path: 'home/:role/:id', component: HomeComponent },
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
-  {path:  'volunteer-display', component: VolunteerDisplayComponent},
+  {path:  'volunteer-display/:id', component: VolunteerDisplayComponent},
   { path: 'medicine', component: medicineComponent },
   { path: 'medicine-volunteer', component: VolunteerComponent },
   { path: 'add', component: AddnewComponent },

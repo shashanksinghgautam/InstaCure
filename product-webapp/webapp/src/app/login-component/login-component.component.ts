@@ -1,32 +1,43 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Injectable, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
+import { globalid } from 'src/global-variable';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login-component.component.html',
   styleUrls: ['./login-component.component.css']
 })
-export class LoginComponentComponent implements OnInit {
 
+export class LoginComponentComponent implements OnInit {
+   lid!:any
    user=new User();
    errorMsg=''
    emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
 
   @ViewChild("myform") public formref!: NgForm;
-  constructor(private router:Router , private service:RegistrationService) {
+  constructor(private router:Router , private service:RegistrationService ) {
 
    }
 
   ngOnInit(): void {
   }
 
-   loginUser(){
+   loginUser(role:string){
+        this.service.getuserid(this.user).subscribe(
+          data=>{
+            this.lid=data;
+            console.log(this.lid)
+            
+          }
+        )
+        
         this.service.loginUserFromRemote(this.user).subscribe(
           data=>{console.log("Login Success");
-          this.router.navigate(['/home'])
+          console.log(role);
+          this.router.navigate(['/home',role,this.lid])
         },
           error=>{console.log("FAILED");
           this.errorMsg= "*Invalid Email or Password or Role"
