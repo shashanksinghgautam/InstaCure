@@ -5,13 +5,13 @@ import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
 @Component({
-  selector: 'app-landingpage',
-  templateUrl: './landingpage.component.html',
-  styleUrls: ['./landingpage.component.css']
+  selector: 'app-navBar',
+  templateUrl: './navBarcomponent.html',
+  styleUrls: ['./navBar.component.css']
 })
-export class LandingpageComponent implements OnInit {
+export class NavBarComponent implements OnInit {
 
-  
+
 
   ngOnInit(): void {
   }
@@ -19,7 +19,7 @@ export class LandingpageComponent implements OnInit {
   role!:String
   user=new User();
   title = 'Webapp';
-  
+
   constructor(private route: ActivatedRoute,private router: Router,
     private rservice: RegistrationService , private loger:LoginComponentComponent ) { }
 
@@ -29,7 +29,7 @@ export class LandingpageComponent implements OnInit {
     this.route.params.subscribe((params: Params) => { this.appid = params['lid'];});
     console.log(this.appid)
   this.router.navigate(['volunteer-display',this.appid])
-    
+
   }
 
 }

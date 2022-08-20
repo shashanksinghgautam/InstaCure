@@ -2,7 +2,6 @@ package com.stackroute.controller;
 
 import com.stackroute.consumerRabbitMq.ProfileConsumer;
 import com.stackroute.entity.PatientProfile;
-import com.stackroute.repository.PatientRepository;
 import com.stackroute.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +28,7 @@ public class PatientController {
             PatientProfile user = this.service.addNew(patient);
             return new ResponseEntity<>(user, HttpStatus.OK);
         }
-        else return new ResponseEntity<>("Role and Profile not match", HttpStatus.BAD_REQ3UEST);
+        else return new ResponseEntity<>("Role and Profile not match", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/get")
