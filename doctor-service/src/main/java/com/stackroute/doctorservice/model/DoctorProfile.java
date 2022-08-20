@@ -12,10 +12,10 @@ public class DoctorProfile {
     @Column(name = "id", nullable = false)
     private int id;
 
-    private String name;
+
     private String gender;
-    private String email;
-    private long mobile;
+
+
     private String address;
     private String dob;
     private String city;
@@ -24,7 +24,7 @@ public class DoctorProfile {
     private String educationqualification;
     private String speciality;
     private String yearofexpertise;
-    private String schedule;
-    private int consultationfee;
+
+
 
 }

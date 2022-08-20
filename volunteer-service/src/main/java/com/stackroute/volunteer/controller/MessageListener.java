@@ -28,7 +28,7 @@ public class MessageListener {
     	
     	System.out.println(newUser.getUname());
 //    	System.out.println(newUser.getId());
-//    	Volunteer.setVid(newUser.getId());
+    	Volunteer.setVid(newUser.getId());
 //    	Volunteer.setVmobile(newUser.getMobile());
 //    	Volunteer.setVname(newUser.getUname());
 //    	Volunteer.setvemail(newUser.getEmail()); 

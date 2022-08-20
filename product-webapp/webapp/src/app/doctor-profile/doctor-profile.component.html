@@ -5,38 +5,20 @@
       <h1>Doctor profile</h1>
     </div>
 
-    <div class="row profile">
-        
+    <form #docform="ngForm" (ngSubmit)="validate()">
+    <div class="row profile">  
       <div class="col-lg-3 col-md-2 col-sm-2 col-2 image" >
         <img [src]="imglocation" alt="Still loading" width="200px" height="200px"><br>
-        <input type="file"  >
+        <label for="image"></label>
+        <input type="file"  ngModel #image="ngModel" class="form-control-file" id="image" name="image" required="required" >
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-8"  >
         <!-- Doctor Profile -->
         <!-- 1st row start -->
         <div class="row">
-          <div class="col-lg-6">
-             <label for="fname" class="labels">First name</label>
-            <input type="text" ngModel #fname="ngModel" class="form-control" id="fname" name="fname"  required="required">
-            <div *ngIf="fname.touched && fname.invalid " class="alert">
-              *Please enter your first name.
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <label for="lname" class="labels">Last name</label>
-            <input type="text" ngModel #lname="ngModel" name="lname" class="form-control" id="lname"  required="required">
-            <div *ngIf="lname.touched && lname.invalid " class="alert">
-              *Please enter your last name.
-            </div>
-
-          </div>
-        </div>
-        <!-- 1st row end -->
-        <!-- 2nd row start -->
-        <div class="row">
           <div class="col-lg-5">
             <label for="gender" class="labels">Gender</label>
-            <select class="form-select" id="gender"  required>
+            <select class="form-control" ngModel #gender="ngModel" id="gender" name="gender"  required [(ngModel)]="doc.gender">
               <option selected disabled value="">Choose...</option>
               <option> MALE </option>
               <option> FEMALE </option>
@@ -48,7 +30,7 @@
           <!-- dob validation not working -->
           <div class="col-lg-6">
             <label for="dob">Date of Birth</label>
-          <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required="required" min="01-01-2020"/>
+          <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required="required" min="01-01-2020" [(ngModel)]="doc.dob" />
            <div *ngIf="dob.touched && dob.invalid " class="alert">
             *Date of Birth is required
           </div>
@@ -57,37 +39,31 @@
           </div> 
           </div>
         </div>
+        <!-- 1st row end -->
+        <!-- 2nd row start -->
+        <div class="row">
+          <div class="col-lg-8">
+            <label for="address" class="labels">Address</label>
+            <input type="text" ngModel #address="ngModel" class="form-control" id="address"  name="address" placeholder="1234 Main St" required="required" [(ngModel)]="doc.address" >
+            <div *ngIf="address.touched && address.invalid" class="alert">
+              *Please enter your address
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <label for="city" class="labels">City</label>
+            <input type="text" ngModel #city="ngModel" class="form-control" id="city" name="city" required="required" [(ngModel)]="doc.city"  >
+            <div *ngIf="city.touched && city.invalid" class="alert">
+              *Please enter your city name
+            </div>
+          </div>
+
+        </div>
         <!-- 2nd row end -->
         <!-- 3rd row start -->
         <div class="row">
-          <div class="col-lg-6">
-            <label for="email" class="labels">Email address</label>
-            <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control"
-            required="required" placeholder="name@example.com">
-            <div *ngIf="email.touched && email.invalid " class="alert">
-              *Please enter your email.
-            </div>
-
-          </div>
-        </div>
-        <!-- 3rd row end -->
-        <!-- 4th row start -->
-        <div class="row">
-          <div class="col-lg-12">
-            <label for="inputAddress" class="labels">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-          </div>
-        </div>
-        <!-- 4th row end -->
-        <!-- 5th row start -->
-        <div class="row">
-          <div class="col-lg-6">
-            <label for="inputCity" class="labels">City</label>
-            <input type="text" class="form-control" id="inputCity">
-          </div>
-          <div class="col-md-4">
-            <label for="inputState" class="labels">State</label>
-            <select id="inputState" class="form-select">
+          <div class="col-md-6">
+            <label for="state" class="labels">State</label>
+            <select id="state" class="form-control"ngModel #state="ngModel" name="state" required  [(ngModel)]="doc.state" >
               <option selected>Choose...</option>
               <option>Andhra Pradesh</option>
               <option>Arunachal Pradesh</option>
@@ -119,77 +95,72 @@
               <option>West Bengal </option>
             </select>
           </div>
-          <div class="col-md-2">
-            <label for="inputZip" class="labels">postal code</label>
-            <input type="text" class="form-control" id="inputZip">
+          <div class="col-md-3">
+            <label for="postal" class="labels">postal code</label>
+            <input type="text" ngModel #postal="ngModel" class="form-control" id="postal" name="postal" required="required" [(ngModel)]="doc.postalCode">
+            <div *ngIf="postal.touched && postal.invalid" class="alert">
+              *Please enter your postal code.
+            </div>
+          </div>
+          <div class="form-group col-md-3">
+            <label for="country">Country</label>
+            <input type="text" class="form-control" readonly placeholder="India"  />
           </div>
         </div>
-        
+        <!-- 3rd row end --> 
       </div>
       <div class="col-lg-1 col-md-2 col-sm-2 col-2"></div>
     </div>
+<!-- 1st table end -->
  <!-- 2nd table start -->
 <div class="row profile" style="margin-top: 1rem;">
     <div class="col-lg-3 col-md-2 col-sm-2 col-2"></div>
     <div class="col-lg-8 col-md-8 col-sm-8 col-8"  >
       <div class="row">
-        <div class="col-lg-6"> <label for="Education" class="labels">Education Qualification </label>
-          <input type="text" class="form-control" id="Education" required>
-          <div class="valid-feedback">
-            Looks good!
+        <div class="col-lg-6"> 
+          <label for="education" class="labels">Education Qualification </label>
+          <input type="text" ngModel #education="ngModel" class="form-control" id="education" name="education" required="required" [(ngModel)]="doc.educationQualifiaction">
+          <div *ngIf="education.touched && education.invalid" class="alert">
+            *Please enter your Educational detail.
           </div>
         </div>
         <div class="col-lg-4">
           <label for="speciality" class="labels">Speciality </label>
-          <input type="text" class="form-control" id="speciality" required>
-          <div class="valid-feedback">
-            Looks good!
+          <input type="text" ngModel #speciality="ngModel" class="form-control" id="speciality" name="speciality" required="required" [(ngModel)]="doc.speciality">
+          <div *ngIf="speciality.touched && speciality.invalid" class="alert">
+            *Please enter your Speciality detail.
           </div>
-
         </div>
       </div>
-      <!-- 6th row end -->
-      <!-- 7th row start -->
+      <!-- 4tth row end -->
+      <!-- 5th row start -->
       <div class="row">
         <div class="col-lg-4">
-          <label for="year of expertise" class="labels">Year of Expertise </label>
-          <input type="text" class="form-control" id="year of expertise" required>
-          <div class="valid-feedback">
-            Looks good!
+          <label for="expertise" class="labels">Year of Expertise </label>
+          <input type="text" ngModel #expertise="ngModel" class="form-control" id="expertise" name="expertise" required="required" [(ngModel)]="doc.yearOfExpertise">
+          <div *ngIf="expertise.touched && expertise.invalid" class="alert">
+            *Please enter year of expertise.
           </div>
         </div>
         <div class="col-lg-1">
-        </div>
-
-        <div class="col-lg-4">
-          <label for="schedule" class="labels">Schedule </label>
-          <input type="text" class="form-control" id="schedule" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        <div class="col-lg-1">
-        </div>
-        <div class="col-lg-2">
-          <label for="consultation fee" class="labels">Consultation Fee </label>
-          <input type="text" class="form-control" id="consultation fee" required>
-          <div class="valid-feedback">
-            Looks good!
-          </div>
         </div>
       </div>
-      <!-- 7th row end -->
-      <!-- 8th row start -->
+      <!-- 5th row end -->
+      <!-- 6th row start -->
+        <!-- REQUIRED VALIDATION FOR DOCUMENT -->
+        <!-- REQUIRED VALIDATION FOR DOCUMENT -->
       <div class="row">
         <div class="col-log-6">
             <label for="document" class="labels">Doctor licence</label><br>
-            <input type="file"  >
+            <input type="file" ngModel #document="ngModel" class="form-control-file" id="document" name="document" required="required" >
+            <div *ngIf="document.touched && document.invalid" class="alert">
+              *Please upload your licence.
+            </div>
         </div>
       </div>
     </div>
     <div class="col-lg-1 col-md-2 col-sm-2 col-2"></div>
   </div>
-</div>
 <div class="row profile">
     <div class="col-lg-3 col-md-2 col-sm-2 col-2"></div>
     <div class="col-lg-8 col-md-2 col-sm-2 col-2">
@@ -202,6 +173,6 @@
     </div>
     <div class="col-lg-1 col-md-2 col-sm-2 col-2"></div>
 </div>
-
-<!-- <button mat-raised-button color="primary">EDIT</button> -->
+</form>
+</div>
 </body>
