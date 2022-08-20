@@ -1,5 +1,6 @@
 package com.stackroute.controller;
 
+import com.stackroute.consumerRabbitMq.ProfileConsumer;
 import com.stackroute.entity.PatientProfile;
 import com.stackroute.repository.PatientRepository;
 import com.stackroute.service.PatientService;
@@ -16,11 +17,19 @@ import java.util.List;
 public class PatientController {
     @Autowired
     private PatientService service;
+    @Autowired
+    ProfileConsumer consumer;
 
     @PostMapping("/add")
-    public ResponseEntity<PatientProfile> addDetails(@RequestBody PatientProfile patient) {
-        PatientProfile user = this.service.addNew(patient);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<?> addDetails(@RequestBody PatientProfile patient) {
+
+        if(consumer.returnUserToProfile().getRole().equals("Patient")) {
+            patient.setUser(consumer.returnUserToProfile());
+            patient.setId(consumer.returnUserToProfile().getId());
+            PatientProfile user = this.service.addNew(patient);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }
+        else return new ResponseEntity<>("Role and Profile not match", HttpStatus.BAD_REQ3UEST);
     }
 
     @GetMapping("/get")
