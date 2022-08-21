@@ -14,11 +14,12 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { LandingpageComponent } from './landingpage/landingpage.component';
 
 
 const routes: Routes = [
   {path:'',redirectTo:'home',pathMatch:'full'},
-  { path: 'home/:role/:id', component: HomeComponent },
+  { path: 'home/:role/:id', component: LandingpageComponent },
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
   {path:  'volunteer-display/:id', component: VolunteerDisplayComponent},
