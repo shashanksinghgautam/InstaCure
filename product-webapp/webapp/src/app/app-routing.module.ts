@@ -17,24 +17,29 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'home',pathMatch:'full'},
-  { path: 'home', component: HomeComponent },
+  { path: '',redirectTo:'navBar',pathMatch:'full'},
+  { path: 'home/:role/:id', component: HomeComponent },
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
-  {path:  'volunteer-display', component: VolunteerDisplayComponent},
+  { path: 'volunteer-display/:id', component: VolunteerDisplayComponent},
   { path: 'medicine', component: medicineComponent },
   { path: 'medicine-volunteer', component: VolunteerComponent },
   { path: 'add', component: AddnewComponent },
   { path: 'update/:id', component: UpdateComponent },
-  {path:'update-volunteer/:id',component:VolunteerProfileComponent},
+  { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
-
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
 
   {path:'patient-component', component:PatientComponentComponent},
   {path:'patient-display', component:PatientDisplayComponent},
   {path:'doctor-display', component:DoctorDisplayComponent},
   {path:'doctor-profile', component:DoctorProfileComponent}
+  { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
+  { path: 'patient-component', component:PatientComponentComponent},
+  { path: 'patient-display', component:PatientDisplayComponent},
+  { path: 'doctor-display', component:DoctorDisplayComponent},
+  { path: 'doctor-profile', component:DoctorProfileComponent}
+
 
 ];
 

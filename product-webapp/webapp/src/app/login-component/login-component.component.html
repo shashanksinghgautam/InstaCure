@@ -12,7 +12,7 @@
                   <h4 class="mt-1 mb-5 pb-1"></h4>
                 </div>
 
-                <form #myform="ngForm" (ngSubmit)="loginUser()">
+                <form #myform="ngForm" (ngSubmit)="loginUser(user.role)">
                   <div class="d-flex flex-row align-items-center mb-4">
 
                     <div class="form-outline flex-fill mb-0">
