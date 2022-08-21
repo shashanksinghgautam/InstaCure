@@ -29,7 +29,7 @@ const routes: Routes = [
   {path:'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
 
-  { path: 'DoctorProfileComponent', component:DoctorProfileComponent}
+  { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
 
   {path:'patient-component', component:PatientComponentComponent},
   {path:'patient-display', component:PatientDisplayComponent},
