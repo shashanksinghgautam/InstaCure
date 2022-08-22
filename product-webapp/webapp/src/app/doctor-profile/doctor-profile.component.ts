@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
+import { data } from 'jquery';
 import {Doctor} from './Doctor';
+import { DoctorProfileService } from './doctor-profile.service';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -9,14 +11,22 @@ import {Doctor} from './Doctor';
   styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
+  docObject:Doctor=new Doctor();
   imglocation='assets/profile.jpg'
   doc= new Doctor();
   @ViewChild("docform") public formref!: NgForm;
- constructor(private router:Router) { }
+ constructor(private router:Router, private doctorService:DoctorProfileService) {
+
+  }
 
   ngOnInit(): void {
   }
   validate() {
+    this.doctorService.addDoctor(this.doc).subscribe(data=>{
+      console.log ("method success")
+        
+     
+    })
     console.log(
       'success' +
         ' ' +
@@ -39,9 +49,12 @@ export class DoctorProfileComponent implements OnInit {
         this.doc.yearOfExpertise
     ); //ref.email.value +"  "+ ref.mob.value);
     //this.router.navigateByUrl('dashboard')
+    
   }
   
-  
+ 
+
+ 
 
   
 
