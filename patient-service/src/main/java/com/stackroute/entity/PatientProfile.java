@@ -1,6 +1,8 @@
 package com.stackroute.entity;
 
+import com.stackroute.consumerRabbitMq.ProfileConsumer;
 import org.bson.types.Binary;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Column;
@@ -13,15 +15,15 @@ public class PatientProfile {
     private int id;
     private String address;
     private String dob;
+    private String gender;
     private String city;
     private int postalCode;
     private Binary image;
     private UserEntity user;
-
     public PatientProfile() {
     }
 
-    public PatientProfile(int id, String address, String dob, String city, int postalCode, Binary image, UserEntity user) {
+    public PatientProfile(int id, String gender, String address, String dob, String city, int postalCode, Binary image, UserEntity user) {
         this.id = id;
         this.address = address;
         this.dob = dob;
@@ -29,6 +31,7 @@ public class PatientProfile {
         this.postalCode = postalCode;
         this.image = image;
         this.user = user;
+        this.gender=gender;
     }
 
     public int getId() {
@@ -85,5 +88,13 @@ public class PatientProfile {
 
     public void setUser(UserEntity user) {
         this.user = user;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

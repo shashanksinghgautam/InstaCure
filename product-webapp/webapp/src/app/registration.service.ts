@@ -11,7 +11,7 @@ export class RegistrationService {
   constructor(private http:HttpClient) { }
 
   public loginUserFromRemote(user:User):Observable<any>{
-     return this.http.post("http://localhost:8079/login",user);
+     return this.http.post("http://localhost:8080/login",user);
   }
   public getuserid(user:User):Observable<any>{
     return this.http.post("http://localhost:8079/user",user);
@@ -21,6 +21,6 @@ export class RegistrationService {
 }
 
   public registerUserFromRemote(user:User):Observable<any>{
-    return this.http.post("http://localhost:8079/register",user);
+    return this.http.post("http://localhost:8080/register",user);
  }
 }

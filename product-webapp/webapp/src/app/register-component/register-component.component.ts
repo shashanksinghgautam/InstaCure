@@ -14,6 +14,7 @@ export class RegisterComponentComponent implements OnInit {
   flag: any
   errorMsg=''
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
+  moblength:number=10;
 
   constructor(private router: Router, private service: RegistrationService) {
 
@@ -23,6 +24,7 @@ export class RegisterComponentComponent implements OnInit {
   registerUser() {
     this.service.registerUserFromRemote(this.user).subscribe(
       data=>{console.log("Login Success");
+
           this.router.navigate(['/login-component'])
     },
           error=>{console.log("FAILED");

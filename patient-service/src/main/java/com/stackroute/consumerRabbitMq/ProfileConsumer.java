@@ -12,11 +12,10 @@ public class ProfileConsumer {
     @RabbitListener(queues = "user_queue")
     public void getUserFromQueue(UserEntity user) {
         this.User = user;
-        System.out.println(user);
+        System.out.println(user.toString());
     }
 
     public UserEntity returnUserToProfile() {
-
         return User;
     }
 
