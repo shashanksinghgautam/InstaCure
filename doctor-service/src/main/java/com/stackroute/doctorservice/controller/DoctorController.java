@@ -22,10 +22,10 @@ public class DoctorController {
     @PostMapping("/add")
     public ResponseEntity<?> addDetails(@RequestBody DoctorProfile doctor) {
         if(pc.returnUserToProfile().getRole().equals("Doctor")) {
-        	DoctorProfile doc = new DoctorProfile();
-            doc.setUser(pc.returnUserToProfile());
-            doc.setId(pc.returnUserToProfile().getId());
-            DoctorProfile user = this.service.addNew(doc);
+        	//DoctorProfile doc = new DoctorProfile();
+            doctor.setUser(pc.returnUserToProfile());
+            doctor.setId(pc.returnUserToProfile().getId());
+            DoctorProfile user = this.service.addNew(doctor);
             
             return new ResponseEntity<>(user, HttpStatus.OK);
         }
