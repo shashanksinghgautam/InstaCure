@@ -15,30 +15,34 @@ private int vid;
 
 private UserEntity user;
 
-private String Vname;
-private long vmobile;
+
 private String city;
 private String state;
 private String address;
 private int zipcode;
-private String vemail;
 
-public Volunteer(int vid, String vname, long vmobile, String city, String state, String address, int zipcode ,String vemail) {
+
+public Volunteer(int vid, String city, String state, String address, int zipcode ) {
 	super();
 	this.vid = vid;
-	Vname = vname;
-	this.vmobile = vmobile;
+
 	this.city = city;
 	this.state = state;
 	this.address = address;
 	this.zipcode = zipcode;
-	this.vemail = vemail;
+	
 }
 public UserEntity getUser() {
 	return user;
 }
 public void setUser(UserEntity user) {
 	this.user = user;
+}
+public void setmobile(long mbo) {
+	this.user.setMobile(mbo);
+}
+public long getmobile() {
+	return this.user.getMobile();
 }
 public int getVid() {
 	return vid;
@@ -51,25 +55,10 @@ public Volunteer() {
 	super();
 	
 }
-public String getVname() {
-	return Vname;
-}
-public void setVname(String vname) {
-	Vname = vname;
-}
-public String getvemail() {
-	return vemail;
-}
-public void setvemail(String vemail) {
-	vemail = vemail;
-}
 
-public long getVmobile() {
-	return vmobile;
-}
-public void setVmobile(long vmobile) {
-	this.vmobile = vmobile;
-}
+
+
+
 public String getCity() {
 	return city;
 }

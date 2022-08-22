@@ -1,12 +1,11 @@
 
 
   <div class="container" *ngFor="let Volunteer of Volunteers " >
-
     
 
     <div class="content1" >
         <table >
-            <tbody>
+            <tbody >
                 <tr>
                     <th>Name</th>
                     <td width="50px" style="text-align: center"> : </td>
@@ -15,7 +14,7 @@
                   <tr>
                     <th>Mobile NO</th>
                     <td width="50px" style="text-align: center"> : </td>
-                    <td>{{Volunteer.vmobile}}</td>
+                    <td>{{Volunteer.user.mobile}}</td>
                   </tr>
                   <tr>
                     <th>Gender</th>

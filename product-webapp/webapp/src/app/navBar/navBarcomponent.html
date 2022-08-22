@@ -11,7 +11,11 @@
       <div class="myNavBar ms-auto" id="navbarRight">
         <ul class="navbar-nav mb-2 mb-lg-0">
           <li class="nav-item active">
-            <a class="nav-link" routerLink="/home/:role/:id"><span class="navLinks">Home</span></a>
+
+            <a class="nav-link" (click)="gohome()"><span class="navLinks">Home</span></a>
+
+          
+
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/medicine"><span class="navLinks">Medicines</span></a>
@@ -21,17 +25,21 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="./register-component"><span class="navLinks">Register</span></a>
-
             </li>
-
+            <!-- <li class="nav-item">
+              <a class="nav-link navLinks" (click)="goto()">Profile</a>
+    
+              </li> -->
           <li class="nav-item">
-
-            <a class="nav-link"  (click)="goto()"><span class="navLinks">Profile</span></a>
-
-          </li>
-
+            <a class="nav-link"  (click)="goto()"><span class="navLinks">Profile</span></a>  
+            </li>
         </ul>
       </div>
     </div>
   </nav>
+
+
+
+
+ 
 
