@@ -13,7 +13,7 @@ export class medicineComponent implements OnInit {
   searchText: string = '';
   Medicines!: Observable<Medicine[]>;
   Medicine: Medicine = new Medicine();
-
+  role:any = localStorage.getItem("role")
   constructor(
     private MedicineService: MedicineService,
     private router: Router

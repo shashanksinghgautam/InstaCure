@@ -33,7 +33,8 @@ export class NavBarComponent implements OnInit {
    
    console.log(localStorage.getItem("lid"));
    
-   this.router.navigate(['volunteer-display',localStorage.getItem("lid")])
+  //  this.router.navigate(['volunteer-display',localStorage.getItem("lid")])
+  this.router.navigate(['doctor-profile'])
 
   }
   gohome()
