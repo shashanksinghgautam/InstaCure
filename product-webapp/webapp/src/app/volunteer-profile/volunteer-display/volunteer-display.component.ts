@@ -11,10 +11,15 @@ import { User } from 'src/app/user';
 })
 export class VolunteerDisplayComponent implements OnInit {
 
+   id =Number(localStorage.getItem("lid"))
+   
   searchText: string = '';
-  Volunteers: any[]=[];
-  volunteer: Volunteer = new Volunteer();
-
+  Volunteers: any[]=[]
+  volunteer= new Volunteer();
+  // volunteer:object = new Volunteer()
+ 
+  
+  
   constructor(
     private VolunteerService: VolunteerService,
     private router: Router
@@ -25,12 +30,21 @@ export class VolunteerDisplayComponent implements OnInit {
   }
 
   reloadData() {
-     this.VolunteerService.getVolunteers().subscribe(
+    
+    
+     this.VolunteerService.getVolunteer(this.id).subscribe(
       data=>{
-        this.Volunteers=data;
-        console.log(this.Volunteers[0].user)
+        this.Volunteers.push(data);
+        
       }
     );
+
+    // this.VolunteerService.getVolunteer(this.id).subscribe(
+    //   data=>{
+    //     this.volunteer=data ;
+    //   }
+    // )
+   
   }
   UpdateProfile(id: number):void{
    

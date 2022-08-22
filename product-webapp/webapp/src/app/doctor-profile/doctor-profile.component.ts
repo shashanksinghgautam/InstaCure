@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, NgForm, Validators } from '@angular/forms';
+import { FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
-
+import {Doctor} from './Doctor';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -9,23 +9,40 @@ import { Router } from '@angular/router';
   styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
-  // pat= new Doctor();
-
-  // @ViewChild("patform") public formref!: NgForm;
- 
-imglocation='assets/profile.jpg'
-  constructor() { }
+  imglocation='assets/profile.jpg'
+  doc= new Doctor();
+  @ViewChild("docform") public formref!: NgForm;
+ constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
-  email = new FormControl('', [Validators.required, Validators.email]);
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
-
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  validate() {
+    console.log(
+      'success' +
+        ' ' +
+        this.doc.gender +
+        ' ' +
+        this.doc.dob +
+        ' ' +
+        this.doc.address +
+        ' ' +
+        this.doc.city +
+        ' ' +
+        this.doc. state +
+        ' ' +
+        this.doc.postalCode +
+        ' ' +
+        this.doc.educationQualifiaction +
+        ' ' +
+        this.doc.speciality +
+        ' ' +
+        this.doc.yearOfExpertise
+    ); //ref.email.value +"  "+ ref.mob.value);
+    //this.router.navigateByUrl('dashboard')
   }
+  
+  
+
+  
 
 }

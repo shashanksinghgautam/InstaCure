@@ -24,7 +24,8 @@ import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { PatientDisplayComponent } from './patient-display/patient-display.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
-import { LandingpageComponent } from './landingpage/landingpage.component';
+import { NavBarComponent } from './navBar/navBarcomponent';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LandingpageComponent } from './landingpage/landingpage.component';
     DoctorProfileComponent,
     PatientDisplayComponent,
     DoctorDisplayComponent,
-    LandingpageComponent
+    NavBarComponent,
+    LandingPageComponent
 
   ],
   imports: [

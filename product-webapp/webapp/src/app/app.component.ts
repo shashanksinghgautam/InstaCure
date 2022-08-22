@@ -10,8 +10,8 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 })
 @Injectable()
 export class AppComponent {
-  
-  
+  title="Webapp"
 
-  
+
+
 }

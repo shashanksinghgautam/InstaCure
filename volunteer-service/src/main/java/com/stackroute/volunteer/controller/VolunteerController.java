@@ -45,13 +45,13 @@ public class VolunteerController {
 	    }
  	  
  	 @GetMapping("Volunteer/{id}")
-		public ResponseEntity<Volunteer> getVolunteerById(@PathVariable(value = "id") int id)
+		public Volunteer getVolunteerById(@PathVariable(value = "id") int id)
 				throws ResourceNotFoundException {
 // 		 System.out.println(id);
  		 
  		Volunteer Volunteer = VolunteerRepo.findById(id)
 					.orElseThrow(() -> new ResourceNotFoundException("Volunteer not found for this id :: " + id));
-			return ResponseEntity.ok().body(Volunteer);
+			return Volunteer;
 		}
 	
  	
@@ -64,9 +64,10 @@ public class VolunteerController {
     	Volunteer.setCity(VolunteerDetails.getCity());
     	Volunteer.setState(VolunteerDetails.getState());
     	Volunteer.setZipcode(VolunteerDetails.getZipcode());
-    	Volunteer.setVmobile(VolunteerDetails.getVmobile());
-    	Volunteer.setVname(VolunteerDetails.getVname());
-    	Volunteer.setvemail(VolunteerDetails.getvemail());
+    	Volunteer.setmobile(VolunteerDetails.getmobile());
+//    	Volunteer.setVname(VolunteerDetails.getVname());
+//    	Volunteer.setvemail(VolunteerDetails.getvemail());
+
     	
 			final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
 			return ResponseEntity.ok(updatedVolunteer);
