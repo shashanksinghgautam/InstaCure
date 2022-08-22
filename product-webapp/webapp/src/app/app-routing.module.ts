@@ -19,10 +19,11 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
 
-  {path:'',redirectTo:'home',pathMatch:'full'},
+
   
 
-  { path: '',redirectTo:'navBar',pathMatch:'full'},
+  { path: '',redirectTo:'landing-page',pathMatch:'full'},
+
   { path: 'home/:role/:id', component: HomeComponent },
 
   { path: 'login-component', component: LoginComponentComponent },
@@ -35,10 +36,18 @@ const routes: Routes = [
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
+
+  
+  
+  
+  
+  
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},
-  { path: 'doctor-profile', component:DoctorProfileComponent}
+  { path: 'doctor-profile', component:DoctorProfileComponent},
+  { path: 'landing-page', component:LandingPageComponent}
+
 
 ];
 

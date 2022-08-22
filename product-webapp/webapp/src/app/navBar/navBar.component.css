@@ -1,14 +1,13 @@
 .checkbtn {
     display: none;
   }
-  
+
   #check {
     display: none;
   }
-  
+
   .navbar {
     height: 60px;
-  
   }
   .navbar-brand {
     position: absolute;
@@ -24,29 +23,29 @@
     border-bottom: 0px;
     border-width: 0.1px;
     font-family: andale mono,monospace;
-  
+
   }
-  
+
   .navLinks {
     color: aquamarine;
     font-size: 19px;
   }
-  
+
   .navLinks:hover{
     cursor: pointer;
   }
-  
+
   @media (max-width: 992px) {
     .checkbtn {
       display: block;
     }
-  
+
     #check:checked~.myNavBar {
-  
+
       transition: ease-in-out 0.3s;
       right: 0;
     }
-  
+
     .myNavBar {
       position: fixed;
       top: 55px;
@@ -57,16 +56,15 @@
       z-index: 2;
       text-align: center;
     }
-  
+
     .smallNav {
       position: absolute;
       right: 0;
       margin-right: 10px;
       margin-top: -23px;
     }
-  
+
     .smallNav:hover {
       cursor: pointer;
     }
   }
-  

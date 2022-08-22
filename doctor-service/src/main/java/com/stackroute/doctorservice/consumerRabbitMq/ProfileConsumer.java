@@ -1,6 +1,6 @@
 package com.stackroute.doctorservice.consumerRabbitMq;
 
-import com.stackroute.entity.UserEntity;
+import com.stackroute.doctorservice.model.UserEntity;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Component;
 

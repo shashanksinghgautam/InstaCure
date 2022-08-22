@@ -81,7 +81,7 @@
                 </svg>
                 Mobile number is required(should contain 10 digits only)</small>
             </div>
-            <button type="submit" [disabled]="!myGroup.valid" class="btn btn-primary">Continue</button>&emsp;
+            <button type="submit" [disabled]="!myGroup.valid" class="btn btn-primary" (click)="storeSymptoms()">Continue</button>&emsp;
           </form>
         </div>
         <div class="consult_images col-6">

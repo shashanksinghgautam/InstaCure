@@ -16,7 +16,6 @@ public class ProfileConsumer {
     }
 
     public UserEntity returnUserToProfile() {
-
         return User;
     }
 

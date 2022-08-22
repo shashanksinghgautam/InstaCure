@@ -48,11 +48,6 @@ public class RegisterController {
         // If not present then storing it in Db.
         UserEntity user = this.registerService.saveUser(newUser);
 
-        template.convertAndSend(UserConfiguration.EXCHANGE,
-                UserConfiguration.ROUTING_KEY, user);
-
-        template.convertAndSend(UserConfiguration.EXCHANGE, UserConfiguration.ROUTING_KEY, user);
-
         return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
     }
 

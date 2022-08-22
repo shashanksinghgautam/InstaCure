@@ -15,6 +15,7 @@ export class NavBarComponent implements OnInit {
 
 
   ngOnInit(): void {
+  
   }
 
   
@@ -44,6 +45,7 @@ export class NavBarComponent implements OnInit {
     
 
   }
+
   
 
 }
