@@ -1,15 +1,15 @@
 <body >
-    
-  <div  class="doctor style=background-color: hsla(0, 74%, 75%, 0.633);">
+    <div class="one">
+  <div  class="doctor">
     <div class="heading">
-      <h1>Doctor profile</h1>
+      <h1 class="heading">Doctor profile</h1>
     </div>
 
     <form #docform="ngForm" (ngSubmit)="validate()">
     <div class="row profile">  
       <div class="col-lg-3 col-md-2 col-sm-2 col-2 image" >
-        <img [src]="imglocation" alt="Still loading" width="200px" height="200px"><br>
-        <label for="image"></label>
+       <div class="pic"><img src="assets/admin.jpg" alt="Still loading" width="200px" height="200px"></div> <br>
+        <label class="img" for="image"></label>
         <input type="file"  ngModel #image="ngModel" class="form-control-file" id="image" name="image" required="required" >
       </div>
       <div class="col-lg-8 col-md-8 col-sm-8 col-8"  >
@@ -167,12 +167,12 @@
         <div class="row" style="margin-top: 1rem;" >
             <div class="col-lg-10 col-md-2 col-sm-2 col-2"></div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-2">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="b1"><button type="submit" class="btn btn-primary">Submit</button></div>
             </div>
         </div> 
     </div>
     <div class="col-lg-1 col-md-2 col-sm-2 col-2"></div>
 </div>
 </form>
-</div>
+</div></div>
 </body>
