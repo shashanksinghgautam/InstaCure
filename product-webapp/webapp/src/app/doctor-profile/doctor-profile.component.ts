@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
 import { Router } from '@angular/router';
-import { data } from 'jquery';
 import {Doctor} from './Doctor';
 import { DoctorProfileService } from './doctor-profile.service';
 
@@ -24,8 +23,8 @@ export class DoctorProfileComponent implements OnInit {
   validate() {
     this.doctorService.addDoctor(this.doc).subscribe(data=>{
       console.log ("method success")
-        
-     
+
+
     })
     console.log(
       'success' +
@@ -49,13 +48,13 @@ export class DoctorProfileComponent implements OnInit {
         this.doc.yearOfExpertise
     ); //ref.email.value +"  "+ ref.mob.value);
     //this.router.navigateByUrl('dashboard')
-    
+
   }
-  
- 
 
- 
 
-  
+
+
+
+
 
 }

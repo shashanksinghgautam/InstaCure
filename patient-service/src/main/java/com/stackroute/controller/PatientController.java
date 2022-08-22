@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.stackroute.entity.PatientProfile;
-import com.stackroute.execption.ResourceNotFoundException;
+
 import com.stackroute.repository.PatientRepository;
 import com.stackroute.service.PatientService;
 

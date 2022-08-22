@@ -60,6 +60,9 @@ public class DoctorController {
 		return ResponseEntity.ok(DoctorProfile1);
 	}
   
+
+  
+
     @GetMapping("/get")
     public List<DoctorProfile> getAllDoctors() {
         return this.service.getAll();

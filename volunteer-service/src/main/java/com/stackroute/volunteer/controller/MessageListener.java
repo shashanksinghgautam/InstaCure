@@ -33,7 +33,7 @@ public class MessageListener {
 //    	Volunteer.setVname(newUser.getUname());
 //    	Volunteer.setvemail(newUser.getEmail()); 
     	Volunteer.setUser(newUser);
-    	final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
+    	final Volunteer updatedVolunteer= VolunteerRepo.save(Volunteer);
     	}
     	else {
         System.out.println(newUser.getEmail());

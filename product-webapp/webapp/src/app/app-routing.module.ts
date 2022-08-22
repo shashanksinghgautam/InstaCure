@@ -20,7 +20,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 const routes: Routes = [
 
 
-  
+
 
   { path: '',redirectTo:'landing-page',pathMatch:'full'},
 
@@ -36,12 +36,6 @@ const routes: Routes = [
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
-
-  
-  
-  
-  
-  
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},

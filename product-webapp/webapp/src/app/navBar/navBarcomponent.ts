@@ -11,14 +11,14 @@ import { User } from '../user';
 })
 export class NavBarComponent implements OnInit {
 
- 
+
 
 
   ngOnInit(): void {
-  
+
   }
 
-  
+
   appid!:number
   appidstring!:string
   role!:String
@@ -30,6 +30,7 @@ export class NavBarComponent implements OnInit {
 
   goto()
   {
+
    
    console.log(localStorage.getItem("lid"));
    if (localStorage.getItem("role")=='Volunteer') 
@@ -45,17 +46,32 @@ if (localStorage.getItem("role")=='Patient')
   this.router.navigate(['patient-display'])
 }
 
+
+    if (localStorage.getItem("role")=='Volunteer')
+    {
+      this.router.navigate(['volunteer-display',localStorage.getItem("lid")])
+    }
+    if (localStorage.getItem("role")=='Doctor')
+    {
+      this.router.navigate(['doctor-profile'])
+    }
+    if (localStorage.getItem("role")=='Patient')
+    {
+      this.router.navigate(['patient-display'])
+    }
+
+
   }
   gohome()
   {
-   
+
    console.log(localStorage.getItem("lid"));
    console.log(localStorage.getItem("role"));
    this.router.navigate(['home',localStorage.getItem("role"),localStorage.getItem("lid")])
-    
+
 
   }
 
-  
+
 
 }
