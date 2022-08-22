@@ -1,5 +1,6 @@
 package com.stackroute.doctorservice.controller;
 
+import com.stackroute.doctorservice.consumerRabbitMq.ProfileConsumer;
 import com.stackroute.doctorservice.model.DoctorProfile;
 import com.stackroute.doctorservice.service.DoctorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,15 +12,24 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/doctor")
-@CrossOrigin(origins = "http://localhost:3366")
+@CrossOrigin(origins = "http://localhost:4200")
 public class DoctorController {
     @Autowired
     private DoctorService service;
+    @Autowired
+    private ProfileConsumer pc;
 
     @PostMapping("/add")
-    public ResponseEntity<DoctorProfile> addDetails(@RequestBody DoctorProfile doctor) {
-        DoctorProfile user = this.service.addNew(doctor);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<?> addDetails(@RequestBody DoctorProfile doctor) {
+        if(pc.returnUserToProfile().getRole().equals("Doctor")) {
+            doctor.setUser(pc.returnUserToProfile());
+            doctor.setId(pc.returnUserToProfile().getId());
+            DoctorProfile user = this.service.addNew(doctor);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }
+        else {
+            return new ResponseEntity<>("Role and Profile not matching", HttpStatus.BAD_REQUEST);
+        }
     }
     @GetMapping("/get")
     public List<DoctorProfile> getAllDoctors() {
