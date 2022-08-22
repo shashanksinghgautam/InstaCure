@@ -1,4 +1,4 @@
- package com.stackroute.entity;
+ package com.stackroute.doctorservice.model;
 
 public class UserEntity {
 

@@ -14,10 +14,11 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 const routes: Routes = [
-  { path: '',redirectTo:'navBar',pathMatch:'full'},
+  { path: '',redirectTo:'landing-page',pathMatch:'full'},
   { path: 'home/:role/:id', component: HomeComponent },
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
@@ -32,7 +33,8 @@ const routes: Routes = [
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},
-  { path: 'doctor-profile', component:DoctorProfileComponent}
+  { path: 'doctor-profile', component:DoctorProfileComponent},
+  { path: 'landing-page', component:LandingPageComponent}
 
 ];
 

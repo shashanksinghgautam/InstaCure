@@ -21,7 +21,6 @@ public class PatientController {
 
     @PostMapping("/add")
     public ResponseEntity<?> addDetails(@RequestBody PatientProfile patient) {
-
         if(consumer.returnUserToProfile().getRole().equals("Patient")) {
             patient.setUser(consumer.returnUserToProfile());
             patient.setId(consumer.returnUserToProfile().getId());
@@ -41,6 +40,5 @@ public class PatientController {
         PatientProfile patient = this.service.getById(id);
         return new ResponseEntity<>(patient, HttpStatus.OK);
     }
-
 
 }

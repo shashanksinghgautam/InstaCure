@@ -14,8 +14,6 @@ public class DoctorProfile {
 
 
     private String gender;
-
-
     private String address;
     private String dob;
     private String city;
