@@ -36,6 +36,7 @@ export class VolunteerProfileComponent implements OnInit {
         console.log(data);
         this.Volunteer = new Volunteer();
         // this.gotoList();
+        console.log(this.Volunteer.city)
       }, (error: any) => console.log(error));
   }
 
@@ -43,7 +44,7 @@ export class VolunteerProfileComponent implements OnInit {
     this.submitted = true;
     this.updateVolunteer(); 
     alert("DONE")
-    this.router.navigate(['volunteer-display']);   
+    this.router.navigate(['volunteer-display',this.id]);   
   }
   
   gotoList() {

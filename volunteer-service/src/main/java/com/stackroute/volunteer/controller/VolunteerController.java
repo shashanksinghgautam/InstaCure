@@ -59,7 +59,8 @@ public class VolunteerController {
 		public ResponseEntity<Volunteer> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody Volunteer VolunteerDetails) throws ResourceNotFoundException {
     	Volunteer Volunteer = VolunteerRepo.findById(Id)
 					.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
-
+    	
+    		System.out.println(Volunteer.getmobile());
     	Volunteer.setAddress(VolunteerDetails.getAddress());
     	Volunteer.setCity(VolunteerDetails.getCity());
     	Volunteer.setState(VolunteerDetails.getState());

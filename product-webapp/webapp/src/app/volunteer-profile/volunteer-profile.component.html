@@ -11,35 +11,25 @@
     <div class="col-md-9   mb-2" >
       <!-- Your second column here -->
       <form>
-        <div class="row mt-3">
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Name">
-          </div>
-          <div class="col">
-            <input type="text" class="form-control" placeholder="Mobile">
-          </div>
-          <div class="col">
-            <input type="email" class="form-control" placeholder="E-mail">
-          </div>
-        </div>
+       
         <br>
         <div class="row">
           <div class="col">
-            <textarea class="form-control" id="address" required rows="3" placeholder="Address"></textarea>
+            <textarea class="form-control" id="address" required rows="3" placeholder="Address" required [(ngModel)]="Volunteer.address" name="address"></textarea>
           </div>
         </div>
         <br>
 
         <div class="row">
           <div class="col">
-            <input type="text" class="form-control" placeholder="City">
+            <input type="text" class="form-control" placeholder="City" required [(ngModel)]="Volunteer.city" name="City">
           </div>
           <div class="col">
-            <input type="text" class="form-control" placeholder="State">
+            <input type="text" class="form-control" placeholder="State" required [(ngModel)]="Volunteer.state" name="state">
           </div>
           <div class="col">
             <input type="text" class="form-control" id="postal" required minlength="6" maxlength="6" pattern="^[0-9]*$"
-              placeholder="Postal Code">
+              placeholder="Postal Code" required [(ngModel)]="Volunteer.zipcode" name="zipcode">
           </div>
         </div>
         
