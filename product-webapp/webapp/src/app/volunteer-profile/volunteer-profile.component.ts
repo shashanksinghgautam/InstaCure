@@ -10,9 +10,9 @@ import { VolunteerService } from './volunteer.service';
   styleUrls: ['./volunteer-profile.component.css']
 })
 export class VolunteerProfileComponent implements OnInit {
-
   id!: number;
-  Volunteer: Volunteer = new Volunteer;
+  Volunteer: Volunteer = new Volunteer();
+  Volunteers:any[]=[]
   submitted = false;
 
   constructor(private route: ActivatedRoute,private router: Router,
@@ -28,18 +28,31 @@ export class VolunteerProfileComponent implements OnInit {
         console.log(data)
         this.Volunteer = data;
       }, (error: any) => console.log(error));
+      this.reloadData()
   }
+  reloadData() {
+    
+    
+    this.VolunteerService.getVolunteer(this.id).subscribe(
+     data=>{
+       this.Volunteers.push(data);
+       
+     }
+   );
 
+  
+ }
   updateVolunteer() {
     this.VolunteerService.updateVolunteer(this.id, this.Volunteer)
       .subscribe((data: any) => {
         console.log(data);
         this.Volunteer = new Volunteer();
-        // this.gotoList();
-        console.log(this.Volunteer.city)
+        this.gotoList();
       }, (error: any) => console.log(error));
   }
 
+ 
+  
   onSubmit() {
     this.submitted = true;
     this.updateVolunteer(); 

@@ -60,7 +60,7 @@ public class VolunteerController {
     	Volunteer Volunteer = VolunteerRepo.findById(Id)
 					.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
     	
-    		System.out.println(Volunteer.getmobile());
+    		System.out.println(Volunteer.getState());
     	Volunteer.setAddress(VolunteerDetails.getAddress());
     	Volunteer.setCity(VolunteerDetails.getCity());
     	Volunteer.setState(VolunteerDetails.getState());
