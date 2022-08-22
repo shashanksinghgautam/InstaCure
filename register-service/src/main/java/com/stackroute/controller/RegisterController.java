@@ -51,6 +51,7 @@ public class RegisterController {
         return new ResponseEntity<UserEntity>(user, HttpStatus.OK);
     }
 
+
     @PostMapping("login")
     public ResponseEntity<UserEntity> login(@RequestBody UserEntity user) throws Exception {
 
