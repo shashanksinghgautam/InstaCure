@@ -1,6 +1,6 @@
 package com.stackroute.entity;
 
-import com.stackroute.consumerRabbitMq.ProfileConsumer;
+
 import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.Document;

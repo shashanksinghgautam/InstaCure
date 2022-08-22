@@ -39,11 +39,6 @@ export class VolunteerDisplayComponent implements OnInit {
       }
     );
 
-    // this.VolunteerService.getVolunteer(this.id).subscribe(
-    //   data=>{
-    //     this.volunteer=data ;
-    //   }
-    // )
    
   }
   UpdateProfile(id: number):void{
