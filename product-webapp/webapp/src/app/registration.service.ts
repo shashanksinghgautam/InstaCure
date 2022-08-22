@@ -14,10 +14,10 @@ export class RegistrationService {
      return this.http.post("http://localhost:8080/login",user);
   }
   public getuserid(user:User):Observable<any>{
-    return this.http.post("http://localhost:8079/user",user);
+    return this.http.post("http://localhost:8080/user",user);
  }
  public getuserrole(user:User):Observable<any>{
-  return this.http.post("http://localhost:8079/role",user);
+  return this.http.post("http://localhost:8080/role",user);
 }
 
   public registerUserFromRemote(user:User):Observable<any>{
