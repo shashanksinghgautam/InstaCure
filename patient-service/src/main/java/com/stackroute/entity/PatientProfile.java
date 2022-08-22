@@ -1,35 +1,37 @@
 package com.stackroute.entity;
 
+import com.stackroute.consumerRabbitMq.ProfileConsumer;
+import org.bson.types.Binary;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.Column;
 
 import javax.persistence.Id;
 
-@Document("patientprofile")
+@Document("PatientProfile")
 public class PatientProfile {
     @Id
-    @Column(name = "id", nullable = false)
     private int id;
-
-    private String email;
-    private long mobile;
     private String address;
     private String dob;
+    private String gender;
     private String city;
     private int postalCode;
-
+    private Binary image;
+    private UserEntity user;
     public PatientProfile() {
     }
 
-    public PatientProfile(int id, String email, long mobile, String address, String dob, String city, int postalCode) {
+    public PatientProfile(int id, String gender, String address, String dob, String city, int postalCode, Binary image, UserEntity user) {
         this.id = id;
-        this.email = email;
-        this.mobile = mobile;
         this.address = address;
         this.dob = dob;
         this.city = city;
         this.postalCode = postalCode;
+        this.image = image;
+        this.user = user;
+        this.gender=gender;
     }
 
     public int getId() {
@@ -38,22 +40,6 @@ public class PatientProfile {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public long getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(long mobile) {
-        this.mobile = mobile;
     }
 
     public String getAddress() {
@@ -86,5 +72,29 @@ public class PatientProfile {
 
     public void setPostalCode(int postalCode) {
         this.postalCode = postalCode;
+    }
+
+    public Binary getImage() {
+        return image;
+    }
+
+    public void setImage(Binary image) {
+        this.image = image;
+    }
+
+    public UserEntity getUser() {
+        return user;
+    }
+
+    public void setUser(UserEntity user) {
+        this.user = user;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

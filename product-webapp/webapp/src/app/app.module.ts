@@ -24,6 +24,8 @@ import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { PatientDisplayComponent } from './patient-display/patient-display.component';
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
+import { NavBarComponent } from './navBar/navBarcomponent';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +41,12 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     PatientComponentComponent,
     AddnewComponent,
     SearchPipe,
-
     VolunteerDisplayComponent,
-
     DoctorProfileComponent,
     PatientDisplayComponent,
-    DoctorDisplayComponent
+    DoctorDisplayComponent,
+    NavBarComponent,
+    LandingPageComponent
 
   ],
   imports: [
@@ -55,7 +57,7 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [HttpClientModule, HttpClient],
+  providers: [HttpClientModule, HttpClient,LoginComponentComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

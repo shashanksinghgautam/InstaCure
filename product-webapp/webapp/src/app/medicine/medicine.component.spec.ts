@@ -1,6 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
 
 import { medicineComponent } from './medicine.component';
@@ -11,7 +11,7 @@ describe('MedicineComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule,HttpClientTestingModule,ReactiveFormsModule],
+      imports:[RouterTestingModule,HttpClientTestingModule,ReactiveFormsModule,FormsModule],
       declarations: [ medicineComponent ]
     })
     .compileComponents();

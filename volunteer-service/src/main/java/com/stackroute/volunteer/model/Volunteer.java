@@ -5,11 +5,15 @@ import javax.annotation.Generated;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.stackroute.volunteer.template.UserEntity;
+
 @Document("volunteer")
 public class Volunteer {
 
 @Id
 private int vid;	
+
+private UserEntity user;
 
 private String Vname;
 private long vmobile;
@@ -29,6 +33,12 @@ public Volunteer(int vid, String vname, long vmobile, String city, String state,
 	this.address = address;
 	this.zipcode = zipcode;
 	this.vemail = vemail;
+}
+public UserEntity getUser() {
+	return user;
+}
+public void setUser(UserEntity user) {
+	this.user = user;
 }
 public int getVid() {
 	return vid;
