@@ -30,11 +30,18 @@ const routes: Routes = [
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
+
+  {path:'patient-component', component:PatientComponentComponent},
+  {path:'patient-display', component:PatientDisplayComponent},
+  {path:'doctor-display', component:DoctorDisplayComponent},
+  {path:'doctor-profile', component:DoctorProfileComponent},
+  { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},
   { path: 'doctor-profile', component:DoctorProfileComponent},
   { path: 'landing-page', component:LandingPageComponent}
+
 
 ];
 
