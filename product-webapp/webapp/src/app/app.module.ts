@@ -26,6 +26,7 @@ import { PatientDisplayComponent } from './patient-display/patient-display.compo
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 import { NavBarComponent } from './navBar/navBarcomponent';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PatientDisplayComponent,
     DoctorDisplayComponent,
     NavBarComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    DoctorListComponent
 
   ],
   imports: [

@@ -54,7 +54,7 @@
               <div class="dropdown">
                 <div *ngIf="myGroup.controls['symptoms'].valid" class="dropdown w-75 mt-3">
                   <select class="form-select" [disabled]="!myGroup.controls['symptoms'].valid"
-                    aria-label="Default select example">
+                    aria-label="Default select example" formControlName="specality">
                     <option selected>Choose a relevant speciality</option>
                     <option value="1">Dental</option>
                     <option value="2">Ayurveda</option>

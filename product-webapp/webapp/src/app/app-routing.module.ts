@@ -15,6 +15,7 @@ import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 
 
 const routes: Routes = [
@@ -36,11 +37,8 @@ const routes: Routes = [
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
+  {path: 'doctor-list',component:DoctorListComponent},
 
-  
-  
-  
-  
   
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},

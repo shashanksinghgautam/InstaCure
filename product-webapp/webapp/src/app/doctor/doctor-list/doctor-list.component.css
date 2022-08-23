@@ -1,0 +1,20 @@
+.container {
+    margin-top: 20px; 
+   /* width: 100%; */
+   display: flex;
+   flex-direction: row;
+   overflow: auto;
+ }
+ .container .doctor_card{
+    /* width: 200%; */
+   /*display: flex;
+   flex-direction: row;
+   overflow: auto; */
+   margin-left:50px ;
+   margin-right: 50px;
+ }
+ .container .doctor_card .card{
+     width: 150%;
+     /* margin-left:100px ;
+     margin-right: 100px;  */
+ }

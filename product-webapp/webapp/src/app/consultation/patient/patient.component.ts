@@ -21,6 +21,7 @@ export class PatientComponent implements OnInit {
         Validators.required,
         Validators.minLength(4),
       ]),
+      specality:new FormControl('',[Validators.required]),
       mnumber: new FormControl('', [
         Validators.required,
         Validators.pattern('^[0-9]{10}$'),
@@ -37,10 +38,13 @@ export class PatientComponent implements OnInit {
   storeSymptoms() {
     this.s.symptoms=this.myGroup.value.symptoms;
     this.s.mobilenumber=this.myGroup.value.mnumber;
+    this.s.specality=this.myGroup.value.specality;
     // this.s.dateAndTime=new Date().toUTCString();
     // console.log(this.s.dateAndTime);
     this.cservice.postSymptoms(this.s).subscribe(data=>{
       console.log(data);
     })
+    
+    // this.cservice.getVolunteers().subscribe(data=>{})
   }
 }
