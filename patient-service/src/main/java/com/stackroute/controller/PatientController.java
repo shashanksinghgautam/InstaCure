@@ -31,7 +31,7 @@ public class PatientController {
     @Autowired
     private PatientService service;
     @Autowired
-    private PatientRepository VolunteerRepo;
+    private PatientRepository Repo;
 
 	@PostMapping("add")
     public ResponseEntity<PatientProfile> addNewHandler(@RequestBody PatientProfile PatientProfile) {
@@ -41,22 +41,16 @@ public class PatientController {
 		
 
 }
-	@PutMapping("Volunteer/{id}")
-	public ResponseEntity<PatientProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody PatientProfile VolunteerDetails) throws AttributeNotFoundException {
-		PatientProfile PatientProfile = VolunteerRepo.findById(Id)
-				.orElseThrow(() -> new AttributeNotFoundException("Medicine not found for this id :: " + Id));
-	
-		
-		PatientProfile.setAddress(VolunteerDetails.getAddress());
-		PatientProfile.setCity(VolunteerDetails.getCity());
-		
-		PatientProfile.setPostalCode(VolunteerDetails.getPostalCode());
-	
-;
+	@PutMapping("patient/{id}")
+	public ResponseEntity<PatientProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody PatientProfile user) throws AttributeNotFoundException {
+		PatientProfile PatientProfile = Repo.findById(Id)
+				.orElseThrow(() -> new AttributeNotFoundException("User not found for this id :: " + Id));
 
-	
-		final PatientProfile updatedVolunteer = VolunteerRepo.save(PatientProfile);
-		return ResponseEntity.ok(updatedVolunteer);
+		PatientProfile.setAddress(user.getAddress());
+		PatientProfile.setCity(user.getCity());
+		PatientProfile.setPostalCode(user.getPostalCode());
+		final PatientProfile updatedPatient = Repo.save(PatientProfile);
+		return ResponseEntity.ok(updatedPatient);
 	}
     @GetMapping("/get")
     public List<PatientProfile> getAllPatients() {
