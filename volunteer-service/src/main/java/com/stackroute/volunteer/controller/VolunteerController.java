@@ -1,5 +1,6 @@
 package com.stackroute.volunteer.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +44,14 @@ public class VolunteerController {
 	    	System.out.println(this.VolunteerRepo.findAll());
 	        return this.VolunteerRepo.findAll();
 	    }
+ 	 @GetMapping("Volunteer/email")
+	    public List < String > getallemail() {
+	    	System.out.println(this.VolunteerRepo.findAll());
+	        List<Volunteer> all=this.VolunteerRepo.findAll();
+	        List<String> email = new ArrayList<>() ;
+	        for(int i= 0; i < all.size(); i++) {email.add(all.get(i).getUser().getEmail());}
+	        return email;
+	    }
  	  
  	 @GetMapping("Volunteer/{id}")
 		public Volunteer getVolunteerById(@PathVariable(value = "id") int id)
@@ -63,6 +72,7 @@ public class VolunteerController {
     		System.out.println(Volunteer.getState());
     	Volunteer.setAddress(VolunteerDetails.getAddress());
     	Volunteer.setCity(VolunteerDetails.getCity());
+    	System.out.println(Volunteer.getCity());
     	Volunteer.setState(VolunteerDetails.getState());
     	Volunteer.setZipcode(VolunteerDetails.getZipcode());
     	Volunteer.setmobile(VolunteerDetails.getmobile());

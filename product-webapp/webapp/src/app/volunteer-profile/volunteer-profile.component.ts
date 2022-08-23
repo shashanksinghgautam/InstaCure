@@ -43,6 +43,7 @@ export class VolunteerProfileComponent implements OnInit {
   
  }
   updateVolunteer() {
+    
     this.VolunteerService.updateVolunteer(this.id, this.Volunteer)
       .subscribe((data: any) => {
         console.log(data);

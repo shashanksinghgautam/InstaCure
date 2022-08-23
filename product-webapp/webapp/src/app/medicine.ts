@@ -5,5 +5,6 @@ export class Medicine {
     qnt!: number;
     price!: number;
     category! : string;
+
    
 }
