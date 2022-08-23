@@ -57,5 +57,34 @@ margin-top: 3rem;
 .labels {
     font-size: 11px
 }
+.one{
+    width:100%;
+    height: auto;
+    background-color: white;
+}
+.doctor{
+    width: 80%;
+    height: auto;
+    background-color:bisque;
+    margin-left: 160px;
+    border: solid black;
+    padding-top: 20px;
+    margin-top: 60px;
 
+}
+.heading{
+    margin-left: 25px;
+    font-weight: bold;
+    font-style:oblique;
+}
 
+.pic{
+    margin-left: 80px;
+}
+.img{
+    margin-left: 20px;
+}
+.b1{
+    margin-bottom: 30px;
+   margin-left: 70px;
+}
