@@ -33,18 +33,7 @@ export class NavBarComponent implements OnInit {
 
    
    console.log(localStorage.getItem("lid"));
-   if (localStorage.getItem("role")=='Volunteer') 
-{
-  this.router.navigate(['volunteer-display',localStorage.getItem("lid")])
-}
-if (localStorage.getItem("role")=='Doctor') 
-{
-  this.router.navigate(['doctor-profile'])
-}
-if (localStorage.getItem("role")=='Patient') 
-{
-  this.router.navigate(['patient-display'])
-}
+
 
 
     if (localStorage.getItem("role")=='Volunteer')
@@ -53,7 +42,7 @@ if (localStorage.getItem("role")=='Patient')
     }
     if (localStorage.getItem("role")=='Doctor')
     {
-      this.router.navigate(['doctor-profile'])
+      this.router.navigate(['doctor-display'])
     }
     if (localStorage.getItem("role")=='Patient')
     {

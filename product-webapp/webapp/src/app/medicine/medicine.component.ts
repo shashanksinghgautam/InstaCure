@@ -10,10 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./medicine.component.css'],
 })
 export class medicineComponent implements OnInit {
+  qnt!:any;
   searchText: string = '';
   Medicines!: Observable<Medicine[]>;
   Medicine: Medicine = new Medicine();
   role:any = localStorage.getItem("role")
+  formValue: any;
   constructor(
     private MedicineService: MedicineService,
     private router: Router
@@ -27,13 +29,13 @@ export class medicineComponent implements OnInit {
     this.Medicines = this.MedicineService.getMedicinesList();
   }
 
-  buyMedicine(id: number) {
-    // let qnt = document.querySelector('input')?.value;
-
-    let qnt = document.getElementsByTagName('input')[id - 1].value;
-
-    console.log(qnt);
-    this.MedicineService.buyMedicine(id, qnt).subscribe(
+  buyMedicine(id: number ) {
+   
+    
+    // let qnt = document.getElementsByTagName('input')[id].value;
+   
+    console.log(this.qnt);
+    this.MedicineService.buyMedicine(id, this.qnt).subscribe(
       (data: any) => {
         console.log(data);
         this.Medicine = new Medicine();
@@ -41,7 +43,8 @@ export class medicineComponent implements OnInit {
 
       (error: any) => console.log(error)
     );
-    alert('sucessfully purchased ' + qnt + ' ' + this.Medicine.medicinename);
+    console.log(this.Medicine.medicinename)
+    alert('sucessfully purchased ' + this.qnt + ' ' + 'Medicines');
     window.location.reload();
   }
 }
