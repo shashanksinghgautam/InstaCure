@@ -9,11 +9,15 @@ import { Volunteer } from './volunteer';
 export class VolunteerService {
 
 
-  
+
   private baseUrl = "http://localhost:8081/api/Volunteer";
+
   private baseUrl1 = "http://localhost:8081/api/Volunteer/image";
 
   
+
+
+
   constructor(private http: HttpClient) { }
 
   getVolunteers(): Observable<Volunteer[]>{

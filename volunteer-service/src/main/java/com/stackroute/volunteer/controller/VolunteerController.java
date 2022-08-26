@@ -31,7 +31,7 @@ import com.stackroute.volunteer.service.StorageService;
 import com.stackroute.volunteer.service.VolunteerService;
 
 @RestController
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("api/")
 public class VolunteerController {
 	@Autowired
@@ -47,19 +47,16 @@ public class VolunteerController {
  	}
  	
  	public VolunteerController() {super();}
- 	
+
+	@GetMapping("hello")
+	public String welcome() {
+
+		return "Hello Volunteer........";
+	}
  	  @GetMapping("Volunteer")
 	    public List < Volunteer > getMedicine() {
 	    	System.out.println(this.VolunteerRepo.findAll());
 	        return this.VolunteerRepo.findAll();
-	    }
- 	 @GetMapping("Volunteer/email")
-	    public List < String > getallemail() {
-	    	System.out.println(this.VolunteerRepo.findAll());
-	        List<Volunteer> all=this.VolunteerRepo.findAll();
-	        List<String> email = new ArrayList<>() ;
-	        for(int i= 0; i < all.size(); i++) {email.add(all.get(i).getUser().getEmail());}
-	        return email;
 	    }
  	  
  	 @GetMapping("Volunteer/{id}")
@@ -78,7 +75,7 @@ public class VolunteerController {
     	Volunteer Volunteer = VolunteerRepo.findById(Id)
 					.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
     	
-    		System.out.println(Volunteer.getState());
+		System.out.println(Volunteer.getState());
     	Volunteer.setAddress(VolunteerDetails.getAddress());
     	Volunteer.setCity(VolunteerDetails.getCity());
     	System.out.println(Volunteer.getCity());

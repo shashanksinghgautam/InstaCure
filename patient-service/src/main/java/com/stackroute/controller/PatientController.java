@@ -2,9 +2,7 @@ package com.stackroute.controller;
 
 
 import java.util.List;
-
-import javax.management.AttributeNotFoundException;
-
+import com.stackroute.execptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,32 +29,31 @@ public class PatientController {
     @Autowired
     private PatientService service;
     @Autowired
-    private PatientRepository VolunteerRepo;
+    private PatientRepository Repo;
+
+    @GetMapping("/welcome")
+    public String welcome() {
+
+        return "Hello Patient........";
+    }
 
 	@PostMapping("add")
     public ResponseEntity<PatientProfile> addNewHandler(@RequestBody PatientProfile PatientProfile) {
-//    	System.out.println(MedicineService.getAll());
-		
 			return new ResponseEntity<PatientProfile>(service.addNew(PatientProfile), HttpStatus.CREATED);
 		
 
 }
-	@PutMapping("Volunteer/{id}")
-	public ResponseEntity<PatientProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody PatientProfile VolunteerDetails) throws AttributeNotFoundException {
-		PatientProfile PatientProfile = VolunteerRepo.findById(Id)
-				.orElseThrow(() -> new AttributeNotFoundException("Medicine not found for this id :: " + Id));
-	
-		
-		PatientProfile.setAddress(VolunteerDetails.getAddress());
-		PatientProfile.setCity(VolunteerDetails.getCity());
-		
-		PatientProfile.setPostalCode(VolunteerDetails.getPostalCode());
-	
-;
+	@PutMapping("patient/{id}")
+	public ResponseEntity<PatientProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody PatientProfile user) throws ResourceNotFoundException {
+		PatientProfile PatientProfile = Repo.findById(Id)
+				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + Id));
 
-	
-		final PatientProfile updatedVolunteer = VolunteerRepo.save(PatientProfile);
-		return ResponseEntity.ok(updatedVolunteer);
+		PatientProfile.setAddress(user.getAddress());
+        PatientProfile.setDob(user.getDob());
+		PatientProfile.setCity(user.getCity());
+		PatientProfile.setPostalCode(user.getPostalCode());
+		final PatientProfile updatedPatient = Repo.save(PatientProfile);
+		return ResponseEntity.ok(updatedPatient);
 	}
     @GetMapping("/get")
     public List<PatientProfile> getAllPatients() {

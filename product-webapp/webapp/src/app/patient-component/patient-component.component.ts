@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from 'src/PatientProfile';
+import { PatientService } from '../patient.service';
 
 @Component({
   selector: 'app-patient-component',
@@ -10,33 +11,61 @@ import { Patient } from 'src/PatientProfile';
   styleUrls: ['./patient-component.component.css'],
 })
 export class PatientComponentComponent implements OnInit {
-  pat = new Patient();
+  Patient: Patient = new Patient();
   Checked: any;
+  medcheck:any;
   otherSymp:any
+  id!: number;
+  Patients:any[]=[]
+  selectedItemsList:any[] = [];
+  medcond:any[] = [];
+  precon:any[] = [];
+
 
   @ViewChild('patform') public formref!: NgForm;
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    }
 
-  ngOnInit(): void {}
+
+  ngOnInit(): void {
+
+    this.fetchSelectedItems()
+    this.fetchCheckedIDs()
+  }
+
+
 
   validate() {
+
     console.log(
       'success' +
         ' ' +
-        this.pat.email +
+
         ' ' +
-        this.pat.mobile +
+        this.Patient.dob +
         ' ' +
-        this.pat.dob +
+        this.Patient.address +
         ' ' +
-        this.pat.address +
+        this.Patient.city +
         ' ' +
-        this.pat.city +
-        ' ' +
-        this.pat.postalCode
-    ); //ref.email.value +"  "+ ref.mob.value);
-    //this.router.navigateByUrl('dashboard')
+        this.Patient.postalCode
+    );
+
+    for(let i=0; i<this.selectedItemsList.length; i++){
+      this.precon.push(this.selectedItemsList[i].label);//use i instead of 0
+    }
+
+    if(this.medcheck){
+      this.precon.push(this.otherSymp);
+    }
+    for(let i=0; i<this.precon.length; i++){
+      console.log('pre: '+this.precon[i]);
+    }
+
+    this.router.navigate(['./patient-display']);
+
   }
+
 
   takeOthers(e: any) {
     if (e.target.checked) {
@@ -46,4 +75,57 @@ export class PatientComponentComponent implements OnInit {
       this.Checked=false;
     }
   }
+
+
+
+  checkboxesDataList = [
+    {
+      id: 'C001',
+      label: 'Cholestrol',
+      isChecked: false
+    },
+
+    {
+      id: 'C003',
+      label: 'Diabetes',
+      isChecked: false
+    },
+    {
+      id: 'C004',
+      label: 'Asthama',
+      isChecked: false
+    }
+  ]
+
+
+
+  changeSelection() {
+    this.fetchSelectedItems()
+  }
+
+  fetchSelectedItems() {
+    this.selectedItemsList = this.checkboxesDataList.filter((value, index) => {
+      return value.isChecked
+    });
+  }
+
+  fetchCheckedIDs() {
+    this.medcond = []
+    this.checkboxesDataList.forEach((value, index) => {
+      if (value.isChecked) {
+        this.medcond.push(value.id);
+      }
+    });
+  }
+
+  options = [
+    "Bangalore",
+    "Mumbai",
+    "Chennai",
+    "Kolkata",
+    "Hyderabad",
+    "Delhi"
+  ];
+
+
 }

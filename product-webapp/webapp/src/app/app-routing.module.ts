@@ -15,7 +15,7 @@ import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
+import { EmailNotificationComponent } from './email-notification/email-notification.component';
 
 const routes: Routes = [
 
@@ -34,13 +34,14 @@ const routes: Routes = [
   { path: 'add', component: AddnewComponent },
   { path: 'update/:id', component: UpdateComponent },
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
-  { path: 'consultation/patient', component:PatientComponent },
-  { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
-  { path: 'patient-component', component:PatientComponentComponent},
-  { path: 'patient-display', component:PatientDisplayComponent},
-  { path: 'doctor-display', component:DoctorDisplayComponent},
-  { path: 'doctor-profile', component:DoctorProfileComponent},
-  { path: 'landing-page', component:LandingPageComponent}
+  { path: 'consultation/patient/:id', component:PatientComponent },
+  { path: 'patient-component/:id', component:PatientComponentComponent},
+  { path: 'patient-display/:id', component:PatientDisplayComponent},
+  { path: 'doctor-display/:id', component:DoctorDisplayComponent},
+  { path: 'doctor-profile/:id', component:DoctorProfileComponent},
+  { path: 'landing-page', component:LandingPageComponent},
+  { path: 'email-notification', component:EmailNotificationComponent},
+
 
 
 ];
