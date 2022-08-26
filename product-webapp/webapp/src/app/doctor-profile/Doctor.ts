@@ -1,3 +1,5 @@
+import { User } from "../user";
+
 export class Doctor{
   dob!: Date;
   gender!:string;
@@ -9,6 +11,7 @@ export class Doctor{
   educationQualifiaction!:string;
   speciality!:string;
   yearOfExpertise!: number;
+  User = new User();
 
   constructor() {}
 }
