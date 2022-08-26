@@ -5,8 +5,11 @@
         <div class="two" >
 
           <div class="card-body text-center">
-            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-              class="rounded-circle img-fluid bg-light" style="width: 100px;">
+            <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+              class="rounded-circle img-fluid bg-light" style="width: 100px;">  -->
+              <img [src]="img" alt="avatar"
+              class="rounded-circle img-fluid bg-light" style="width: 100px;"> 
+             
             <h5 class="my-3">{{Volunteer.user.uname}}</h5>
             <p class="text-muted mb-1">Volunteer</p>
             <p class="text-muted mb-4">{{Volunteer.city}}</p>

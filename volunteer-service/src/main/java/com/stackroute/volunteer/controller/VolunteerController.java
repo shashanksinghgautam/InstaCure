@@ -1,10 +1,15 @@
 package com.stackroute.volunteer.controller;
 
+
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
+import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -14,11 +19,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.stackroute.volunteer.config.ImageUtils;
 import com.stackroute.volunteer.execptions.ResourceNotFoundException;
 import com.stackroute.volunteer.model.Volunteer;
 import com.stackroute.volunteer.repository.VolunteerRepository;
+import com.stackroute.volunteer.service.StorageService;
 import com.stackroute.volunteer.service.VolunteerService;
 
 @RestController
@@ -91,6 +100,30 @@ public class VolunteerController {
 		
 
 }
- 	
- 	
+	
+ 	@Autowired
+	private StorageService service;
+
+	@PostMapping("Volunteer/image/{id}")
+	public ResponseEntity<?> uploadImage(@PathVariable(value = "id") int Id, @RequestParam("imgFile") MultipartFile file ) throws IOException, ResourceNotFoundException {
+		System.out.println("inside image post");
+		Volunteer Volunteer = VolunteerRepo.findById(Id)
+				.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
+		Volunteer.setImage(file.getBytes());
+		final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
+		return ResponseEntity.status(HttpStatus.OK)
+				.body( "file uploaded successfully : " + file.getOriginalFilename());
+	}
+
+	@GetMapping("Volunteer/image/{id}")
+	public ResponseEntity<?> getImage(@PathVariable(value = "id") int Id) throws ResourceNotFoundException{
+//		byte[] imageData=service.downloadImage(Id);
+		 Volunteer dbImageData = VolunteerRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));;
+		return ResponseEntity.status(HttpStatus.OK)
+				.contentType(MediaType.valueOf("image/png"))
+				.body(dbImageData.getImage());
+
+	}
+
+ 
 }
