@@ -15,12 +15,12 @@ import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
+import { EmailNotificationComponent } from './email-notification/email-notification.component';
 
 const routes: Routes = [
 
 
-  
+
 
   { path: '',redirectTo:'landing-page',pathMatch:'full'},
 
@@ -36,17 +36,12 @@ const routes: Routes = [
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
-
-  
-  
-  
-  
-  
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},
   { path: 'doctor-profile', component:DoctorProfileComponent},
-  { path: 'landing-page', component:LandingPageComponent}
+  { path: 'landing-page', component:LandingPageComponent},
+  { path: 'email-notification', component:EmailNotificationComponent}
 
 
 ];

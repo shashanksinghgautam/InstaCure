@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 import { globalid } from 'src/global-variable';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +12,8 @@ import { data } from 'jquery';
 })
 
 export class LoginComponentComponent implements OnInit {
-  
-  
+
+
    lid!:any
    lidstr!:string
    key: string = 'LID';
@@ -30,28 +29,28 @@ export class LoginComponentComponent implements OnInit {
    }
 
   ngOnInit(): void {
- 
+
   }
 
-  
+
 
    loginUser(role:string){
-    
+
         this.service.getuserid(this.user).subscribe(
           data=>{
-            
+
             this.lid=data
             this.lidstr=this.lid
             localStorage.setItem("lid",this.lidstr)
           }
         )
-        
-            
-        
+
+
+
         console.log(localStorage.getItem("lid"))
         this.service.getuserrole(this.user).subscribe(
           data=>{
-           
+
             this.role=data
             // console.log(this.role)
             this.rolestr=this.role
@@ -62,7 +61,7 @@ export class LoginComponentComponent implements OnInit {
         localStorage.setItem("role",role)
 
         console.log(localStorage.getItem("role"))
-       
+
         this.service.loginUserFromRemote(this.user).subscribe(
           data=>{console.log("Login Success");
           console.log(role);

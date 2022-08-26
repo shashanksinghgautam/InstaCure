@@ -25,14 +25,15 @@
             </div>
             <div class="" style="font-weight: bold;">
               ${{Medicine.price}}
+            
             </div>
+            <span>{{Medicine.qnt}}</span>
             <div class="">
-              <input type="number" class="form-control" id="Quantity" required [(ngModel)]="Medicine.qnt"
-                name="Quantity" style="margin: auto; width: 100px;">
-              <button (click)="buyMedicine(Medicine.mid)" class="btn btn-info">Buy Now</button>
+              <input type="number" class="form-control" id="Quantity{{Medicine.mid}}" required [(ngModel)]="qnt"
+                name="Quantity" style="margin: auto; width: 100px;" >
+              <button (click)="buyMedicine(Medicine.mid )" class="btn btn-info">Buy Now</button>
 
-
-            </div>
+            </div> 
           </div>
         </div>
       </div>

@@ -52,6 +52,9 @@ a{
 
   .card-body {
     
+    width: 100%;
+  
+  overflow:scroll;
    
     display: flex;
     flex-direction: row;
