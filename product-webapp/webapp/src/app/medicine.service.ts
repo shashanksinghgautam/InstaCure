@@ -11,8 +11,8 @@ export class MedicineService {
   //  input = document.getElementById('Quantity') as HTMLInputElement | null;
 
  
-  private buyUrl =  "http://localhost:8080/api/medicine/buy";
-  private baseUrl = "http://localhost:8080/api/medicine";
+  private buyUrl =  "http://localhost:8083/meds/medicine/buy";
+  private baseUrl = "http://localhost:8083/meds/medicine";
  
 
   constructor(private http: HttpClient) { }

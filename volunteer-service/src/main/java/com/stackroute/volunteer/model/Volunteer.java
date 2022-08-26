@@ -1,13 +1,17 @@
 package com.stackroute.volunteer.model;
 
-import javax.annotation.Generated;
+import java.awt.Image;
 
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.stackroute.volunteer.template.UserEntity;
 
+import lombok.Builder;
+
 @Document("volunteer")
+
 public class Volunteer {
 
 @Id
@@ -15,30 +19,69 @@ private int vid;
 
 private UserEntity user;
 
-private String Vname;
-private long vmobile;
+
 private String city;
 private String state;
 private String address;
 private int zipcode;
-private String vemail;
 
-public Volunteer(int vid, String vname, long vmobile, String city, String state, String address, int zipcode ,String vemail) {
+private byte[] image;
+private Binary imaged;
+
+
+
+
+
+
+public Volunteer(int vid, String city, String state, String address, int zipcode ) {
 	super();
 	this.vid = vid;
-	Vname = vname;
-	this.vmobile = vmobile;
+
 	this.city = city;
 	this.state = state;
 	this.address = address;
 	this.zipcode = zipcode;
-	this.vemail = vemail;
+
+
 }
+
+
+
+public Binary getImaged() {
+	return imaged;
+}
+
+
+
+public void setImaged(Binary imaged) {
+	this.imaged = imaged;
+}
+
+
+
+public byte[] getImage() {
+	return image;
+}
+
+
+
+public void setImage(byte[] image) {
+	this.image = image;
+}
+
+
+
 public UserEntity getUser() {
 	return user;
 }
 public void setUser(UserEntity user) {
 	this.user = user;
+}
+public void setmobile(long mbo) {
+	this.user.setMobile(mbo);
+}
+public long getmobile() {
+	return this.user.getMobile();
 }
 public int getVid() {
 	return vid;
@@ -51,25 +94,10 @@ public Volunteer() {
 	super();
 	
 }
-public String getVname() {
-	return Vname;
-}
-public void setVname(String vname) {
-	Vname = vname;
-}
-public String getvemail() {
-	return vemail;
-}
-public void setvemail(String vemail) {
-	vemail = vemail;
-}
 
-public long getVmobile() {
-	return vmobile;
-}
-public void setVmobile(long vmobile) {
-	this.vmobile = vmobile;
-}
+
+
+
 public String getCity() {
 	return city;
 }
@@ -94,5 +122,7 @@ public int getZipcode() {
 public void setZipcode(int zipcode) {
 	this.zipcode = zipcode;
 }
+
+
 
 }

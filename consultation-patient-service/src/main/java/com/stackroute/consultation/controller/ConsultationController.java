@@ -20,7 +20,7 @@ import com.stackroute.consultation.service.ConsultationService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("api/")
+@RequestMapping("consult/")
 public class ConsultationController {
 
     @Autowired
@@ -28,9 +28,13 @@ public class ConsultationController {
 
     private ConsultationService cservice;
 
+    @GetMapping ("welcome")
+    public String welcome(){
+        return "this is my Consultation api";
+    }
     @Autowired
     public ConsultationController(ConsultationService cservice) {
-        super();
+       super();
         this.cservice = cservice;
     }
 
@@ -42,7 +46,7 @@ public class ConsultationController {
     @PostMapping("saveSymptoms")
     public ResponseEntity<PatientSymptoms> saveSymptoms(@RequestBody PatientSymptoms symptom) {
         PatientSymptoms s = this.cservice.save(symptom);
-        return new ResponseEntity<>(s, HttpStatus.OK);
+        return new ResponseEntity<PatientSymptoms>(s, HttpStatus.OK);
     }
 
 }

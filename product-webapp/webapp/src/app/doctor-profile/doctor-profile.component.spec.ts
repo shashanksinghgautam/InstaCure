@@ -1,3 +1,4 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -10,7 +11,7 @@ describe('DoctorProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[RouterTestingModule,FormsModule],
+      imports:[RouterTestingModule,FormsModule,HttpClientTestingModule],
       declarations: [ DoctorProfileComponent ]
     })
     .compileComponents();

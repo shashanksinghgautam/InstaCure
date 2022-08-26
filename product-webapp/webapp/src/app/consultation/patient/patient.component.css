@@ -1,15 +1,15 @@
+@import url(../../navBar/navBar.component.css);
 .container {
     display: block;
     width: 65%;
     background-color: white;
-    padding: 1.75rem;
+    padding: 1.75em;
     margin-left: auto;
     margin-right: auto;
-
   }
   
   .headerAndButton {
-    padding-bottom: 1rem;
+    padding-bottom: 1em;
   }
   
   .headerAndButton .header h2{
@@ -21,17 +21,6 @@
   
   .consult_images {
     border-left: 1px solid black;
-    padding-left: 8rem;
-    padding-right: 8rem;
-    padding-top: 2.25rem;
-    padding-bottom: 2.25rem;
-
-  }
-  
-  .consult_images .carousel .carousel-inner {
-    width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
   }
   
   .form-control.ng-touched.ng-invalid {
@@ -40,5 +29,25 @@
   
   .form-control.ng-touched.ng-valid {
     border: 1px solid green;
+  }
+  .consult_images1{
+    animation: imageAnimation 5s infinite;
+  }
+  @keyframes imageAnimation {
+    0%   { opacity:1; }
+    50%  { opacity:0;transform: rotate(360deg) }
+    100% { opacity:1; }
+  }
+
+  @media (max-width: 1100px){
+    .consult_images{
+      border-left: 0px;
+    }
+    .container .consultation .row{
+      display: flex;
+      flex-direction: column;
+      width: 200%;
+    }
+    
   }
   

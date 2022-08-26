@@ -1,0 +1,74 @@
+
+
+<div *ngFor="let doctor of doctors | paginate: 
+{ itemsPerPage: 3, currentPage: p }"> 
+
+<!-- <div class="hacker"  *ngFor ="let doctor of doctors"> -->
+ <div class="container text-center">
+   <div class="xyz" style="background-color:rgb(121, 121, 202) ;" height="100px"><h3 color="white">{{doctor.user.uname}}</h3></div>
+   <div class="row my-3">
+     <div class="col">
+       <div class="img position-relative top-50 start-50 translate-middle">
+         <a href=""><img src="https://tse4.mm.bing.net/th?id=OIP.l78z2Ng_pCVEJXF-PUUyhQHaHn&pid=Api&P=0" alt=""
+             class="img-fluid rounded-circle w-50 align-center"></a>
+       </div>
+     </div>
+     <div class="col">
+       <div class="details  position-relative top-50 start-50 translate-middle">
+        <p>Qualifications: {{doctor.educationqualification}}</p> 
+         <p class="m-0" >Specialities: {{doctor.speciality}}</p>
+         <!-- <h5>{{doctor.yearOfExpertise}}</h5> -->
+         <p>Experience: {{doctor.yearofexpertise}}</p>
+       </div>
+
+     </div>
+     <div class="col">
+       <div class="contact_details position-relative top-50 start-50 translate-middle">
+         <table class="table">
+           <tbody>
+             <tr>
+               <th scope="row" class="col-1">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   class="bi bi-envelope-fill" viewBox="0 0 16 16">
+                   <path
+                     d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z" />
+                 </svg>
+               </th>
+               <td>{{doctor.user.email}}</td>
+             </tr>
+             <tr>
+               <th scope="row">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                   <path fill-rule="evenodd"
+                     d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z" />
+                 </svg>
+               </th>
+               <td>{{doctor.user.mobile}}</td>
+             </tr>
+             <tr>
+               <th scope="row">
+                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                   class="bi bi-star-half" viewBox="0 0 16 16">
+                   <path
+                     d="M5.354 5.119 7.538.792A.516.516 0 0 1 8 .5c.183 0 .366.097.465.292l2.184 4.327 4.898.696A.537.537 0 0 1 16 6.32a.548.548 0 0 1-.17.445l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256a.52.52 0 0 1-.146.05c-.342.06-.668-.254-.6-.642l.83-4.73L.173 6.765a.55.55 0 0 1-.172-.403.58.58 0 0 1 .085-.302.513.513 0 0 1 .37-.245l4.898-.696zM8 12.027a.5.5 0 0 1 .232.056l3.686 1.894-.694-3.957a.565.565 0 0 1 .162-.505l2.907-2.77-4.052-.576a.525.525 0 0 1-.393-.288L8.001 2.223 8 2.226v9.8z" />
+                 </svg>
+               </th>
+               <td>-</td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+
+     </div>
+     <div class="col">
+       <div class="button position-relative top-50 start-50 translate-middle">
+         <input type="submit" class="btn btn-primary" value="More details" id="btn" >
+       </div>
+     </div>
+   </div>
+
+ </div>
+</div>
+<pagination-controls (pageChange)="p = $event" class="float-right text-center">
+</pagination-controls>

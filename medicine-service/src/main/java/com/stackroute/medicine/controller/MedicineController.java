@@ -27,7 +27,7 @@ import com.stackroute.medicine.service.*;
 //@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequestMapping("api/")
+@RequestMapping("meds/")
 public class MedicineController {
 	 	@Autowired
 	    private MedicineRepository medicineRepository;
@@ -35,7 +35,11 @@ public class MedicineController {
 	 	@Autowired
 	    private MedicineService MedicineService;
 
+	@GetMapping("welcome")
+	public String welcome() {
 
+		return "Hello Mediciness........";
+	}
 	    
 	 	@Autowired
 	 	public MedicineController(MedicineService MedicineService) {
@@ -110,5 +114,7 @@ public class MedicineController {
 			response.put("deleted", Boolean.TRUE);
 			return response;
 		}
+	    
+	    
 	    
 }

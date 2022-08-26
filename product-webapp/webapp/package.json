@@ -23,6 +23,7 @@
     "jquery": "^3.6.0",
     "ngx": "^2.4.0",
     "ngx-pagination": "^6.0.2",
+    "npx": "^10.2.2",
     "pagination": "^0.4.6",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",

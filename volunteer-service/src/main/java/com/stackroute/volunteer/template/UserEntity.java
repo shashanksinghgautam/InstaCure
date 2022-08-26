@@ -61,8 +61,8 @@ public class UserEntity {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
-        this.mobile = mobile;
+    public void setMobile(long mbo) {
+        this.mobile = mbo;
     }
 
     public String getRole() {
