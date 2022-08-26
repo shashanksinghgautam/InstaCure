@@ -12,8 +12,6 @@ import { globalid } from 'src/global-variable';
 })
 
 export class LoginComponentComponent implements OnInit {
-
-
    lid!:any
    lidstr!:string
    key: string = 'LID';
@@ -32,8 +30,6 @@ export class LoginComponentComponent implements OnInit {
 
   }
 
-
-
    loginUser(role:string){
 
         this.service.getuserid(this.user).subscribe(
@@ -44,10 +40,8 @@ export class LoginComponentComponent implements OnInit {
             localStorage.setItem("lid",this.lidstr)
           }
         )
-
-
-
         console.log(localStorage.getItem("lid"))
+
         this.service.getuserrole(this.user).subscribe(
           data=>{
 

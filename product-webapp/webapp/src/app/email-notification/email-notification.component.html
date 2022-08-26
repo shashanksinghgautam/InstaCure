@@ -8,50 +8,39 @@
 
       <h3 class="text-center font-weight-bold text-white mt-5 mb-3">Raise Your Request</h3>
 
-      <h2 class="text-center font-weight-normal text-white mx-auto mb-4 pb-2">You Are Our Top-Most Priority</h2>
+      <h2 class="text-center font-weight-normal text-white mx-auto mb-4 pb-2">You Are Our Top Most Priority</h2>
 
-      <form class="mb-5 mx-md-5" action="">
+      <form class="mb-5 mx-md-5" action="" #myform="ngForm" (ngSubmit)="sendEmail()">
 
         <div class="row">
-          <div class="col-md-4 mb-4">
-
-
-            <input type="text" id="name" class="form-control" placeholder="Name">
-
+          <div class="col-md-6 mb-4">
+            <input type="text" id="name" name="name" [(ngModel)]="email.name" class="form-control" placeholder="Name">
           </div>
-          <div class="col-md-4 mb-4">
 
-
-            <input type="email" id="email" class="form-control" placeholder="Email">
-
+          <div class="col-md-6 mb-4">
+            <input type="email" id="email" name="email" [(ngModel)]="email.email" class="form-control"
+              placeholder="Email">
           </div>
-          <div class="col-md-4 mb-4">
 
-
-            <input type="number" id="phone" class="form-control" placeholder="Phone (optional)">
-
-          </div>
         </div>
 
         <div class="row">
           <div class="col-md-12 mb-4">
-
-            <input type="text" id="subject" class="form-control" placeholder="Subject">
-
+            <input type="text" id="subject" name="subject" [(ngModel)]="email.subject" class="form-control"
+              placeholder="Subject">
           </div>
         </div>
 
         <div class="row">
           <div class="col-md-12">
-
             <div class="form-group mb-4">
-              <textarea class="form-control rounded" id="message" rows="3" placeholder="Message"></textarea>
+              <textarea class="form-control rounded" name="message" [(ngModel)]="email.message" id="message" rows="4"
+                placeholder="Type your request here"></textarea>
             </div>
 
             <div class="text-center">
               <button type="submit" class="btn btn-dark">Submit</button>
             </div>
-
           </div>
         </div>
 

@@ -1,5 +1,223 @@
+<div class="container py-1">
+  <div class=" d-flex align-items-right justify-content-right">
+    <div class="col-lg-3 mt-1">
+      <div class="two" style="margin-left:140px;width:250px;height:180px">
 
-<div class="container-md">
+        <div class="card-body text-center">
+          <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+            class="rounded-circle img-fluid bg-light" style="width: 100px;">
+          <h5 class="my-3">Patient Name</h5>
+          <p class="text-muted mb-1">Patient</p>
+
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 mt-1" >
+      <div class="two" style="margin-left:80px;width:460px;height:180px">
+
+        <div class="card-body text-center" style="margin-left:10px">
+
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Full Name</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-muted mb-0">Name</p>
+            </div>
+          </div><hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Email</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-muted mb-0">Email</p>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Mobile</p>
+            </div>
+            <div class="col-sm-6">
+              <p class="text-muted mb-0">1234</p>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-3 mt-1"style="margin-left:120px">
+      <div class="two" style="width:280px;height:180px">
+
+        <div class="card-body">
+          <h5>Pre-Medical Condition</h5>
+
+          <ul class="checkbox-items">
+            <li *ngFor="let item of checkboxesDataList">
+              <input class="form-check-input" type="checkbox" name="item" id="item" [(ngModel)]="item.isChecked" (change)="changeSelection()">{{item.label}}
+
+            </li>
+            <li>
+              <input class="form-check-input" type="checkbox" id="m6" (change)="takeOthers($event)" [(ngModel)]="medcheck" name="m6">
+              <label class="form-check-label" for="m6">Others</label>
+              <div *ngIf="Checked" class="">
+                <textarea class="form-control form-control-sm" ngModel #others="ngModel" name="others" id="others" required rows="1"
+                  [(ngModel)]="otherSymp"></textarea>
+              </div>
+            </li>
+          </ul>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<div class=" d-flex align-items-center justify-content-center">
+
+  <div class="col-lg-8 mt-0 ">
+    <div class="two">
+      <div class="card-body">
+        <form>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Date of Birth</p>
+            </div>
+            <div class="col-sm-6">
+              <span class="text-muted mb-0">
+                <div class="form-group row">
+                  <div class="col">
+                    <input type="date" ngModel #dob="ngModel" name="dob" class="form-control form-control-sm" id="dob" required min="01-01-1920"
+                    [(ngModel)]="Patient.dob" />
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div><hr>
+
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Address</p>
+            </div>
+            <div class="col-sm-6">
+              <span class="text-muted mb-0">
+                <div class="form-group row">
+                  <div class="col">
+                    <textarea class="form-control form-control-sm" id="address" required rows="1"
+                      placeholder="Address" required [(ngModel)]="Patient.address" name="category"></textarea>
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">City</p>
+            </div>
+            <div class="col-sm-6">
+              <span class="text-muted mb-0">
+                <div class="col">
+
+            <select class="form-control form-control-sm" ngModel #city="ngModel" name="city" id="city" required [(ngModel)]="Patient.city" placeholder="City">
+              <option
+                    [value]="option"
+                    *ngFor="let option of options;"
+                    >{{option}}</option
+  >
+            </select>
+
+                </div>
+              </span>
+            </div>
+          </div>
+          <hr>
+
+
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Postal Code</p>
+            </div>
+            <div class="col-sm-6">
+              <span class="text-muted mb-0">
+                <div class="col">
+                  <input type="text" class="form-control form-control-sm" ngModel #postal="ngModel" id="postal" required minlength="6"
+                    maxlength="6" pattern="^[0-9]*$" placeholder="Postal Code" required
+                    [(ngModel)]="Patient.postalCode" name="postal"/>
+                    <div *ngIf="postal.touched && postal.invalid && postal.errors?.['minlength']; else elseBlock" class="alert">
+                      *Please enter a valid Postal code
+                    </div>
+                    <ng-template #elseBlock><div *ngIf="postal.touched && postal.invalid && postal.errors?.['pattern']" class="alert">
+                      *Please enter a valid Postal code
+                    </div>  </ng-template>
+                    <div *ngIf="postal.touched && postal.invalid && postal.errors?.['maxlength']" class="alert">
+                      *Please enter a valid Postal code
+                    </div>
+
+                </div>
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Country</p>
+            </div>
+            <div class="col-sm-6">
+              <span class="text-muted mb-0">
+                <div class="col">
+                  <input type="text" readonly class="form-control form-control-sm " placeholder="India"
+                    name="Country">
+                </div>
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="row">
+            <div class="col-sm-6">
+              <p class="mb-0">Medical record</p>
+            </div>
+            <div class="col-sm-6">
+              <span class="text-muted mb-0">
+                <div class="form-group row">
+                  <div class="col">
+                    <input type="file" class="form-controlform-control-sm" placeholder="Medical Record">
+                  </div>
+                </div>
+              </span>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <div class="d-flex justify-content-center mb-0">
+              <button type="submit" (click)="validate()" class="btn btn-primary mb-1"> Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!--  <div class="container-md">
   <div class="container-sm">
 
 
@@ -15,7 +233,7 @@
           <div class="form-group col-md-12">
             <label for="email">Email address</label>
             <input type="email" ngModel #email="ngModel" id="email" name="email" class="form-control"
-              required="required" placeholder="name@example.com" [(ngModel)]="pat.email" />
+              required="required" placeholder="name@example.com" [(ngModel)]="Patient.email" />
 
           </div>
         </div>
@@ -25,7 +243,7 @@
           <div class="col-md-6 mb-3">
             <label for="mob">Mobile No.</label>
             <input type="text" ngModel #mob="ngModel" name="mob" class="form-control" id="mob" required="required"
-              minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890" [(ngModel)]="pat.mobile" />
+              minlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="1234567890" [(ngModel)]="Patient.mobile" />
 
 
             <div *ngIf="mob.touched && mob.invalid && mob.errors?.['minlength']" class="alert">
@@ -42,7 +260,7 @@
           <div class="col-md-6 mb-3">
             <label for="dob">Date of Birth</label>
             <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob" required min="01-01-1920"
-              [(ngModel)]="pat.dob" />
+              [(ngModel)]="Patient.dob" />
 
             <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']" class="alert">
               *Wrong DOB
@@ -81,7 +299,7 @@
           <div class="form-group col-md-12">
             <label for="address">Address</label>
             <textarea class="form-control" ngModel #address="ngModel" name="address" id="address" required rows="3"
-              [(ngModel)]="pat.address"></textarea>
+              [(ngModel)]="Patient.address"></textarea>
 
 
           </div>
@@ -91,7 +309,7 @@
         <div class="row">
           <div class="form-group col-md-4">
             <label for="city">City</label>
-            <select class="form-control" ngModel #city="ngModel" name="city" id="city" required [(ngModel)]="pat.city">
+            <select class="form-control" ngModel #city="ngModel" name="city" id="city" required [(ngModel)]="Patient.city">
               <option>Bengaluru</option>
               <option>Chennai</option>
               <option>Mumbai</option>
@@ -112,7 +330,7 @@
           <div class="form-group col-md-4">
             <label for="postal">Postal Code</label>
             <input type="text" class="form-control" ngModel #postal="ngModel" name="postal" id="postal" required
-              minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456" [(ngModel)]="pat.postalCode" />
+              minlength="6" maxlength="6" pattern="^[0-9]*$" placeholder="123456" [(ngModel)]="Patient.postalCode" />
 
 
             <div *ngIf="postal.touched && postal.invalid && postal.errors?.['minlength']" class="alert">
@@ -155,44 +373,26 @@
           </div>
         </div><br>
 
-        <div class="form-group">
-          <label for="cond">Pre-existing medical condition </label> <br>
-          <div class="form-check">
-            <input class="form-check-input" ngModel #m1="ngModel" name="m1" type="checkbox" [(ngModel)]="pat.med"
-              value="" id="m1" />
-            <label class="form-check-label" for="m1">Cholestrol</label> <br>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="m2">
-            <label class="form-check-label" for="m2">High Blood Pressure</label> <br>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="m3">
-            <label class="form-check-label" for="m3">Diabetes</label> <br>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="m4">
-            <label class="form-check-label" for="m4">Asthma</label> <br>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="m5">
-            <label class="form-check-label" for="m5">Heart disease</label> <br>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="m6" (change)="takeOthers($event)">
+        <ul class="checkbox-items">
+          <li *ngFor="let item of checkboxesDataList">
+            <input class="form-check-input" type="checkbox" name="item" id="item" [(ngModel)]="item.isChecked" (change)="changeSelection()">{{item.label}}
+
+          </li>
+          <li>
+            <input class="form-check-input" type="checkbox" id="m6" (change)="takeOthers($event)" [(ngModel)]="medcheck" name="m6">
             <label class="form-check-label" for="m6">Others</label> <br>
             <div *ngIf="Checked" class="">
               <textarea class="form-control" ngModel #others="ngModel" name="others" id="others" required rows="2"
                 [(ngModel)]="otherSymp"></textarea>
             </div>
-          </div>
-
-
-        </div><br>
+          </li>
+        </ul>
+        <br>
 
       </form>
 
     </div>
 
   </div>
-</div>
+</div>!-->
+
