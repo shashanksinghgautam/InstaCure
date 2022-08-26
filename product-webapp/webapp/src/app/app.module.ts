@@ -18,7 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './consultation/patient/patient.component';
 import { AddnewComponent } from './medicine/volunteer/addnew/addnew.component';
 import { SearchPipe } from './search.pipe';
-
+import{NgxPaginationModule} from 'ngx-pagination';
 import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
@@ -27,6 +27,8 @@ import { DoctorDisplayComponent } from './doctor-display/doctor-display.componen
 import { NavBarComponent } from './navBar/navBarcomponent';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
+import { CommonModule } from '@angular/common';
+import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,8 @@ import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component'
     DoctorDisplayComponent,
     NavBarComponent,
     LandingPageComponent,
-    DoctorListComponent
+    DoctorListComponent,
+    ListofdoctorsComponent
 
   ],
   imports: [
@@ -57,7 +60,9 @@ import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component'
     RouterModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule,
+    CommonModule
   ],
   providers: [HttpClientModule, HttpClient,LoginComponentComponent],
   bootstrap: [AppComponent],

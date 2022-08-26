@@ -39,11 +39,14 @@ export class PatientComponent implements OnInit {
     this.s.symptoms=this.myGroup.value.symptoms;
     this.s.mobilenumber=this.myGroup.value.mnumber;
     this.s.specality=this.myGroup.value.specality;
+    
+    this.cservice.setSpecality(this.s.specality);
     // this.s.dateAndTime=new Date().toUTCString();
     // console.log(this.s.dateAndTime);
     this.cservice.postSymptoms(this.s).subscribe(data=>{
-      console.log(data);
+      this.patients=data;
     })
+    this.router.navigateByUrl('doctor-list');
     
     // this.cservice.getVolunteers().subscribe(data=>{})
   }

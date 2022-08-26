@@ -12,6 +12,8 @@
 
 
 #Mongo Config
+server:
+  port: 8081
 spring:
   application:
     name: Consultation-Patient-Service

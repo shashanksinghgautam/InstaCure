@@ -16,6 +16,7 @@ import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
+import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,7 @@ const routes: Routes = [
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
   {path: 'doctor-list',component:DoctorListComponent},
-
+  {path:'listofdoctors',component:ListofdoctorsComponent},
   
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
