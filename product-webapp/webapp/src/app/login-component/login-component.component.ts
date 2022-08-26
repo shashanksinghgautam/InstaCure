@@ -59,7 +59,7 @@ export class LoginComponentComponent implements OnInit {
         this.service.loginUserFromRemote(this.user).subscribe(
           data=>{console.log("Login Success");
           console.log(role);
-          this.router.navigate(['/home',role,this.lid])
+          this.router.navigate(['landing-page'])
         },
           error=>{console.log("FAILED");
           this.errorMsg= "*Invalid Email or Password or Role"

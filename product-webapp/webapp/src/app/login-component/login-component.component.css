@@ -1,3 +1,5 @@
+@import url(../navBar/navBar.component.css);
+
 .gradient-custom-2 {
   /* fallback for old browsers */
   background: #fccb90;
@@ -24,7 +26,7 @@
 }
 
 section{
-  height:93.5vh;
+  height:93.75vh;
   background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
 }
 

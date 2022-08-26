@@ -1,54 +1,22 @@
-.panel{
-    background-color: rgb(223, 225, 220);
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 50px;
-    
+ @import url(../navBar/navBar.component.css); */
 
-}
+
 .xyz{
-    margin-top:0%;
-    text-align: right;
-    text-transform: uppercase;
-    font-weight: bold;
+  margin-top:0%;
+  text-align: right;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-.panel.panel-body{
-background-color: aquamarine;
-}
-.container{
-    background-color:rgb(74, 164, 203);
-}
-
-a{
-    margin-left: 70px;
-    
-}
-.form-control{
-   
-    width: 500px;
-}
-.container-fluid{
-    margin-left: 200px;
-  
-}
-
 #searchText-id {
-    margin:  auto;
-    display: block;
-    
-    top: 65px;
-    text-align: center;
-    height: 30px;
-     width: 500px;
-     
+  margin:  auto;
+  display: block;
+  
+  top: 65px;
+  text-align: center;
+  height: 30px;
+   width: 500px;
+   
 }
-#Quantity{
-    height: 30px;
-     width: 50px;
-}
-
-
 
   .card-body {
     

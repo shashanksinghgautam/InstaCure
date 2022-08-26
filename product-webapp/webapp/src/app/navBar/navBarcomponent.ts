@@ -56,7 +56,7 @@ export class NavBarComponent implements OnInit {
 
    console.log(localStorage.getItem("lid"));
    console.log(localStorage.getItem("role"));
-   this.router.navigate(['home',localStorage.getItem("role"),localStorage.getItem("lid")])
+   this.router.navigate(['landing-page'])
 
 
   }
