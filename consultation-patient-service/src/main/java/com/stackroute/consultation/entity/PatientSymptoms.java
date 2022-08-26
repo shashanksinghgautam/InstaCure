@@ -20,13 +20,24 @@ public class PatientSymptoms {
 
     //	@Column(name="mnumb")
     private String mobilenumber;
+    
+    private String specality;
 
 //	private String dateAndTime;
 
-    public PatientSymptoms(String symptoms, String mobilenumber) {
+    public String getSpecality() {
+		return specality;
+	}
+
+	public void setSpecality(String specality) {
+		this.specality = specality;
+	}
+
+	public PatientSymptoms(String symptoms, String mobilenumber,String specality) {
         super();
         this.symptoms = symptoms;
         this.mobilenumber = mobilenumber;
+        this.specality =specality;
     }
 
     public PatientSymptoms() {
