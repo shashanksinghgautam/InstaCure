@@ -1,3 +1,48 @@
+<nav class="navbar navbar-expand-lg  bg-dark">
+  <!-- <a class="navbar-brand" href="#">InstaCure</a> -->
+  <a class="navbar-brand" href="#"><img src="../../../assets/instaCure-IMG-nbg.png" style="height: 50px; " ></a>
+  
+  <div class="container-fluid">
+    <input type="checkbox" class="ms-auto" id="check">
+    <label for="check" class="checkbtn">
+      <i class=" smallNav"><img src="../assets/menu.png" alt=""></i>
+
+    </label>
+
+    <div class="myNavBar ms-auto" id="navbarRight">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+        <!-- <li class="nav-item active">
+
+          <a class="nav-link" (click)="gohome()"><span class="navLinks">Home</span></a>
+
+        
+
+        </li> -->
+        <li class="nav-item">
+          <!-- <a class="btn me-2 btn-danger btn-group-sm mt-2" routerLink="/landing-page">Cancel</a> -->
+          <a class="nav-link"  routerLink="/medicine">
+            <button type="submit" class="btn me-2 btn-primary btn-group-sm">
+              Medicine
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+          <!-- <a class="btn me-2 btn-danger btn-group-sm mt-2" routerLink="/landing-page">Cancel</a> -->
+          <a class="nav-link"  routerLink="/landing-page">
+            <button type="submit" class="btn me-2 btn-danger btn-group-sm">
+              Home
+            </button>
+          </a>
+        </li>
+      
+        <!-- <li class="nav-item">
+          <a class="nav-link"  (click)="goto()"><span class="navLinks">Profile</span></a>  
+          </li> -->
+      </ul>
+    </div>
+  </div>
+</nav>
+
 <section>
   <div class="container shadow-lg p-4.5 mt-5 mb-5 bg-body rounded">
     <div class="headerAndButton">

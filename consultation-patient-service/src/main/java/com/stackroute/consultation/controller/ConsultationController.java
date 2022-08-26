@@ -20,7 +20,7 @@ import com.stackroute.consultation.service.ConsultationService;
 
 @RestController
 @CrossOrigin(origins="http://localhost:4200")
-@RequestMapping("api/")
+@RequestMapping("consult/")
 public class ConsultationController {
 
     @Autowired
@@ -28,6 +28,10 @@ public class ConsultationController {
 
     private ConsultationService cservice;
 
+    @GetMapping ("welcome")
+    public String welcome(){
+        return "this is my Consultation api";
+    }
     @Autowired
     public ConsultationController(ConsultationService cservice) {
        super();

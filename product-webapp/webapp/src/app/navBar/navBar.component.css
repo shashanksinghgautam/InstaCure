@@ -1,3 +1,4 @@
+
 .checkbtn {
     display: none;
   }
@@ -13,7 +14,7 @@
     position: absolute;
     color: aquamarine;
     height: 60px;
-    width: 150px;
+    width: 240px;
     padding-left:12px;
     padding-top: 10px;
     font-size: 25px;

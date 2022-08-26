@@ -26,9 +26,14 @@ import { PatientDisplayComponent } from './patient-display/patient-display.compo
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 import { NavBarComponent } from './navBar/navBarcomponent';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 import { CommonModule } from '@angular/common';
 import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.component';
+import { EmailNotificationComponent } from './email-notification/email-notification.component';
+
+
+
 
 @NgModule({
   declarations: [
@@ -50,8 +55,12 @@ import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.com
     DoctorDisplayComponent,
     NavBarComponent,
     LandingPageComponent,
+
     DoctorListComponent,
-    ListofdoctorsComponent
+    ListofdoctorsComponent,
+
+    EmailNotificationComponent
+
 
   ],
   imports: [

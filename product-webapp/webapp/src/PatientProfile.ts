@@ -1,3 +1,5 @@
+import { User } from "./app/user";
+
 export class Patient {
   email!: string;
   mobile!: number;
@@ -7,6 +9,8 @@ export class Patient {
   country!: string;
   postalCode!: number;
   med!: string;
+
+  user=new User()
 
   constructor() {}
 }

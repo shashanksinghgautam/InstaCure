@@ -1,3 +1,4 @@
+import { Byte } from "@angular/compiler/src/util";
 import { User } from "../user";
 
 export class Volunteer {
@@ -9,6 +10,7 @@ export class Volunteer {
     state! : string;
     address!:string;
     zipcode!:number;
+    image!:Byte[]
    
     constructor(){}
 }

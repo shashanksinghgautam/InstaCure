@@ -12,7 +12,7 @@ import { User } from 'src/app/user';
 export class VolunteerDisplayComponent implements OnInit {
 
    id =Number(localStorage.getItem("lid"))
-   
+   img = "http://localhost:8081/api/Volunteer/image/"+this.id;
   searchText: string = '';
   Volunteers: any[]=[]
   volunteer= new Volunteer();
@@ -38,12 +38,12 @@ export class VolunteerDisplayComponent implements OnInit {
         
       }
     );
-
-    // this.VolunteerService.getVolunteer(this.id).subscribe(
-    //   data=>{
-    //     this.volunteer=data ;
-    //   }
-    // )
+    this.VolunteerService.getimage(this.id).subscribe(
+      data=>{
+        this.Volunteers.push(data);
+        
+      }
+    );
    
   }
   UpdateProfile(id: number):void{

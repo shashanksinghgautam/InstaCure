@@ -15,19 +15,23 @@ import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+
 import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.component';
+
+
+import { EmailNotificationComponent } from './email-notification/email-notification.component';
 
 
 const routes: Routes = [
 
 
-  
+
 
   { path: '',redirectTo:'landing-page',pathMatch:'full'},
 
   { path: 'home/:role/:id', component: HomeComponent },
-
+  
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
   { path: 'volunteer-display/:id', component: VolunteerDisplayComponent},
@@ -37,6 +41,7 @@ const routes: Routes = [
   { path: 'update/:id', component: UpdateComponent },
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
+
   { path: 'DoctorProfileComponent', component:DoctorProfileComponent},
   {path: 'doctor-list',component:DoctorListComponent},
   {path:'listofdoctors',component:ListofdoctorsComponent},
@@ -45,7 +50,16 @@ const routes: Routes = [
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},
   { path: 'doctor-profile', component:DoctorProfileComponent},
-  { path: 'landing-page', component:LandingPageComponent}
+  { path: 'landing-page', component:LandingPageComponent},
+
+  { path: 'patient-component/:id', component:PatientComponentComponent},
+  { path: 'patient-display/:id', component:PatientDisplayComponent},
+  { path: 'doctor-display/:id', component:DoctorDisplayComponent},
+  { path: 'doctor-profile/:id', component:DoctorProfileComponent},
+  { path: 'landing-page', component:LandingPageComponent},
+  { path: 'email-notification', component:EmailNotificationComponent},
+
+
 
 
 ];
