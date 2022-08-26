@@ -26,6 +26,7 @@ import { PatientDisplayComponent } from './patient-display/patient-display.compo
 import { DoctorDisplayComponent } from './doctor-display/doctor-display.component';
 import { NavBarComponent } from './navBar/navBarcomponent';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     PatientDisplayComponent,
     DoctorDisplayComponent,
     NavBarComponent,
-    LandingPageComponent
+    LandingPageComponent,
 
   ],
   imports: [
@@ -55,7 +56,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     RouterModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [HttpClientModule, HttpClient,LoginComponentComponent],
   bootstrap: [AppComponent],

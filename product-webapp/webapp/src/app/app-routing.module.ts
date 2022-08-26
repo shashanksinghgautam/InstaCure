@@ -14,6 +14,7 @@ import { RegisterComponentComponent } from './register-component/register-compon
 import { VolunteerDisplayComponent } from './volunteer-profile/volunteer-display/volunteer-display.component';
 import { VolunteerProfileComponent } from './volunteer-profile/volunteer-profile.component';
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component';
 
 
 const routes: Routes = [
@@ -38,7 +39,8 @@ const routes: Routes = [
   { path: 'patient-component', component:PatientComponentComponent},
   { path: 'patient-display', component:PatientDisplayComponent},
   { path: 'doctor-display', component:DoctorDisplayComponent},
-  { path: 'doctor-profile', component:DoctorProfileComponent}
+  { path: 'doctor-profile', component:DoctorProfileComponent},
+  { path: 'doctor-list',component:DoctorListComponent}
 
 
 ];
