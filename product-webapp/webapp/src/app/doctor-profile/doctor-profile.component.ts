@@ -10,8 +10,7 @@ import { DoctorProfileService } from './doctor-profile.service';
   styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
-  docObject:Doctor=new Doctor();
-  imglocation='assets/profile.jpg'
+  Doctor:Doctor=new Doctor();
   doc= new Doctor();
   @ViewChild("docform") public formref!: NgForm;
  constructor(private router:Router, private doctorService:DoctorProfileService) {

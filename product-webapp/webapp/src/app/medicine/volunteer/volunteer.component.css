@@ -1,3 +1,4 @@
+@import url(../../navBar/navBar.component.css);
 .nav{
     background-color: black;
     height: 45px;

@@ -28,95 +28,30 @@
 
 }
 
-@media (min-width:541px) and (max-width:992px) {
-  .d-block {
-    min-height: 300px;
-    max-width: 100%;
-  }
-
-  .end {
-    display: flex;
-    flex-direction: row;
-  }
-
-  #firstsearch {
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
-    width: 20px;
-    visibility: hidden;
-    opacity: 0;
-
-  }
-
-  #secondsearch {
-    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
-    width: 30%;
-
-  }
-
-  #firstsearch[type="text"]:focus {
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
-    width: 150px;
-    visibility: hidden;
-    opacity: 0;
-
-  }
-
-  #secondsearch[type="text"]:focus {
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
-    width: 50%;
-  }
- #thirdsearch{
- 
- }
-  #firstsearch,
-  #secondsearch {
-    max-width: 60%;
-  }
-}
-
-@media screen and (max-width:540px) {
-
-  .end {
-    display: flex;
-    flex-direction: column;
-  }
-
-}
-
-
-#firstsearch {
-  visibility: hidden;
-  opacity: 0;
-  border-color: black;
-  outline: 0;
-  box-shadow: blue;
-  text-indent: 10px;
-  border-radius: 20px;
-  width: 10%;
-  color: black;
-  background-color: white;
-  height: 40px;
-  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
-}
-
 #secondsearch {
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
-  border-color: black;
+  border: 3px solid ;
+  border-color:  black;
   outline: 0;
-  width: 60%;
-  border-radius: 20px;
-  background-color: white;
+  width: 80%;
+  border-radius: 30px;
   text-indent: 13px;
-  height: 40px;
-
+  height: 50px;
+  background: transparent;
+  transition: 0.4s ease-in-out;
+  text-align: center;
+  transition: 0.4s ease-in-out;
 }
 
 #firstsearch[type="text"]:focus {
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
 }
 
-#secondsearch[type="text"]:focus {
+#secondsearch[type="text"]:hover{
+  transform: scale(1.02);
+  transition: 0.4s ease-in-out;
   box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 
@@ -129,6 +64,39 @@
   margin-top: -8px;
 }
 
+@media (min-width:541px) and (max-width:992px) {
+  .d-block {
+    min-height: 300px;
+    max-width: 100%;
+  }
+
+  .end {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  #secondsearch {
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+    width: 40%;
+
+  }
+
+
+  #secondsearch[type="text"]:focus {
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
+    width: 40%;
+  }
+ #thirdsearch{
+  margin-top: 4px;
+   height: 42px;
+ }
+
+  #secondsearch {
+    max-width: 60%;
+  }
+}
+
 .end {
   position: absolute;
   top: 30%;
@@ -136,27 +104,31 @@
   width: 40%;
 }
 
-
 @media screen and (max-width:540px) {
-  #firstsearch[type="text"]:focus {
-    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
-    width: 100px;
 
+  .end {
+    display: flex;
+    flex-direction: column;
   }
 
-  #secondsearch[type="text"]:focus {
+}
+
+
+@media screen and (max-width:540px) {
+
+  #secondsearch[type="text"]:hover {
     box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.5);
-    width: 50%;
+    width: 70%;
+    margin-left: -10px;
   }
 
   #secondsearch {
     text-indent: 5px;
-    width: 50%;
+    width: 60%;
   }
-
-  #firstsearch {
-    text-indent: 5px;
-    width: 70px;
+  #thirdsearch{
+    margin-top: 5px;
+    margin-left: 39px;
   }
 
   .end {

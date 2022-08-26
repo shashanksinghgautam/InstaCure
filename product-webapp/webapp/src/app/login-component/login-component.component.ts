@@ -12,8 +12,6 @@ import { globalid } from 'src/global-variable';
 })
 
 export class LoginComponentComponent implements OnInit {
-
-
    lid!:any
    lidstr!:string
    key: string = 'LID';
@@ -32,8 +30,6 @@ export class LoginComponentComponent implements OnInit {
 
   }
 
-
-
    loginUser(role:string){
 
         this.service.getuserid(this.user).subscribe(
@@ -44,10 +40,8 @@ export class LoginComponentComponent implements OnInit {
             localStorage.setItem("lid",this.lidstr)
           }
         )
-
-
-
         console.log(localStorage.getItem("lid"))
+
         this.service.getuserrole(this.user).subscribe(
           data=>{
 
@@ -65,7 +59,7 @@ export class LoginComponentComponent implements OnInit {
         this.service.loginUserFromRemote(this.user).subscribe(
           data=>{console.log("Login Success");
           console.log(role);
-          this.router.navigate(['/home',role,this.lid])
+          this.router.navigate(['landing-page'])
         },
           error=>{console.log("FAILED");
           this.errorMsg= "*Invalid Email or Password or Role"

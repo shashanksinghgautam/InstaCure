@@ -20,7 +20,7 @@ public class MessageListener {
     private DoctorRepository DoctorRepo;
  	
  	@Autowired
-    private DoctorService docser;
+    private DoctorService doctor;
 
     @RabbitListener(queues = UserConfiguration.QUEUE)
     public void listener(UserEntity newUser) {

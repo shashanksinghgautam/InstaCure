@@ -30,10 +30,10 @@ export class medicineComponent implements OnInit {
   }
 
   buyMedicine(id: number ) {
-   
-    
+
+
     // let qnt = document.getElementsByTagName('input')[id].value;
-   
+
     console.log(this.qnt);
     this.MedicineService.buyMedicine(id, this.qnt).subscribe(
       (data: any) => {
@@ -46,6 +46,10 @@ export class medicineComponent implements OnInit {
     console.log(this.Medicine.medicinename)
     alert('sucessfully purchased ' + this.qnt + ' ' + 'Medicines');
     window.location.reload();
+  }
+
+  goToEmail(){
+     this.router.navigate(['/email-notification']);
   }
 }
 

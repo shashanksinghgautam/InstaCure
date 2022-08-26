@@ -1,7 +1,5 @@
 package com.stackroute.medicine.model;
 
-import java.awt.Image;
-
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

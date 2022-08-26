@@ -3,8 +3,7 @@ package com.stackroute.doctorservice.controller;
 
 import java.util.List;
 
-import javax.management.AttributeNotFoundException;
-
+import com.stackroute.doctorservice.execptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -33,19 +32,22 @@ public class DoctorController {
 	@Autowired
     private DoctorRepository VolunteerRepo;
 
+	@GetMapping ("welcome")
+	public String welcome(){
+		return "this is my Doctor api";
+	}
+
 	@PostMapping("add")
     public ResponseEntity<DoctorProfile> addNewHandler(@RequestBody DoctorProfile DoctorProfile) {
-//    	System.out.println(MedicineService.getAll());
-		
 			return new ResponseEntity<DoctorProfile>(service.addNew(DoctorProfile), HttpStatus.CREATED);
 		
 
 }
     
 	@PutMapping("DoctorProfile/{id}")
-	public ResponseEntity<DoctorProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody DoctorProfile Doctor) throws AttributeNotFoundException {
+	public ResponseEntity<DoctorProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody DoctorProfile Doctor) throws ResourceNotFoundException {
 		DoctorProfile DoctorProfile = VolunteerRepo.findById(Id)
-				.orElseThrow(() -> new AttributeNotFoundException("Medicine not found for this id :: " + Id));
+				.orElseThrow(() -> new ResourceNotFoundException("Doctor not found for this id :: " + Id));
 	
 		
 		DoctorProfile.setAddress(Doctor.getAddress());

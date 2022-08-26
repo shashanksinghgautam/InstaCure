@@ -10,8 +10,11 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @RestController
-@RequestMapping("/")
+@RequestMapping("/reg")
 @CrossOrigin(origins = "http://localhost:4200")
 public class RegisterController {
 
@@ -24,6 +27,11 @@ public class RegisterController {
     @Autowired
     private RegisterRepository repo;
 
+    @GetMapping("/welcome")
+    public String welcome() {
+
+        return "Hello Register........";
+    }
     @PostMapping("register")
     public ResponseEntity<UserEntity> register(@RequestBody UserEntity newUser) throws Exception {
 
@@ -99,6 +107,21 @@ public class RegisterController {
             throw new Exception("User Doesn't Exist");
         }
         return tempUser.getRole();
+    }
+
+    @GetMapping("Volunteer/email")
+    public ResponseEntity<?> getallemail() {
+
+        List<UserEntity> all=this.repo.findAll();
+        List<UserEntity> vol = new ArrayList<>() ;
+
+        for(UserEntity v:all){
+            if(v.getRole().equals("Volunteer"))
+            vol.add(v);
+        }
+        System.out.println(vol);
+        template.convertAndSend(UserConfiguration.EXCHANGE, UserConfiguration.ROUTING_KEY, vol);
+        return new ResponseEntity<>(vol, HttpStatus.OK);
     }
 
 }

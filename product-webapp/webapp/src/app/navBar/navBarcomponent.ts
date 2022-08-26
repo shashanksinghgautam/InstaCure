@@ -31,7 +31,7 @@ export class NavBarComponent implements OnInit {
   goto()
   {
 
-   
+
    console.log(localStorage.getItem("lid"));
 
 
@@ -42,11 +42,11 @@ export class NavBarComponent implements OnInit {
     }
     if (localStorage.getItem("role")=='Doctor')
     {
-      this.router.navigate(['doctor-display'])
+      this.router.navigate(['doctor-display',localStorage.getItem("lid")])
     }
     if (localStorage.getItem("role")=='Patient')
     {
-      this.router.navigate(['patient-display'])
+      this.router.navigate(['patient-display',localStorage.getItem("lid")])
     }
 
 
@@ -56,7 +56,7 @@ export class NavBarComponent implements OnInit {
 
    console.log(localStorage.getItem("lid"));
    console.log(localStorage.getItem("role"));
-   this.router.navigate(['home',localStorage.getItem("role"),localStorage.getItem("lid")])
+   this.router.navigate(['landing-page'])
 
 
   }

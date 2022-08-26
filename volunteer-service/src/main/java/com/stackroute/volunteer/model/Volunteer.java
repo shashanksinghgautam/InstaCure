@@ -1,13 +1,17 @@
 package com.stackroute.volunteer.model;
 
-import javax.annotation.Generated;
+import java.awt.Image;
 
+import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.stackroute.volunteer.template.UserEntity;
 
+import lombok.Builder;
+
 @Document("volunteer")
+
 public class Volunteer {
 
 @Id
@@ -21,6 +25,13 @@ private String state;
 private String address;
 private int zipcode;
 
+private byte[] image;
+private Binary imaged;
+
+
+
+
+
 
 public Volunteer(int vid, String city, String state, String address, int zipcode ) {
 	super();
@@ -30,8 +41,36 @@ public Volunteer(int vid, String city, String state, String address, int zipcode
 	this.state = state;
 	this.address = address;
 	this.zipcode = zipcode;
-	
+
+
 }
+
+
+
+public Binary getImaged() {
+	return imaged;
+}
+
+
+
+public void setImaged(Binary imaged) {
+	this.imaged = imaged;
+}
+
+
+
+public byte[] getImage() {
+	return image;
+}
+
+
+
+public void setImage(byte[] image) {
+	this.image = image;
+}
+
+
+
 public UserEntity getUser() {
 	return user;
 }
@@ -83,5 +122,7 @@ public int getZipcode() {
 public void setZipcode(int zipcode) {
 	this.zipcode = zipcode;
 }
+
+
 
 }
