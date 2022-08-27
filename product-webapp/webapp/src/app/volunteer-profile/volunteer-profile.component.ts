@@ -16,7 +16,7 @@ export class VolunteerProfileComponent implements OnInit {
   Volunteer: Volunteer = new Volunteer();
   Volunteers:any[]=[]
   userfile:any = File
-  
+
   submitted = false;
   file!: File;
 
@@ -33,7 +33,7 @@ export class VolunteerProfileComponent implements OnInit {
     this.Volunteer = new Volunteer();
 
     this.id = this.route.snapshot.params['id'];
-    
+
     this.VolunteerService.getVolunteer(this.id)
       .subscribe((data: any) => {
         console.log(data)
@@ -42,19 +42,17 @@ export class VolunteerProfileComponent implements OnInit {
       this.reloadData()
   }
   reloadData() {
-    
-    
+
     this.VolunteerService.getVolunteer(this.id).subscribe(
      data=>{
        this.Volunteers.push(data);
-       
+
      }
    );
 
-  
  }
   updateVolunteer() {
-    
+
     this.VolunteerService.updateVolunteer(this.id, this.Volunteer)
       .subscribe((data: any) => {
         console.log(data);
@@ -63,50 +61,49 @@ export class VolunteerProfileComponent implements OnInit {
       }, (error: any) => console.log(error));
   }
 
- 
-  
+
+
   onSubmit() {
     this.submitted = true;
-    this.updateVolunteer(); 
+    this.updateVolunteer();
     // this.updateimage();
     this.updateProduct();
-    alert("DONE")
-    this.router.navigate(['volunteer-display',this.id]);   
+    this.router.navigate(['volunteer-display',this.id]);
   }
-  
+
   gotoList() {
     this.router.navigate(['volunteer-display']);
   }
 
   getFiles(event:any) {
-  
+
     let f:any=event.target as HTMLElement;
-    
-    
+
+
     this.file = (f.files as FileList)[0]
     console.log(this.file );
 
-    
-        
+
+
     // const reader = new FileReader();
     // reader.onload = (e: any) => {
     //     const image = new Image();
     //     image.src = e.target.result;
     //     image.onload = rs => {
-        
+
     //             const imgBase64Path = e.target.result;
     //             this.cardImageBase64 = imgBase64Path;
     //             console.log(imgBase64Path);
-                
+
     //             this.isImageSaved = true;
     //             // this.previewImagePath = imgBase64Path;
     //         }
     //     };
-    
+
     //     console.log(event.target.files[0])
     //   reader.readAsDataURL(event.target.files[0]);
     //     console.log(reader);
-        
+
 
   }
 
@@ -118,19 +115,22 @@ export class VolunteerProfileComponent implements OnInit {
   updateProduct(){
     let fd = new FormData();
     console.log(this.file);
-    
+
     fd.set("imgFile",this.file)
     // fd.append("imgFile",this.file);
     console.log(fd.get("imgFile"));
-    
+
     this.VolunteerService.sendimage(this.id,fd.get("imgFile")).subscribe();
-     
+
+    }
+    clearStorage(){
+      localStorage.clear();
     }
 
-    
+
   }
 
-  
+
 
 
 

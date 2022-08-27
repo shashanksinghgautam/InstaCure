@@ -1,7 +1,9 @@
+@import url(../navBar/navBar.component.css);
+
 section{
-  padding-top: 50px;
+
   height: 93.5vh;
-  overflow: hidden;
+
 }
 .one{
     /* height: 100%;
@@ -11,9 +13,10 @@ section{
 
     background-color:red;
     position:absolute;
-    top: 61px;
+    height: 91.1vh;
     right:0px;
-    bottom:0px;
+    padding-top: 10px;
+    top:80px;
     left:0px;
 
 
