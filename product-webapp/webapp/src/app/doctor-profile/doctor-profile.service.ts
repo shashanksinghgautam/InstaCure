@@ -7,13 +7,13 @@ import { Doctor } from './Doctor';
   providedIn: 'root'
 })
 export class DoctorProfileService {
-  private baseUrl = "http://localhost:7081/doctor/add";
-  private baseUrl1 = "http://localhost:7081/doctor/get";
-  private baseUrl2 = "http://localhost:7081/doctor/get/{id}";
+  private baseUrl = "http://localhost:8085/doctor/add";
+  private baseUrl1 = "http://localhost:8085/doctor/get";
+  private baseUrl2 = "http://localhost:8085/doctor/get/{id}";
 
   
   constructor(private http: HttpClient) { }
-  getDoctor(): Observable<Doctor[]>{
+  getDoctors(): Observable<Doctor[]>{
     return this.http.get<Doctor[]>(`${this.baseUrl}`);
   }
   updateDoctor(id: number, value: any) {

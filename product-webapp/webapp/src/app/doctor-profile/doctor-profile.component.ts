@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router,Event } from '@angular/router';
 import {Doctor} from './Doctor';
 import { DoctorProfileService } from './doctor-profile.service';
 
@@ -10,50 +11,90 @@ import { DoctorProfileService } from './doctor-profile.service';
   styleUrls: ['./doctor-profile.component.css']
 })
 export class DoctorProfileComponent implements OnInit {
+  id!:number;
   Doctor:Doctor=new Doctor();
-  doc= new Doctor();
-  @ViewChild("docform") public formref!: NgForm;
- constructor(private router:Router, private doctorService:DoctorProfileService) {
+  Doctors:any[]=[]
+  userfile:any = File
 
+  submitted = false;
+  file!: File;
+
+  imageError!: string;
+  isImageSaved!: boolean;
+  cardImageBase64!: string;
+
+  selectedFile!: File;
+ constructor(private route:ActivatedRoute, private doctorService:DoctorProfileService,private router:Router,
+      private http:HttpClient) { }
+
+  ngOnInit() {
+    this.Doctor = new Doctor();
+
+    this.id = this.route.snapshot.params['id'];
+    
+    this.doctorService.getDoctor(this.id)
+      .subscribe((data: any) => {
+        console.log(data)
+        this.Doctor = data;
+      }, (error: any) => console.log(error));
+      this.reloadData()
   }
-
-  ngOnInit(): void {
-  }
-  validate() {
-    this.doctorService.addDoctor(this.doc).subscribe(data=>{
-      console.log ("method success")
-
-
-    })
-    console.log(
-      'success' +
-        ' ' +
-        this.doc.gender +
-        ' ' +
-        this.doc.dob +
-        ' ' +
-        this.doc.address +
-        ' ' +
-        this.doc.city +
-        ' ' +
-        this.doc. state +
-        ' ' +
-        this.doc.postalCode +
-        ' ' +
-        this.doc.educationQualifiaction +
-        ' ' +
-        this.doc.speciality +
-        ' ' +
-        this.doc.yearOfExpertise
-    ); //ref.email.value +"  "+ ref.mob.value);
-    //this.router.navigateByUrl('dashboard')
-
-  }
-
-
-
-
-
-
-
+  reloadData() {
+    this.doctorService.getDoctor(this.id).subscribe(
+     data=>{
+       this.Doctors.push(data);  
+     }
+   ); 
+ }
+ updateDoctor() {
+    
+  this.doctorService.updateDoctor(this.id, this.Doctor)
+    .subscribe((data: any) => {
+      console.log(data);
+      this.Doctor = new Doctor();
+      this.gotoList();
+    }, (error: any) => console.log(error));
 }
+
+  validate() {
+    this.submitted = true;
+    this.updateDoctor(); 
+    // this.updateimage();
+    this.updateProduct();
+
+
+// from doctor display
+  //   alert("DONE")
+  //   this.router.navigate(['volunteer-display',this.id]);   
+   }
+  
+  // gotoList() {
+  //   this.router.navigate(['volunteer-display']);
+  // }
+  getFiles(event:any) {
+  
+    let f:any=event.target as HTMLElement;
+    
+    
+    this.file = (f.files as FileList)[0]
+    console.log(this.file );
+  }
+
+    public onFileChanged(event:any) {
+      //Select File
+      this.selectedFile = event.target.files[0];
+    }
+    updateProduct(){
+      let fd = new FormData();
+      console.log(this.file);
+      
+      fd.set("imgFile",this.file)
+      // fd.append("imgFile",this.file);
+      console.log(fd.get("imgFile"));
+      
+      this.doctorService.sendimage(this.id,fd.get("imgFile")).subscribe();
+       
+      }
+    
+  }
+

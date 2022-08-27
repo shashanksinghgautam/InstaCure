@@ -33,8 +33,6 @@ export class PatientComponentComponent implements OnInit {
     this.fetchCheckedIDs()
   }
 
-
-
   validate() {
 
     console.log(

@@ -30,7 +30,7 @@ section{
   background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
 }
 
-img {
+#LOGO {
   height: 190px;
   width: 150px;
   border-radius: 4px;

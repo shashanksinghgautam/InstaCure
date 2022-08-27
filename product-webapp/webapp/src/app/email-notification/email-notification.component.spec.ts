@@ -1,6 +1,10 @@
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule} from '@angular/forms';
 
 import { EmailNotificationComponent } from './email-notification.component';
+import { EmailService } from './email.service';
 
 describe('EmailNotificationComponent', () => {
   let component: EmailNotificationComponent;
@@ -8,7 +12,9 @@ describe('EmailNotificationComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EmailNotificationComponent ]
+      imports:[HttpClientTestingModule,FormsModule,HttpClientModule],
+      declarations: [ EmailNotificationComponent ],
+      providers:[EmailService]
     })
     .compileComponents();
   });
