@@ -21,9 +21,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
-
   { path: 'home/:role/:id', component: HomeComponent },
-
   { path: 'login-component', component: LoginComponentComponent },
   { path: 'register-component', component: RegisterComponentComponent },
   { path: 'volunteer-display/:id', component: VolunteerDisplayComponent },
@@ -44,25 +42,24 @@ const routes: Routes = [
 =======
   { path: 'update-volunteer/:id', component: VolunteerProfileComponent },
   { path: 'consultation/patient', component: PatientComponent },
+<<<<<<< HEAD
 >>>>>>> 105c70f5d22084cb6d03c59b72b253b33a86cc27
 
+=======
+>>>>>>> 3c37280802d56c3d9214ce22919a0aa5b2e98892
   { path: 'DoctorProfileComponent', component: DoctorProfileComponent },
   { path: 'doctor-list', component: DoctorListComponent },
   { path: 'listofdoctors', component: ListofdoctorsComponent },
-
-  { path: 'patient-component', component: PatientComponentComponent },
-  { path: 'patient-display', component: PatientDisplayComponent },
-  { path: 'doctor-display', component: DoctorDisplayComponent },
-  { path: 'doctor-profile', component: DoctorProfileComponent },
-
-  { path: 'landing-page', component: LandingPageComponent },
-
   { path: 'patient-component/:id', component: PatientComponentComponent },
   { path: 'patient-display/:id', component: PatientDisplayComponent },
   { path: 'doctor-display/:id', component: DoctorDisplayComponent },
   { path: 'doctor-profile/:id', component: DoctorProfileComponent },
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'email-notification', component: EmailNotificationComponent },
+  { path: 'update-volunteer/:id', component: VolunteerProfileComponent },
+  { path: 'DoctorProfileComponent', component: DoctorProfileComponent },
+  { path: 'doctor-list', component: DoctorListComponent },
+  { path: 'landing-page', component: LandingPageComponent },
 ];
 
 @NgModule({

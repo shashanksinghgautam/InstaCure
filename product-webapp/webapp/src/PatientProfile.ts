@@ -3,7 +3,7 @@ import { User } from "./app/user";
 export class Patient {
   email!: string;
   mobile!: number;
-  dob!: Date;
+  dob!: string;
   address!: string;
   city!: string;
   country!: string;

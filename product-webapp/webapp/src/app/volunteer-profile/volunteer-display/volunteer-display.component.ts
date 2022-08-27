@@ -7,19 +7,16 @@ import { User } from 'src/app/user';
 @Component({
   selector: 'app-volunteer-display',
   templateUrl: './volunteer-display.component.html',
-  styleUrls: ['./volunteer-display.component.css']
+  styleUrls: ['./volunteer-display.component.css'],
 })
 export class VolunteerDisplayComponent implements OnInit {
-
-   id =Number(localStorage.getItem("lid"))
-   img = "http://localhost:8081/api/Volunteer/image/"+this.id;
+  id = Number(localStorage.getItem('lid'));
+  img = 'http://localhost:8081/api/Volunteer/image/' + this.id;
   searchText: string = '';
-  Volunteers: any[]=[]
-  volunteer= new Volunteer();
+  Volunteers: any[] = [];
+  volunteer = new Volunteer();
   // volunteer:object = new Volunteer()
- 
-  
-  
+
   constructor(
     private VolunteerService: VolunteerService,
     private router: Router
@@ -30,24 +27,17 @@ export class VolunteerDisplayComponent implements OnInit {
   }
 
   reloadData() {
-    
-    
-     this.VolunteerService.getVolunteer(this.id).subscribe(
-      data=>{
-        this.Volunteers.push(data);
-        
-      }
-    );
-    this.VolunteerService.getimage(this.id).subscribe(
-      data=>{
-        this.Volunteers.push(data);
-        
-      }
-    );
-   
+    this.VolunteerService.getVolunteer(this.id).subscribe((data) => {
+      this.Volunteers.push(data);
+    });
+    this.VolunteerService.getimage(this.id).subscribe((data) => {
+      this.Volunteers.push(data);
+    });
   }
-  UpdateProfile(id: number):void{
-   
-    this.router.navigate(['update-volunteer',id]);
+  UpdateProfile(id: number): void {
+    this.router.navigate(['update-volunteer', id]);
+  }
+  clearStorage() {
+    localStorage.clear();
   }
 }

@@ -40,6 +40,8 @@ export class LoginComponentComponent implements OnInit {
             localStorage.setItem("lid",this.lidstr)
           }
         )
+        
+        localStorage.setItem("lid",this.lidstr)
         console.log(localStorage.getItem("lid"))
 
         this.service.getuserrole(this.user).subscribe(

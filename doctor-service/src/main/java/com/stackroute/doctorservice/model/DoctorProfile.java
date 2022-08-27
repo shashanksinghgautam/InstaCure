@@ -4,7 +4,6 @@ import lombok.Data;
 import org.bson.types.Binary;
 import org.springframework.data.mongodb.core.mapping.Document;
 import javax.persistence.Column;
-
 import javax.persistence.Id;
 @Document ("DoctorProfile")
 @Data
