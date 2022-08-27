@@ -6,27 +6,31 @@ import { Doctor } from './Doctor';
 @Injectable({
   providedIn: 'root'
 })
-export class DoctorProfileService {
-  private baseUrl = "http://localhost:7081/doctor/add";
-  private baseUrl1 = "http://localhost:7081/doctor/get";
-  private baseUrl2 = "http://localhost:7081/doctor/get/{id}";
+export class DoctorService {
+  private baseUrl = "http://localhost:8085/doctor/add";
+  private baseUrl1 = "http://localhost:8085/doctor/get";
+  private baseUrl2 = "http://localhost:8085/doctor/get/{id}";
 
   
   constructor(private http: HttpClient) { }
-  addDoctor(doctor:Doctor): Observable<Object> {
-    console.log(doctor);
-    return this.http.post(`${this.baseUrl}`,doctor);
- }
-
-  // getVolunteers(): Observable<Volunteer[]>{
-  //   return this.http.get<Volunteer[]>(`${this.baseUrl}`);
-  // }
-  // updateDoctor(id: number, value: any) {
-  //   return this.http.put(`${this.baseUrl}/${id}`, value);
-  // }
-  // getVolunteer(id: number) {
-  //   return this.http.get(`${this.baseUrl}/${id}`);
-  // }
-
+  getDoctors(): Observable<Doctor[]>{
+    return this.http.get<Doctor[]>(`${this.baseUrl1}`);
+  }
+  updateDoctor(id: number, value: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, value);
+  }
+  getDoctor(id: number) {
+    return this.http.get(`${this.baseUrl2}/${id}`);
+  }
+  getimage(id: number) {
+    return this.http.get(`${this.baseUrl1}${id}`);
+  }
+  sendimage(id: number,value:any) {
+    // let headers = new HttpHeaders({
+    //   'Content-Type':'multipart/form-data;boundary=gc0p4Jq0M2Yt08jU534c0p'
+    //      });
+    // let options = { headers: headers };
+    return this.http.post(`${this.baseUrl}${id}`,value);
+  }
   
 }
