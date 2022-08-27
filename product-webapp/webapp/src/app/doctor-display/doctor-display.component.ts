@@ -36,6 +36,9 @@ export class DoctorDisplayComponent implements OnInit {
       this.Doctors.push(data);
     });
   }
+  clearStorage() {
+    localStorage.clear();
+  }
 
 }
 // function subscribe(arg0: (data: any) => void) {

@@ -9,6 +9,7 @@
 
   .navbar {
     height: 80px;
+    background: linear-gradient(to right, #332f2d, #395250);
   }
   .navbar-brand {
     position: absolute;
@@ -55,14 +56,13 @@
       position: fixed;
       top: 80px;
       right: -100%;
-      background: linear-gradient(to right, #332f2d, #395250);
+      background: linear-gradient(to right, #395250, #332f2d);
       height: 20vh;
       width: 30%;
       z-index: 2;
+      align-items: center;
       text-align: center;
       border-radius: 0px 0px 0px 10px;
-
-
     }
 
     .smallNav {

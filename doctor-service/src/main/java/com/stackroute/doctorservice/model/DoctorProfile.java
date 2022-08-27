@@ -18,9 +18,9 @@ public class DoctorProfile {
     private String city;
     private String state;
     private int postalCode;
-    private String educationqualification;
+    private String educationQualifiaction;
     private String speciality;
-    private String yearofexpertise;
+    private String yearOfExpertise;
     private Binary dp;
     //private byte doc[];
     private UserEntity user;
@@ -38,9 +38,9 @@ public class DoctorProfile {
         this.city = city;
         this.state = state;
         this.postalCode = postalCode;
-        this.educationqualification = educationqualification;
+        this.educationQualifiaction = educationqualification;
         this.speciality = speciality;
-        this.yearofexpertise = yearofexpertise;
+        this.yearOfExpertise = yearofexpertise;
         this.dp = dp;
     }
 
@@ -101,11 +101,11 @@ public class DoctorProfile {
     }
 
     public String getEducationqualification() {
-        return educationqualification;
+        return educationQualifiaction;
     }
 
     public void setEducationqualification(String educationqualification) {
-        this.educationqualification = educationqualification;
+        this.educationQualifiaction = educationqualification;
     }
 
     public String getSpeciality() {
@@ -117,11 +117,11 @@ public class DoctorProfile {
     }
 
     public String getYearofexpertise() {
-        return yearofexpertise;
+        return yearOfExpertise;
     }
 
     public void setYearofexpertise(String yearofexpertise) {
-        this.yearofexpertise = yearofexpertise;
+        this.yearOfExpertise = yearofexpertise;
     }
 
     public Binary getDp() {

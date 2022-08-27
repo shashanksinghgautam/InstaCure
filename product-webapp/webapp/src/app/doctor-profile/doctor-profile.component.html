@@ -10,7 +10,7 @@
     <div class="myNavBar ms-auto" id="navbarRight">
       <ul class="navbar-nav mb-2 mb-lg-0">
         <li class="nav-item">
-          
+
           <a class="nav-link"  routerLink="/medicine">
             <button type="submit" class="btn me-2 btn-primary btn-group-sm">
               Medicine
@@ -83,20 +83,20 @@
     </div>
 
 
-    <div class="col-lg-3 mt-1" style="margin-left:120px">
-      <div class="two" style="width:280px;height:180px">
+    <div class="col-lg-4 mt-1" style="padding-left:130px">
+      <div class="two" style="width:300px;height:180px">
         <div class="card-body">
           <h5>Educational Detail</h5>
           <div class="row">
             <div class="col-sm-6">
-              <label for="education" class="labels">Education Qualification </label>
+              <label for="education" class="labels">Qualification </label>
             </div>
             <div class="col-sm-6">
               <input type="text" ngModel #education="ngModel" class="form-control" id="education" name="education"
                 required="required" [(ngModel)]="Doctor.educationQualifiaction">
-              <div *ngIf="education.touched && education.invalid" class="alert">
+              <!-- <div *ngIf="education.touched && education.invalid" class="alert">
                 *Please enter your Educational detail.
-              </div>
+              </div> -->
             </div>
             <div class="col-sm-6">
               <label for="speciality" class="labels">Speciality </label>
@@ -104,9 +104,9 @@
             <div class="col-sm-6">
               <input type="text" ngModel #speciality="ngModel" class="form-control" id="speciality" name="speciality"
                 required="required" [(ngModel)]="Doctor.speciality">
-              <div *ngIf="speciality.touched && speciality.invalid" class="alert">
+              <!-- <div *ngIf="speciality.touched && speciality.invalid" class="alert">
                 *Please enter your Speciality detail.
-              </div>
+              </div> -->
             </div>
             <div class="col-sm-6">
               <label for="expertise" class="labels">Year of Expertise </label>
@@ -114,15 +114,15 @@
             <div class="col-sm-6">
               <input type="text" ngModel #expertise="ngModel" class="form-control" id="expertise" name="expertise"
                 required="required" [(ngModel)]="Doctor.yearOfExpertise">
-              <div *ngIf="expertise.touched && expertise.invalid" class="alert">
+              <!-- <div *ngIf="expertise.touched && expertise.invalid" class="alert">
                 *Please enter year of expertise.
-              </div>
+              </div> -->
             </div>
             </div>
           </div>
         </div>
 
-        
+
       </div>
     </div>
   </div>
@@ -160,12 +160,12 @@
                   <div class="col">
                     <input type="date" ngModel #dob="ngModel" name="dob" class="form-control" id="dob"
                       required="required" min="01-01-2020" [(ngModel)]="Doctor.dob" />
-                    <div *ngIf="dob.touched && dob.invalid " class="alert">
+                    <!-- <div *ngIf="dob.touched && dob.invalid " class="alert">
                       *Date of Birth is required
                     </div>
                     <div *ngIf="dob.touched && dob.invalid && dob.errors?.['min']" class="alert">
                       *Wrong DOB
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </span>
@@ -183,9 +183,9 @@
                   <div class="col">
                     <input type="text" ngModel #address="ngModel" class="form-control" id="address" name="address"
                       placeholder="1234 Main St" required="required" [(ngModel)]="Doctor.address">
-                    <div *ngIf="address.touched && address.invalid" class="alert">
+                    <!-- <div *ngIf="address.touched && address.invalid" class="alert">
                       *Please enter your address
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </span>
@@ -202,9 +202,9 @@
 
                   <input type="text" ngModel #city="ngModel" class="form-control" id="city" name="city"
                     required="required" [(ngModel)]="Doctor.city">
-                  <div *ngIf="city.touched && city.invalid" class="alert">
+                  <!-- <div *ngIf="city.touched && city.invalid" class="alert">
                     *Please enter your city name
-                  </div>
+                  </div> -->
 
                 </div>
               </span>
@@ -220,9 +220,9 @@
                 <div class="col">
                   <input type="text" ngModel #postal="ngModel" class="form-control" id="postal" name="postal"
                     required="required" [(ngModel)]="Doctor.postalCode">
-                  <div *ngIf="postal.touched && postal.invalid" class="alert">
+                  <!-- <div *ngIf="postal.touched && postal.invalid" class="alert">
                     *Please enter your postal code.
-                  </div>
+                  </div> -->
                 </div>
               </span>
             </div>
@@ -268,9 +268,9 @@
                       <option>Uttarakhand</option>
                       <option>West Bengal </option>
                     </select>
-                    <div *ngIf="address.touched && address.invalid" class="alert">
+                    <!-- <div *ngIf="address.touched && address.invalid" class="alert">
                       *Please enter your state
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </span>

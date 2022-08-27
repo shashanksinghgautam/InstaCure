@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.stackroute.doctorservice.model.DoctorProfile;
 import com.stackroute.doctorservice.repository.DoctorRepository;
 import com.stackroute.doctorservice.service.DoctorService;
@@ -28,42 +27,38 @@ import com.stackroute.doctorservice.service.DoctorService;
 public class DoctorController {
     @Autowired
     private DoctorService service;
-    
-	@Autowired
+
+    @Autowired
     private DoctorRepository VolunteerRepo;
 
-	@GetMapping ("welcome")
-	public String welcome(){
-		return "this is my Doctor api";
-	}
+    @GetMapping("welcome")
+    public String welcome() {
+        return "this is my Doctor api";
+    }
 
-	@PostMapping("add")
+    @PostMapping("add")
     public ResponseEntity<DoctorProfile> addNewHandler(@RequestBody DoctorProfile DoctorProfile) {
-			return new ResponseEntity<DoctorProfile>(service.addNew(DoctorProfile), HttpStatus.CREATED);
-		
+        return new ResponseEntity<DoctorProfile>(service.addNew(DoctorProfile), HttpStatus.CREATED);
 
-}
-    
-	@PutMapping("DoctorProfile/{id}")
-	public ResponseEntity<DoctorProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody DoctorProfile Doctor) throws ResourceNotFoundException {
-		DoctorProfile DoctorProfile = VolunteerRepo.findById(Id)
-				.orElseThrow(() -> new ResourceNotFoundException("Doctor not found for this id :: " + Id));
-	
-		
-		DoctorProfile.setAddress(Doctor.getAddress());
-		DoctorProfile.setCity(Doctor.getCity());
-		DoctorProfile.setState(Doctor.getState());
-		DoctorProfile.setPostalCode(Doctor.getPostalCode());
-		DoctorProfile.setEducationqualification(Doctor.getEducationqualification());
+    }
+
+    @PutMapping("DoctorProfile/{id}")
+    public ResponseEntity<DoctorProfile> updateVolunteer(@PathVariable(value = "id") int Id, @Validated @RequestBody DoctorProfile Doctor) throws ResourceNotFoundException {
+        DoctorProfile DoctorProfile = VolunteerRepo.findById(Id)
+                .orElseThrow(() -> new ResourceNotFoundException("Doctor not found for this id :: " + Id));
 
 
-	
-		final DoctorProfile DoctorProfile1 = VolunteerRepo.save(DoctorProfile);
-		return ResponseEntity.ok(DoctorProfile1);
-	}
-  
+        DoctorProfile.setAddress(Doctor.getAddress());
+        DoctorProfile.setCity(Doctor.getCity());
+        DoctorProfile.setState(Doctor.getState());
+        DoctorProfile.setPostalCode(Doctor.getPostalCode());
+        DoctorProfile.setDob(Doctor.getDob());
+        DoctorProfile.setEducationQualifiaction(Doctor.getEducationQualifiaction());
+        DoctorProfile.setSpeciality(Doctor.getSpeciality());
+        final DoctorProfile DoctorProfile1 = VolunteerRepo.save(DoctorProfile);
+        return ResponseEntity.ok(DoctorProfile1);
+    }
 
-  
 
     @GetMapping("/get")
     public List<DoctorProfile> getAllDoctors() {

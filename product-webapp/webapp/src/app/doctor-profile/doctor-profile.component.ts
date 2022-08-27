@@ -18,7 +18,6 @@ export class DoctorProfileComponent implements OnInit {
   userfile: any = File;
 
   submitted = false;
-
   Checked: any;
   medcheck: any;
   otherSymp: any;
@@ -28,7 +27,6 @@ export class DoctorProfileComponent implements OnInit {
 
 
   file!: File;
-
   imageError!: string;
   isImageSaved!: boolean;
   cardImageBase64!: string;
