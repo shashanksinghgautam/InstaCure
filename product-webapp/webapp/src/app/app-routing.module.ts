@@ -29,7 +29,6 @@ const routes: Routes = [
   { path: 'medicine-volunteer', component: VolunteerComponent },
   { path: 'add', component: AddnewComponent },
   { path: 'update/:id', component: UpdateComponent },
-<<<<<<< HEAD
   { path: 'update-volunteer/:id',component:VolunteerProfileComponent},
   { path: 'consultation/patient', component:PatientComponent },
   { path: 'patient-component/:id', component:PatientComponentComponent},
@@ -39,14 +38,8 @@ const routes: Routes = [
   { path: 'landing-page', component:LandingPageComponent},
   { path: 'email-notification', component:EmailNotificationComponent},
   { path: 'doctor-profile', component:DoctorProfileComponent},
-=======
   { path: 'update-volunteer/:id', component: VolunteerProfileComponent },
   { path: 'consultation/patient', component: PatientComponent },
-<<<<<<< HEAD
->>>>>>> 105c70f5d22084cb6d03c59b72b253b33a86cc27
-
-=======
->>>>>>> 3c37280802d56c3d9214ce22919a0aa5b2e98892
   { path: 'DoctorProfileComponent', component: DoctorProfileComponent },
   { path: 'doctor-list', component: DoctorListComponent },
   { path: 'listofdoctors', component: ListofdoctorsComponent },
@@ -54,6 +47,7 @@ const routes: Routes = [
   { path: 'patient-display/:id', component: PatientDisplayComponent },
   { path: 'doctor-display/:id', component: DoctorDisplayComponent },
   { path: 'doctor-profile/:id', component: DoctorProfileComponent },
+  { path: 'doctor-profile', component: DoctorProfileComponent },
   { path: 'landing-page', component: LandingPageComponent },
   { path: 'email-notification', component: EmailNotificationComponent },
   { path: 'update-volunteer/:id', component: VolunteerProfileComponent },

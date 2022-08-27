@@ -1,93 +1,10 @@
-/* .doctor{
-    width: 80%;
-    height: 500px;
-    background-color: hsla(0, 29%, 91%, 0.633);
-    position: absolute;
-    margin-left: 80px;
-    margin-top: 20px;
-    border-style: solid;
-    border-color: #0d1656;
-    border-radius: 20px;
-    
-}  */
+
 .heading{
     color: #0d1656;
 }
-/* .profile{
-    margin-top: 5rem;
-}
-body {
-    background: #f7f7f7;
-}
-.image{
-margin-top: 3rem;
-}
 
 
-/* .form-control:focus {
-    box-shadow: none;
-    border-color: #BA68C8
-} */
 
-/* .profile-button {
-    background: rgb(99, 39, 120);
-    box-shadow: none;
-    border: none
-}
-
-.profile-button:hover {
-    background: #682773
-}
-
-.profile-button:focus {
-    background: #682773;
-    box-shadow: none
-}
-
-.profile-button:active {
-    background: #682773;
-    box-shadow: none
-}
-
-.back:hover {
-    color: #682773;
-    cursor: pointer
-} */
-
-/* .labels {
-    font-size: 11px
-}
-.one{
-    width:100%;
-    height: auto;
-    background-color: white;
-}
-.doctor{
-    width: 80%;
-    height: auto;
-    background-color:bisque;
-    margin-left: 160px;
-    border: solid black;
-    padding-top: 20px;
-    margin-top: 60px;
-
-} */
-/* .heading{
-    margin-left: 25px;
-    font-weight: bold;
-    font-style:oblique;
-}
-
-.pic{
-    margin-left: 80px;
-}
-.img{
-    margin-left: 20px;
-}
-.b1{
-    margin-bottom: 30px;
-   margin-left: 70px;
-} */
 
 .one{
     /* height: 100%;

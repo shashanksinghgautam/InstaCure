@@ -3,7 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
 import { ActivatedRoute, Router,Event } from '@angular/router';
 import {Doctor} from './Doctor';
-import { DoctorProfileService } from './doctor-profile.service';
+import { DoctorService } from './doctor-profile.service';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -17,6 +17,14 @@ export class DoctorProfileComponent implements OnInit {
   userfile:any = File
 
   submitted = false;
+
+  Checked: any;
+  medcheck:any;
+  otherSymp:any
+  selectedItemsList:any[] = [];
+  medcond:any[] = [];
+  precon:any[] = [];
+
   file!: File;
 
   imageError!: string;
@@ -24,7 +32,7 @@ export class DoctorProfileComponent implements OnInit {
   cardImageBase64!: string;
 
   selectedFile!: File;
- constructor(private route:ActivatedRoute, private doctorService:DoctorProfileService,private router:Router,
+ constructor(private route:ActivatedRoute, private doctorService:DoctorService,private router:Router,
       private http:HttpClient) { }
 
   ngOnInit() {
@@ -56,21 +64,21 @@ export class DoctorProfileComponent implements OnInit {
     }, (error: any) => console.log(error));
 }
 
-  validate() {
+  onsubmit() {
     this.submitted = true;
     this.updateDoctor(); 
     // this.updateimage();
-    this.updateProduct();
+    // this.updateProduct();
 
 
 // from doctor display
   //   alert("DONE")
-  //   this.router.navigate(['volunteer-display',this.id]);   
+    this.router.navigate(['doctor-display',this.id]);   
    }
   
-  // gotoList() {
-  //   this.router.navigate(['volunteer-display']);
-  // }
+  gotoList() {
+    this.router.navigate(['doctor-display']);
+  }
   getFiles(event:any) {
   
     let f:any=event.target as HTMLElement;
@@ -84,17 +92,21 @@ export class DoctorProfileComponent implements OnInit {
       //Select File
       this.selectedFile = event.target.files[0];
     }
-    updateProduct(){
-      let fd = new FormData();
-      console.log(this.file);
+    // updateProduct(){
+    //   let fd = new FormData();
+    //   console.log(this.file);
       
-      fd.set("imgFile",this.file)
-      // fd.append("imgFile",this.file);
-      console.log(fd.get("imgFile"));
+    //   fd.set("imgFile",this.file)
+    //   // fd.append("imgFile",this.file);
+    //   console.log(fd.get("imgFile"));
       
-      this.doctorService.sendimage(this.id,fd.get("imgFile")).subscribe();
+    //   this.doctorService.sendimage(this.id,fd.get("imgFile")).subscribe();
        
-      }
+    //   }
+    
+    clearStorage(){
+      localStorage.clear();
+    }
     
   }
 

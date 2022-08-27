@@ -13,6 +13,8 @@ import com.stackroute.doctorservice.model.UserEntity;
 import com.stackroute.doctorservice.repository.DoctorRepository;
 import com.stackroute.doctorservice.service.DoctorService;
 
+import java.util.Optional;
+
 @Component
 public class MessageListener {
 	
@@ -25,6 +27,7 @@ public class MessageListener {
     @RabbitListener(queues = UserConfiguration.QUEUE)
     public void listener(UserEntity newUser) {
     	if(newUser.getRole().contains("Doctor")) {
+			if (DoctorRepo.findById(newUser.getId()) == null){
     	DoctorProfile Doctor = new DoctorProfile();
     	
     	System.out.println(newUser.getUname());
@@ -34,8 +37,15 @@ public class MessageListener {
     	Doctor.setUser(newUser);
     	final DoctorProfile updatedDoctor = DoctorRepo.save(Doctor);
     	}
+
     	else {
-        System.out.println(newUser.getEmail());
+				Optional<DoctorProfile> Doctor=DoctorRepo.findById(newUser.getId());
+				Doctor.get().setId(newUser.getId());
+				Doctor.get().setUser(newUser);
+				DoctorRepo.save(Doctor.get());
+				System.out.println(newUser.getEmail());
+			}
+
     }
     }
 }
