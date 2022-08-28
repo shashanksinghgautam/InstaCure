@@ -34,7 +34,11 @@ export class RegisterComponentComponent implements OnInit {
       },
       (error) => {
         console.log('FAILED');
-        Swal.fire('Registration Failed', 'Please check all the fields', 'error');
+        Swal.fire(
+          'Registration Failed',
+          'Please check all the fields',
+          'error'
+        );
         // this.errorMsg= "*Email or Mobile Already Exists! Try With Different Email or Mobile"
       }
     );
