@@ -54,6 +54,7 @@ public class DoctorController {
         DoctorProfile.setPostalCode(Doctor.getPostalCode());
         DoctorProfile.setDob(Doctor.getDob());
         DoctorProfile.setEducationQualifiaction(Doctor.getEducationQualifiaction());
+        DoctorProfile.setYearOfExpertise(Doctor.getYearOfExpertise());
         DoctorProfile.setSpeciality(Doctor.getSpeciality());
         final DoctorProfile DoctorProfile1 = VolunteerRepo.save(DoctorProfile);
         return ResponseEntity.ok(DoctorProfile1);

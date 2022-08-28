@@ -29,8 +29,8 @@ public class DoctorProfile {
     }
 
     public DoctorProfile(int id, String gender, String address, String dob, String city,
-                         String state, int postalCode, String educationqualification,
-                         String speciality, String yearofexpertise, Binary dp) {
+                         String state, int postalCode, String educationQualifiaction,
+                         String speciality, String yearOfExpertise, Binary dp) {
         this.id = id;
         this.gender = gender;
         this.address = address;
@@ -38,9 +38,9 @@ public class DoctorProfile {
         this.city = city;
         this.state = state;
         this.postalCode = postalCode;
-        this.educationQualifiaction = educationqualification;
+        this.educationQualifiaction = educationQualifiaction;
         this.speciality = speciality;
-        this.yearOfExpertise = yearofexpertise;
+        this.yearOfExpertise = yearOfExpertise;
         this.dp = dp;
     }
 
@@ -100,12 +100,12 @@ public class DoctorProfile {
         this.postalCode = postalCode;
     }
 
-    public String getEducationqualification() {
+    public String getEducationQualifiaction() {
         return educationQualifiaction;
     }
 
-    public void setEducationqualification(String educationqualification) {
-        this.educationQualifiaction = educationqualification;
+    public void setEducationQualifiaction(String educationQualifiaction) {
+        this.educationQualifiaction = educationQualifiaction;
     }
 
     public String getSpeciality() {
@@ -116,12 +116,12 @@ public class DoctorProfile {
         this.speciality = speciality;
     }
 
-    public String getYearofexpertise() {
+    public String getYearOfExpertise() {
         return yearOfExpertise;
     }
 
-    public void setYearofexpertise(String yearofexpertise) {
-        this.yearOfExpertise = yearofexpertise;
+    public void setYearOfExpertise(String yearOfExpertise) {
+        this.yearOfExpertise = yearOfExpertise;
     }
 
     public Binary getDp() {

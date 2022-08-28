@@ -92,7 +92,7 @@
               <label for="education" class="labels">Qualification </label>
             </div>
             <div class="col-sm-6">
-              <input type="text" ngModel #education="ngModel" class="form-control" id="education" name="education"
+              <input type="text" ngModel #educationQualifiaction="ngModel" class="form-control" id="education" name="educationQualifiaction"
                 required="required" [(ngModel)]="Doctor.educationQualifiaction">
               <!-- <div *ngIf="education.touched && education.invalid" class="alert">
                 *Please enter your Educational detail.
@@ -112,7 +112,7 @@
               <label for="expertise" class="labels">Year of Expertise </label>
             </div>
             <div class="col-sm-6">
-              <input type="text" ngModel #expertise="ngModel" class="form-control" id="expertise" name="expertise"
+              <input type="text" ngModel #yearOfExpertise="ngModel" class="form-control" id="expertise" name="yearOfExpertise"
                 required="required" [(ngModel)]="Doctor.yearOfExpertise">
               <!-- <div *ngIf="expertise.touched && expertise.invalid" class="alert">
                 *Please enter year of expertise.

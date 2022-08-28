@@ -13,7 +13,7 @@ import { DoctorService } from './doctor-profile.service';
 export class DoctorProfileComponent implements OnInit {
 
   id!: number;
-  Doctor: Doctor = new Doctor();
+  Doctor = new Doctor();
   Doctors: any[] = [];
   userfile: any = File;
 
@@ -41,7 +41,7 @@ export class DoctorProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.Doctor = new Doctor();
+   this.Doctor = new Doctor();
 
     this.id = this.route.snapshot.params['id'];
 
@@ -58,18 +58,11 @@ export class DoctorProfileComponent implements OnInit {
   reloadData() {
     this.doctorService.getDoctor(this.id).subscribe((data) => {
       this.Doctors.push(data);
+      console.log(data);
+
     });
   }
-  updateDoctor() {
-    this.doctorService.updateDoctor(this.id, this.Doctor).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.Doctor = new Doctor();
-        this.gotoList();
-      },
-      (error: any) => console.log(error)
-    );
-  }
+
 
   onsubmit() {
     this.submitted = true;
@@ -77,9 +70,19 @@ export class DoctorProfileComponent implements OnInit {
 
     this.router.navigate(['doctor-display', this.id]);
   }
+  updateDoctor() {
+    this.doctorService.updateDoctor(this.id, this.Doctor).subscribe(
+      (data: any) => {
+        console.log(this.Doctor);
+        this.Doctor = new Doctor();
+        this.gotoList();
+      },
+      (error: any) => console.log(error)
+    );
+  }
 
   gotoList() {
-    this.router.navigate(['doctor-display']);
+    this.router.navigate(['doctor-display', this.id]);
   }
   getFiles(event: any) {
     let f: any = event.target as HTMLElement;

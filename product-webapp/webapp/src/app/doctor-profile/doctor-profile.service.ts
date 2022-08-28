@@ -17,7 +17,7 @@ export class DoctorService {
   getDoctors(): Observable<Doctor[]>{
     return this.http.get<Doctor[]>(`${this.baseUrl1}`);
   }
-  updateDoctor(id: number, value: any) {
+  updateDoctor(id: number, value: any):Observable<any> {
     return this.http.put(`${this.baseUrl1}/${id}`, value);
   }
   getDoctor(id: number) {
