@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 
@@ -25,10 +26,20 @@ export class RegisterComponentComponent implements OnInit {
     this.service.registerUserFromRemote(this.user).subscribe(
       data=>{console.log("Login Success");
 
+      Swal.fire(
+        "Registration Succesfull",
+        "Please Click on Login Button to Login",
+        "success"
+      );
           this.router.navigate(['/login-component'])
     },
           error=>{console.log("FAILED");
-         this.errorMsg= "*Email or Mobile Already Exists! Try With Different Email or Mobile"
+          Swal.fire(
+            "Registration Failed",
+            "Please Check All Fields",
+            "warning"
+          );
+        // this.errorMsg= "*Email or Mobile Already Exists! Try With Different Email or Mobile"
 
         });
 

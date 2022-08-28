@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 import { User } from '../user';
 import { EmailBody } from './email-body';
 import { EmailService } from './email.service';
@@ -30,8 +31,19 @@ export class EmailNotificationComponent implements OnInit {
     console.log(this.email);
 
     this.service.sendMail(this.email).subscribe(data=>{
+      Swal.fire(
+        "Request Submitted Successfully",
+        "You will hear from us very soon!",
+        "success"
+      )
       console.log("Email Sent to Backend");
-    })
+    },(error)=>{
+      Swal.fire(
+        "Submission Failed",
+        "Please try again!",
+        "warning"
+      )
+    });
     this.email=new EmailBody();
   }
 }

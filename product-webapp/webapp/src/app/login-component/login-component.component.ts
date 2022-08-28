@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
 import { globalid } from 'src/global-variable';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -40,7 +41,7 @@ export class LoginComponentComponent implements OnInit {
             localStorage.setItem("lid",this.lidstr)
           }
         )
-        
+
         localStorage.setItem("lid",this.lidstr)
         console.log(localStorage.getItem("lid"))
 
@@ -61,10 +62,20 @@ export class LoginComponentComponent implements OnInit {
         this.service.loginUserFromRemote(this.user).subscribe(
           data=>{console.log("Login Success");
           console.log(role);
+          Swal.fire(
+            "Login Successfull",
+            "Welcome to InstaCure!",
+            "success"
+          )
           this.router.navigate(['landing-page'])
         },
           error=>{console.log("FAILED");
-          this.errorMsg= "*Invalid Email or Password or Role"
+          Swal.fire(
+            "Login Failed",
+            "Please Provide Valid Credentials",
+            "warning"
+          )
+         // this.errorMsg= "*Invalid Email or Password or Role"
         }
         );
    }
