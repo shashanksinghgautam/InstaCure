@@ -12,36 +12,31 @@ import { User } from '../user';
 })
 export class RegisterComponentComponent implements OnInit {
   user = new User();
-  flag: any
-  errorMsg=''
-  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
-  moblength:number=10;
+  flag: any;
+  errorMsg = '';
+  emailPattern = '^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$';
+  moblength: number = 10;
 
-  constructor(private router: Router, private service: RegistrationService) {
-
-  }
+  constructor(private router: Router, private service: RegistrationService) {}
 
   ngOnInit(): void {}
   registerUser() {
     this.service.registerUserFromRemote(this.user).subscribe(
-      data=>{console.log("Login Success");
+      (data) => {
+        console.log('Login Success');
 
-      Swal.fire(
-        "Registration Succesfull",
-        "Please Click on Login Button to Login",
-        "success"
-      );
-          this.router.navigate(['/login-component'])
-    },
-          error=>{console.log("FAILED");
-          Swal.fire(
-            "Registration Failed",
-            "Please Check All Fields",
-            "warning"
-          );
+        Swal.fire(
+          'Registration Succesfull',
+          'Please Click on Login Button to Login',
+          'success'
+        );
+        this.router.navigate(['/login-component']);
+      },
+      (error) => {
+        console.log('FAILED');
+        Swal.fire('Registration Failed', 'Please check all the fields', 'error');
         // this.errorMsg= "*Email or Mobile Already Exists! Try With Different Email or Mobile"
-
-        });
-
+      }
+    );
   }
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Patient } from 'src/PatientProfile';
+import Swal from 'sweetalert2';
 import { PatientService } from '../patient.service';
 
 @Component({
@@ -31,8 +32,13 @@ export class PatientDisplayComponent implements OnInit {
 
     this.router.navigate(['patient-component', id]);
   }
- 
+
   clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
     localStorage.clear();
   }
 }

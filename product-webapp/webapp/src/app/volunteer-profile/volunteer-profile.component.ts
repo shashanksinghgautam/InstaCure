@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Event, Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Doctor } from '../doctor-profile/Doctor';
 import { Volunteer } from './volunteer';
 import { VolunteerService } from './volunteer.service';
@@ -124,7 +125,13 @@ export class VolunteerProfileComponent implements OnInit {
 
     }
     clearStorage(){
+      Swal.fire(
+        'Successfully logged out',
+        'Click on Login Button to Login',
+        'success'
+      );
       localStorage.clear();
+
     }
 
 

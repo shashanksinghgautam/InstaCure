@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Volunteer } from '../volunteer';
 import { VolunteerService } from '../volunteer.service';
 import { User } from 'src/app/user';
+import Swal from 'sweetalert2';
 @Component({
   selector: 'app-volunteer-display',
   templateUrl: './volunteer-display.component.html',
@@ -38,6 +39,12 @@ export class VolunteerDisplayComponent implements OnInit {
     this.router.navigate(['update-volunteer', id]);
   }
   clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
     localStorage.clear();
+
   }
 }

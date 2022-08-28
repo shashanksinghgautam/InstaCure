@@ -3,6 +3,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Patient } from 'src/PatientProfile';
+import Swal from 'sweetalert2';
 import { PatientService } from '../patient.service';
 
 @Component({
@@ -123,6 +124,11 @@ export class PatientComponentComponent implements OnInit {
 
   options = ['Bangalore', 'Mumbai', 'Chennai', 'Kolkata', 'Hyderabad', 'Delhi'];
   clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
     localStorage.clear();
   }
 }
