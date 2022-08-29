@@ -33,7 +33,7 @@ export class PatientComponent implements OnInit {
     // this.x = this.myGroup.get('symptoms')?.value;
   }
   backMethod() {
-    this.router.navigateByUrl('home');
+    this.router.navigateByUrl('landing-page');
   }
   storeSymptoms() {
     this.s.symptoms=this.myGroup.value.symptoms;
