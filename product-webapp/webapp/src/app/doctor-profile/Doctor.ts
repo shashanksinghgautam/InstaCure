@@ -1,6 +1,9 @@
+
+import { Byte } from "@angular/compiler/src/util";
 import { User } from "../user";
 
 export class Doctor{
+  user= new User()
   dob!: Date;
   gender!:string;
   address!: string;
@@ -11,7 +14,6 @@ export class Doctor{
   educationQualifiaction!:string;
   speciality!:string;
   yearOfExpertise!: number;
-  User = new User();
 
   constructor() {}
 }

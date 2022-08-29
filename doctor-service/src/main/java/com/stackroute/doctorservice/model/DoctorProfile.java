@@ -3,7 +3,10 @@ package com.stackroute.doctorservice.model;
 import lombok.Data;
 import org.bson.types.Binary;
 import org.springframework.data.mongodb.core.mapping.Document;
+<<<<<<< HEAD
 
+=======
+>>>>>>> d158a841ae557b5fe8eb9ba95bdf5480d6545354
 import javax.persistence.Column;
 import javax.persistence.Id;
 
@@ -20,9 +23,9 @@ public class DoctorProfile {
     private String city;
     private String state;
     private int postalCode;
-    private String educationqualification;
+    private String educationQualifiaction;
     private String speciality;
-    private String yearofexpertise;
+    private String yearOfExpertise;
     private Binary dp;
     //private byte doc[];
     private UserEntity user;
@@ -31,8 +34,8 @@ public class DoctorProfile {
     }
 
     public DoctorProfile(int id, String gender, String address, String dob, String city,
-                         String state, int postalCode, String educationqualification,
-                         String speciality, String yearofexpertise, Binary dp) {
+                         String state, int postalCode, String educationQualifiaction,
+                         String speciality, String yearOfExpertise, Binary dp) {
         this.id = id;
         this.gender = gender;
         this.address = address;
@@ -40,9 +43,9 @@ public class DoctorProfile {
         this.city = city;
         this.state = state;
         this.postalCode = postalCode;
-        this.educationqualification = educationqualification;
+        this.educationQualifiaction = educationQualifiaction;
         this.speciality = speciality;
-        this.yearofexpertise = yearofexpertise;
+        this.yearOfExpertise = yearOfExpertise;
         this.dp = dp;
     }
 
@@ -102,12 +105,12 @@ public class DoctorProfile {
         this.postalCode = postalCode;
     }
 
-    public String getEducationqualification() {
-        return educationqualification;
+    public String getEducationQualifiaction() {
+        return educationQualifiaction;
     }
 
-    public void setEducationqualification(String educationqualification) {
-        this.educationqualification = educationqualification;
+    public void setEducationQualifiaction(String educationQualifiaction) {
+        this.educationQualifiaction = educationQualifiaction;
     }
 
     public String getSpeciality() {
@@ -118,12 +121,12 @@ public class DoctorProfile {
         this.speciality = speciality;
     }
 
-    public String getYearofexpertise() {
-        return yearofexpertise;
+    public String getYearOfExpertise() {
+        return yearOfExpertise;
     }
 
-    public void setYearofexpertise(String yearofexpertise) {
-        this.yearofexpertise = yearofexpertise;
+    public void setYearOfExpertise(String yearOfExpertise) {
+        this.yearOfExpertise = yearOfExpertise;
     }
 
     public Binary getDp() {

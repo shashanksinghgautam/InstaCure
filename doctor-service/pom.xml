@@ -14,7 +14,7 @@
 	<name>doctor-service</name>
 	<description>Doctor Service for InstaCure</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,6 +73,10 @@
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-amqp</artifactId>
         </dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+		</dependency>
         <dependency>
             <groupId>org.springframework.amqp</groupId>
             <artifactId>spring-rabbit</artifactId>

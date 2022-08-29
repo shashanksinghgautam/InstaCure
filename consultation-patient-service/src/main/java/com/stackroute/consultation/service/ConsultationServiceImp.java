@@ -10,7 +10,7 @@ import com.stackroute.consultation.repository.ConsultationRepository;
 
 
 @Service
-public class ConsultationServiceImp implements ConsultationService{
+public class ConsultationServiceImp implements ConsultationService {
 
     private ConsultationRepository crepo;
 

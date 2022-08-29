@@ -1,60 +1,103 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, NgForm, Validators,FormGroup} from '@angular/forms';
-import { Router } from '@angular/router';
-import {Doctor} from './Doctor';
-import { DoctorProfileService } from './doctor-profile.service';
+import { FormControl, NgForm, Validators, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router, Event } from '@angular/router';
+import Swal from 'sweetalert2';
+import { Doctor } from './Doctor';
+import { DoctorService } from './doctor-profile.service';
 
 @Component({
   selector: 'app-doctor-profile',
   templateUrl: './doctor-profile.component.html',
-  styleUrls: ['./doctor-profile.component.css']
+  styleUrls: ['./doctor-profile.component.css'],
 })
 export class DoctorProfileComponent implements OnInit {
-  docObject:Doctor=new Doctor();
-  imglocation='assets/profile.jpg'
-  doc= new Doctor();
-  @ViewChild("docform") public formref!: NgForm;
- constructor(private router:Router, private doctorService:DoctorProfileService) {
+  id!: number;
+  Doctor = new Doctor();
+  Doctors: any[] = [];
+  userfile: any = File;
 
+  submitted = false;
+  Checked: any;
+  medcheck: any;
+  otherSymp: any;
+  selectedItemsList: any[] = [];
+  medcond: any[] = [];
+  precon: any[] = [];
+
+  file!: File;
+  imageError!: string;
+  isImageSaved!: boolean;
+  cardImageBase64!: string;
+
+  selectedFile!: File;
+
+  constructor(
+    private route: ActivatedRoute,
+    private doctorService: DoctorService,
+    private router: Router,
+    private http: HttpClient
+  ) {}
+
+  ngOnInit() {
+    this.Doctor = new Doctor();
+
+    this.id = this.route.snapshot.params['id'];
+
+    this.doctorService.getDoctor(this.id).subscribe(
+      (data: any) => {
+        console.log(data);
+        this.Doctor = data;
+      },
+      (error: any) => console.log(error)
+    );
+    this.reloadData();
+  }
+  reloadData() {
+    this.doctorService.getDoctor(this.id).subscribe((data) => {
+      this.Doctors.push(data);
+      console.log(data);
+    });
   }
 
-  ngOnInit(): void {
+  onsubmit() {
+    this.submitted = true;
+    this.updateDoctor();
+
+    this.router.navigate(['doctor-display', this.id]);
   }
-  validate() {
-    this.doctorService.addDoctor(this.doc).subscribe(data=>{
-      console.log ("method success")
-
-
-    })
-    console.log(
-      'success' +
-        ' ' +
-        this.doc.gender +
-        ' ' +
-        this.doc.dob +
-        ' ' +
-        this.doc.address +
-        ' ' +
-        this.doc.city +
-        ' ' +
-        this.doc. state +
-        ' ' +
-        this.doc.postalCode +
-        ' ' +
-        this.doc.educationQualifiaction +
-        ' ' +
-        this.doc.speciality +
-        ' ' +
-        this.doc.yearOfExpertise
-    ); //ref.email.value +"  "+ ref.mob.value);
-    //this.router.navigateByUrl('dashboard')
-
+  updateDoctor() {
+    this.doctorService.updateDoctor(this.id, this.Doctor).subscribe(
+      (data: any) => {
+        console.log(this.Doctor);
+        this.Doctor = new Doctor();
+        this.gotoList();
+      },
+      (error: any) => console.log(error)
+    );
   }
 
+  gotoList() {
+    this.router.navigate(['doctor-display', this.id]);
+  }
+  getFiles(event: any) {
+    let f: any = event.target as HTMLElement;
 
+    this.file = (f.files as FileList)[0];
+    console.log(this.file);
+  }
 
+  public onFileChanged(event: any) {
+    //Select File
+    this.selectedFile = event.target.files[0];
+  }
 
-
-
-
+  clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
+    localStorage.clear();
+  }
 }

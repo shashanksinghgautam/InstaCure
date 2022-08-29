@@ -10,7 +10,19 @@
     <div class="myNavBar ms-auto" id="navbarRight">
       <ul class="navbar-nav mb-2 mb-lg-0">
 
+
         <li class="nav-item">
+
+
+        <!-- <li class="nav-item active">
+
+          <a class="nav-link" (click)="gohome()"><span class="navLinks">Home</span></a>
+
+
+
+        </li> -->
+        <li class="nav-item">
+          <!-- <a class="btn me-2 btn-danger btn-group-sm mt-2" routerLink="/landing-page">Cancel</a> -->
 
           <a class="nav-link"  routerLink="/medicine">
             <button type="submit" class="btn me-2 btn-primary btn-group-sm">
@@ -20,19 +32,33 @@
         </li>
         <li class="nav-item">
 
+
           <a class="nav-link"  routerLink="/landing-page">
             <button type="submit" (click)="clearStorage()" class="btn me-2 btn-danger btn-group-sm">
               Logout
+
+          <!-- <a class="btn me-2 btn-danger btn-group-sm mt-2" routerLink="/landing-page">Cancel</a> -->
+          <a class="nav-link"  routerLink="/landing-page">
+            <button type="submit" (click)="clearStorage()" class="btn me-2 btn-danger btn-group-sm">
+              Logout
+             
 
             </button>
           </a>
         </li>
 
 
+
+
+        <!-- <li class="nav-item">
+          <a class="nav-link"  (click)="goto()"><span class="navLinks">Profile</span></a>
+          </li> -->
+
       </ul>
     </div>
   </div>
 </nav>
+
 <div class="one"  *ngFor="let Volunteer of Volunteers ">
   <div class="container py-1">
     <div class=" d-flex align-items-center justify-content-center">
@@ -43,8 +69,8 @@
             <!-- <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
               class="rounded-circle img-fluid bg-light" style="width: 100px;">  -->
               <img [src]="img" alt="avatar"
-              class="rounded-circle img-fluid bg-light" style="width: 100px;"> 
-             
+              class="rounded-circle img-fluid bg-light" style="width: 100px;">
+
             <h5 class="my-3">{{Volunteer.user.uname}}</h5>
             <p class="text-muted mb-1">Volunteer</p>
             <p class="text-muted mb-4">{{Volunteer.city}}</p>

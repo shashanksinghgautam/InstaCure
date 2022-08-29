@@ -11,14 +11,7 @@ td{
   color: white;
 }
 h4{
-  text-align: center
-;
-}
-#x{
-  font-weight:bolder;
-}
-.hack{
-  font-weight:bold;
+  text-align: center;
 }
 .btn:active{
   background-color: green;
