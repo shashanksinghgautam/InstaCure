@@ -24,11 +24,13 @@
   background: linear-gradient(to bottom, #ee7724, #d8363a, #dd3675,  #ee7724);
   border-radius: 6px;
 }
-
-section{
-  height:93.59vh;
+.BODY{
+  height: 100vh;
+  overflow: hidden;
   background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
 }
+
+
 
 #LOGO {
   height: 190px;

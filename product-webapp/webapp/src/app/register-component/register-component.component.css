@@ -20,6 +20,11 @@ section{
 .checkbox{
   padding-top: 2px;
 }
+.BODY{
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(to bottom, #ff9934,#ff9934, #ffffff, #ffffff,#ffffff, #138708,#138708)
+}
 #rolename{
   padding-top: 3px;
 }
