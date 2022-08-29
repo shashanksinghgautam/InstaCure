@@ -47,8 +47,8 @@
 <input id="searchText-id" class="mt-2" [(ngModel)]="searchText" placeholder="Search By Medicine Name " />
 
 <div class="card-body overflow-auto ms-5 ps-5 ">
-  <div class="card" *ngFor="let Medicine of Medicines | async | search: searchText | paginate:
-  { itemsPerPage: 4, currentPage: p }" let index="index" class="p-1">
+  <div class="card" *ngFor="let Medicine of Medicines    | async | search: searchText | paginate:
+  { itemsPerPage: 4, currentPage: p } " let index="index"  class="p-1">
     <div class="card ms-5">
       <div class="card-body overflow-auto ">
 
@@ -66,9 +66,9 @@
             <div class="" style="font-weight: bold">${{ Medicine.price }}</div>
             <span>{{ Medicine.qnt }}</span>
             <div class="">
-              <input type="number" class="form-control" id="Quantity{{ Medicine.mid }}" required [(ngModel)]="qnt"
-                name="Quantity" style="margin: auto; width: 100px" />
-              <button (click)="buyMedicine(Medicine.mid)" class="btn btn-info">
+              <input type="number" min="1" max="10" class="form-control" id="Quantity{{Medicine.mid}}" required [(ngModel)]="qnt[Medicine.mid]" 
+                name="Quantity"  style="margin: auto; width: 100px" />
+              <button type="submit" (click)="buyMedicine(Medicine.mid,Medicine.medicinename)" class="btn btn-info">
                 Buy Now
               </button>
             </div>
