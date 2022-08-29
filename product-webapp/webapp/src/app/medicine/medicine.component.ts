@@ -11,8 +11,10 @@ import Swal from 'sweetalert2';
   styleUrls: ['./medicine.component.css'],
 })
 export class medicineComponent implements OnInit {
+  i!:number
+  name!:string
   p:any
-  qnt!:any;
+  qnt:Number[]=[]
   searchText: string = '';
   Medicines!: Observable<Medicine[]>;
   Medicine: Medicine = new Medicine();
@@ -31,23 +33,23 @@ export class medicineComponent implements OnInit {
     this.Medicines = this.MedicineService.getMedicinesList();
   }
 
-  buyMedicine(id: number ) {
-
-
-    // let qnt = document.getElementsByTagName('input')[id].value;
-
-    console.log(this.qnt);
-    this.MedicineService.buyMedicine(id, this.qnt).subscribe(
+  buyMedicine(id: number,mname:string ) {
+    this.name = mname
+    this.i=id
+    console.log(this.qnt[id]);
+    if(this.qnt[id]>=1 && this.qnt[id]<=15){
+    this.MedicineService.buyMedicine(id, this.qnt[id]).subscribe(
       (data: any) => {
         console.log(data);
         this.Medicine = new Medicine();
+        
       },
 
       (error: any) => console.log(error)
     );
-    console.log(this.Medicine.medicinename)
+    // console.log(this.Medicine.medicinename)
     Swal.fire(
-      'Puchase Succesfull of '+this.qnt+ ' Medicines',
+      ' Succesfull  Puchase of '+this.qnt[this.i]+' '+ this.name,
       'Thank You!',
       'success'
     ).then(()=> {
@@ -55,6 +57,18 @@ export class medicineComponent implements OnInit {
       window.location.reload(); // this should execute now
 
     })
+  }
+  else{
+    Swal.fire(
+      ' Puchase Failed ',
+      'Please try again',
+      'error'
+    ).then(()=> {
+
+      window.location.reload(); // this should execute now
+
+    })
+  }
   }
 
   goToEmail(){
