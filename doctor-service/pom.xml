@@ -14,7 +14,7 @@
 	<name>doctor-service</name>
 	<description>Doctor Service for InstaCure</description>
 	<properties>
-		<java.version>17</java.version>
+		<java.version>11</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
