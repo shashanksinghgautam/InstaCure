@@ -31,12 +31,12 @@
     border: 1px solid green;
   }
   .consult_images1{
-    animation: imageAnimation 5s infinite;
+    animation: imageAnimation 10s infinite;
   }
   @keyframes imageAnimation {
-    0%   { opacity:1; }
-    50%  { opacity:0;transform: rotate(360deg) }
-    100% { opacity:1; }
+    0%   { opacity:1;}
+    50%  { opacity:0;transform: rotate(360deg) scale(0) ; clip-path: ellipse();}
+    100% { opacity:1;}
   }
 
   @media (max-width: 1100px){
