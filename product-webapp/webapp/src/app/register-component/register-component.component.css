@@ -1,7 +1,12 @@
 @import url(../navBar/navBar.component.css);
 
 section{
+
+  height:93.75vh;
+  
+
   height:93.59vh;
+
   overflow: hidden;
 }
 

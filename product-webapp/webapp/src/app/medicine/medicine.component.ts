@@ -3,6 +3,7 @@ import { MedicineService } from '../medicine.service';
 import { Medicine } from '../medicine';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-medicine',
@@ -10,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./medicine.component.css'],
 })
 export class medicineComponent implements OnInit {
+  p:any
   qnt!:any;
   searchText: string = '';
   Medicines!: Observable<Medicine[]>;
@@ -44,8 +46,15 @@ export class medicineComponent implements OnInit {
       (error: any) => console.log(error)
     );
     console.log(this.Medicine.medicinename)
-    alert('sucessfully purchased ' + this.qnt + ' ' + 'Medicines');
-    window.location.reload();
+    Swal.fire(
+      'Puchase Succesfull of '+this.qnt+ ' Medicines',
+      'Thank You!',
+      'success'
+    ).then(()=> {
+
+      window.location.reload(); // this should execute now
+
+    })
   }
 
   goToEmail(){

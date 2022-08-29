@@ -65,6 +65,7 @@ import { EmailNotificationComponent } from './email-notification/email-notificat
     NgxPaginationModule,
     CommonModule
   ],
+  exports:[NavBarComponent],
   providers: [HttpClientModule, HttpClient, LoginComponentComponent],
   bootstrap: [AppComponent],
 })

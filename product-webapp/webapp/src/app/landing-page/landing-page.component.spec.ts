@@ -1,5 +1,6 @@
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -11,7 +12,8 @@ describe('LandingPageComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports:[HttpClientTestingModule,RouterTestingModule,RouterTestingModule.withRoutes([])],
+      imports:[HttpClientTestingModule,RouterTestingModule,ReactiveFormsModule,FormsModule,RouterTestingModule.withRoutes([])],
+
       declarations: [ LandingPageComponent ]
     })
     .compileComponents();

@@ -15,6 +15,7 @@ export class PatientDisplayComponent implements OnInit {
 
   Patients: any[] = [];
   patient = new Patient();
+  premed=["Cholestrol","Diabities","Migrain"]
 
   constructor(private patientService: PatientService, private router: Router) {}
 
@@ -32,6 +33,25 @@ export class PatientDisplayComponent implements OnInit {
 
     this.router.navigate(['patient-component', id]);
   }
+
+
+//   reloadData() {
+
+
+//     this.patientService.getPatient(this.id).subscribe(
+//      data=>{
+//        this.Patients.push(data);
+//        console.log(data);
+
+//      }
+//    );
+
+
+//  }
+// clearStorage(){
+//   localStorage.removeItem("lid");
+//   localStorage.removeItem("role");
+// }
 
   clearStorage() {
     Swal.fire(

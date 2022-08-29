@@ -14,67 +14,118 @@ import { PatientService } from '../patient.service';
 export class PatientComponentComponent implements OnInit {
   id!: number;
   Patient: Patient = new Patient();
-  Patients: any[] = [];
-  userfile: any = File;
+
+  Patients:any[]=[]
+  userfile:any = File
 
   submitted = false;
 
   Checked: any;
-  medcheck: any;
-  otherSymp: any;
-  selectedItemsList: any[] = [];
-  medcond: any[] = [];
-  precon: any[] = [];
+  medcheck:any;
+  otherSymp:any
+  selectedItemsList:any[] = [];
+  medcond:any[] = [];
+  precon:any[] = [];
+
+
 
   // @ViewChild('patform') public formref!: NgForm;
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private PatientService: PatientService,
-    private http: HttpClient
-  ) {}
+  constructor(private route: ActivatedRoute,private router: Router,
+    private PatientService: PatientService, private http: HttpClient) {
+    }
 
-  ngOnInit() {
-    this.Patient = new Patient();
+    ngOnInit() {
 
-    this.id = this.route.snapshot.params['id'];
 
-    this.PatientService.getPatient(this.id).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.Patient = data;
-      },
-      (error: any) => console.log(error)
-    );
-    this.reloadData();
-  }
-  reloadData() {
-    this.PatientService.getPatient(this.id).subscribe((data) => {
-      this.Patients.push(data);
-    });
-  }
-  updatePatient() {
-    this.PatientService.updatePatient(this.id, this.Patient).subscribe(
-      (data: any) => {
-        console.log(data);
-        this.Patient = new Patient();
-        this.gotoList();
-      },
-      (error: any) => console.log(error)
-    );
-  }
+      this.id = this.route.snapshot.params['id'];
+      console.log(this.id);
 
-  onSubmit() {
-    this.submitted = true;
-    this.updatePatient();
-    // this.updateimage();
-    // this.updateProduct();
-    this.router.navigate(['patient-display', this.id]);
-  }
+      this.PatientService.getPatient(this.id)
+        .subscribe((data: any) => {
+          console.log(data)
+          this.Patient = data;
+        }, (error: any) => console.log(error));
+       this.reloadData()
+    }
 
-  gotoList() {
-    this.router.navigate(['patient-display']);
-  }
+
+    reloadData() {
+
+      this.PatientService.getPatient(this.id).subscribe(
+       data=>{
+         this.Patients.push(data);
+
+       }
+     );
+
+   }
+    updatePatient() {
+      console.log(this.Patient);
+      this.PatientService.updatePatient(this.id, this.Patient)
+        .subscribe((data: any) => {
+          console.log(data);
+          this.Patient = new Patient();
+          this.gotoList();
+        }, (error: any) => console.log(error));
+    }
+
+
+
+    onSubmit() {
+      this.submitted = true;
+      this.updatePatient();
+
+      this.router.navigate(['patient-display',this.id]);
+    }
+
+    gotoList() {
+      this.router.navigate(['patient-display']);
+    }
+
+
+
+
+  // ngOnInit() {
+  //   this.Patient = new Patient();
+
+  //   this.id = this.route.snapshot.params['id'];
+
+  //   this.PatientService.getPatient(this.id).subscribe(
+  //     (data: any) => {
+  //       console.log(data);
+  //       this.Patient = data;
+  //     },
+  //     (error: any) => console.log(error)
+  //   );
+  //   this.reloadData();
+  // }
+  // reloadData() {
+  //   this.PatientService.getPatient(this.id).subscribe((data) => {
+  //     this.Patients.push(data);
+  //   });
+  // }
+  // updatePatient() {
+  //   this.PatientService.updatePatient(this.id, this.Patient).subscribe(
+  //     (data: any) => {
+  //       console.log(data);
+  //       this.Patient = new Patient();
+  //       this.gotoList();
+  //     },
+  //     (error: any) => console.log(error)
+  //   );
+  // }
+
+  // onSubmit() {
+  //   this.submitted = true;
+  //   this.updatePatient();
+  //   // this.updateimage();
+  //   // this.updateProduct();
+  //   this.router.navigate(['patient-display', this.id]);
+  // }
+
+  // gotoList() {
+  //   this.router.navigate(['patient-display']);
+  // }
 
   takeOthers(e: any) {
     if (e.target.checked) {
@@ -83,6 +134,7 @@ export class PatientComponentComponent implements OnInit {
       this.Checked = false;
     }
   }
+
 
   checkboxesDataList = [
     {
@@ -103,26 +155,40 @@ export class PatientComponentComponent implements OnInit {
     },
   ];
 
-  changeSelection() {
-    this.fetchSelectedItems();
-  }
 
-  fetchSelectedItems() {
-    this.selectedItemsList = this.checkboxesDataList.filter((value, index) => {
-      return value.isChecked;
-    });
-  }
 
-  fetchCheckedIDs() {
-    this.medcond = [];
-    this.checkboxesDataList.forEach((value, index) => {
-      if (value.isChecked) {
-        this.medcond.push(value.id);
-      }
-    });
-  }
 
-  options = ['Bangalore', 'Mumbai', 'Chennai', 'Kolkata', 'Hyderabad', 'Delhi'];
+  options = [
+    "Bangalore",
+    "Mumbai",
+    "Chennai",
+    "Kolkata",
+    "Hyderabad",
+    "Delhi"
+  ];
+
+
+
+
+  // changeSelection() {
+  //   this.fetchSelectedItems();
+  // }
+
+  // fetchSelectedItems() {
+  //   this.selectedItemsList = this.checkboxesDataList.filter((value, index) => {
+  //     return value.isChecked;
+  //   });
+  // }
+
+  // fetchCheckedIDs() {
+  //   this.medcond = [];
+  //   this.checkboxesDataList.forEach((value, index) => {
+  //     if (value.isChecked) {
+  //       this.medcond.push(value.id);
+  //     }
+  //   });
+  // }
+
   clearStorage() {
     Swal.fire(
       'Successfully logged out',
@@ -132,3 +198,4 @@ export class PatientComponentComponent implements OnInit {
     localStorage.clear();
   }
 }
+

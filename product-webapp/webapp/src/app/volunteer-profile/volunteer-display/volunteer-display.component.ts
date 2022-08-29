@@ -47,4 +47,5 @@ export class VolunteerDisplayComponent implements OnInit {
     localStorage.clear();
 
   }
+
 }

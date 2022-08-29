@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg bg-dark">
-  <a class="navbar-brand" href="#"><img src="../../../assets/instaCure-IMG-nbg.png" style="height: 50px; " ></a>
+  <a class="navbar-brand" href="#"><img src="../../../assets/instaCure-IMG-nbg.png" style="height: 50px; "></a>
   <div class="container-fluid">
     <input type="checkbox" class="ms-auto" id="check" />
     <label for="check" class="checkbtn">
@@ -8,13 +8,6 @@
 
     <div class="myNavBar ms-auto" id="navbarRight">
       <ul class="navbar-nav mb-2 mb-lg-0">
-        <!-- <li class="nav-item active">
-
-          <a class="nav-link" (click)="gohome()"><span class="navLinks">Home</span></a>
-
-        
-
-        </li> -->
 
         <li>
           <a class="nav-link" [hidden]="role != 'Volunteer'" routerLink="/medicine-volunteer">
@@ -25,23 +18,21 @@
         </li>
         <li>
           <a class="nav-link">
-        <button type="submit" (click)="goToEmail()" class="btn me-2 btn-primary btn-group-sm">
-          Raise a Request
-        </button>
-      </a>
-      </li>
+            <button type="submit" (click)="goToEmail()" class="btn me-2 btn-primary btn-group-sm">
+              Raise a Request
+            </button>
+          </a>
+        </li>
         <li class="nav-item">
-          <!-- <a class="btn me-2 btn-danger btn-group-sm mt-2" routerLink="/landing-page">Cancel</a> -->
-          <a class="nav-link"  routerLink="/landing-page">
+
+          <a class="nav-link" routerLink="/landing-page">
             <button type="submit" class="btn me-2 btn-danger btn-group-sm">
               Cancel
             </button>
           </a>
         </li>
 
-        <!-- <li class="nav-item">
-          <a class="nav-link"  (click)="goto()"><span class="navLinks">Profile</span></a>  
-          </li> -->
+
       </ul>
     </div>
   </div>
@@ -53,15 +44,14 @@
   </a>
 </div>
 
-<h2 class="text-uppercase d-flex justify-content-center">Medicine & Health</h2>
+<input id="searchText-id" class="mt-2" [(ngModel)]="searchText" placeholder="Search By Medicine Name " />
 
-<input id="searchText-id" [(ngModel)]="searchText" placeholder="Search By Medicine Name " />
+<div class="card-body overflow-auto ms-5 ps-5 ">
+  <div class="card" *ngFor="let Medicine of Medicines | async | search: searchText | paginate:
+  { itemsPerPage: 4, currentPage: p }" let index="index" class="p-1">
+    <div class="card ms-5">
+      <div class="card-body overflow-auto ">
 
-<div class="card-body overflow-auto">
-  <div class="card" *ngFor="let Medicine of Medicines | async | search: searchText" let index="index" class="p-1">
-    <div class="card">
-      <div class="card-body overflow-auto">
-        <div class="card-body overflow-auto">
           <div class="form-group row">
             <div class="" style="
                 text-decoration: solid;
@@ -83,8 +73,10 @@
               </button>
             </div>
           </div>
-        </div>
+
       </div>
     </div>
   </div>
 </div>
+<pagination-controls (pageChange)="p = $event" class="float-right text-center">
+</pagination-controls>

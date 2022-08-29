@@ -86,6 +86,7 @@ export class VolunteerProfileComponent implements OnInit {
 
 
 
+
     // const reader = new FileReader();
     // reader.onload = (e: any) => {
     //     const image = new Image();
@@ -104,6 +105,7 @@ export class VolunteerProfileComponent implements OnInit {
     //     console.log(event.target.files[0])
     //   reader.readAsDataURL(event.target.files[0]);
     //     console.log(reader);
+
 
 
   }
