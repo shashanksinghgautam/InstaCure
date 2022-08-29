@@ -87,25 +87,7 @@ export class VolunteerProfileComponent implements OnInit {
     console.log(this.file );
 
     
-        
-    // const reader = new FileReader();
-    // reader.onload = (e: any) => {
-    //     const image = new Image();
-    //     image.src = e.target.result;
-    //     image.onload = rs => {
-        
-    //             const imgBase64Path = e.target.result;
-    //             this.cardImageBase64 = imgBase64Path;
-    //             console.log(imgBase64Path);
-                
-    //             this.isImageSaved = true;
-    //             // this.previewImagePath = imgBase64Path;
-    //         }
-    //     };
-    
-    //     console.log(event.target.files[0])
-    //   reader.readAsDataURL(event.target.files[0]);
-    //     console.log(reader);
+
         
 
   }

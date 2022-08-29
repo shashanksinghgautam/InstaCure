@@ -43,7 +43,7 @@ export class PatientService {
     return this.http.get<Patient[]>(`${this.baseUrl}`);
   }
   updatePatient(id: number, value: any) {
-    return this.http.put(`${this.baseUrl}/${id}`, value);
+    return this.http.put(`${this.baseUrl}patient/${id}`, value);
   }
 
   getPatient(id: number) {

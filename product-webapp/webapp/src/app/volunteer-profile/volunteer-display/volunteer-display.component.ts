@@ -50,4 +50,8 @@ export class VolunteerDisplayComponent implements OnInit {
    
     this.router.navigate(['update-volunteer',id]);
   }
+  clearStorage(){
+    localStorage.removeItem("lid");
+    localStorage.removeItem("role");
+  }
 }

@@ -6,7 +6,6 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.stackroute.doctorservice.*;
 import com.stackroute.doctorservice.configuration.UserConfiguration;
 import com.stackroute.doctorservice.model.DoctorProfile;
 import com.stackroute.doctorservice.model.UserEntity;
@@ -22,7 +21,7 @@ public class MessageListener {
  	@Autowired
     private DoctorService docser;
 
-    @RabbitListener(queues = UserConfiguration.QUEUE)
+    @RabbitListener(queues = UserConfiguration.QUEUE)		
     public void listener(UserEntity newUser) {
     	if(newUser.getRole().contains("Doctor")) {
     	DoctorProfile Doctor = new DoctorProfile();

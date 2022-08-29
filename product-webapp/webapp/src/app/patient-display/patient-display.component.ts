@@ -49,5 +49,8 @@ export class PatientDisplayComponent implements OnInit {
 
 
  }
-
+clearStorage(){
+  localStorage.removeItem("lid");
+  localStorage.removeItem("role");
+}
 }

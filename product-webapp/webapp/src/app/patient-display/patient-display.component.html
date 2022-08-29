@@ -1,3 +1,38 @@
+<nav class="navbar navbar-expand-lg  bg-dark">
+  <a class="navbar-brand" href="#"><img src="../../../assets/instaCure-IMG-nbg.png" style="height: 50px; " ></a>
+  <div class="container-fluid">
+    <input type="checkbox" class="ms-auto" id="check">
+    <label for="check" class="checkbtn">
+      <i class=" smallNav"><img src="../assets/menu.png" alt=""></i>
+
+    </label>
+
+    <div class="myNavBar ms-auto" id="navbarRight">
+      <ul class="navbar-nav mb-2 mb-lg-0">
+
+        <li class="nav-item">
+
+          <a class="nav-link"  routerLink="/medicine">
+            <button type="submit" class="btn me-2 btn-primary btn-group-sm">
+              Medicine
+            </button>
+          </a>
+        </li>
+        <li class="nav-item">
+
+          <a class="nav-link"  routerLink="/landing-page">
+            <button type="submit" (click)="clearStorage()" class="btn me-2 btn-danger btn-group-sm">
+              Logout
+
+            </button>
+          </a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="one" *ngFor="let Patient of Patients ">
   <div class="container py-1">
     <div class=" d-flex align-items-right justify-content-right">
@@ -34,7 +69,7 @@
                 <p class="mb-0">Email</p>
               </div>
               <div class="col-sm-6">
-                <p class="text-muted mb-0">{{Patient.user.uname}}</p>
+                <p class="text-muted mb-0">{{Patient.user.email}}</p>
               </div>
             </div>
             <hr>
@@ -101,7 +136,7 @@
               </div>
               <div class="col-sm-6">
                 <span class="text-muted mb-0">
-                  {{Patient.user.uname}}
+                  {{Patient.address}}
                 </span>
               </div>
             </div>
@@ -125,7 +160,7 @@
               </div>
               <div class="col-sm-6">
                 <span class="text-muted mb-0">
-                  {{Patient.user.uname}}
+                  {{Patient.postalCode}}
                 </span>
               </div>
             </div>

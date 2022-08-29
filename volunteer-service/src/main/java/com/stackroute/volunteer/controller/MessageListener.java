@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.stackroute.volunteer.config.UserConfiguration;
+import com.stackroute.volunteer.execptions.ResourceNotFoundException;
 import com.stackroute.volunteer.model.Volunteer;
 import com.stackroute.volunteer.repository.VolunteerRepository;
 import com.stackroute.volunteer.service.VolunteerService;
@@ -22,9 +23,12 @@ public class MessageListener {
     private VolunteerService VolunteerService;
 
     @RabbitListener(queues = UserConfiguration.QUEUE)
-    public void listener(UserEntity newUser) {
+    public void listener(UserEntity newUser) throws ResourceNotFoundException {
     	if(newUser.getRole().contains("Volunteer")) {
-    	Volunteer Volunteer = new Volunteer();
+    		Volunteer Volunteer = VolunteerRepo.findById(newUser.getId())
+    				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + newUser.getId()));
+    	
+    	
     	
     	System.out.println(newUser.getUname());
 //    	System.out.println(newUser.getId());
