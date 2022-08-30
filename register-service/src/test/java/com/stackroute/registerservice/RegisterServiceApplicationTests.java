@@ -1,102 +1,133 @@
-package com.stackroute.registerservice;
+ package com.stackroute.registerservice;
 
-import com.stackroute.model.UserEntity;
-import com.stackroute.repository.RegisterRepository;
-import com.stackroute.service.RegisterService;
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+    import static org.junit.jupiter.api.Assertions.assertEquals;
+    import static org.junit.jupiter.api.Assertions.assertNull;
+    import static org.mockito.ArgumentMatchers.any;
+    import static org.mockito.ArgumentMatchers.anyInt;
+    import static org.mockito.Mockito.times;
+    import static org.mockito.Mockito.verify;
+    import static org.mockito.Mockito.when;
+    import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
-import java.util.Optional;
+    import java.util.Optional;
+    import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+    import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+    import com.stackroute.controller.RegisterController;
+    import com.stackroute.model.UserEntity;
+    import com.stackroute.repository.RegisterRepository;
+    import com.stackroute.service.RegisterService;
+    import org.junit.jupiter.api.AfterEach;
+    import org.junit.jupiter.api.Assertions;
+    import org.junit.jupiter.api.BeforeEach;
+    import org.junit.jupiter.api.Test;
+    import org.junit.jupiter.api.extension.ExtendWith;
+    import org.mockito.InjectMocks;
+    import org.mockito.Mock;
+    import org.mockito.MockitoAnnotations;
+    import org.springframework.http.MediaType;
+    import org.mockito.junit.jupiter.MockitoExtension;
+    import org.springframework.boot.test.context.SpringBootTest;
+    import org.springframework.test.web.servlet.MockMvc;
+    import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+    import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.Assert.assertNotNull;
 
-@SpringBootTest
-class RegisterServiceApplicationTests {
+    @ExtendWith(MockitoExtension.class)
+    @SpringBootTest
+    public class RegisterServiceApplicationTests {
 
-    @Autowired
-    private RegisterRepository repo;
-    @Autowired
-    private RegisterService service;
+        private MockMvc mockMvc;
+        @Mock
+        private RegisterRepository repo;
 
-    @Test
-    public void testSaveUserBySettingANewUser() {
-        Optional<UserEntity> opt = repo.findById(16);
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
+        @InjectMocks
+        private RegisterService service;
+
+        @InjectMocks
+        private RegisterController controller;
+        private UserEntity user, user1, user2;
+        private Optional optional;
+
+        @BeforeEach
+        public void setUp() {
+            MockitoAnnotations.initMocks(this);
+            mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
+            user = new UserEntity(1, "Ares", "123456", "ares@gmail.com", 1234512345L, "Doctor");
+            user1 = new UserEntity(2, "Sins", "123456", "sins@gmail.com", 1234522345L, "Patient");
+            optional = Optional.of(user);
+        }
+
+        @AfterEach
+        public void tearDown() {
+            user = null;
+        }
+
+        @Test
+        public void givenUserToSaveThenShouldReturnSavedUser() {
+            when(repo.save(any())).thenReturn(user);
+            assertEquals(user, service.saveUser(user));
+            verify(repo, times(1)).save(any());
+        }
+
+        @Test
+        public void givenUserToSaveThenShouldNotReturnSavedUser() {
+            when(repo.save(any())).thenThrow(new RuntimeException());
+            Assertions.assertThrows(RuntimeException.class, () -> {
+                service.saveUser(user);
+            });
+            verify(repo, times(1)).save(any());
+        }
+
+        @Test
+        public void givenGetUserByEmailThenShouldReturnUser() {
+            repo.save(user);
+            //stubbing the mock to return specific data
+            when(repo.findByEmail("ares@gmail.com")).thenReturn(user2);
+            UserEntity temp = service.getByEmail("ares@gmail.com");
+            assertEquals(user2, temp);
+            verify(repo, times(1)).save(user);
+            verify(repo, times(1)).findByEmail("ares@gmail.com");
+        }
+
+        @Test
+        public void givenGetUserByMobileThenShouldReturnUser() {
+            repo.save(user1);
+            //stubbing the mock to return specific data
+            when(repo.findByMobile(1234522345L)).thenReturn(user2);
+            UserEntity temp = service.getByMobile(1234522345L);
+            assertEquals(user2, temp);
+            verify(repo, times(1)).save(user1);
+            verify(repo, times(1)).findByMobile(1234522345L);
+        }
+
+        @Test
+        public void givenGetUserByEmailMobileAndRoleThenShouldReturnUser() {
+            repo.save(user);
+            //stubbing the mock to return specific data
+            when(repo.findByEmailAndPasswordAndRole("ares@gmail.com", "123456", "Doctor")).thenReturn(user2);
+            UserEntity temp = service.getByEmailAndPasswordAndRole("ares@gmail.com", "123456", "Doctor");
+            assertEquals(user2, temp);
+            verify(repo, times(1)).save(user);
+            verify(repo, times(1)).findByEmailAndPasswordAndRole("ares@gmail.com", "123456", "Doctor");
+        }
+
+        @Test
+        public void givenUserToSaveThenShouldReturnSavedUserFromRepo() {
+            repo.save(user);
+            Optional<UserEntity> fetchedUSer = repo.findById(user.getId());
+            if(fetchedUSer.isPresent())
+            assertEquals(user.getId(), fetchedUSer.get().getId());
+            else{
+                assertEquals(false, fetchedUSer.isPresent());
+            }
+        }
+
+     /*   @Test
+        public void givenUserToSaveThenShouldReturnSavedUserController() throws Exception {
+            when(service.saveUser(any())).thenReturn(user);
+            mockMvc.perform(post("/reg/register").contentType(MediaType.APPLICATION_JSON).content(String.valueOf((user))))
+                    .andExpect(status().isCreated()).andDo(MockMvcResultHandlers.print());
+            verify(service).saveUser(any());
+        }
+*/
     }
-
-    @Test
-    public void testRepoFindByEmail() {
-        Optional<UserEntity> opt = Optional.ofNullable(repo.findByEmail("on5@gmail.com"));
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
-
-        UserEntity temp1 = repo.findByEmail("on125@gmail.com");
-        assertNull(temp1);
-
-    }
-
-    @Test
-    public void testRepoFindByMobile() {
-        Optional<UserEntity> opt = Optional.ofNullable(repo.findByMobile(1117680363));
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
-
-        UserEntity temp1 = repo.findByMobile(123325648);
-        assertNull(temp1);
-
-    }
-
-    @Test
-    public void testRepoFindByEmailAndPasswordAndRole() {
-        Optional<UserEntity> opt = Optional.ofNullable(repo.findByEmailAndPasswordAndRole("shashanksamsungon5@gmail.com", "123456", "Volunteer"));
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
-
-        UserEntity temp1 = repo.findByEmailAndPasswordAndRole(" shashanksamsungon5@gmail.com", "123356", "Volunteer");
-        assertNull(temp1);
-
-    }
-
-    @Test
-    public void testServiceGetByEmailAndPasswordAndRole() {
-        Optional<UserEntity> opt = Optional.ofNullable(service.getByEmailAndPasswordAndRole("shashanksamsungon5@gmail.com", "123456", "Volunteer"));
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
-
-        UserEntity temp1 = service.getByEmailAndPasswordAndRole(" shashanksamsungon5@gmail.com", "123356", "Volunteer");
-        assertNull(temp1);
-
-    }
-    @Test
-    public void testServiceGetByEmail() {
-        Optional<UserEntity> opt = Optional.ofNullable(service.getByEmail("shashanksamsungon5@gmail.com"));
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
-
-        UserEntity temp1 = service.getByEmail(" shashanksamsungon5@gmail.com ");
-        assertNull(temp1);
-
-    }
-    @Test
-    public void testServiceGetByMobile() {
-        Optional<UserEntity> opt = Optional.ofNullable(service.getByMobile(1007680363));
-        UserEntity temp = opt.get();
-        System.out.println(temp.toString());
-        assertNotNull(temp);
-
-        assertEquals(1007680363,temp.getMobile());
-
-        UserEntity temp1 = service.getByMobile(1007330363);
-        assertNull(temp1);
-
-    }
-}
