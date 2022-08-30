@@ -46,7 +46,7 @@ export class DoctorProfileComponent implements OnInit {
 
     this.doctorService.getDoctor(this.id).subscribe(
       (data: any) => {
-        console.log(data);
+        // console.log(data);
         this.Doctor = data;
       },
       (error: any) => console.log(error)
@@ -56,7 +56,7 @@ export class DoctorProfileComponent implements OnInit {
   reloadData() {
     this.doctorService.getDoctor(this.id).subscribe((data) => {
       this.Doctors.push(data);
-      console.log(data);
+      // console.log(data);
     });
   }
 
@@ -70,8 +70,10 @@ export class DoctorProfileComponent implements OnInit {
     this.doctorService.updateDoctor(this.id, this.Doctor).subscribe(
       (data: any) => {
         console.log(this.Doctor);
-        this.Doctor = new Doctor();
+        // this.Doctor = new Doctor();
         this.gotoList();
+        console.log(this.Doctor);
+        
       },
       (error: any) => console.log(error)
     );

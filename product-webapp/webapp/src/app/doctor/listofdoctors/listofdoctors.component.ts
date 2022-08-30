@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/doctor-profile/Doctor';
 import { PatientService } from 'src/app/patient.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-listofdoctors',
@@ -26,4 +27,13 @@ export class ListofdoctorsComponent implements OnInit {
    
   }
 
+  clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
+    localStorage.clear();
+
+  }
 }

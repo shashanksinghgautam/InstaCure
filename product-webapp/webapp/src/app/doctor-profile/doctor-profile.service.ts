@@ -7,9 +7,9 @@ import { Doctor } from './Doctor';
   providedIn: 'root'
 })
 export class DoctorService {
-  private baseUrl = "http://localhost:8085/doctor/add";
-  private baseUrl1 = "http://localhost:8085/doctor/DoctorProfile";
-  private baseUrl2 = "http://localhost:8085/doctor/get";
+  private baseUrl = "http://localhost:8086/doctor/add";
+  private baseUrl1 = "http://localhost:8086/doctor/DoctorProfile";
+  private baseUrl2 = "http://localhost:8086/doctor/get";
 
 
   constructor(private http: HttpClient) { }

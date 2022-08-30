@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Medicine } from 'src/app/medicine';
-import { ApiService } from './api.service';
+
 import { MedicineService } from 'src/app/medicine.service';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';

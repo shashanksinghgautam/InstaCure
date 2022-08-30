@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Doctor } from 'src/app/doctor-profile/Doctor';
 import { DoctorProfileComponent } from 'src/app/doctor-profile/doctor-profile.component';
 import { PatientService } from 'src/app/patient.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctor-list',
@@ -45,7 +46,15 @@ export class DoctorListComponent implements OnInit {
     b?.setAttribute("value","Appointment Booked")
   }
 
-   
+  clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
+    localStorage.clear();
+
+  }
     
 }
 

@@ -11,17 +11,17 @@ import { Patient } from 'src/PatientProfile';
   providedIn: 'root'
 })
 export class PatientService {
-  private baseUrl1 = "http://localhost:7081/doctor/get";
+  private baseUrl1 = "http://localhost:8086/doctor/get";
   specality: any;
 
 
-  baseUrl="http://localhost:8082/patient/"
+  baseUrl="http://localhost:8086/patient/"
 
   constructor(private http:HttpClient) { }
 
   postSymptoms(symptom:any):Observable<any>{
 
-    return this.http.post("http://localhost:8081/api/saveSymptoms",symptom,{responseType:'text' as 'json'});
+    return this.http.post("http://localhost:8086/api/saveSymptoms",symptom,{responseType:'text' as 'json'});
   }
 
   getDoctors(): Observable<Doctor[]>{

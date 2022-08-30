@@ -10,9 +10,9 @@ export class VolunteerService {
 
 
 
-  private baseUrl = "http://localhost:8081/api/Volunteer";
+  private baseUrl = "http://localhost:8086/api/Volunteer";
 
-  private baseUrl1 = "http://localhost:8081/api/Volunteer/image";
+  private baseUrl1 = "http://localhost:8086/api/Volunteer/image";
 
   
 

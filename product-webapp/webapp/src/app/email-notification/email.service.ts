@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class EmailService {
 
   constructor(private http: HttpClient) { }
-  private emailURL = "http://localhost:8080/reg/Volunteer/email";
+  private emailURL = "http://localhost:8086/reg/Volunteer/email";
 
   getVolunteerEmails() {
     return this.http.get(`${this.emailURL}/`);
@@ -19,6 +19,6 @@ export class EmailService {
 //  }
 
   sendMail(email:any){
-    return this.http.post("http://localhost:8090/send",email)
+    return this.http.post("http://localhost:8086/send",email)
   }
 }
