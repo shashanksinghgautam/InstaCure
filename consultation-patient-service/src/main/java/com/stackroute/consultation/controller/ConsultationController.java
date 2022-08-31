@@ -16,10 +16,8 @@ import com.stackroute.consultation.entity.PatientSymptoms;
 import com.stackroute.consultation.repository.ConsultationRepository;
 import com.stackroute.consultation.service.ConsultationService;
 
-
-
 @RestController
-@CrossOrigin(origins="http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("consult/")
 public class ConsultationController {
 
@@ -28,13 +26,14 @@ public class ConsultationController {
 
     private ConsultationService cservice;
 
-    @GetMapping ("welcome")
-    public String welcome(){
+    @GetMapping("welcome")
+    public String welcome() {
         return "this is my Consultation api";
     }
+
     @Autowired
     public ConsultationController(ConsultationService cservice) {
-       super();
+        super();
         this.cservice = cservice;
     }
 
@@ -50,4 +49,3 @@ public class ConsultationController {
     }
 
 }
-

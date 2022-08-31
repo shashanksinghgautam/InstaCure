@@ -24,7 +24,7 @@ import com.stackroute.service.PatientService;
 
 @RestController
 @RequestMapping(value = "/patient")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class PatientController {
     @Autowired
     private PatientService service;
@@ -43,7 +43,7 @@ public class PatientController {
 		
 
 }
-	@PutMapping("patient/{id}")
+	@PutMapping("/patient/{id}")
 	public ResponseEntity<PatientProfile> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody PatientProfile user) throws ResourceNotFoundException {
 		PatientProfile PatientProfile = Repo.findById(Id)
 				.orElseThrow(() -> new ResourceNotFoundException("User not found for this id :: " + Id));

@@ -31,7 +31,7 @@ import com.stackroute.volunteer.service.StorageService;
 import com.stackroute.volunteer.service.VolunteerService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RequestMapping("api/")
 public class VolunteerController {
 	@Autowired

@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.stackroute.entity.PatientProfile;
 import com.stackroute.entity.UserEntity;
-import com.stackroute.repository.PatientRepository;;
+import com.stackroute.repository.PatientRepository;
 
 import java.util.Optional;
 
