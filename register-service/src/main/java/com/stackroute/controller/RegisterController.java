@@ -32,6 +32,7 @@ public class RegisterController {
 
         return "Hello Register........";
     }
+
     @PostMapping("register")
     public ResponseEntity<UserEntity> register(@RequestBody UserEntity newUser) throws Exception {
 
@@ -73,7 +74,7 @@ public class RegisterController {
         if (tempUser == null) {
             throw new Exception("User Doesn't Exist");
         }
-        template.convertAndSend(UserConfiguration.EXCHANGE, UserConfiguration.ROUTING_KEY, tempUser);
+        template.convertAndSend(UserConfiguration.EXCHANGE, "", tempUser);
         return new ResponseEntity<UserEntity>(tempUser, HttpStatus.OK);
     }
 
@@ -112,15 +113,15 @@ public class RegisterController {
     @GetMapping("Volunteer/email")
     public ResponseEntity<?> getallemail() {
 
-        List<UserEntity> all=this.repo.findAll();
-        List<UserEntity> vol = new ArrayList<>() ;
+        List<UserEntity> all = this.repo.findAll();
+        List<UserEntity> vol = new ArrayList<>();
 
-        for(UserEntity v:all){
-            if(v.getRole().equals("Volunteer"))
-            vol.add(v);
+        for (UserEntity v : all) {
+            if (v.getRole().equals("Volunteer"))
+                vol.add(v);
         }
         System.out.println(vol);
-        template.convertAndSend(UserConfiguration.EXCHANGE, UserConfiguration.ROUTING_KEY, vol);
+        template.convertAndSend(UserConfiguration.EXCHANGE, "", vol);
         return new ResponseEntity<>(vol, HttpStatus.OK);
     }
 

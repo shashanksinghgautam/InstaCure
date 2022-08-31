@@ -23,7 +23,7 @@ import com.stackroute.doctorservice.service.DoctorService;
 
 @RestController
 @RequestMapping(value = "/doctor")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class DoctorController {
     @Autowired
     private DoctorService service;

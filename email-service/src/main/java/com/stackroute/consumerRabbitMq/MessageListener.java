@@ -16,7 +16,7 @@ public class MessageListener {
 
 	    private List<UserEntity> emailList;
 
-		@RabbitListener(queues = UserConfiguration.QUEUE)
+		@RabbitListener(queues = "mail_queue")
 		public void listener(List<UserEntity> list) {
 			emailList=list;
 			System.out.println(emailList);

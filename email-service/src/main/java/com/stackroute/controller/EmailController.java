@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/email")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 public class EmailController {
 
     @Autowired
@@ -35,11 +35,12 @@ public class EmailController {
          System.out.println(this.list);
     }*/
 
-    @PostMapping("send")
+    @PostMapping("/send")
     public ResponseEntity<?>sendEmail(@RequestBody Email email){
         List<UserEntity>list= ml.getEmailList();
-        System.out.println(list);
+        System.out.println(list.toString());
         this.emailService.sendEmail(email,list);
+        email.setTo("VOLUNTEERs");
         System.out.println(email);
         return ResponseEntity.ok("successfully sent => "+email.getTo());
     }

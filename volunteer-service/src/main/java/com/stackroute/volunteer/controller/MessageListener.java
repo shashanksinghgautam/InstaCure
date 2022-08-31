@@ -22,10 +22,10 @@ public class MessageListener {
     @Autowired
     private VolunteerService VolunteerService;
 
-    @RabbitListener(queues = UserConfiguration.QUEUE)
+    @RabbitListener(queues = "vol_queue")
     public void listener(UserEntity newUser) throws ResourceNotFoundException {
         if (newUser.getRole().contains("Volunteer")) {
-            if (VolunteerRepo.findById(newUser.getId()) == null) {
+            if (!VolunteerRepo.findById(newUser.getId()).isPresent()) {
                 Volunteer Vol = new Volunteer();
                 System.out.println(newUser.getUname());
                 Vol.setVid(newUser.getId());

@@ -21,16 +21,12 @@ export class EmailNotificationComponent implements OnInit {
       this.list.push()
      console.log(data);
     });
-
-    // this.service.sendEmailList(this.list).subscribe(data=>{
-    // //  console.log(this.list);
-    // });
   }
 
   sendEmail() {
     console.log(this.email);
 
-    this.service.sendMail(this.email).subscribe(data=>{
+    this.service.sendMail(this.email).subscribe(/* (data)=>{
       Swal.fire(
         "Request Submitted Successfully",
         "You will hear from us very soon!",
@@ -39,11 +35,11 @@ export class EmailNotificationComponent implements OnInit {
       console.log("Email Sent to Backend");
     },(error)=>{
       Swal.fire(
-        "Submission Failed",
-        "Please try again!",
-        "warning"
+        "Request Submitted Successfully",
+        "You will hear from us very soon!",
+        "success"
       )
-    });
-    this.email=new EmailBody();
+    } */);
+    //this.email=new EmailBody();
   }
 }

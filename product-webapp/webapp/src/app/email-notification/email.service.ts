@@ -19,6 +19,6 @@ export class EmailService {
 //  }
 
   sendMail(email:any){
-    return this.http.post("http://localhost:8086/send",email)
+    return this.http.post("http://localhost:8086/email/send",email)
   }
 }
