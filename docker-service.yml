@@ -3,7 +3,6 @@ services:
   patient-service:
     build: patient-service/
     container_name: patient-service
-    depends_on:
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -12,7 +11,6 @@ services:
   doctor-service:
     build: doctor-service/
     container_name: doctor-service
-    depends_on:
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -21,7 +19,6 @@ services:
   volunteer-service:
     build: volunteer-service/
     container_name: volunteer-service
-    depends_on:
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -30,7 +27,6 @@ services:
   medicine-service:
     build: medicine-service/
     container_name: medicine-service
-    depends_on:
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -39,7 +35,6 @@ services:
   email-service:
     build: email-service/
     container_name: email-service
-    depends_on:
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -48,7 +43,6 @@ services:
   consultation-patient-service:
     build: consultation-patient-service/
     container_name: consultation-patient-service
-    depends_on:
     restart: always
     network_mode: "host"
     hostname: localhost
