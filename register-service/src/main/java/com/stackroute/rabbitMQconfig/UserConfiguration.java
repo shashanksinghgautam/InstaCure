@@ -1,5 +1,7 @@
 package com.stackroute.rabbitMQconfig;
 
+import org.springframework.amqp.rabbit.core.RabbitAdmin;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Configuration;
 
 import org.springframework.amqp.core.*;

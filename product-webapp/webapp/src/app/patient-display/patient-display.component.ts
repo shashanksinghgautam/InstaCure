@@ -12,7 +12,7 @@ import { PatientService } from '../patient.service';
 export class PatientDisplayComponent implements OnInit {
 
   id = Number(localStorage.getItem('lid'));
-  img = 'http://localhost:8086/patient/Patient/image/' + this.id;
+  img = 'https://instacure.stackroute.io//patient/Patient/image/' + this.id;
   Patients: any[] = [];
   patient = new Patient();
   premed=["Cholestrol","Diabities","Migrain"]

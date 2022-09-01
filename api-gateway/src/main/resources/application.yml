@@ -6,7 +6,7 @@ eureka:
     fetch-registry: false
 
 server:
-  port: 8086
+  port: 8080
 
 spring:
   application:
@@ -25,7 +25,7 @@ spring:
               - PUT
       routes:
         - id: register-service
-          uri: http://localhost:8080/
+          uri: http://localhost:8086/
           predicates:
             - Path=/reg/**
 
