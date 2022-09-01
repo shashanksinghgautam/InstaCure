@@ -14,17 +14,17 @@ export class RegistrationService {
   constructor(private http:HttpClient) { }
 
   public loginUserFromRemote(user:User):Observable<any>{
-     return this.http.post("https://instacure.stackroute.io//reg/login",user);
+     return this.http.post("https://instacure.stackroute.io/reg/login",user);
   }
   public getuserid(user:User):Observable<any>{
-    return this.http.post("https://instacure.stackroute.io//reg/user",user);
+    return this.http.post("https://instacure.stackroute.io/reg/user",user);
  }
  public getuserrole(user:User):Observable<any>{
-  return this.http.post("https://instacure.stackroute.io//reg/role",user);
+  return this.http.post("https://instacure.stackroute.io/reg/role",user);
 }
 
   public registerUserFromRemote(user:User):Observable<any>{
-    return this.http.post("https://instacure.stackroute.io//reg/register",user);
+    return this.http.post("https://instacure.stackroute.io/reg/register",user);
  }
 
 

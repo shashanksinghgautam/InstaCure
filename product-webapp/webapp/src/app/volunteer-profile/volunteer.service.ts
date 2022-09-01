@@ -7,9 +7,9 @@ import { Volunteer } from './volunteer';
   providedIn: 'root',
 })
 export class VolunteerService {
-  private baseUrl = 'https://instacure.stackroute.io//api/Volunteer';
+  private baseUrl = 'https://instacure.stackroute.io/api/Volunteer';
 
-  private baseUrl1 = 'https://instacure.stackroute.io//api/Volunteer/image';
+  private baseUrl1 = 'https://instacure.stackroute.io/api/Volunteer/image';
 
   constructor(private http: HttpClient) {}
 

@@ -11,17 +11,17 @@ import { Patient } from 'src/PatientProfile';
   providedIn: 'root'
 })
 export class PatientService {
-  private baseUrl1 = "https://instacure.stackroute.io//doctor/get";
+  private baseUrl1 = "https://instacure.stackroute.io/doctor/get";
   specality: any;
 
 
-  baseUrl="https://instacure.stackroute.io//patient/"
+  baseUrl="https://instacure.stackroute.io/patient/"
 
   constructor(private http:HttpClient) { }
 
   postSymptoms(symptom:any):Observable<any>{
 
-    return this.http.post("https://instacure.stackroute.io//api/saveSymptoms",symptom,{responseType:'text' as 'json'});
+    return this.http.post("https://instacure.stackroute.io/api/saveSymptoms",symptom,{responseType:'text' as 'json'});
   }
 
   getDoctors(): Observable<Doctor[]>{
