@@ -26,7 +26,7 @@ export class EmailNotificationComponent implements OnInit {
   sendEmail() {
     console.log(this.email);
 
-    this.service.sendMail(this.email).subscribe(/* (data)=>{
+    this.service.sendMail(this.email).subscribe((data)=>{
       Swal.fire(
         "Request Submitted Successfully",
         "You will hear from us very soon!",
@@ -39,7 +39,7 @@ export class EmailNotificationComponent implements OnInit {
         "You will hear from us very soon!",
         "success"
       )
-    } */);
+    } );
     //this.email=new EmailBody();
   }
 }

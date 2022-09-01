@@ -13,7 +13,7 @@ import { Observable } from 'rxjs';
 })
 export class AddnewComponent implements OnInit {
 
-  Medicines!: Observable<Medicine[]>; 
+  Medicines!: Observable<Medicine[]>;
   Medicine: Medicine = new Medicine();
   submitted = false;
 
@@ -34,19 +34,19 @@ export class AddnewComponent implements OnInit {
     .createMedicine(this.Medicine).subscribe((data: any) => {
       console.log(data)
       this.Medicine = new Medicine();
-      
-    }, 
+
+    },
       (    error: any) => console.log(error));
-      alert("successfully added")
+
   }
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
     this.router.navigate(['medicine']);
   }
   gotoList() {
-   
+
     this.router.navigate(['medicine']);
   }
   reloadData() {
@@ -59,10 +59,10 @@ export class AddnewComponent implements OnInit {
     this.MedicineService.buyMedicine(id,qnt).subscribe((data: any) => {
       console.log(data)
       this.Medicine = new Medicine();
-      
-    }, 
+
+    },
       (    error: any) => console.log(error));
-   
+
   }
 
 }

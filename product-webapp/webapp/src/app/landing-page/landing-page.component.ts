@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { NavBarComponent } from '../navBar/navBarcomponent';
+import{Component, OnInit}from '@angular/core';
+import {Router}from '@angular/router';
+import {NavBarComponent}from '../navBar/navBarcomponent';
 @Component({
-  selector: 'app-landing-page',
-  templateUrl: './landing-page.component.html',
-  styleUrls: ['./landing-page.component.css'],
+selector: 'app-landing-page',
+templateUrl: './landing-page.component.html',
+styleUrls: ['./landing-page.component.css'],
 })
 export class LandingPageComponent implements OnInit {
-  constructor(private router: Router) {}
+role:any = localStorage.getItem("role")
+
+constructor(private router: Router) {}
 
   ngOnInit(): void {}
 

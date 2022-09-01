@@ -42,7 +42,7 @@ export class medicineComponent implements OnInit {
       (data: any) => {
         console.log(data);
         this.Medicine = new Medicine();
-        
+
       },
 
       (error: any) => console.log(error)
@@ -54,18 +54,18 @@ export class medicineComponent implements OnInit {
       'success'
     ).then(()=> {
 
-      window.location.reload(); // this should execute now
+     // window.location.reload(); // this should execute now
 
     })
   }
   else{
     Swal.fire(
-      ' Puchase Failed ',
+      ' Purchase Failed ',
       'Please try again',
       'error'
     ).then(()=> {
 
-      window.location.reload(); // this should execute now
+    //  window.location.reload(); // this should execute now
 
     })
   }

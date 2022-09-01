@@ -52,23 +52,23 @@
           <h1>Top Class Doctors</h1>
           <h2>Available 24/7 </h2>
           <h3>Just One Click Away</h3>
-          <a routerLink="/consultation/patient" class="btn btn-primary">Consult now</a>
+          <a [hidden] ="role != 'Patient'" routerLink="/consultation/patient" class="btn btn-primary">Consult now</a>
         </div>
       </div>
       <div class="card1">
         <img src="../../assets/landingpage/gallery/gallery-7.jpg" alt="Card image cap" class="image">
         <div class="text1">
-          <h1>Best Pathologies</h1>
+          <h1>Verified Specialists</h1>
           <h2>Cost Friendly</h2>
-          <h3>Book the Test Now</h3>
-          <a class="btn btn-primary" routerLink="/listofdoctors"><span class="navLinks">ALL-Doctors</span></a>
+          <h3>View our heroes</h3>
+          <a class="btn btn-primary" routerLink="/listofdoctors"><span class="navLinks">All-Doctors</span></a>
         </div>
       </div>
       <div class="card1">
         <img src="../../assets/landingpage/gallery/gallery-9.jpg" alt="Card image cap" class="image">
         <div class="text1">
           <h1>Emergency Services</h1>
-          <h2>Ambulances</h2>
+          <h2>Ambulances & Medicines</h2>
           <h3>Available 24/7</h3>
           <a class="btn btn-primary" routerLink="/medicine"><span class="navLinks">Medicines</span></a>
         </div>
@@ -78,7 +78,7 @@
         <div class="text1">
           <h1>View Profile</h1>
           <h2>Update Profile at Home</h2>
-          <h3>No Extra Charges</h3>
+          <h3>Your data is safe with us</h3>
           <a class="btn btn-primary"  (click)="goto()"><span class="navLinks">Profile</span></a>
         </div>
       </div>
