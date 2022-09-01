@@ -12,7 +12,7 @@ import { PatientService } from '../patient.service';
 export class PatientDisplayComponent implements OnInit {
 
   id = Number(localStorage.getItem('lid'));
-
+  img = 'http://localhost:8086/patient/Patient/image/' + this.id;
   Patients: any[] = [];
   patient = new Patient();
   premed=["Cholestrol","Diabities","Migrain"]
@@ -35,23 +35,6 @@ export class PatientDisplayComponent implements OnInit {
   }
 
 
-//   reloadData() {
-
-
-//     this.patientService.getPatient(this.id).subscribe(
-//      data=>{
-//        this.Patients.push(data);
-//        console.log(data);
-
-//      }
-//    );
-
-
-//  }
-// clearStorage(){
-//   localStorage.removeItem("lid");
-//   localStorage.removeItem("role");
-// }
 
   clearStorage() {
     Swal.fire(

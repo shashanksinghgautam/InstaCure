@@ -24,7 +24,7 @@ public class DoctorProfile {
     private String speciality;
     private String yearOfExpertise;
     private Binary dp;
-    //private byte doc[];
+    private byte image[];
     private UserEntity user;
 
     public DoctorProfile() {
@@ -126,12 +126,12 @@ public class DoctorProfile {
         this.yearOfExpertise = yearOfExpertise;
     }
 
-    public Binary getDp() {
-        return dp;
+    public byte[] getImage() {
+        return image;
     }
 
-    public void setDp(Binary dp) {
-        this.dp = dp;
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public UserEntity getUser() {

@@ -45,6 +45,23 @@ export class PatientService {
   getPatient(id: number) {
     return this.http.get(`${this.baseUrl}get/${id}`);
   }
+  getimage(id: number) {
+    return this.http.get(`${this.baseUrl}Patient/image/${id}`);
+  }
 
+  uploadFile(id: number, file: any): Observable<Object> {
+    var formdata = new FormData();
+    formdata.append('imgFile', file);
+    var requestOptions = {
+      method: 'PUT',
+      body: formdata,
+    };
+    var a: any;
+    fetch(`${this.baseUrl}Patient/image/${id}`, requestOptions)
+      .then((response) => (a = response))
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error));
+    return a;
+  }
 
 }

@@ -7,6 +7,7 @@ import {
   Output,
 } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { LoginComponentComponent } from '../login-component/login-component.component';
 import { RegistrationService } from '../registration.service';
 import { User } from '../user';
@@ -21,7 +22,7 @@ export class NavBarComponent implements OnInit {
 
   appid!: number;
   appidstring!: string;
-  role!: String;
+  role=localStorage.getItem('role')
   user = new User();
   title = 'Webapp';
 
@@ -49,5 +50,13 @@ export class NavBarComponent implements OnInit {
     console.log(localStorage.getItem('lid'));
     console.log(localStorage.getItem('role'));
     this.router.navigate(['landing-page']);
+  }
+  clearStorage() {
+    Swal.fire(
+      'Successfully logged out',
+      'Click on Login Button to Login',
+      'success'
+    );
+    localStorage.clear();
   }
 }

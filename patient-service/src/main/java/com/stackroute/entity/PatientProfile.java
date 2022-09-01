@@ -18,12 +18,12 @@ public class PatientProfile {
     private String gender;
     private String city;
     private int postalCode;
-    private Binary image;
+    private byte[] image ;
     private UserEntity user;
     public PatientProfile() {
     }
 
-    public PatientProfile(int id, String gender, String address, String dob, String city, int postalCode, Binary image, UserEntity user) {
+    public PatientProfile(int id, String gender, String address, String dob, String city, int postalCode, byte[] image, UserEntity user) {
         this.id = id;
         this.address = address;
         this.dob = dob;
@@ -74,11 +74,11 @@ public class PatientProfile {
         this.postalCode = postalCode;
     }
 
-    public Binary getImage() {
+    public byte[] getImage() {
         return image;
     }
 
-    public void setImage(Binary image) {
+    public void setImage(byte[] image) {
         this.image = image;
     }
 

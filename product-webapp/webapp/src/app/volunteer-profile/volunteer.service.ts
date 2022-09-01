@@ -4,23 +4,16 @@ import { Observable } from 'rxjs';
 import { Volunteer } from './volunteer';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class VolunteerService {
+  private baseUrl = 'http://localhost:8086/api/Volunteer';
 
+  private baseUrl1 = 'http://localhost:8086/api/Volunteer/image';
 
+  constructor(private http: HttpClient) {}
 
-  private baseUrl = "http://localhost:8086/api/Volunteer";
-
-  private baseUrl1 = "http://localhost:8086/api/Volunteer/image";
-
-  
-
-
-
-  constructor(private http: HttpClient) { }
-
-  getVolunteers(): Observable<Volunteer[]>{
+  getVolunteers(): Observable<Volunteer[]> {
     return this.http.get<Volunteer[]>(`${this.baseUrl}`);
   }
   updateVolunteer(id: number, value: any) {
@@ -32,11 +25,19 @@ export class VolunteerService {
   getimage(id: number) {
     return this.http.get(`${this.baseUrl1}${id}`);
   }
-  sendimage(id: number,value:any) {
-    // let headers = new HttpHeaders({
-    //   'Content-Type':'multipart/form-data;boundary=gc0p4Jq0M2Yt08jU534c0p'
-    //      });
-    // let options = { headers: headers };
-    return this.http.post(`${this.baseUrl1}${id}`,value);
+
+  uploadFile(id: number, file: any): Observable<Object> {
+    var formdata = new FormData();
+    formdata.append('imgFile', file);
+    var requestOptions = {
+      method: 'PUT',
+      body: formdata,
+    };
+    var a: any;
+    fetch(`${this.baseUrl1}/${id}`, requestOptions)
+      .then((response) => (a = response))
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error));
+    return a;
   }
 }

@@ -1,10 +1,12 @@
 package com.stackroute.controller;
 
 
+import java.io.IOException;
 import java.util.List;
 import com.stackroute.execptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +22,7 @@ import com.stackroute.entity.PatientProfile;
 
 import com.stackroute.repository.PatientRepository;
 import com.stackroute.service.PatientService;
+import org.springframework.web.multipart.MultipartFile;
 
 
 @RestController
@@ -64,6 +67,31 @@ public class PatientController {
     public ResponseEntity<PatientProfile> get(@PathVariable(value = "id") int id) {
         PatientProfile patient = this.service.getById(id);
         return new ResponseEntity<>(patient, HttpStatus.OK);
+    }
+
+    @PutMapping("Patient/image/{id}")
+    public ResponseEntity<?> update(@PathVariable(value = "id") int Id,
+                                    @RequestBody MultipartFile imgFile
+    ) throws IOException, ResourceNotFoundException {
+
+        System.out.println("inside image post");
+        PatientProfile Volunteer = Repo.findById(Id)
+                .orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + Id));
+        Volunteer.setImage(imgFile.getBytes());
+        final PatientProfile updatedVolunteer = Repo.save(Volunteer);
+        return ResponseEntity.status(HttpStatus.OK).body("file uploaded successfully : ");
+    }
+
+
+    @GetMapping("Patient/image/{id}")
+    public ResponseEntity<?> getImage(@PathVariable(value = "id") int Id) throws ResourceNotFoundException {
+//		byte[] imageData=service.downloadImage(Id);
+        PatientProfile dbImageData = Repo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Patient not found for this id :: " + Id));
+        ;
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.valueOf("image/png"))
+                .body(dbImageData.getImage());
+
     }
 
 }

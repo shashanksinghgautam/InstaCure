@@ -26,6 +26,7 @@ export class PatientComponentComponent implements OnInit {
   selectedItemsList:any[] = [];
   medcond:any[] = [];
   precon:any[] = [];
+  selectedFile!: File;
 
 
 
@@ -74,120 +75,21 @@ export class PatientComponentComponent implements OnInit {
     onSubmit() {
       this.submitted = true;
       this.updatePatient();
-
+      this. aman()
       this.router.navigate(['patient-display',this.id]);
     }
 
     gotoList() {
       this.router.navigate(['patient-display']);
     }
-
-
-
-
-  // ngOnInit() {
-  //   this.Patient = new Patient();
-
-  //   this.id = this.route.snapshot.params['id'];
-
-  //   this.PatientService.getPatient(this.id).subscribe(
-  //     (data: any) => {
-  //       console.log(data);
-  //       this.Patient = data;
-  //     },
-  //     (error: any) => console.log(error)
-  //   );
-  //   this.reloadData();
-  // }
-  // reloadData() {
-  //   this.PatientService.getPatient(this.id).subscribe((data) => {
-  //     this.Patients.push(data);
-  //   });
-  // }
-  // updatePatient() {
-  //   this.PatientService.updatePatient(this.id, this.Patient).subscribe(
-  //     (data: any) => {
-  //       console.log(data);
-  //       this.Patient = new Patient();
-  //       this.gotoList();
-  //     },
-  //     (error: any) => console.log(error)
-  //   );
-  // }
-
-  // onSubmit() {
-  //   this.submitted = true;
-  //   this.updatePatient();
-  //   // this.updateimage();
-  //   // this.updateProduct();
-  //   this.router.navigate(['patient-display', this.id]);
-  // }
-
-  // gotoList() {
-  //   this.router.navigate(['patient-display']);
-  // }
-
-  takeOthers(e: any) {
-    if (e.target.checked) {
-      this.Checked = true;
-    } else {
-      this.Checked = false;
+    kaunda(event: any) {
+      console.log(event.target.files[0]);
+      this.selectedFile = <File>event.target.files[0];
     }
-  }
-
-
-  checkboxesDataList = [
+    aman()
     {
-      id: 'C001',
-      label: 'Cholestrol',
-      isChecked: false,
-    },
-
-    {
-      id: 'C003',
-      label: 'Diabetes',
-      isChecked: false,
-    },
-    {
-      id: 'C004',
-      label: 'Asthama',
-      isChecked: false,
-    },
-  ];
-
-
-
-
-  options = [
-    "Bangalore",
-    "Mumbai",
-    "Chennai",
-    "Kolkata",
-    "Hyderabad",
-    "Delhi"
-  ];
-
-
-
-
-  // changeSelection() {
-  //   this.fetchSelectedItems();
-  // }
-
-  // fetchSelectedItems() {
-  //   this.selectedItemsList = this.checkboxesDataList.filter((value, index) => {
-  //     return value.isChecked;
-  //   });
-  // }
-
-  // fetchCheckedIDs() {
-  //   this.medcond = [];
-  //   this.checkboxesDataList.forEach((value, index) => {
-  //     if (value.isChecked) {
-  //       this.medcond.push(value.id);
-  //     }
-  //   });
-  // }
+      this.PatientService.uploadFile(this.id, this.selectedFile);
+    }
 
   clearStorage() {
     Swal.fire(

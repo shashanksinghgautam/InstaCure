@@ -10,6 +10,7 @@ export class DoctorService {
   private baseUrl = "http://localhost:8086/doctor/add";
   private baseUrl1 = "http://localhost:8086/doctor/DoctorProfile";
   private baseUrl2 = "http://localhost:8086/doctor/get";
+  private img=  "http://localhost:8086/doctor/Doctor/image"
 
 
   constructor(private http: HttpClient) { }
@@ -24,14 +25,21 @@ export class DoctorService {
     return this.http.get(`${this.baseUrl2}/${id}`);
   }
   getimage(id: number) {
-    return this.http.get(`${this.baseUrl1}${id}`);
+    return this.http.get(`${this.img}/${id}`);
   }
-  sendimage(id: number,value:any) {
-    // let headers = new HttpHeaders({
-    //   'Content-Type':'multipart/form-data;boundary=gc0p4Jq0M2Yt08jU534c0p'
-    //      });
-    // let options = { headers: headers };
-    return this.http.post(`${this.baseUrl}${id}`,value);
+  uploadFile(id: number, file: any): Observable<Object> {
+    var formdata = new FormData();
+    formdata.append('imgFile', file);
+    var requestOptions = {
+      method: 'PUT',
+      body: formdata,
+    };
+    var a: any;
+    fetch(`${this.img}/${id}`, requestOptions)
+      .then((response) => (a = response))
+      .then((result) => console.log(result))
+      .catch((error) => console.log('error', error));
+    return a;
   }
 
 }

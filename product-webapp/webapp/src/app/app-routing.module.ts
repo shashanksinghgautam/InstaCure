@@ -18,6 +18,7 @@ import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component'
 import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.component';
 import { EmailNotificationComponent } from './email-notification/email-notification.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { VolNotificationComponent } from './vol-notification/vol-notification.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landing-page', pathMatch: 'full' },
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'DoctorProfileComponent', component: DoctorProfileComponent },
   { path: 'doctor-list', component: DoctorListComponent },
   { path: 'landing-page', component: LandingPageComponent },
+  { path: 'vol-notification', component: VolNotificationComponent }
 ];
 
 @NgModule({

@@ -63,7 +63,7 @@ export class DoctorProfileComponent implements OnInit {
   onsubmit() {
     this.submitted = true;
     this.updateDoctor();
-
+    this.aman();
     this.router.navigate(['doctor-display', this.id]);
   }
   updateDoctor() {
@@ -73,7 +73,7 @@ export class DoctorProfileComponent implements OnInit {
         // this.Doctor = new Doctor();
         this.gotoList();
         console.log(this.Doctor);
-        
+
       },
       (error: any) => console.log(error)
     );
@@ -82,16 +82,13 @@ export class DoctorProfileComponent implements OnInit {
   gotoList() {
     this.router.navigate(['doctor-display', this.id]);
   }
-  getFiles(event: any) {
-    let f: any = event.target as HTMLElement;
-
-    this.file = (f.files as FileList)[0];
-    console.log(this.file);
+  kaunda(event: any) {
+    console.log(event.target.files[0]);
+    this.selectedFile = <File>event.target.files[0];
   }
-
-  public onFileChanged(event: any) {
-    //Select File
-    this.selectedFile = event.target.files[0];
+  aman()
+  {
+    this.doctorService.uploadFile(this.id, this.selectedFile);
   }
 
   clearStorage() {

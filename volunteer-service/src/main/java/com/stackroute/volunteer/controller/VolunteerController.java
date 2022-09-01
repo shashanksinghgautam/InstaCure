@@ -32,93 +32,100 @@ import com.stackroute.volunteer.service.VolunteerService;
 @CrossOrigin(origins = "*")
 @RequestMapping("api/")
 public class VolunteerController {
-	@Autowired
+    @Autowired
     private VolunteerRepository VolunteerRepo;
- 	
- 	@Autowired
+
+    @Autowired
     private VolunteerService VolunteerService;
- 	
- 	@Autowired
- 	public VolunteerController(VolunteerService VolunteerService) {
- 		super();
- 		this.VolunteerService = VolunteerService;
- 	}
- 	
- 	public VolunteerController() {super();}
 
-	@GetMapping("hello")
-	public String welcome() {
+    @Autowired
+    public VolunteerController(VolunteerService VolunteerService) {
+        super();
+        this.VolunteerService = VolunteerService;
+    }
 
-		return "Hello Volunteer........";
-	}
- 	  @GetMapping("Volunteer")
-	    public List < Volunteer > getMedicine() {
-	    	System.out.println(this.VolunteerRepo.findAll());
-	        return this.VolunteerRepo.findAll();
-	    }
- 	  
- 	 @GetMapping("Volunteer/{id}")
-		public Volunteer getVolunteerById(@PathVariable(value = "id") int id)
-				throws ResourceNotFoundException {
+    public VolunteerController() {
+        super();
+    }
+
+    @GetMapping("hello")
+    public String welcome() {
+
+        return "Hello Volunteer........";
+    }
+
+    @GetMapping("Volunteer")
+    public List<Volunteer> getMedicine() {
+        System.out.println(this.VolunteerRepo.findAll());
+        return this.VolunteerRepo.findAll();
+    }
+
+    @GetMapping("Volunteer/{id}")
+    public Volunteer getVolunteerById(@PathVariable(value = "id") int id)
+            throws ResourceNotFoundException {
 // 		 System.out.println(id);
- 		 
- 		Volunteer Volunteer = VolunteerRepo.findById(id)
-					.orElseThrow(() -> new ResourceNotFoundException("Volunteer not found for this id :: " + id));
-			return Volunteer;
-		}
-	
- 	
- 	@PutMapping("Volunteer/{id}")
-		public ResponseEntity<Volunteer> updateVolunteer(@PathVariable(value = "id") int Id,@Validated @RequestBody Volunteer VolunteerDetails) throws ResourceNotFoundException {
-    	Volunteer Volunteer = VolunteerRepo.findById(Id)
-					.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
-    	
-		System.out.println(Volunteer.getState());
-    	Volunteer.setAddress(VolunteerDetails.getAddress());
-    	Volunteer.setCity(VolunteerDetails.getCity());
-    	System.out.println(Volunteer.getCity());
-    	Volunteer.setState(VolunteerDetails.getState());
-    	Volunteer.setZipcode(VolunteerDetails.getZipcode());
-    	Volunteer.setmobile(VolunteerDetails.getmobile());
+
+        Volunteer Volunteer = VolunteerRepo.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Volunteer not found for this id :: " + id));
+        return Volunteer;
+    }
+
+
+    @PutMapping("Volunteer/{id}")
+    public ResponseEntity<Volunteer> updateVolunteer(@PathVariable(value = "id") int Id, @Validated @RequestBody Volunteer VolunteerDetails) throws ResourceNotFoundException {
+        Volunteer Volunteer = VolunteerRepo.findById(Id)
+                .orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
+
+        System.out.println(Volunteer.getState());
+        Volunteer.setAddress(VolunteerDetails.getAddress());
+        Volunteer.setCity(VolunteerDetails.getCity());
+        System.out.println(Volunteer.getCity());
+        Volunteer.setState(VolunteerDetails.getState());
+        Volunteer.setZipcode(VolunteerDetails.getZipcode());
+        Volunteer.setmobile(VolunteerDetails.getmobile());
 //    	Volunteer.setVname(VolunteerDetails.getVname());
 //    	Volunteer.setvemail(VolunteerDetails.getvemail());
 
-    	
-			final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
-			return ResponseEntity.ok(updatedVolunteer);
-		}
- 	@PostMapping("Volunteer")
+
+        final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
+        return ResponseEntity.ok(updatedVolunteer);
+    }
+
+    @PostMapping("Volunteer")
     public ResponseEntity<Volunteer> addNewHandler(@RequestBody Volunteer Volunteer) {
 //    	System.out.println(MedicineService.getAll());
-		
-			return new ResponseEntity<Volunteer>(VolunteerService.addNew(Volunteer), HttpStatus.CREATED);
-		
 
-}
-	
- 	@Autowired
-	private StorageService service;
+        return new ResponseEntity<Volunteer>(VolunteerService.addNew(Volunteer), HttpStatus.CREATED);
 
-	@PostMapping("Volunteer/image/{id}")
-	public ResponseEntity<?> uploadImage(@PathVariable(value = "id") int Id, @RequestParam("imgFile") MultipartFile file ) throws IOException, ResourceNotFoundException {
-		System.out.println("inside image post");
-		Volunteer Volunteer = VolunteerRepo.findById(Id)
-				.orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));
-		Volunteer.setImage(file.getBytes());
-		final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
-		return ResponseEntity.status(HttpStatus.OK)
-				.body( "file uploaded successfully : " + file.getOriginalFilename());
-	}
 
-	@GetMapping("Volunteer/image/{id}")
-	public ResponseEntity<?> getImage(@PathVariable(value = "id") int Id) throws ResourceNotFoundException{
+    }
+
+    @Autowired
+    private StorageService service;
+
+    @PutMapping("Volunteer/image/{id}")
+    public ResponseEntity<?> update(@PathVariable(value = "id") int Id,
+                                    @RequestBody MultipartFile imgFile
+    ) throws IOException, ResourceNotFoundException {
+
+        System.out.println("inside image post");
+        Volunteer Volunteer = VolunteerRepo.findById(Id)
+                .orElseThrow(() -> new ResourceNotFoundException("Volunteer not found for this id :: " + Id));
+        Volunteer.setImage(imgFile.getBytes());
+        final Volunteer updatedVolunteer = VolunteerRepo.save(Volunteer);
+        return ResponseEntity.status(HttpStatus.OK).body("file uploaded successfully : ");
+    }
+
+
+    @GetMapping("Volunteer/image/{id}")
+    public ResponseEntity<?> getImage(@PathVariable(value = "id") int Id) throws ResourceNotFoundException {
 //		byte[] imageData=service.downloadImage(Id);
-		 Volunteer dbImageData = VolunteerRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Medicine not found for this id :: " + Id));;
-		return ResponseEntity.status(HttpStatus.OK)
-				.contentType(MediaType.valueOf("image/png"))
-				.body(dbImageData.getImage());
+        Volunteer dbImageData = VolunteerRepo.findById(Id).orElseThrow(() -> new ResourceNotFoundException("Volunteer not found for this id :: " + Id));
+        ;
+        return ResponseEntity.status(HttpStatus.OK)
+                .contentType(MediaType.valueOf("image/png"))
+                .body(dbImageData.getImage());
 
-	}
+    }
 
- 
 }

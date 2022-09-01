@@ -15,6 +15,8 @@ constructor(private router: Router) {}
 
   goto() {
     console.log(localStorage.getItem('lid'));
+    console.log("Role= "+localStorage.getItem('role') );
+
 
     if (localStorage.getItem('role') == 'Volunteer') {
       this.router.navigate(['volunteer-display', localStorage.getItem('lid')]);

@@ -1,7 +1,5 @@
 package com.stackroute.volunteer.model;
 
-import java.awt.Image;
-
 import org.bson.types.Binary;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

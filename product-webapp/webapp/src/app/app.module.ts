@@ -30,6 +30,7 @@ import { DoctorListComponent } from './doctor/doctor-list/doctor-list.component'
 import { CommonModule } from '@angular/common';
 import { ListofdoctorsComponent } from './doctor/listofdoctors/listofdoctors.component';
 import { EmailNotificationComponent } from './email-notification/email-notification.component';
+import { VolNotificationComponent } from './vol-notification/vol-notification.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { EmailNotificationComponent } from './email-notification/email-notificat
     DoctorListComponent,
     ListofdoctorsComponent,
     EmailNotificationComponent,
+    VolNotificationComponent,
   ],
   imports: [
     BrowserModule,

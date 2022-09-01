@@ -46,7 +46,7 @@
               class="rounded-circle img-fluid bg-light" style="width: 100px;">
               <!-- <input type="file" class="form-controlform-control-sm" id="image" placeholder="image" required [(ngModel)]="Volunteer.image" name="image"> -->
                <!-- <input type="file" class="form-controlform-control-sm" accept="images/*" (change)="onFileChanged($event)" id="image" placeholder="image" required [(ngModel)]="Volunteer.image" name="image"> -->
-
+               <input type="file"  (change)="kaunda($event)" />
             <h5 class="my-3">{{Volunteera.user.uname}}</h5>
             <p class="text-muted mb-1">Patient</p>
 
