@@ -4,8 +4,6 @@ services:
     build: patient-service/
     container_name: patient-service
     depends_on:
-      - api-gateway
-      - eureka-server
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -15,8 +13,6 @@ services:
     build: doctor-service/
     container_name: doctor-service
     depends_on:
-      - api-gateway
-      - eureka-server
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -26,8 +22,6 @@ services:
     build: volunteer-service/
     container_name: volunteer-service
     depends_on:
-      - api-gateway
-      - eureka-server
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -37,8 +31,6 @@ services:
     build: medicine-service/
     container_name: medicine-service
     depends_on:
-      - api-gateway
-      - eureka-server
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -48,8 +40,6 @@ services:
     build: email-service/
     container_name: email-service
     depends_on:
-      - api-gateway
-      - eureka-server
     restart: always
     network_mode: "host"
     hostname: localhost
@@ -59,8 +49,6 @@ services:
     build: consultation-patient-service/
     container_name: consultation-patient-service
     depends_on:
-      - api-gateway
-      - eureka-server
     restart: always
     network_mode: "host"
     hostname: localhost
