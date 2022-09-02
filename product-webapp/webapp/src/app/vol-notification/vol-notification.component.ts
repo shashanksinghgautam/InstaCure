@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EmailBody } from '../email-notification/email-body';
+import { EmailService } from '../email-notification/email.service';
 
 @Component({
   selector: 'app-vol-notification',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VolNotificationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:EmailService) { }
+  emailarray :any[]=[];
+  email : EmailBody =new EmailBody();
 
   ngOnInit(): void {
+    this.service.getMails().subscribe(data=>{
+      this.emailarray=data
+      console.log(this.emailarray);
+
+    })
+
+  }
+
+  deleteMail(id:any){
+
   }
 
 }

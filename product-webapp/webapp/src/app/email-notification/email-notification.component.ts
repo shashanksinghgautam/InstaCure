@@ -41,5 +41,6 @@ export class EmailNotificationComponent implements OnInit {
       )
     } );
     //this.email=new EmailBody();
+     window.location.reload();
   }
 }

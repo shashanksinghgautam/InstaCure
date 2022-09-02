@@ -1,3 +1,4 @@
+/*
 package com.stackroute.doctorservice.consumerRabbitMq;
 
 import com.stackroute.doctorservice.model.DoctorProfile;
@@ -20,11 +21,13 @@ public class ProfileConsumer {
     public void getUserFromQueue(UserEntity user) {
         this.User = user;
         System.out.println(user);
-       /* if(user.getRole().equals("Doctor")) {
+       */
+/* if(user.getRole().equals("Doctor")) {
         	DoctorProfile doc = new DoctorProfile();
             doc.setUser(user);
             doc.setId(user.getId());
-            DoctorProfile doctor = this.service.addNew(doc);}*/
+            DoctorProfile doctor = this.service.addNew(doc);}*//*
+
     }
 
     public UserEntity returnUserToProfile() {
@@ -33,3 +36,4 @@ public class ProfileConsumer {
     }
 
 }
+*/

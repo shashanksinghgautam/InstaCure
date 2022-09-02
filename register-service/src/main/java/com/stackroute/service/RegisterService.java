@@ -17,7 +17,7 @@ public class RegisterService {
     public UserEntity getByEmail(String email){
         return repo.findByEmail(email);
     }
-    public UserEntity getByMobile(long mobile){
+    public UserEntity getByMobile(String mobile){
         return repo.findByMobile(mobile);
     }
 

@@ -5,10 +5,10 @@ public class UserEntity {
     private String uname;
     private String password;
     private String email;
-    private long mobile;
+    private String mobile;
     private String role;
 
-    public UserEntity(int id, String uname, String password, String email, long mobile, String role) {
+    public UserEntity(int id, String uname, String password, String email, String mobile, String role) {
 
         this.id = id;
         this.uname = uname;
@@ -52,11 +52,11 @@ public class UserEntity {
         this.email = email;
     }
 
-    public long getMobile() {
+    public String getMobile() {
         return mobile;
     }
 
-    public void setMobile(int mobile) {
+    public void setMobile(String mobile) {
         this.mobile = mobile;
     }
 
@@ -66,5 +66,17 @@ public class UserEntity {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    @Override
+    public String toString() {
+        return "UserEntity{" +
+                "id=" + id +
+                ", uname='" + uname + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", mobile=" + mobile +
+                ", role='" + role + '\'' +
+                '}';
     }
 }
