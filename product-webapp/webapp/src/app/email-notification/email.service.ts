@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class EmailService {
 
   constructor(private http: HttpClient) { }
-  private emailURL = "http://localhost:8080/reg/Volunteer/email";
+  private emailURL = "https://instacure.stackroute.io/reg/Volunteer/email";
 
   getVolunteerEmails() {
     return this.http.get(`${this.emailURL}/`);
@@ -19,6 +19,6 @@ export class EmailService {
 //  }
 
   sendMail(email:any){
-    return this.http.post("http://localhost:8080/email/send",email)
+    return this.http.post("https://instacure.stackroute.io/email/send",email)
   }
 }
