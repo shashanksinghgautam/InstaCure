@@ -18,14 +18,10 @@
           </a>
         </li>
         <li class="nav-item">
-          <!-- <a class="btn me-2 btn-danger btn-group-sm mt-2" routerLink="/landing-page">Cancel</a> -->
+
           <a class="nav-link" routerLink="/landing-page">
-            <button
-              type="submit"
-              (click)="clearStorage()"
-              class="btn me-2 btn-danger btn-group-sm"
-            >
-              Logout
+            <button type="submit" class="btn me-2 btn-danger btn-group-sm">
+              Home
             </button>
           </a>
         </li>
@@ -38,26 +34,24 @@
   </div>
 
 
-  <div *ngFor="let doctor of doctors | paginate: 
- { itemsPerPage: 3, currentPage: p }">
+  <div *ngFor="let doctor of doctors | paginate:
+ { itemsPerPage: 3, currentPage: p } ;index as i">
 
-    <!-- <div class="hacker"  *ngFor ="let doctor of doctors"> -->
+
     <div class="container text-center">
       <div class="xyz" style="background-color:rgb(121, 121, 202) ;" height="100px">
-        <h3 color="white">{{doctor.user.uname}}</h3>
+        <h3 color="white">Dr.{{doctor.user.uname}}</h3>
       </div>
       <div class="row my-3">
         <div class="col">
           <div class="img position-relative top-50 start-50 translate-middle">
-            <a href=""><img src="https://tse4.mm.bing.net/th?id=OIP.l78z2Ng_pCVEJXF-PUUyhQHaHn&pid=Api&P=0" alt=""
-                class="img-fluid rounded-circle w-50 align-center"></a>
+            <a href=""><img style="height:120px ; width: 150px; " src={{doctor.img}} alt=""
+                class="img-fluid rounded-circle align-center"></a>
           </div>
         </div>
         <div class="col">
           <div class="details  position-relative top-50 start-50 translate-middle">
-            <!-- <p>Qualifications: {{doctor.educationqualification}}</p>
-            <p class="m-0">Specialities: {{doctor.speciality}}</p>
-            <p>Experience: {{doctor.yearofexpertise}}</p> -->
+
             <table class="table">
               <tbody>
                 <tr>

@@ -18,7 +18,7 @@
         </li>
         <li>
           <a class="nav-link">
-            <button type="submit" (click)="goToEmail()" class="btn me-2 btn-primary btn-group-sm">
+            <button type="submit" [hidden]="role == 'Volunteer'" (click)="goToEmail()" class="btn me-2 btn-primary btn-group-sm">
               Raise a Request
             </button>
           </a>
@@ -66,7 +66,7 @@
             <div class="" style="font-weight: bold">${{ Medicine.price }}</div>
             <span>{{ Medicine.qnt }}</span>
             <div class="">
-              <input type="number" min="1" max="10" class="form-control" id="Quantity{{Medicine.mid}}" required [(ngModel)]="qnt[Medicine.mid]" 
+              <input type="number" min="1" max="10" class="form-control" id="Quantity{{Medicine.mid}}" required [(ngModel)]="qnt[Medicine.mid]"
                 name="Quantity"  style="margin: auto; width: 100px" />
               <button type="submit" (click)="buyMedicine(Medicine.mid,Medicine.medicinename)" class="btn btn-info">
                 Buy Now

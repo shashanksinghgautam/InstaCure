@@ -4,4 +4,4 @@ ADD ./target/medicine-service-0.0.1-SNAPSHOT.jar /usr/src/medicine-service-0.0.1
 
 WORKDIR usr/src
 
-ENTRYPOINT ["java","-jar", "config-server-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "medicine-service-0.0.1-SNAPSHOT.jar"]

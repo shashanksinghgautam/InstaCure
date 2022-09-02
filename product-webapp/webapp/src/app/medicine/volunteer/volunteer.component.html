@@ -32,7 +32,7 @@
     <h2>Medicine List</h2>
     <div class="nav-item active" style=" position: absolute;
     right: 0;">
-      <a class="btn btn-info"  routerLink="/add">add new </a>
+      <a class="btn btn-info btn-group-sm"  routerLink="/add">add new </a>
     </div>
   </div>
   <div class="panel-body">
@@ -52,8 +52,8 @@
           <td>{{Medicine.qnt}}</td>
           <td>{{Medicine.price}}</td>
           <td>{{Medicine.category}}</td>
-          <td><button (click)="deleteMedicine(Medicine.mid)" class="btn btn-danger">Delete</button>
-              <button (click)="updateMedicine(Medicine.mid)" class="btn btn-info" style="margin-left: 10px">Update</button>
+          <td><button (click)="deleteMedicine(Medicine.mid)" class="btn btn-danger btn-group-sm">Delete</button>
+              <button (click)="updateMedicine(Medicine.mid)" class="btn btn-info btn-group-sm" style="margin-left: 10px">Update</button>
 
           </td>
         </tr>

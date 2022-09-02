@@ -14,16 +14,16 @@ export class EmailService {
     return this.http.get(`${this.emailURL}/`);
   }
 
-//   sendEmailList(List: any){
-//     return this.http.post("http://localhost:8090/getEmails",List)
-//  }
-
   sendMail(email:any){
     return this.http.post("http://localhost:8086/email/send",email)
   }
 
  getMails():Observable<any>{
     return this.http.get("http://localhost:8086/email/allMails")
+  }
+
+  deleteMail(id: any): Observable<any> {
+    return this.http.delete("http://localhost:8086/email/deletemail/"+id, { responseType: 'text' });
   }
 
 

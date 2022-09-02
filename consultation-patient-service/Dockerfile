@@ -4,4 +4,4 @@ ADD ./target/consultation-patient-service-0.0.1-SNAPSHOT.jar /usr/src/consultati
 
 WORKDIR usr/src
 
-ENTRYPOINT ["java","-jar", "config-server-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar", "consultation-patient-service-0.0.1-SNAPSHOT.jar"]

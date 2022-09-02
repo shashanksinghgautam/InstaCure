@@ -1,6 +1,7 @@
 package com.stackroute.controller;
 
 import com.stackroute.consumerRabbitMq.MessageListener;
+import com.stackroute.exceptions.ResourceNotFoundException;
 import com.stackroute.model.Email;
 import com.stackroute.model.UserEntity;
 import com.stackroute.repository.EmailRepository;
@@ -9,7 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/email")
@@ -48,5 +51,16 @@ public class EmailController {
     public List<Email> getAllMails(){
         List<Email> list=repo.findAll();
         return list;
+    }
+
+    @DeleteMapping("deletemail/{subject}")
+    public Map<String, Boolean> deleteEmployee(@PathVariable(value = "subject") String subject)
+            throws ResourceNotFoundException {
+        Email Medicine = repo.findBySubject(subject);
+        System.out.println(Medicine.toString()+ "Dletedddd");
+        repo.deleteBySubject(subject);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return response;
     }
 }

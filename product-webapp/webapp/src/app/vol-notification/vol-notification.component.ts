@@ -23,7 +23,17 @@ export class VolNotificationComponent implements OnInit {
   }
 
   deleteMail(id:any){
+    console.log(id);
 
+    this.service.deleteMail(id).subscribe(
+      (data: any) => {
+        console.log(data);
+
+
+      },
+      (error: any) => console.log(error));
+
+      window.location.reload();
   }
 
 }
