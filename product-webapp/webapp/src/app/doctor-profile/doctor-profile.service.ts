@@ -7,10 +7,10 @@ import { Doctor } from './Doctor';
   providedIn: 'root'
 })
 export class DoctorService {
-  private baseUrl = "https://instacure.stackroute.io/doctor/add";
-  private baseUrl1 = "https://instacure.stackroute.io/doctor/DoctorProfile";
-  private baseUrl2 = "https://instacure.stackroute.io/doctor/get";
-  private img=  "https://instacure.stackroute.io/doctor/Doctor/image"
+  private baseUrl = "http://localhost:8080/doctor/add";
+  private baseUrl1 = "http://localhost:8080/doctor/DoctorProfile";
+  private baseUrl2 = "http://localhost:8080/doctor/get";
+  private img=  "http://localhost:8080/doctor/Doctor/image"
 
 
   constructor(private http: HttpClient) { }

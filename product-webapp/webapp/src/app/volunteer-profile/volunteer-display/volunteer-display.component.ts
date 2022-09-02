@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class VolunteerDisplayComponent implements OnInit {
   id = Number(localStorage.getItem('lid'));
-  img = 'https://instacure.stackroute.io/api/Volunteer/image/' + this.id;
+  img = 'http://localhost:8080/api/Volunteer/image/' + this.id;
   searchText: string = '';
   Volunteers: any[] = [];
   volunteer = new Volunteer();

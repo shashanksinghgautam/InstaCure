@@ -12,7 +12,7 @@ import { DoctorService } from '../doctor-profile/doctor-profile.service';
 })
 export class DoctorDisplayComponent implements OnInit {
   id = Number(localStorage.getItem('lid'));
-  img = 'https://instacure.stackroute.io/doctor/Doctor/image/' + this.id;
+  img = 'http://localhost:8080/doctor/Doctor/image/' + this.id;
   searchText: string = '';
   Doctors: any[] = [];
   Doctor = new Doctor();
