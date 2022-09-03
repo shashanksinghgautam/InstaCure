@@ -96,7 +96,10 @@ export class PatientComponentComponent implements OnInit {
       'Successfully logged out',
       'Click on Login Button to Login',
       'success'
-    );
+    ).then(() => {
+  localStorage.clear();
+    window.location.reload();
+});
     localStorage.clear();
   }
 }

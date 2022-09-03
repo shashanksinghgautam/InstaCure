@@ -9,7 +9,7 @@
 
   .navbar {
     height: 80px;
-    background: linear-gradient(to right, #332f2d, #395250);
+    background: linear-gradient(to right, #332f2d, #395250,#332f2d);
   }
   .navbar-brand {
     position: absolute;
@@ -40,6 +40,9 @@
   .navLinks:hover{
     cursor: pointer;
   }
+  .Smaller{
+    padding-top: 17px;
+   }
 
   @media (max-width: 992px) {
     .checkbtn {
@@ -57,14 +60,16 @@
       top: 80px;
       right: -100%;
       background: linear-gradient(to right, #395250, #332f2d);
-      height: 25vh;
+      height: 29vh;
       width: 30%;
       z-index: 2;
       align-items: center;
       text-align: center;
       border-radius: 0px 0px 0px 10px;
     }
-
+   .Smaller{
+    margin-top: -15px;
+   }
     .smallNav {
       position: absolute;
       right: 0;

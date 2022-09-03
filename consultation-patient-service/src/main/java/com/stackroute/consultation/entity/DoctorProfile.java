@@ -3,14 +3,8 @@ package com.stackroute.consultation.entity;
 import lombok.Data;
 import org.bson.types.Binary;
 import org.springframework.data.mongodb.core.mapping.Document;
-//import javax.persistence.Column;
-//
-//import javax.persistence.Id;
-//@Document ("DoctorProfile")
-//@Data
 public class DoctorProfile {
-//    @Id
-//    @Column(name = "id", nullable = false)
+
     private int id;
 
     private String gender;

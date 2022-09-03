@@ -46,8 +46,8 @@ public class RegisterController {
         }
 
         // Cheking for existing User by mobile, if found then throw exception
-        long tempMobile = newUser.getMobile();
-        if (tempMobile != 0L) {
+        String tempMobile = newUser.getMobile();
+        if (tempMobile.isEmpty()) {
             UserEntity user = registerService.getByMobile(tempMobile);
             if (user != null) {
                 throw new Exception("This Mobile Already Exists");

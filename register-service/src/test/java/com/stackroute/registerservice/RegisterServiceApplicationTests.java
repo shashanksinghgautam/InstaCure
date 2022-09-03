@@ -40,8 +40,8 @@ public class RegisterServiceApplicationTests {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         MockMvcBuilders.standaloneSetup(controller).build();
-        user = new UserEntity(1, "Ares", "123456", "ares@gmail.com", 1234512345L, "Doctor");
-        user1 = new UserEntity(2, "Sins", "123456", "sins@gmail.com", 1234522345L, "Patient");
+        user = new UserEntity(1, "Ares", "123456", "ares@gmail.com", "1234512345", "Doctor");
+        user1 = new UserEntity(2, "Sins", "123456", "sins@gmail.com", "1234522345", "Patient");
         Optional.of(user);
     }
 
@@ -81,11 +81,11 @@ public class RegisterServiceApplicationTests {
     public void givenGetUserByMobileThenShouldReturnUser() {
         repo.save(user1);
         // stubbing the mock to return specific data
-        when(repo.findByMobile(1234522345L)).thenReturn(user2);
-        UserEntity temp = service.getByMobile(1234522345L);
+        when(repo.findByMobile("1234522345")).thenReturn(user2);
+        UserEntity temp = service.getByMobile("1234522345");
         assertEquals(user2, temp);
         verify(repo, times(1)).save(user1);
-        verify(repo, times(1)).findByMobile(1234522345L);
+        verify(repo, times(1)).findByMobile("1234522345");
     }
 
     @Test

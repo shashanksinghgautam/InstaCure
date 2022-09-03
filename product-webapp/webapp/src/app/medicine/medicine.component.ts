@@ -49,23 +49,23 @@ export class medicineComponent implements OnInit {
     );
     // console.log(this.Medicine.medicinename)
     Swal.fire(
-      ' Succesfull  Puchase of '+this.qnt[this.i]+' '+ this.name,
+      ' Succesfull Purchase of '+this.qnt[this.i]+' '+ this.name,
       'Thank You!',
       'success'
     ).then(()=> {
 
-     // window.location.reload(); // this should execute now
+      window.location.reload();
 
     })
   }
   else{
     Swal.fire(
-      ' Purchase Failed ',
-      'Please try again',
+      'Purchase Failed',
+      'Max Limit is 15',
       'error'
     ).then(()=> {
 
-    //  window.location.reload(); // this should execute now
+     window.location.reload();
 
     })
   }

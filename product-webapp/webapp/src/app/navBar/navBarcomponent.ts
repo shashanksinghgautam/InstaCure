@@ -22,10 +22,10 @@ export class NavBarComponent implements OnInit {
 
   appid!: number;
   appidstring!: string;
-  role=localStorage.getItem('role')
+  role = localStorage.getItem('role');
   user = new User();
   title = 'Webapp';
-
+  flag: boolean = true;
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -56,7 +56,10 @@ export class NavBarComponent implements OnInit {
       'Successfully logged out',
       'Click on Login Button to Login',
       'success'
-    );
+    ).then(() => {
+      localStorage.clear();
+      window.location.reload();
+    });
     localStorage.clear();
   }
 }

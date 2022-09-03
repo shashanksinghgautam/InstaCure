@@ -6,24 +6,16 @@ import java.time.LocalDateTime;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-//@Entity
-//@Table(name="Sym")
 @Document(value = "PatientSymptoms")
 public class PatientSymptoms {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long id;
-
-    //	@Column(name="sypm")
     private String symptoms;
 
-    //	@Column(name="mnumb")
+
     private String mobilenumber;
 
     private String specality;
 
-//	private String dateAndTime;
 
     public String getSpecality() {
         return specality;
@@ -42,7 +34,7 @@ public class PatientSymptoms {
 
     public PatientSymptoms() {
         super();
-        // TODO Auto-generated constructor stub
+
     }
 
     public String getSymptoms() {
@@ -61,13 +53,5 @@ public class PatientSymptoms {
         this.mobilenumber = mobilenumber;
     }
 
-//	public String getDateAndTime() {
-//		return dateAndTime;
-//	}
-//
-//	public void setDateAndTime(String dateAndTime) {
-//		this.dateAndTime = dateAndTime;
-//	}
-//
 
 }

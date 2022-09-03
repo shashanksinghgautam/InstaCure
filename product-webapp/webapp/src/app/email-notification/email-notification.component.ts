@@ -38,7 +38,8 @@ export class EmailNotificationComponent implements OnInit {
         "Request Submitted Successfully",
         "You will hear from us very soon!",
         "success"
-      )
+      ).then(()=>
+      window.location.reload)
     } );
     //this.email=new EmailBody();
   }

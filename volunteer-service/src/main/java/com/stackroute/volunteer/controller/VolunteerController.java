@@ -3,10 +3,8 @@ package com.stackroute.volunteer.controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
-import org.bson.types.Binary;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.stackroute.volunteer.execptions.ResourceNotFoundException;
@@ -82,7 +79,7 @@ public class VolunteerController {
         System.out.println(Volunteer.getCity());
         Volunteer.setState(VolunteerDetails.getState());
         Volunteer.setZipcode(VolunteerDetails.getZipcode());
-        Volunteer.setmobile(VolunteerDetails.getmobile());
+        Volunteer.getUser().setMobile(VolunteerDetails.getmobile());
 //    	Volunteer.setVname(VolunteerDetails.getVname());
 //    	Volunteer.setvemail(VolunteerDetails.getvemail());
 
@@ -127,5 +124,20 @@ public class VolunteerController {
                 .body(dbImageData.getImage());
 
     }
+
+   /* @PostMapping("/Email")
+    public ResponseEntity<?> setMails(@RequestBody Email mail) {
+        List<Volunteer> list = VolunteerRepo.findAll();
+        List<Email> email = new ArrayList<>();
+
+        for (Volunteer vol : list) {
+            if (vol.getEmail() != null) {
+                email = vol.getEmail();
+            }
+            email.add(mail);
+            vol.setEmail(email);
+        }
+        return new ResponseEntity<>(mail,HttpStatus.OK);
+    }*/
 
 }

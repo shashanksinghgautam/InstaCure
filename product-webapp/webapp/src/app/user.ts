@@ -6,7 +6,7 @@ export class User {
   uname!:string;
   password!: string;
   email!: string;
-  mobile!: number;
+  mobile!: string;
   role!: string;
 
   // constructor(id: number, name: string, password: string, email: string, mobile: number, role: string){

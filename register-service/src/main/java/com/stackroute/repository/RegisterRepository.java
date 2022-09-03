@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface RegisterRepository extends JpaRepository<UserEntity,Integer> {
 
    public UserEntity findByEmail(String email);
-   public UserEntity findByMobile(long mobile);
+   public UserEntity findByMobile(String mobile);
 
    public UserEntity findByEmailAndPasswordAndRole(String email, String password,String role);
 }

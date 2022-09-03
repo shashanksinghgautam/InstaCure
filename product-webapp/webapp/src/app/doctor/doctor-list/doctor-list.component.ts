@@ -7,43 +7,43 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-doctor-list',
   templateUrl: './doctor-list.component.html',
-  styleUrls: ['./doctor-list.component.css']
+  styleUrls: ['./doctor-list.component.css'],
 })
 export class DoctorListComponent implements OnInit {
- y:any;
-  p:any;
-  msg : String="";
- doctors :any[]=[];
- doctor : Doctor =new Doctor();
-  constructor(private  pservice:PatientService) { }
+  y: any;
+  p: any;
+  msg: String = '';
+  doctors: any[]=[]
+  doctor: Doctor = new Doctor();
+  image: any[] = [];
+  constructor(private pservice: PatientService) {}
 
   ngOnInit(): void {
-    var x= this.pservice.getSpecality();
-   
-   
-    this.pservice.getDoctors().subscribe((data=>{
+    var x = this.pservice.getSpecality();
+
+    this.pservice.getDoctors().subscribe((data) => {
+
       for (let index = 0; index < data.length; index++) {
-        if(x==data[index].speciality){
+         data[index].img='https://instacure.stackroute.io/doctor/Doctor/image/'+data[index].user.id
+        if (x == data[index].speciality) {
+          console.log(data[index].user.id);
+          // console.log(this.doctors[index].educationQualifiaction);
+         // this.image[index]='http://localhost:8086/doctor/Doctor/image/'+data[index].user.id
           this.doctors.push(data[index]);
-          this.msg="YOU CAN APPOINT YOUR DOCTOR HERE";
-        }   
-        
+
+          console.log("Image addedddd");
+
+          this.msg = 'YOU CAN APPOINT YOUR DOCTOR HERE';
+        }
+        //this.doctors[index].img='http://localhost:8086/doctor/Doctor/image/'+data[index].user.id
       }
-    
-    
-    
-    }));
+    });
     console.log(this.pservice.getSpecality());
-    
-  //  this.doctors.filter(()=>{if(this.doctor.speciality ==this.pservice.getSpecality()){
-  //   console.log(this.doctors);
-  // }})
-  
   }
-  ONCLICK(){
-    let b=document.getElementById("btn");
-    b?.setAttribute("class","btn btn-success")
-    b?.setAttribute("value","Appointment Booked")
+  ONCLICK() {
+    let b = document.getElementById('btn');
+    b?.setAttribute('class', 'btn btn-success');
+    b?.setAttribute('value', 'Appointment Booked');
   }
 
   clearStorage() {
@@ -51,11 +51,10 @@ export class DoctorListComponent implements OnInit {
       'Successfully logged out',
       'Click on Login Button to Login',
       'success'
-    );
+    ).then(() => {
+  localStorage.clear();
+    window.location.reload();
+});
     localStorage.clear();
-
   }
-    
 }
-
-

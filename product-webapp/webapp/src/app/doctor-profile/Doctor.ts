@@ -14,6 +14,6 @@ export class Doctor{
   educationQualifiaction!:string;
   speciality!:string;
   yearOfExpertise!: number;
-
+  img!:string
   constructor() {}
 }
